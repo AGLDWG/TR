@@ -1,0 +1,923 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY agls "http://www.agls.gov.au/agls/terms/" >
+    <!ENTITY augov "http://vocab.data.gov.au/government#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://vocab.data.gov.au/def/government#"
+     xml:base="http://vocab.data.gov.au/def/government"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:augov="http://vocab.data.gov.au/government#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:agls="http://www.agls.gov.au/agls/terms/">
+    <owl:Ontology rdf:about="http://vocab.data.gov.au/def/government">
+        <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+        <owl:imports rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/mandate -->
+
+    <owl:AnnotationProperty rdf:about="&dc;mandate"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/isBasedOn -->
+
+    <owl:AnnotationProperty rdf:about="&terms;isBasedOn">
+        <rdfs:label xml:lang="en-au">Has Version</rdfs:label>
+        <terms:modified>2009-02-02</terms:modified>
+        <terms:issued>2002-04-18</terms:issued>
+        <rdfs:comment xml:lang="en-au">A related resource of which the described resource is a performance, production, derivation, translation or interpretation.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
+        <rdfs:subPropertyOf rdf:resource="&terms;relation"/>
+        <terms:type rdf:resource="&rdf;Property"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isBasisFor -->
+
+    <owl:AnnotationProperty rdf:about="&terms;isBasisFor">
+        <rdfs:label xml:lang="en-au">Is Version Of</rdfs:label>
+        <terms:issued>2002-04-18</terms:issued>
+        <terms:modified>2009-02-02</terms:modified>
+        <rdfs:comment xml:lang="en-au">A related resource that is a performance, production, derivation, translation or interpretation of the described resource.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&dc;relation"/>
+        <rdfs:subPropertyOf rdf:resource="&terms;relation"/>
+        <terms:type rdf:resource="&rdf;Property"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/accrualPeriodicity -->
+
+    <rdf:Description rdf:about="&terms;accrualPeriodicity">
+        <owl:equivalentProperty rdf:resource="http://vocab.data.gov.au/def/government#update_frequency"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/format -->
+
+    <rdf:Description rdf:about="&terms;format">
+        <owl:equivalentProperty rdf:resource="http://vocab.data.gov.au/def/government#format"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <rdf:Description rdf:about="&terms;license">
+        <owl:equivalentProperty rdf:resource="http://vocab.data.gov.au/def/government#license"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#accessURL -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#accessURL">
+        <rdfs:label xml:lang="en">Access URL</rdfs:label>
+        <rdfs:range rdf:resource="&rdfs;Resource"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#accessURL"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#dataset -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#dataset">
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#distribution -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#distribution">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#Distribution"/>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#distribution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#download_URL -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#download_URL">
+        <rdfs:label xml:lang="en">Download URL</rdfs:label>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#downloadURL"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#format -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#format">
+        <rdfs:label xml:lang="en">Format</rdfs:label>
+        <rdfs:range rdf:resource="&terms;MediaTypeOrExtent"/>
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Distribution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_contact -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_contact">
+        <rdfs:range rdf:resource="http://www.w3.org/2006/vcard/ns#Kind"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_extent -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_extent">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_function -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_function">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#Function"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_jurisdiction -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_jurisdiction">
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#Jurisdiction"/>
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Organisation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_member -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_member">
+        <rdfs:range rdf:resource="&terms;Agent"/>
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Organisation"/>
+        <owl:inverseOf rdf:resource="http://vocab.data.gov.au/def/government#is_member_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_spatial_coverage -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_spatial_coverage">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#SpatialCoverage"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#has_temporal_coverage -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#has_temporal_coverage">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#TemporalCoverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#isDescribedBy -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#isDescribedBy">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#is_associate_with -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#is_associate_with">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#DatasetChangeEvent"/>
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#Role"/>
+        <owl:inverseOf rdf:resource="http://vocab.data.gov.au/def/government#participates_in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#is_changed_by -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#is_changed_by">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#DatasetChangeEvent"/>
+        <owl:inverseOf rdf:resource="http://vocab.data.gov.au/def/government#resulted_in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#is_member_of -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#is_member_of"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#landingPage -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#landingPage">
+        <rdfs:label xml:lang="en">Landing Page</rdfs:label>
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#landingPage"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#license -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#license">
+        <rdfs:label xml:lang="en">License</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#participates_in -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#participates_in">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#plays_role -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#plays_role">
+        <rdfs:range rdf:resource="http://vocab.data.gov.au/def/government#Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#publisher -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#publisher"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#resulted_in -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#resulted_in"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#role_of -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#role_of">
+        <owl:inverseOf rdf:resource="http://vocab.data.gov.au/def/government#plays_role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#theme -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#theme">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#update_frequency -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.data.gov.au/def/government#update_frequency">
+        <rdfs:label xml:lang="en">Update Frequency</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#accessURL -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#accessURL"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#dataset -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#dataset"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#distribution -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#distribution"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#downloadURL -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#downloadURL"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#landingPage -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#landingPage"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <rdf:Description rdf:about="&terms;issued">
+        <owl:equivalentProperty rdf:resource="http://vocab.data.gov.au/def/government#publishDate"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <rdf:Description rdf:about="&terms;modified">
+        <owl:equivalentProperty rdf:resource="http://vocab.data.gov.au/def/government#updateDate"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <rdf:Description rdf:about="&terms;title">
+        <owl:equivalentProperty rdf:resource="http://vocab.data.gov.au/def/government#title"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#datasetStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#datasetStatus">
+        <rdfs:label xml:lang="en">Dataset Status</rdfs:label>
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#fileSize -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#fileSize">
+        <rdfs:label xml:lang="en">File Size</rdfs:label>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#byteSize"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#keyword -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#keyword">
+        <rdfs:label xml:lang="en">Keyword</rdfs:label>
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/ns/dcat#keyword"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#publishDate -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#publishDate">
+        <rdfs:label xml:lang="en">Publish Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#purpose -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#purpose">
+        <rdfs:domain rdf:resource="http://vocab.data.gov.au/def/government#Dataset"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#title -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#title">
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#updateDate -->
+
+    <owl:DatatypeProperty rdf:about="http://vocab.data.gov.au/def/government#updateDate">
+        <rdfs:label xml:lang="en">Update Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#byteSize -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#byteSize"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#keyword -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#keyword"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/SubjectScheme -->
+
+    <owl:Class rdf:about="&terms;SubjectScheme"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Catalog -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Catalog">
+        <rdfs:label xml:lang="en">Catalog</rdfs:label>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Commonwealth -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Commonwealth">
+        <rdfs:label xml:lang="en">Commonwealth of Australia</rdfs:label>
+        <owl:equivalentClass rdf:resource="http://vocab.data.gov.au/def/government#Federal"/>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#LevelOfGovernment"/>
+        <rdfs:comment xml:lang="en">The Commonwealth of Australia is a country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Concept -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Concept">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Contributor -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Contributor">
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#Role"/>
+        <rdfs:comment xml:lang="en">A Contributor is the Role of contributing in one form or another as an Agent to a Dataset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Custodian -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Custodian">
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#Role"/>
+        <rdfs:comment xml:lang="en">A Custodian is the Role of being the responsible Agent that looks after a Dataset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Dataset -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Dataset">
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/vcard/ns#hasLocality"/>
+                <owl:someValuesFrom rdf:resource="http://vocab.data.gov.au/def/government#Locality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;license"/>
+                <owl:someValuesFrom rdf:resource="&terms;LicenseDocument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://vocab.data.gov.au/def/government#publishDate"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://vocab.data.gov.au/def/government#title"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://vocab.data.gov.au/def/government#updateDate"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#DatasetChangeEvent -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#DatasetChangeEvent">
+        <rdfs:label xml:lang="en">Dataset Change Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
+        <rdfs:comment xml:lang="en">A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#DatasetPublishingEvent -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#DatasetPublishingEvent">
+        <rdfs:label xml:lang="en">Dataset Publishing Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#DatasetChangeEvent"/>
+        <rdfs:comment xml:lang="en">A Dataset Publishing Event is a description of an event that happens at a given point in time and that results in the publishing of a Dataset on data.gov.au.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Distribution -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Distribution">
+        <rdfs:label xml:lang="en">Distribution</rdfs:label>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Document -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Document">
+        <rdfs:label xml:lang="en">Document</rdfs:label>
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Federal -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Federal">
+        <rdfs:label xml:lang="en">Federal Government</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#LevelOfGovernment"/>
+        <rdfs:comment xml:lang="en">Federal denotes the federal democratic administrative authority of the Commonwealth of Australia. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#FieldOfResearch -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#FieldOfResearch">
+        <rdfs:label xml:lang="en">Field of Research</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#Concept"/>
+        <rdfs:comment xml:lang="en">The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Function -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Function">
+        <rdfs:label xml:lang="en">Function</rdfs:label>
+        <rdfs:comment xml:lang="en">The Government Function defined by the Australian Governments&apos; Interactive Functions Thesaurus that best describes the data contained within a Dataset.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://agift.naa.gov.au/"/>
+        <dc:source rdf:resource="&agls;FunctionClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#GovernmentAgency -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#GovernmentAgency">
+        <rdfs:label xml:lang="en">Government Agency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#Organisation"/>
+        <rdfs:comment xml:lang="en">A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions.</rdfs:comment>
+        <rdfs:seeAlso xml:lang="en">http://recordsearch.naa.gov.au/manual/Provenance/AgencyDefinition.htm#DEFINITION</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Jurisdiction -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Jurisdiction">
+        <rdfs:label xml:lang="en">Jurisdiction</rdfs:label>
+        <rdfs:comment xml:lang="en">A Jurisdiction is a legally defined conceptual or geographical boundary into which an Agent falls.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#LevelOfGovernment -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#LevelOfGovernment">
+        <rdfs:label xml:lang="en">Level of Government</rdfs:label>
+        <rdfs:comment xml:lang="en">Level of Government is a description that is used to describe the Jurisidiction of an Organisation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Local -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Local">
+        <rdfs:label xml:lang="en">Local Government</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#LevelOfGovernment"/>
+        <rdfs:comment xml:lang="en">Local Government is the lowest tier of government in the Commonwealth of Australia administered under the states and territories.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Locality -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Locality"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Organisation -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Organisation">
+        <rdfs:label xml:lang="en">Organisation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&terms;Agent"/>
+        <rdfs:comment xml:lang="en">An Organisation is a kind of Agent representing, for example, a business or government, or organisational subunits thereof.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Point -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Point">
+        <rdfs:label xml:lang="en">Point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#SpatialCoverage"/>
+        <rdfs:comment xml:lang="en">A Point is a point in space using its geographic coordinates, using the DCMI Point mechanism for indicating and representing that information as a value string.</rdfs:comment>
+        <dc:source rdf:resource="http://dublincore.org/documents/2006/04/10/dcmi-point/"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Polygon -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Polygon">
+        <rdfs:label xml:lang="en">Polygon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#SpatialCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Publisher -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Publisher">
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#Role"/>
+        <rdfs:comment xml:lang="en">A Publisher is the Role of an Agent that makes the Dataset available.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Resource -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Resource">
+        <owl:equivalentClass rdf:resource="&rdfs;Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Role -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#Role">
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment xml:lang="en">A Role corresponds to the involvement of an agent in an Event, e.g. fulfilling a Publisher, Contributor or Custodian Role.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#SpatialCoverage -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#SpatialCoverage">
+        <rdfs:label xml:lang="en">Spatial Coverage</rdfs:label>
+        <rdfs:comment xml:lang="en">A Spatial Coverage describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#SpatialGazetteer -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#SpatialGazetteer">
+        <rdfs:label xml:lang="en">Spatial Gazetteer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#SpatialCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#StateAndTerritories -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#StateAndTerritories">
+        <rdfs:label xml:lang="en">State and Territories Government</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://vocab.data.gov.au/def/government#LevelOfGovernment"/>
+        <rdfs:comment xml:lang="en">States and Territories are the second tier of Government in the Commonwealth of Australia. The Commonwealth of Australia comprises of six states and various territories some of which enjoy a large degree of self-governance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#TemporalCoverage -->
+
+    <owl:Class rdf:about="http://vocab.data.gov.au/def/government#TemporalCoverage">
+        <rdfs:label xml:lang="en">Temporal Coverage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#Interval"/>
+        <rdfs:comment xml:lang="en">A Temporal coverage describes a time period (interval) during which data was collected or observations were made that are described in the Dataset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <rdf:Description rdf:about="&rdfs;Resource"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Catalog -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Catalog"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Dataset -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Dataset"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Distribution -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Distribution"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Document"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#AGIFT -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#AGIFT">
+        <rdf:type rdf:resource="http://vocab.data.gov.au/def/government#Function"/>
+        <rdfs:comment xml:lang="en">A set of Government function types specified by the National Archives of Australia.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.naa.gov.au/agift/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#As_required -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#As_required">
+        <rdf:type rdf:resource="&terms;Frequency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#CommonwealthOfAustralia -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#CommonwealthOfAustralia"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Daily -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Daily">
+        <rdf:type rdf:resource="&terms;Frequency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Federal -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Federal"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Local -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Local"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Monthly -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Monthly">
+        <rdf:type rdf:resource="&terms;Frequency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#None -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#None"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Quarterly -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Quarterly">
+        <rdf:type rdf:resource="&terms;Frequency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#State -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#State"/>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Weekly -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Weekly">
+        <rdf:type rdf:resource="&terms;Frequency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vocab.data.gov.au/def/government#Yearly -->
+
+    <owl:NamedIndividual rdf:about="http://vocab.data.gov.au/def/government#Yearly">
+        <rdf:type rdf:resource="&terms;Frequency"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

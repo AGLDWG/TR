@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY dcat "http://www.w3.org/ns/dcat#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY ns "http://www.w3.org/2006/vcard/ns#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY government "http://vocab.data.gov.au/def/government#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY agls "http://www.agls.gov.au/agls/terms/" >
+]>
+
+
+<rdf:RDF xmlns="http://governance.data.gov.au/dataset/"
+     xml:base="http://governance.data.gov.au/dataset/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:ns="http://www.w3.org/2006/vcard/ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:government="http://vocab.data.gov.au/def/government#"
+     xmlns:agls="http://www.agls.gov.au/agls/terms/">
+    <owl:Ontology rdf:about="http://governance.data.gov.au/dataset/">
+        <owl:imports rdf:resource="http://vocab.data.gov.au/def/government"/>
+        <owl:imports rdf:resource="http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#hasFamilyName -->
+
+    <rdf:Description rdf:about="&ns;hasFamilyName">
+        <rdfs:subPropertyOf rdf:resource="&ns;hasEmail"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://agift.naa.gov.au/000055.htm -->
+
+    <owl:NamedIndividual rdf:about="http://agift.naa.gov.au/000055.htm"/>
+    
+
+
+    <!-- http://creativecommons.org/licenses/by/3.0/ -->
+
+    <owl:NamedIndividual rdf:about="http://creativecommons.org/licenses/by/3.0/"/>
+    
+
+
+    <!-- http://data.gov.au/dataset/agil-dataset -->
+
+    <owl:NamedIndividual rdf:about="http://data.gov.au/dataset/agil-dataset"/>
+    
+
+
+    <!-- http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde -->
+
+    <owl:NamedIndividual rdf:about="http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde">
+        <rdf:type rdf:resource="&government;Distribution"/>
+        <government:publishDate rdf:datatype="&xsd;date">2013-12-02</government:publishDate>
+        <government:updateDate rdf:datatype="&xsd;date">2013-12-10</government:updateDate>
+        <government:accessURL rdf:resource="http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls"/>
+        <dcat:mediaType rdf:resource="http://www.iana.org/assignments/media-types/application/vnd.ms-excel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls -->
+
+    <owl:NamedIndividual rdf:about="http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls"/>
+    
+
+
+    <!-- http://dbpedia.org/resource/Australia -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Australia"/>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/AGIL -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/AGIL">
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
+        <rdfs:label xml:lang="en">Australian Government Indigenous Location (AGIL) dataset</rdfs:label>
+        <government:publishDate rdf:datatype="&xsd;date">2013-12-02</government:publishDate>
+        <government:datasetStatus rdf:datatype="&xsd;boolean">true</government:datasetStatus>
+        <government:title xml:lang="en">Australian Government Indigenous Programs and Policy Locations Dataset</government:title>
+        <government:purpose xml:lang="en">For use of the Commonwealth Government of Australia for the purpose of identifying the correct name of indigenous programs and policy locations.</government:purpose>
+        <government:has_function rdf:resource="http://agift.naa.gov.au/000055.htm"/>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <government:landingPage rdf:resource="http://data.gov.au/dataset/agil-dataset"/>
+        <government:distribution rdf:resource="http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde"/>
+        <government:has_extent rdf:resource="http://dbpedia.org/resource/Australia"/>
+        <government:is_changed_by rdf:resource="http://governance.data.gov.au/dataset/CreationEventAGIL"/>
+        <government:is_changed_by rdf:resource="http://governance.data.gov.au/dataset/PublishedEventAGIL"/>
+        <government:update_frequency rdf:resource="&government;Quarterly"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/CreationEventAGIL -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/CreationEventAGIL">
+        <rdf:type rdf:resource="&government;DatasetChangeEvent"/>
+        <terms:created rdf:datatype="&xsd;date">2012-02-13</terms:created>
+        <government:is_associate_with rdf:resource="http://governance.data.gov.au/dataset/CustodianAGIL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/CustodianAGIL -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/CustodianAGIL">
+        <rdf:type rdf:resource="&government;Custodian"/>
+        <government:role_of rdf:resource="http://governance.data.gov.au/dataset/PMC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/MargieSmith -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/MargieSmith">
+        <rdf:type rdf:resource="&terms;Agent"/>
+        <rdfs:label xml:lang="en">Margie Smith</rdfs:label>
+        <government:plays_role rdf:resource="http://governance.data.gov.au/dataset/PointOfContactAGIL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/OSP -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/OSP">
+        <rdf:type rdf:resource="&government;Organisation"/>
+        <rdfs:label xml:lang="en">Office of Spatial Policy</rdfs:label>
+        <government:has_contact rdf:resource="http://governance.data.gov.au/dataset/OSPVCard"/>
+        <government:plays_role rdf:resource="http://governance.data.gov.au/dataset/PointOfContactAGIL"/>
+        <government:plays_role rdf:resource="http://governance.data.gov.au/dataset/PublisherOfAGIL"/>
+        <government:is_member_of rdf:resource="&government;CommonwealthOfAustralia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/OSPVCard -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/OSPVCard">
+        <rdf:type rdf:resource="&ns;VCard"/>
+        <ns:hasEmail rdf:resource="mailto:spatial@communications.gov.au"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/PMC -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/PMC">
+        <rdf:type rdf:resource="&government;Organisation"/>
+        <rdfs:label xml:lang="en">The Department of the Prime Minister and Cabinet</rdfs:label>
+        <government:plays_role rdf:resource="http://governance.data.gov.au/dataset/CustodianAGIL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/PointOfContactAGIL -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/PointOfContactAGIL">
+        <rdf:type rdf:resource="&government;Role"/>
+        <government:role_of rdf:resource="http://governance.data.gov.au/dataset/OSP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/PublishedEventAGIL -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/PublishedEventAGIL">
+        <rdf:type rdf:resource="&government;PublishedEvent"/>
+        <government:is_associate_with rdf:resource="http://governance.data.gov.au/dataset/OSP"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://governance.data.gov.au/dataset/PublisherOfAGIL -->
+
+    <owl:NamedIndividual rdf:about="http://governance.data.gov.au/dataset/PublisherOfAGIL">
+        <rdf:type rdf:resource="&government;Publisher"/>
+        <government:participates_in rdf:resource="http://governance.data.gov.au/dataset/PublishedEventAGIL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.iana.org/assignments/media-types/application/vnd.ms-excel -->
+
+    <owl:NamedIndividual rdf:about="http://www.iana.org/assignments/media-types/application/vnd.ms-excel">
+        <rdf:type rdf:resource="&terms;MediaTypeOrExtent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- mailto:spatial@communications.gov.au -->
+
+    <owl:NamedIndividual rdf:about="mailto:spatial@communications.gov.au"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&government;GovernmentAgency">
+        <rdfs:label xml:lang="en">Government Agency</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
