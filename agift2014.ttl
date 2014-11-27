@@ -14,62 +14,10 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://data.gov.au/def/agift#scheme2014>
-  rdf:type skos:ConceptScheme ;
-  dc:rights """This work is copyright. It may be adapted or reproduced for personal, in-house or non-commercial use without formal permission subject to appropriate citation. The work may not be used for other purposes – apart from any use as permitted under the Copyright Act 1968 – without prior written permission from the National Archives of Australia. Requests and inquiries concerning reproduction and rights should be sent to the Agency Service Centre.
-
-This publication should be cited as: National Archives of Australia, Australian Governments’ Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
-  rdfs:comment """The Australian Governments’ Interactive Functions Thesaurus (AGIFT) is a three-level hierarchical thesaurus that describes the business functions carried out across Commonwealth, state and local governments in Australia.
-
-It contains 25 high-level functions, each with second and third level terms, as well as non-preferred terms and related terms. Its main purpose is to describe web-based resources to aid online discovery of government information and services.
-
-Terms can be searched by function, alphabetically and via full-text searching.
-
-In the thesaurus you will find:
-
-Function – the broadest unit of business performed by Australian Governments' Interactive Functions Thesaurus
-Level 2 – major tasks or areas of service undertaken within each function
-Level 3 – topics being addressed within function/activities
-For each term, the thesaurus shows:
-Scope Notes – notes that provide guidance on the use of a term
-Broader Terms – terms at a higher level
-Narrower Terms – terms at a lower level
-Related Terms – terms at the same level
-Use – approved terms used to identify and save documents
-Non-preferred Term – other terms, not to be used to identify and save documents"""^^xsd:string ;
-  rdfs:label "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
-  skos:hasTopConcept agift:business-support-and-regulation ;
-  skos:hasTopConcept agift:civic-infrastructure ;
-  skos:hasTopConcept agift:communications ;
-  skos:hasTopConcept agift:community-services ;
-  skos:hasTopConcept agift:cultural-affairs ;
-  skos:hasTopConcept agift:defence ;
-  skos:hasTopConcept agift:education-and-training ;
-  skos:hasTopConcept agift:employment ;
-  skos:hasTopConcept agift:environment ;
-  skos:hasTopConcept agift:finance-management ;
-  skos:hasTopConcept agift:governance ;
-  skos:hasTopConcept agift:health-care ;
-  skos:hasTopConcept agift:immigration ;
-  skos:hasTopConcept agift:indigenous-affairs ;
-  skos:hasTopConcept agift:international-relations ;
-  skos:hasTopConcept agift:justice-administration ;
-  skos:hasTopConcept agift:maritime-services ;
-  skos:hasTopConcept agift:natural-resources ;
-  skos:hasTopConcept agift:primary-industries ;
-  skos:hasTopConcept agift:science ;
-  skos:hasTopConcept agift:security ;
-  skos:hasTopConcept agift:sport-and-recreation ;
-  skos:hasTopConcept agift:statistical-services ;
-  skos:hasTopConcept agift:tourism ;
-  skos:hasTopConcept agift:trade ;
-  skos:hasTopConcept agift:transport ;
-  skos:prefLabel "Australian Governments' Interactive Functions Thesaurus (AGIFT)"@en ;
-.
 agift:
   rdf:type skos:Collection ;
   rdfs:label "Australian Governments' Interactive Functions Thesaurus (AGIFT)"@en ;
-  rdfs:seeAlso <http://data.gov.au/def/agift#scheme2014> ;
+  rdfs:seeAlso agift:scheme2014 ;
   skos:member agift:accommodation-services ;
   skos:member agift:administrative-decision-appeal ;
   skos:member agift:administrative-decision-review ;
@@ -8387,6 +8335,58 @@ See also SCIENCE - Spatial information research: for the use of satellites in gl
   skos:prefLabel "Satellite communication"@en ;
   skos:related agift:astronomical-sciences ;
   skos:related agift:navigation-systems-development ;
+.
+agift:scheme2014
+  rdf:type skos:ConceptScheme ;
+  dc:rights """This work is copyright. It may be adapted or reproduced for personal, in-house or non-commercial use without formal permission subject to appropriate citation. The work may not be used for other purposes – apart from any use as permitted under the Copyright Act 1968 – without prior written permission from the National Archives of Australia. Requests and inquiries concerning reproduction and rights should be sent to the Agency Service Centre.
+
+This publication should be cited as: National Archives of Australia, Australian Governments’ Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
+  rdfs:comment """The Australian Governments’ Interactive Functions Thesaurus (AGIFT) is a three-level hierarchical thesaurus that describes the business functions carried out across Commonwealth, state and local governments in Australia.
+
+It contains 25 high-level functions, each with second and third level terms, as well as non-preferred terms and related terms. Its main purpose is to describe web-based resources to aid online discovery of government information and services.
+
+Terms can be searched by function, alphabetically and via full-text searching.
+
+In the thesaurus you will find:
+
+Function – the broadest unit of business performed by Australian Governments' Interactive Functions Thesaurus
+Level 2 – major tasks or areas of service undertaken within each function
+Level 3 – topics being addressed within function/activities
+For each term, the thesaurus shows:
+Scope Notes – notes that provide guidance on the use of a term
+Broader Terms – terms at a higher level
+Narrower Terms – terms at a lower level
+Related Terms – terms at the same level
+Use – approved terms used to identify and save documents
+Non-preferred Term – other terms, not to be used to identify and save documents"""^^xsd:string ;
+  rdfs:label "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
+  skos:hasTopConcept agift:business-support-and-regulation ;
+  skos:hasTopConcept agift:civic-infrastructure ;
+  skos:hasTopConcept agift:communications ;
+  skos:hasTopConcept agift:community-services ;
+  skos:hasTopConcept agift:cultural-affairs ;
+  skos:hasTopConcept agift:defence ;
+  skos:hasTopConcept agift:education-and-training ;
+  skos:hasTopConcept agift:employment ;
+  skos:hasTopConcept agift:environment ;
+  skos:hasTopConcept agift:finance-management ;
+  skos:hasTopConcept agift:governance ;
+  skos:hasTopConcept agift:health-care ;
+  skos:hasTopConcept agift:immigration ;
+  skos:hasTopConcept agift:indigenous-affairs ;
+  skos:hasTopConcept agift:international-relations ;
+  skos:hasTopConcept agift:justice-administration ;
+  skos:hasTopConcept agift:maritime-services ;
+  skos:hasTopConcept agift:natural-resources ;
+  skos:hasTopConcept agift:primary-industries ;
+  skos:hasTopConcept agift:science ;
+  skos:hasTopConcept agift:security ;
+  skos:hasTopConcept agift:sport-and-recreation ;
+  skos:hasTopConcept agift:statistical-services ;
+  skos:hasTopConcept agift:tourism ;
+  skos:hasTopConcept agift:trade ;
+  skos:hasTopConcept agift:transport ;
+  skos:prefLabel "Australian Governments' Interactive Functions Thesaurus (AGIFT)"@en ;
 .
 agift:school-education
   rdf:type skos:Concept ;
