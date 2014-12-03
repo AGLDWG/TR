@@ -16,7 +16,40 @@
 
 agift:
   rdf:type skos:Collection ;
+  dc:contributor "Megan Williams, CSIRO"^^xsd:string ;
+  dc:contributor "Simon Cox, CSIRO"^^xsd:string ;
+  dc:creator <http://www.synercon.com.au/> ;
+  dc:description "Ontology document containing a SKOS representation of the Australian Governments' Interactive Functions Thesaurus (AGIFT) - 2014 revision"@en ;
+  dc:publisher <http://naa.gov.au/> ;
+  dc:rights """This work is copyright. It may be adapted or reproduced for personal, in-house or non-commercial use without formal permission subject to appropriate citation. The work may not be used for other purposes – apart from any use as permitted under the Copyright Act 1968 – without prior written permission from the National Archives of Australia. Requests and inquiries concerning reproduction and rights should be sent to the Agency Service Centre.
+
+This publication should be cited as: National Archives of Australia, Australian Governments’ Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
+  dc:title "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
+  dcterms:created "2014-11-27"^^xsd:string ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/au> ;
+  vann:preferredNamespacePrefix "agift"^^xsd:string ;
+  vann:preferredNamespaceUri agift: ;
+  rdfs:comment "SKOS representation prepared by Megan Williams and Simon Cox"^^xsd:string ;
+  rdfs:comment """The Australian Governments’ Interactive Functions Thesaurus (AGIFT) is a three-level hierarchical thesaurus that describes the business functions carried out across Commonwealth, state and local governments in Australia.
+
+It contains 25 high-level functions, each with second and third level terms, as well as non-preferred terms and related terms. Its main purpose is to describe web-based resources to aid online discovery of government information and services.
+
+Terms can be searched by function, alphabetically and via full-text searching.
+
+In the thesaurus you will find:
+
+Function – the broadest unit of business performed by Australian Governments' Interactive Functions Thesaurus
+Level 2 – major tasks or areas of service undertaken within each function
+Level 3 – topics being addressed within function/activities
+For each term, the thesaurus shows:
+Scope Notes – notes that provide guidance on the use of a term
+Broader Terms – terms at a higher level
+Narrower Terms – terms at a lower level
+Related Terms – terms at the same level
+Use – approved terms used to identify and save documents
+Non-preferred Term – other terms, not to be used to identify and save documents"""^^xsd:string ;
   rdfs:label "Australian Governments' Interactive Functions Thesaurus (AGIFT)"@en ;
+  rdfs:seeAlso <http://agift.naa.gov.au/index.htm> ;
   rdfs:seeAlso agift:scheme2014 ;
   skos:member agift:accommodation-services ;
   skos:member agift:administrative-decision-appeal ;
@@ -9884,9 +9917,9 @@ agift:world-heritage-listings
 This publication should be cited as: National Archives of Australia, Australian Governments’ Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
   dc:title "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
   dcterms:created "2014-11-27"^^xsd:string ;
-  dcterms:license <http://opendatacommons.org/licenses/by/1.0> ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/au> ;
   vann:preferredNamespacePrefix "agift"^^xsd:string ;
-  vann:preferredNamespaceUri <http://data.gov.au/def/agift#> ;
+  vann:preferredNamespaceUri agift: ;
   rdfs:comment "SKOS representation prepared by Megan Williams and Simon Cox"^^xsd:string ;
   rdfs:comment """The Australian Governments’ Interactive Functions Thesaurus (AGIFT) is a three-level hierarchical thesaurus that describes the business functions carried out across Commonwealth, state and local governments in Australia.
 
