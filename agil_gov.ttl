@@ -1,0 +1,126 @@
+# baseURI: http://governance.data.gov.au/dataset/
+# imports: http://vocab.data.gov.au/def/government
+# imports: http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf
+
+@prefix : <http://governance.data.gov.au/dataset/> .
+@prefix agls: <http://www.agls.gov.au/agls/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix government: <http://vocab.data.gov.au/def/government#> .
+@prefix ns: <http://www.w3.org/2006/vcard/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://agift.naa.gov.au/000055.htm>
+  rdf:type owl:NamedIndividual ;
+.
+<http://creativecommons.org/licenses/by/3.0/>
+  rdf:type owl:NamedIndividual ;
+.
+<http://data.gov.au/dataset/agil-dataset>
+  rdf:type owl:NamedIndividual ;
+.
+<http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde>
+  rdf:type government:Distribution ;
+  rdf:type owl:NamedIndividual ;
+  government:accessURL <http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls> ;
+  government:publishDate "2013-12-02"^^xsd:date ;
+  government:updateDate "2013-12-10"^^xsd:date ;
+  dcat:mediaType <http://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
+.
+<http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls>
+  rdf:type owl:NamedIndividual ;
+.
+<http://dbpedia.org/resource/Australia>
+  rdf:type owl:NamedIndividual ;
+.
+:
+  rdf:type owl:Ontology ;
+  owl:imports <http://vocab.data.gov.au/def/government> ;
+  owl:imports <http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf> ;
+.
+:AGIL
+  rdf:type dctype:Dataset ;
+  rdf:type owl:NamedIndividual ;
+  dct:license <http://creativecommons.org/licenses/by/3.0/> ;
+  government:datasetStatus "true"^^xsd:boolean ;
+  government:distribution <http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde> ;
+  government:has_extent <http://dbpedia.org/resource/Australia> ;
+  government:has_function <http://agift.naa.gov.au/000055.htm> ;
+  government:is_changed_by :CreationEventAGIL ;
+  government:is_changed_by :PublishedEventAGIL ;
+  government:landingPage <http://data.gov.au/dataset/agil-dataset> ;
+  government:publishDate "2013-12-02"^^xsd:date ;
+  government:purpose "For use of the Commonwealth Government of Australia for the purpose of identifying the correct name of indigenous programs and policy locations."@en ;
+  government:title "Australian Government Indigenous Programs and Policy Locations Dataset"@en ;
+  government:update_frequency government:Quarterly ;
+  rdfs:label "Australian Government Indigenous Location (AGIL) dataset"@en ;
+.
+:CreationEventAGIL
+  rdf:type government:DatasetChangeEvent ;
+  rdf:type owl:NamedIndividual ;
+  dct:created "2012-02-13"^^xsd:date ;
+  government:is_associate_with :CustodianAGIL ;
+.
+:CustodianAGIL
+  rdf:type government:Custodian ;
+  rdf:type owl:NamedIndividual ;
+  government:role_of :PMC ;
+.
+:MargieSmith
+  rdf:type dct:Agent ;
+  rdf:type owl:NamedIndividual ;
+  government:plays_role :PointOfContactAGIL ;
+  rdfs:label "Margie Smith"@en ;
+.
+:OSP
+  rdf:type government:Organisation ;
+  rdf:type owl:NamedIndividual ;
+  government:has_contact :OSPVCard ;
+  government:is_member_of government:CommonwealthOfAustralia ;
+  government:plays_role :PointOfContactAGIL ;
+  government:plays_role :PublisherOfAGIL ;
+  rdfs:label "Office of Spatial Policy"@en ;
+.
+:OSPVCard
+  rdf:type owl:NamedIndividual ;
+  rdf:type ns:VCard ;
+  ns:hasEmail <mailto:spatial@communications.gov.au> ;
+.
+:PMC
+  rdf:type government:Organisation ;
+  rdf:type owl:NamedIndividual ;
+  government:plays_role :CustodianAGIL ;
+  rdfs:label "The Department of the Prime Minister and Cabinet"@en ;
+.
+:PointOfContactAGIL
+  rdf:type government:Role ;
+  rdf:type owl:NamedIndividual ;
+  government:role_of :OSP ;
+.
+:PublishedEventAGIL
+  rdf:type government:PublishedEvent ;
+  rdf:type owl:NamedIndividual ;
+  government:is_associate_with :OSP ;
+.
+:PublisherOfAGIL
+  rdf:type government:Publisher ;
+  rdf:type owl:NamedIndividual ;
+  government:participates_in :PublishedEventAGIL ;
+.
+government:GovernmentAgency
+  rdfs:label "Government Agency"@en ;
+.
+<http://www.iana.org/assignments/media-types/application/vnd.ms-excel>
+  rdf:type dct:MediaTypeOrExtent ;
+  rdf:type owl:NamedIndividual ;
+.
+ns:hasFamilyName
+  rdfs:subPropertyOf ns:hasEmail ;
+.
+<mailto:spatial@communications.gov.au>
+  rdf:type owl:NamedIndividual ;
+.

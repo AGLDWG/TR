@@ -1,0 +1,153 @@
+# baseURI: http://vocab.data.gov.au/def/fog-map
+# imports: http://data.gov.au/def/agift2014
+# imports: http://unstats.un.org/unsd/cr/references/cofog/version1
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix fog-map: <http://vocab.data.gov.au/def/fog-map#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.gov.au/def/agift/accommodation-services>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/10-6-0> ;
+.
+<http://data.gov.au/def/agift/air-transport>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-5-4> ;
+.
+<http://data.gov.au/def/agift/broadcasting>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/08-3-0> ;
+.
+<http://data.gov.au/def/agift/communications>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-6-0> ;
+.
+<http://data.gov.au/def/agift/conservation-programs>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/05-4> ;
+.
+<http://data.gov.au/def/agift/corrective-services>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/03-4-0> ;
+.
+<http://data.gov.au/def/agift/counselling-services>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/10-7-0> ;
+.
+<http://data.gov.au/def/agift/cultural-affairs>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/08-2-0> ;
+.
+<http://data.gov.au/def/agift/defence>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/02> ;
+.
+<http://data.gov.au/def/agift/development-assistance-programs>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/01-2-1> ;
+.
+<http://data.gov.au/def/agift/economic-research>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-8> ;
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-8-1> ;
+.
+<http://data.gov.au/def/agift/education-and-training>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/09> ;
+.
+<http://data.gov.au/def/agift/environment>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/05> ;
+.
+<http://data.gov.au/def/agift/financial-assistance>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/10-7-0> ;
+.
+<http://data.gov.au/def/agift/fossil-fuel-management>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-3-1> ;
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-3-2> ;
+.
+<http://data.gov.au/def/agift/hospital-services>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/07-3> ;
+.
+<http://data.gov.au/def/agift/immigration>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/03-1-0> ;
+.
+<http://data.gov.au/def/agift/justice-administration>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/03-3-0> ;
+.
+<http://data.gov.au/def/agift/maritime-services>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-5-2> ;
+.
+<http://data.gov.au/def/agift/mineral-exploration>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-8-4> ;
+.
+<http://data.gov.au/def/agift/pollutant-prevention-programs>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/05-3> ;
+.
+<http://data.gov.au/def/agift/primary-industries>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-2> ;
+.
+<http://data.gov.au/def/agift/public-health-services>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/07-4-0> ;
+.
+<http://data.gov.au/def/agift/public-housing>
+  skos:broadMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/06> ;
+.
+<http://data.gov.au/def/agift/rail-transport>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-5-3> ;
+.
+<http://data.gov.au/def/agift/road-transport>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-5-1> ;
+.
+<http://data.gov.au/def/agift/science>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/01-4> ;
+.
+<http://data.gov.au/def/agift/sport-and-recreation>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/08-1-0> ;
+.
+<http://data.gov.au/def/agift/tertiary-education>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/09-4> ;
+.
+<http://data.gov.au/def/agift/tourism>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-7-3> ;
+.
+<http://data.gov.au/def/agift/transport>
+  skos:relatedMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/04-5> ;
+.
+<http://data.gov.au/def/agift/waste-management>
+  skos:exactMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/05-1> ;
+.
+<http://data.gov.au/def/agift/water-resources>
+  skos:narrowMatch <http://unstats.un.org/unsd/cr/references/cofog/version1/06-3-0> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/03-1-0>
+  skos:narrowMatch <http://data.gov.au/def/agift/border-protection> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/community-policing> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/forensic-analysis> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/intelligence-liaison> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/police-administration> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/protective-services> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/03-3-0>
+  skos:narrowMatch <http://data.gov.au/def/agift/civil-law> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/criminal-law> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/04-2-1>
+  skos:exactMatch <http://data.gov.au/def/agift/agricultural-industry> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/04-2-2>
+  skos:exactMatch <http://data.gov.au/def/agift/forestry-industry> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/04-2-3>
+  skos:narrowMatch <http://data.gov.au/def/agift/fisheries-industry> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/04-9-0>
+  skos:closeMatch <http://data.gov.au/def/agift/business-support-and-regulation> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/10-2-0>
+  skos:narrowMatch <http://data.gov.au/def/agift/aged-care-services> ;
+  skos:narrowMatch <http://data.gov.au/def/agift/veterans-entitlements> ;
+  skos:relatedMatch <http://data.gov.au/def/agift/independent-living-services> ;
+.
+<http://unstats.un.org/unsd/cr/references/cofog/version1/10-4-0>
+  skos:narrowMatch <http://data.gov.au/def/agift/child-care-services> ;
+  skos:relatedMatch <http://data.gov.au/def/agift/financial-assistance> ;
+.
+<http://vocab.data.gov.au/def/fog-map>
+  rdf:type owl:Ontology ;
+  owl:imports <http://data.gov.au/def/agift2014> ;
+  owl:imports <http://unstats.un.org/unsd/cr/references/cofog/version1> ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.

@@ -1,0 +1,71 @@
+# baseURI: http://data.gov.au/def/anzrc2008
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://purl.org/linked-data/registry
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix anzsrc: <http://data.gov.au/def/anzsrc/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.gov.au/def/anzrc2008>
+  rdf:type owl:Ontology ;
+  dcterms:contributor "Megan Williams, CSIRO"^^xsd:string ;
+  dcterms:contributor "Simon Cox, CSIRO"^^xsd:string ;
+  dcterms:created "2014-12-02"^^xsd:string ;
+  dcterms:creator <http://abs.gov.au/> ;
+  dcterms:description """The Australian and New Zealand Standard Research Classification (ANZSRC) is jointly produced by the Australian Bureau of Statistics (ABS) and Statistics New Zealand (Statistics NZ).
+
+
+ANZSRC is the collective name for a set of three related classifications developed for use in the measurement and analysis of research and experimental development (R&D) undertaken in Australia and New Zealand. The three constituent classifications included in the ANZSRC are: Type of Activity (TOA), Fields of Research (FOR), and Socio-economic Objective (SEO).
+
+
+ANZSRC replaces the Australian Standard Research Classification (ASRC 1998) and introduces a new framework for measuring research and development activity in New Zealand.
+
+
+The use of the three constituent classifications in the ANZSRC ensures that R&D statistics collected are useful to governments, educational institutions, international organisations, scientific, professional or business organisations, business enterprises, community groups and private individuals in Australia and New Zealand.
+
+
+The development of the ANZSRC has been undertaken by the ABS and Statistics NZ in co-operation with major academic and research organisations and users of research information in Australia and New Zealand. This consultative process has sought to ensure that the ANZSRC is widely accepted and used as the national standard classification in Australia and in New Zealand, not only in the compilation of R&D statistics but also in the study of research in these countries generally."""^^xsd:string ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/au> ;
+  dcterms:publisher <http://abs.gov.au/> ;
+  dcterms:rights " Commonwealth of Australia 2008"^^xsd:string ;
+  dcterms:source "1297.0 - Australian and New Zealand Standard Research Classification (ANZSRC), 2008  "^^xsd:string ;
+  dcterms:title "Australian and New Zealand Standard Research Classification (ANZSRC), 2008 - Fields of Research"^^xsd:string ;
+  rdfs:comment "Ontology document containing a SKOS representation of the Fields of Research vocabulary from the Australian and New Zealand Standard Research Classification (ANZSRC), 2008"^^xsd:string ;
+  rdfs:comment "SKOS representation prepared by Megan Williams and Simon Cox"^^xsd:string ;
+  rdfs:label "Australian and New Zealand Standard Research Classification (ANZSRC), 2008 - Fields of Research"^^xsd:string ;
+  rdfs:seeAlso <http://www.abs.gov.au/ausstats/abs@.nsf/mf/1297.0> ;
+  owl:imports dc: ;
+  owl:imports <http://purl.org/linked-data/registry> ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+.
+anzsrc:aboriginal-and-torres-strait-islander-archaeology
+  rdf:type skos:Concept ;
+  skos:broader anzsrc:archaeology ;
+  skos:definition "Aboriginal and Torres Strait Islander Archaeology"^^xsd:string ;
+  skos:notation "210101" ;
+  skos:prefLabel "210101 Aboriginal and Torres Strait Islander Archaeology"@en ;
+.
+anzsrc:archaeology
+  rdf:type skos:Concept ;
+  skos:broader anzsrc:history-and-archaeology ;
+  skos:narrower anzsrc:aboriginal-and-torres-strait-islander-archaeology ;
+  skos:notation "2101" ;
+  skos:prefLabel "Archaeology"@en ;
+.
+anzsrc:history-and-archaeology
+  rdf:type skos:Concept ;
+  skos:narrower anzsrc:archaeology ;
+  skos:narrower anzsrc:curatorial-and-related-studies ;
+  skos:narrower anzsrc:historical-studies ;
+  skos:narrower anzsrc:other-history-and-archaeology ;
+  skos:notation "21" ;
+  skos:prefLabel "History and Archaeology"@en ;
+.
