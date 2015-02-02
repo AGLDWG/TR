@@ -17,8 +17,18 @@
 
 agift:accommodation-services
   rdf:type skos:Concept ;
+  dcterms:description """Developing policy to support the provision of housing to those in need. Establishing eligibility criteria for services. Developing strategies to assist specific community groups at risk of homelessness. Includes liaison with areas responsible for public housing construction, to determine short-term and long-term community housing needs.
+
+See also CIVIC INFRASTRUCTURE - Public housing: for the design, construction and maintenance of public housing.
+
+See also IMMIGRATION - Migrant services - Migrant accommodation services: for assisting new immigrants to locate housing."""^^xsd:string ;
   rdfs:label "Accommodation Services"@en ;
   skos:broader agift:community-services ;
+  skos:definition """Developing policy to support the provision of housing to those in need. Establishing eligibility criteria for services. Developing strategies to assist specific community groups at risk of homelessness. Includes liaison with areas responsible for public housing construction, to determine short-term and long-term community housing needs.
+
+See also CIVIC INFRASTRUCTURE - Public housing: for the design, construction and maintenance of public housing.
+
+See also IMMIGRATION - Migrant services - Migrant accommodation services: for assisting new immigrants to locate housing."""^^xsd:string ;
   skos:hiddenLabel "Homelessness support" ;
   skos:hiddenLabel "Housing services" ;
   skos:hiddenLabel "Indigenous housing" ;
@@ -221,7 +231,7 @@ See also HEALTH CARE - Special needs services - Residential services: for live-i
   rdfs:label "Aged care services"@en ;
   skos:broader agift:community-support ;
   skos:broaderTransitive agift:community-services ;
-  skos:definition """Managing social support and services for elderly persons and their families. Providing advice on rights to financial or other assistance such as residential care or medical services. Includes funding and support for community-based or volunteer programs providing aged care services.
+  skos:definition """Managing social support and services for elderly persons and their families. Providing advice on rights to financial or other assistance such as residential care or medical services. Includes funding and support for community-based or volunteer programs providing aged care services. 
 
 See also COMMUNITY SERVICES - Community support - Veterans' entitlements: for services to returned defence services personnel.
 
@@ -231,7 +241,7 @@ See also HEALTH CARE - Special needs services: for aged care health programs.
 
 See also HEALTH CARE - Special needs services - Independent living services: for in-home care.
 
-See also HEALTH CARE - Special needs services - Residential services: for live-in aged care facilities.""" ;
+See also HEALTH CARE - Special needs services - Residential services: for live-in aged care facilities."""^^xsd:string ;
   skos:hiddenLabel "Aged care standards" ;
   skos:hiddenLabel "Aged persons services" ;
   skos:hiddenLabel "Geriatric services" ;
@@ -240,7 +250,6 @@ See also HEALTH CARE - Special needs services - Residential services: for live-i
   skos:related agift:independent-living-services ;
   skos:related agift:residential-services ;
   skos:related agift:special-needs-services ;
-  skos:related <http://data.gov.au/def/agift/veterans'-entitlements> ;
   skos:related agift:veterans-entitlements ;
 .
 agift:agreement-bargaining-processes
@@ -849,45 +858,23 @@ See also COMMUNITY SERVICES - Financial assistance: for monetary support to indi
   skos:prefLabel "Asset assessment"@en ;
   skos:related agift:financial-assistance ;
 .
-agift:association-registration
-  rdf:type skos:Concept ;
-  dcterms:description """Recording the details of incorporated associations. Assessing applications and issuing registration numbers. Maintaining records of registered details. Processing registration updates and renewals.
-
-See also BUSINESS SUPPORT AND REGULATION - Business registration and licensing: for recording details of companies.
-
-See also JUSTICE ADMINISTRATION - Associations and corporate law: for regulating the formation and governance of companies and associations.""" ;
-  rdfs:label "Association registration"@en ;
-  skos:broader agift:business-support-and-regulation ;
-  skos:definition """Recording the details of incorporated associations. Assessing applications and issuing registration numbers. Maintaining records of registered details. Processing registration updates and renewals.
-
-See also BUSINESS SUPPORT AND REGULATION - Business registration and licensing: for recording details of companies.
-
-See also JUSTICE ADMINISTRATION - Associations and corporate law: for regulating the formation and governance of companies and associations.""" ;
-  skos:hiddenLabel "Incorporation" ;
-  skos:hiddenLabel "Organisation registration" ;
-  skos:prefLabel "Association registration"@en ;
-  skos:related agift:associations-and-corporate-law ;
-  skos:related agift:business-registration-and-licensing ;
-  skos:related agift:fundraising-and-donation-schemes ;
-  skos:related agift:sport-and-fitness-development ;
-.
 agift:associations-and-corporate-law
   rdf:type skos:Concept ;
   dcterms:description """Administering the body of law that relates to companies or other organisations that have a distinct legal identity from that of their members. Regulating the formation, governance and dissolution of such organisations and establishing the limits of their powers or liability.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for recording and issuing registrations.""" ;
+See also BUSINESS SUPPORT AND REGULATION - Business association: for recording and issuing registrations."""^^xsd:string ;
   rdfs:label "Associations and corporate law"@en ;
   skos:broader agift:justice-administration ;
   skos:definition """Administering the body of law that relates to companies or other organisations that have a distinct legal identity from that of their members. Regulating the formation, governance and dissolution of such organisations and establishing the limits of their powers or liability.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for recording and issuing registrations.""" ;
+See also BUSINESS SUPPORT AND REGULATION - Business association: for recording and issuing registrations."""^^xsd:string ;
   skos:hiddenLabel "Business law" ;
   skos:hiddenLabel "Corporate law" ;
   skos:hiddenLabel "Corporations law" ;
   skos:narrower agift:bankruptcy-proceedings ;
   skos:narrower agift:merger-regulation ;
   skos:prefLabel "Associations and corporate law"@en ;
-  skos:related agift:association-registration ;
+  skos:related agift:business-association ;
 .
 agift:astronomical-sciences
   rdf:type skos:Concept ;
@@ -1468,14 +1455,19 @@ See also BUSINESS SUPPORT AND REGULATION - Business registration and licensing: 
 
 See also JUSTICE ADMINISTRATION - Associations and corporate law: for regulating the formation and governance of companies and associations.""" ;
   rdfs:label "Business association"@en ;
+  skos:broader agift:business-support-and-regulation ;
   skos:definition """Recording the details of incorporated associations. Assessing applications and issuing registration numbers. Maintaining records of registered details. Processing registration updates and renewals.
 
 See also BUSINESS SUPPORT AND REGULATION - Business registration and licensing: for recording details of companies.
 
 See also JUSTICE ADMINISTRATION - Associations and corporate law: for regulating the formation and governance of companies and associations.""" ;
+  skos:hiddenLabel "Incorporation" ;
+  skos:hiddenLabel "Organisation registration" ;
   skos:prefLabel "Business association"@en ;
   skos:related agift:associations-and-corporate-law ;
   skos:related agift:business-registration-and-licensing ;
+  skos:related agift:fundraising-and-donation-schemes ;
+  skos:related agift:sport-and-fitness-development ;
 .
 agift:business-process-auditing
   rdf:type skos:Concept ;
@@ -1496,20 +1488,20 @@ agift:business-registration-and-licensing
   rdf:type skos:Concept ;
   dcterms:description """Recording the details of companies and corporations. Assessing applications and issuing registration numbers. Maintaining records of registered details. Processing registration updates and renewals. Issuing licenses and permits, such as those required for fundraising, the sale of alcohol or signage and displays.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for recording details of incorporated associations.
+See also BUSINESS SUPPORT AND REGULATION - Business association: for recording details of incorporated associations.
 
 See also JUSTICE ADMINISTRATION - Associations and corporate law: for regulating the formation and governance of companies and associations.
 
-See also SPORT AND RECREATION - Gaming industry regulation: for issuing poker machine licenses.""" ;
+See also SPORT AND RECREATION - Gaming industry regulation: for issuing poker machine licenses."""^^xsd:string ;
   rdfs:label "Business registration and licensing"@en ;
   skos:broader agift:business-support-and-regulation ;
   skos:definition """Recording the details of companies and corporations. Assessing applications and issuing registration numbers. Maintaining records of registered details. Processing registration updates and renewals. Issuing licenses and permits, such as those required for fundraising, the sale of alcohol or signage and displays.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for recording details of incorporated associations.
+See also BUSINESS SUPPORT AND REGULATION - Business association: for recording details of incorporated associations.
 
 See also JUSTICE ADMINISTRATION - Associations and corporate law: for regulating the formation and governance of companies and associations.
 
-See also SPORT AND RECREATION - Gaming industry regulation: for issuing poker machine licenses.""" ;
+See also SPORT AND RECREATION - Gaming industry regulation: for issuing poker machine licenses."""^^xsd:string ;
   skos:hiddenLabel "Australian Business Number" ;
   skos:hiddenLabel "Australian Business Register" ;
   skos:hiddenLabel "Australian Company Number" ;
@@ -1523,7 +1515,6 @@ See also SPORT AND RECREATION - Gaming industry regulation: for issuing poker ma
   skos:hiddenLabel "Liquor licensing" ;
   skos:hiddenLabel "PAYG registration" ;
   skos:prefLabel "Business registration and licensing"@en ;
-  skos:related agift:association-registration ;
   skos:related agift:associations-and-corporate-law ;
   skos:related agift:business-association ;
   skos:related agift:gaming-industry-regulation ;
@@ -1568,7 +1559,7 @@ agift:business-support-and-regulation
   rdfs:label "BUSINESS SUPPORT AND REGULATION"@en ;
   skos:definition "Formulating policy to regulate and support the private sector, including small business and non-profit organisations. Developing strategies to assist business growth and management. Implementing advocacy programs, providing funding and administering regulatory bodies." ;
   skos:hiddenLabel "Industry" ;
-  skos:narrower agift:association-registration ;
+  skos:narrower agift:business-association ;
   skos:narrower agift:business-process-auditing ;
   skos:narrower agift:business-registration-and-licensing ;
   skos:narrower agift:business-sponsorship ;
@@ -2491,6 +2482,37 @@ See also COMMUNITY SERVICES - Social justice and equity: for ensuring equal serv
   skos:related agift:rural-community-development ;
   skos:related agift:social-justice-and-equity ;
 .
+agift:concept-scheme
+  rdf:type skos:ConceptScheme ;
+  dcterms:description "SKOS Concept Scheme resource, with links to all concepts that have no links to broader concepts" ;
+  rdfs:label "Vocabulary entry point" ;
+  skos:hasTopConcept agift:business-support-and-regulation ;
+  skos:hasTopConcept agift:civic-infrastructure ;
+  skos:hasTopConcept agift:communications ;
+  skos:hasTopConcept agift:community-services ;
+  skos:hasTopConcept agift:cultural-affairs ;
+  skos:hasTopConcept agift:defence ;
+  skos:hasTopConcept agift:education-and-training ;
+  skos:hasTopConcept agift:employment ;
+  skos:hasTopConcept agift:environment ;
+  skos:hasTopConcept agift:finance-management ;
+  skos:hasTopConcept agift:governance ;
+  skos:hasTopConcept agift:health-care ;
+  skos:hasTopConcept agift:immigration ;
+  skos:hasTopConcept agift:indigenous-affairs ;
+  skos:hasTopConcept agift:international-relations ;
+  skos:hasTopConcept agift:justice-administration ;
+  skos:hasTopConcept agift:maritime-services ;
+  skos:hasTopConcept agift:natural-resources ;
+  skos:hasTopConcept agift:primary-industries ;
+  skos:hasTopConcept agift:science ;
+  skos:hasTopConcept agift:security ;
+  skos:hasTopConcept agift:sport-and-recreation ;
+  skos:hasTopConcept agift:statistical-services ;
+  skos:hasTopConcept agift:tourism ;
+  skos:hasTopConcept agift:trade ;
+  skos:hasTopConcept agift:transport ;
+.
 agift:conservation-programs
   rdf:type skos:Concept ;
   dcterms:description """Maintaining land-based areas of the natural environment that are culturally or scientifically significant in their native state. Developing schemes to conserve plant or animal life in a region to protect and sustain ecosystems. Promoting community awareness of and participation in conservation activities. Promoting community awareness of and participation in sustainability activities.
@@ -2630,25 +2652,14 @@ agift:conveyancing
   skos:hiddenLabel "Measurement standards" ;
   skos:prefLabel "Conveyancing"@en ;
 .
-agift:copyright-registration
-  rdf:type skos:Concept ;
-  rdfs:label "copyright registration"@en ;
-  skos:prefLabel "copyright registration"@en ;
-  skos:related agift:copyright-regulation ;
-.
 agift:copyright-regulation
   rdf:type skos:Concept ;
-  dcterms:description """Administering the legislation that governs the rights of ownership or control of literary, musical, dramatic or artistic works. Includes legal processes to resolve disputes over copyright ownership.
-
-See also TRADE - Intellectual property management - Copyright registration: for licensing the intellectual property in literary, musical, dramatic or artistic works.""" ;
+  dcterms:description "Administering the legislation that governs the rights of ownership or control of literary, musical, dramatic or artistic works. Includes legal processes to resolve disputes over copyright ownership."^^xsd:string ;
   rdfs:label "Copyright regulation"@en ;
   skos:broader agift:administrative-law ;
   skos:broaderTransitive agift:justice-administration ;
-  skos:definition """Administering the legislation that governs the rights of ownership or control of literary, musical, dramatic or artistic works. Includes legal processes to resolve disputes over copyright ownership.
-
-See also TRADE - Intellectual property management - Copyright registration: for licensing the intellectual property in literary, musical, dramatic or artistic works.""" ;
+  skos:definition "Administering the legislation that governs the rights of ownership or control of literary, musical, dramatic or artistic works. Includes legal processes to resolve disputes over copyright ownership."^^xsd:string ;
   skos:prefLabel "Copyright regulation"@en ;
-  skos:related agift:copyright-registration ;
   skos:related agift:trademark-registration ;
 .
 agift:coronial-law
@@ -3125,7 +3136,7 @@ See also DEFENCE - Defence strategic policy: for plans to direct the development
 See also INTERNATIONAL RELATIONS - Consular services: for other ambassadorial activities.
 
 See also INTERNATIONAL RELATIONS - Defence liaison - Military advisors: for providing defence counsel to senior government representatives.""" ;
-  rdfs:label "Defence attaches"@en ;
+  rdfs:label "Defence attachés"@en ;
   skos:broader agift:defence-liaison ;
   skos:broaderTransitive agift:international-relations ;
   skos:definition """Providing diplomatic representation of Australia's military interests. Liaising with governments and international bodies to build strategic alliances and defence partnerships.
@@ -3135,7 +3146,7 @@ See also DEFENCE - Defence strategic policy: for plans to direct the development
 See also INTERNATIONAL RELATIONS - Consular services: for other ambassadorial activities.
 
 See also INTERNATIONAL RELATIONS - Defence liaison - Military advisors: for providing defence counsel to senior government representatives.""" ;
-  skos:prefLabel "Defence attaches"@en ;
+  skos:prefLabel "Defence attachés"@en ;
   skos:related agift:consular-services ;
   skos:related agift:defence-strategic-policy ;
   skos:related agift:military-advisors ;
@@ -3205,7 +3216,6 @@ See also DEFENCE - Defence force careers - Defence career development: for caree
   skos:related agift:counselling-services ;
   skos:related agift:defence-career-development ;
   skos:related agift:defence-housing ;
-  skos:related <http://data.gov.au/def/agift/veterans'-entitlements> ;
   skos:related agift:veterans-entitlements ;
 .
 agift:defence-cooperation-programs
@@ -3405,16 +3415,15 @@ agift:defence-strategic-policy
   rdf:type skos:Concept ;
   dcterms:description """Formulating high-level policy to direct the development and deployment of Australia's defence capability. Directing the management of international defence activities and setting guidelines and priorities for military planning and decision making.
 
-See also INTERNATIONAL RELATIONS - Defence liaison - Defence attach?s: for international diplomatic representation of Australia's military interests.""" ;
+See also INTERNATIONAL RELATIONS - Defence liaison - Defence attachés: for international diplomatic representation of Australia's military interests."""^^xsd:string ;
   rdfs:label "Defence strategic policy"@en ;
   skos:broader agift:defence ;
   skos:definition """Formulating high-level policy to direct the development and deployment of Australia's defence capability. Directing the management of international defence activities and setting guidelines and priorities for military planning and decision making.
 
-See also INTERNATIONAL RELATIONS - Defence liaison - Defence attach?s: for international diplomatic representation of Australia's military interests.""" ;
+See also INTERNATIONAL RELATIONS - Defence liaison - Defence attachés: for international diplomatic representation of Australia's military interests."""^^xsd:string ;
   skos:narrower agift:strategic-decisions ;
   skos:narrower agift:strategic-planning ;
   skos:prefLabel "Defence strategic policy"@en ;
-  skos:related <http://data.gov.au/def/agift/defence-attach?s> ;
   skos:related agift:defence-attaches ;
 .
 agift:defence-strategic-support
@@ -3523,7 +3532,6 @@ See also TRADE - Intellectual property management - Plant breeders' rights manag
 See also TRADE - Intellectual property management - Trademark registration: for the intellectual property in designs or symbols associated with a business entity or product.""" ;
   skos:prefLabel "Design rights management"@en ;
   skos:related agift:patent-rights-management ;
-  skos:related <http://data.gov.au/def/agift/plant-breeders'-rights-management> ;
   skos:related agift:plant-breeders-rights-management ;
   skos:related agift:trademark-registration ;
 .
@@ -4047,7 +4055,7 @@ See also COMMUNICATIONS - Information management standards - Information dissemi
 
 See also COMMUNICATIONS - Publishing - Website development: for designing and maintaining online information and services.
 
-See also TRADE - Intellectual property management - Copyright registration: for conferring legal ownership over publications.""" ;
+See also JUSTICE ADMINISTRATION - Administrative law - Copyright regulation: for administering legal ownership over publications."""^^xsd:string ;
   rdfs:label "Electronic publishing"@en ;
   skos:broader agift:publishing ;
   skos:broaderTransitive agift:communications ;
@@ -4059,11 +4067,11 @@ See also COMMUNICATIONS - Information management standards - Information dissemi
 
 See also COMMUNICATIONS - Publishing - Website development: for designing and maintaining online information and services.
 
-See also TRADE - Intellectual property management - Copyright registration: for conferring legal ownership over publications.""" ;
+See also JUSTICE ADMINISTRATION - Administrative law - Copyright regulation: for administering legal ownership over publications."""^^xsd:string ;
   skos:hiddenLabel "Electronic publications" ;
   skos:hiddenLabel "Online publishing" ;
   skos:prefLabel "Electronic publishing"@en ;
-  skos:related agift:copyright-registration ;
+  skos:related agift:copyright-regulation ;
   skos:related agift:government-media ;
   skos:related agift:information-dissemination ;
   skos:related agift:website-development ;
@@ -5176,25 +5184,25 @@ agift:fundraising-and-donation-schemes
   rdf:type skos:Concept ;
   dcterms:description """Administering programs to encourage investment in sporting events. Visiting individuals and corporations to request gifts, contributions or sponsorship. Providing advice on advertising opportunities, donation of prizes, tax incentives and bequests.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for registering fundraising organisations.
+See also BUSINESS SUPPORT AND REGULATION - Business association: for registering fundraising organisations.
 
 See also BUSINESS SUPPORT AND REGULATION - Business registration and licensing: for issuing permits for fundraising events.
 
-See also BUSINESS SUPPORT AND REGULATION - Business sponsorship: for regulating corporate funding of events.""" ;
+See also BUSINESS SUPPORT AND REGULATION - Business sponsorship: for regulating corporate funding of events."""^^xsd:string ;
   rdfs:label "Fundraising and donation schemes"@en ;
   skos:broader agift:sport-and-fitness-development ;
   skos:broaderTransitive agift:sport-and-recreation ;
   skos:definition """Administering programs to encourage investment in sporting events. Visiting individuals and corporations to request gifts, contributions or sponsorship. Providing advice on advertising opportunities, donation of prizes, tax incentives and bequests.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for registering fundraising organisations.
+See also BUSINESS SUPPORT AND REGULATION - Business association: for registering fundraising organisations.
 
 See also BUSINESS SUPPORT AND REGULATION - Business registration and licensing: for issuing permits for fundraising events.
 
-See also BUSINESS SUPPORT AND REGULATION - Business sponsorship: for regulating corporate funding of events.""" ;
+See also BUSINESS SUPPORT AND REGULATION - Business sponsorship: for regulating corporate funding of events."""^^xsd:string ;
   skos:hiddenLabel "Donation schemes" ;
   skos:hiddenLabel "Sports funding" ;
   skos:prefLabel "Fundraising and donation schemes"@en ;
-  skos:related agift:association-registration ;
+  skos:related agift:business-association ;
   skos:related agift:business-registration-and-licensing ;
   skos:related agift:business-sponsorship ;
 .
@@ -6138,7 +6146,7 @@ See also INDIGENOUS AFFAIRS - Indigenous welfare programs: for social support to
   skos:related agift:indigenous-welfare-programs ;
   skos:related agift:public-housing ;
   skos:related agift:taxation-compliance ;
-  skos:related <http://data.gov.au/def/agift/veterans'-entitlements> ;
+  skos:related agift:veterans-entitlements ;
 .
 agift:independent-living-services
   rdf:type skos:Concept ;
@@ -7549,25 +7557,25 @@ agift:mathematical-sciences
   rdf:type skos:Concept ;
   dcterms:description """Conducting research into quantities, magnitudes and forms by the use of numbers. Providing data analysis, simulation or mathematical modelling to illustrate trends and predict outcomes. Performing optimisation tests to determine the best operating conditions for a process. Includes training and consultancy in mathematical analysis.
 
-See also FINANCE MANAGEMENT - Statistical analysis: for the collection of social and economic trends of relevance to government activities.
+See also STATISTICAL SERVICES – Statistical collection: for the collection of social and economic trends of relevance to government activities.
 
 See also SCIENCE - Applied sciences: for the use of mathematics in an operational or industry setting.
 
-See also SCIENCE - Applied sciences - Engineering and technology sciences: for the application of mathematical knowledge to systematic design, construction and management activities.""" ;
+See also SCIENCE - Applied sciences - Engineering and technology sciences: for the application of mathematical knowledge to systematic design, construction and management activities."""^^xsd:string ;
   rdfs:label "Mathematical sciences"@en ;
   skos:broader agift:science ;
   skos:definition """Conducting research into quantities, magnitudes and forms by the use of numbers. Providing data analysis, simulation or mathematical modelling to illustrate trends and predict outcomes. Performing optimisation tests to determine the best operating conditions for a process. Includes training and consultancy in mathematical analysis.
 
-See also FINANCE MANAGEMENT - Statistical analysis: for the collection of social and economic trends of relevance to government activities.
+See also STATISTICAL SERVICES – Statistical collection: for the collection of social and economic trends of relevance to government activities.
 
 See also SCIENCE - Applied sciences: for the use of mathematics in an operational or industry setting.
 
-See also SCIENCE - Applied sciences - Engineering and technology sciences: for the application of mathematical knowledge to systematic design, construction and management activities.""" ;
+See also SCIENCE - Applied sciences - Engineering and technology sciences: for the application of mathematical knowledge to systematic design, construction and management activities."""^^xsd:string ;
   skos:hiddenLabel "Statistical research" ;
   skos:prefLabel "Mathematical sciences"@en ;
   skos:related agift:applied-sciences ;
   skos:related agift:engineering-and-technology-sciences ;
-  skos:related agift:statistical-analysis ;
+  skos:related agift:statistical-collection ;
 .
 agift:media-ownership-regulation
   rdf:type skos:Concept ;
@@ -7844,7 +7852,7 @@ agift:military-advisors
 
 See also DEFENCE - Defence strategic policy - Strategic decisions: for reaching conclusions on the conduct of military operations.
 
-See also INTERNATIONAL RELATIONS - Defence liaison - Defence attaches: for diplomatic representation of Australia's military interests.""" ;
+See also INTERNATIONAL RELATIONS - Defence liaison - Defence attachés: for diplomatic representation of Australia's military interests."""^^xsd:string ;
   rdfs:label "Military advisors"@en ;
   skos:broader agift:defence-liaison ;
   skos:broaderTransitive agift:international-relations ;
@@ -7852,7 +7860,7 @@ See also INTERNATIONAL RELATIONS - Defence liaison - Defence attaches: for diplo
 
 See also DEFENCE - Defence strategic policy - Strategic decisions: for reaching conclusions on the conduct of military operations.
 
-See also INTERNATIONAL RELATIONS - Defence liaison - Defence attaches: for diplomatic representation of Australia's military interests.""" ;
+See also INTERNATIONAL RELATIONS - Defence liaison - Defence attachés: for diplomatic representation of Australia's military interests."""^^xsd:string ;
   skos:hiddenLabel "Defence advisors" ;
   skos:hiddenLabel "Military advice" ;
   skos:prefLabel "Military advisors"@en ;
@@ -9194,7 +9202,7 @@ See also TRADE - Intellectual property management - Plant breeders' rights manag
 See also TRADE - Intellectual property management - Trademark registration: for the intellectual property in designs or symbols associated with a business entity or product.""" ;
   skos:prefLabel "Patent rights management"@en ;
   skos:related agift:design-rights-management ;
-  skos:related <http://data.gov.au/def/agift/plant-breeders'-rights-management> ;
+  skos:related agift:plant-breeders-rights-management ;
   skos:related agift:trademark-registration ;
 .
 agift:patient-care
@@ -9292,9 +9300,7 @@ See also EMPLOYMENT - Human resources development - Occupational health and safe
 
 See also MARITIME SERVICES - Sea passengers: for services to travellers on ships.
 
-See also MARITIME SERVICES - Ship personnel - Pilot licensing: for certifying personnel engaged in operating marine vessels.
-
-See also MARITIME SERVICES - Ship safety - Ship inspection: for monitoring compliance with construction and maintenance standards.""" ;
+See also MARITIME SERVICES - Ship safety - Ship inspection: for monitoring compliance with construction and maintenance standards."""^^xsd:string ;
   rdfs:label "Personnel safety standards"@en ;
   skos:broader agift:ship-personnel ;
   skos:broaderTransitive agift:maritime-services ;
@@ -9306,15 +9312,12 @@ See also EMPLOYMENT - Human resources development - Occupational health and safe
 
 See also MARITIME SERVICES - Sea passengers: for services to travellers on ships.
 
-See also MARITIME SERVICES - Ship personnel - Pilot licensing: for certifying personnel engaged in operating marine vessels.
-
-See also MARITIME SERVICES - Ship safety - Ship inspection: for monitoring compliance with construction and maintenance standards.""" ;
+See also MARITIME SERVICES - Ship safety - Ship inspection: for monitoring compliance with construction and maintenance standards."""^^xsd:string ;
   skos:hiddenLabel "Crew safety standards" ;
   skos:hiddenLabel "Ship operation standards" ;
   skos:prefLabel "Personnel safety standards"@en ;
   skos:related agift:navy ;
   skos:related agift:occupational-health-and-safety ;
-  skos:related agift:pilot-licensing ;
   skos:related agift:sea-passengers ;
   skos:related agift:ship-inspection ;
 .
@@ -9369,27 +9372,16 @@ See also SCIENCE - Medical and health sciences: for research into human health a
   skos:prefLabel "Physiology"@en ;
   skos:related agift:medical-and-health-sciences ;
 .
-agift:pilot-licensing
-  rdf:type skos:Concept ;
-  rdfs:label "pilot licensing"@en ;
-  skos:prefLabel "pilot licensing"@en ;
-  skos:related agift:pilotage-management ;
-.
 agift:pilotage-management
   rdf:type skos:Concept ;
-  dcterms:description """Providing qualified operators to steer vessels into and out of ports. Monitoring pilotage procedures and clarifying the responsibilities of pilots and pilotage providers. Developing and administering standards for pilotage operations that support international requirements.
-
-See also MARITIME SERVICES - Ship personnel - Pilot licensing: for certifying vessel pilots.""" ;
+  dcterms:description "Providing qualified operators to steer vessels into and out of ports. Monitoring pilotage procedures and clarifying the responsibilities of pilots and pilotage providers. Developing and administering standards for pilotage operations that support international requirements."^^xsd:string ;
   rdfs:label "Pilotage management"@en ;
   skos:broader agift:maritime-services ;
-  skos:definition """Providing qualified operators to steer vessels into and out of ports. Monitoring pilotage procedures and clarifying the responsibilities of pilots and pilotage providers. Developing and administering standards for pilotage operations that support international requirements.
-
-See also MARITIME SERVICES - Ship personnel - Pilot licensing: for certifying vessel pilots.""" ;
+  skos:definition "Providing qualified operators to steer vessels into and out of ports. Monitoring pilotage procedures and clarifying the responsibilities of pilots and pilotage providers. Developing and administering standards for pilotage operations that support international requirements."^^xsd:string ;
   skos:hiddenLabel "Coastal pilotage" ;
   skos:hiddenLabel "Marine pilotage" ;
   skos:hiddenLabel "Vessel piloting" ;
   skos:prefLabel "Pilotage management"@en ;
-  skos:related agift:pilot-licensing ;
 .
 agift:place-names
   rdf:type skos:Concept ;
@@ -9406,11 +9398,6 @@ agift:planning-approvals
   skos:broader agift:civic-management ;
   skos:broaderTransitive agift:civic-infrastructure ;
   skos:prefLabel "Planning approvals"@en ;
-.
-<http://data.gov.au/def/agift/plant-breeders'-rights-management>
-  skos:related agift:design-rights-management ;
-  skos:related agift:patent-rights-management ;
-  skos:related agift:trademark-registration ;
 .
 agift:plant-breeders-rights-management
   rdf:type skos:Concept ;
@@ -9433,6 +9420,8 @@ See also TRADE - Intellectual property management - Patent rights management: fo
 See also TRADE - Intellectual property management - Trademark registration: for the intellectual property in designs or symbols associated with a business entity or product.""" ;
   skos:prefLabel "Plant breeders' rights management"@en ;
   skos:related agift:design-rights-management ;
+  skos:related agift:patent-rights-management ;
+  skos:related agift:trademark-registration ;
 .
 agift:police-administration
   rdf:type skos:Concept ;
@@ -10235,7 +10224,7 @@ See also COMMUNICATIONS - Information management standards - Information dissemi
 
 See also CULTURAL AFFAIRS - Arts development: for assistance to literary endeavours.
 
-See also TRADE - Intellectual property management - Copyright registration: for conferring legal ownership over publications.""" ;
+See also JUSTICE ADMINISTRATION - Administrative law - Copyright regulation: for administering legal ownership over publications."""^^xsd:string ;
   rdfs:label "Publishing"@en ;
   skos:broader agift:communications ;
   skos:definition """Developing policy to support the compilation and distribution of government information via print or electronic media. Managing applications to use material under government copyright. Includes editing and publishing material in printed formats.
@@ -10246,7 +10235,7 @@ See also COMMUNICATIONS - Information management standards - Information dissemi
 
 See also CULTURAL AFFAIRS - Arts development: for assistance to literary endeavours.
 
-See also TRADE - Intellectual property management - Copyright registration: for conferring legal ownership over publications.""" ;
+See also JUSTICE ADMINISTRATION - Administrative law - Copyright regulation: for administering legal ownership over publications."""^^xsd:string ;
   skos:hiddenLabel "Publications" ;
   skos:narrower agift:electronic-publishing ;
   skos:narrower agift:publishing-standards ;
@@ -10254,7 +10243,7 @@ See also TRADE - Intellectual property management - Copyright registration: for 
   skos:prefLabel "Publishing"@en ;
   skos:related agift:arts-development ;
   skos:related agift:collection-promotion ;
-  skos:related agift:copyright-registration ;
+  skos:related agift:copyright-regulation ;
   skos:related agift:government-media ;
   skos:related agift:information-dissemination ;
 .
@@ -11555,7 +11544,7 @@ See also INDIGENOUS AFFAIRS - Indigenous health services: for programs to assist
   skos:related agift:aged-care-services ;
   skos:related agift:counselling-services ;
   skos:related agift:indigenous-health-services ;
-  skos:related <http://data.gov.au/def/agift/veterans'-health-services> ;
+  skos:related agift:veterans-health-services ;
 .
 agift:special-operations
   rdf:type skos:Concept ;
@@ -11603,23 +11592,23 @@ agift:sport-and-fitness-development
   rdf:type skos:Concept ;
   dcterms:description """Developing policy and programs to support the growth of competitive sports and associated industries. Encouraging increased participation and funding for sports and fitness programs. Providing training institutions and facilities for elite athletes.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for processes to incorporate a sporting body.
+See also BUSINESS SUPPORT AND REGULATION - Business association: for processes to incorporate a sporting body.
 
-See also SPORT AND RECREATION - Community recreational programs - Public fitness promotion: for schemes to encourage physical activity.""" ;
+See also SPORT AND RECREATION - Community recreational programs - Public fitness promotion: for schemes to encourage physical activity."""^^xsd:string ;
   rdfs:label "Sport and fitness development"@en ;
   skos:broader agift:sport-and-recreation ;
   skos:definition """Developing policy and programs to support the growth of competitive sports and associated industries. Encouraging increased participation and funding for sports and fitness programs. Providing training institutions and facilities for elite athletes.
 
-See also BUSINESS SUPPORT AND REGULATION - Association registration: for processes to incorporate a sporting body.
+See also BUSINESS SUPPORT AND REGULATION - Business association: for processes to incorporate a sporting body.
 
-See also SPORT AND RECREATION - Community recreational programs - Public fitness promotion: for schemes to encourage physical activity.""" ;
+See also SPORT AND RECREATION - Community recreational programs - Public fitness promotion: for schemes to encourage physical activity."""^^xsd:string ;
   skos:narrower agift:athlete-scholarship-programs ;
   skos:narrower agift:fundraising-and-donation-schemes ;
   skos:narrower agift:games-administration ;
   skos:narrower agift:games-promotion ;
   skos:narrower agift:sporting-grants-administration ;
   skos:prefLabel "Sport and fitness development"@en ;
-  skos:related agift:association-registration ;
+  skos:related agift:business-association ;
   skos:related agift:public-fitness-promotion ;
 .
 agift:sport-and-recreation
@@ -11709,12 +11698,6 @@ agift:sports-drugs-monitoring
   skos:hiddenLabel "Performance-enhancing drugs" ;
   skos:narrower agift:doping-detection-research ;
   skos:prefLabel "Sports drugs monitoring"@en ;
-.
-agift:statistical-analysis
-  rdf:type skos:Concept ;
-  rdfs:label "statistical analysis"@en ;
-  skos:prefLabel "statistical analysis"@en ;
-  skos:related agift:mathematical-sciences ;
 .
 agift:statistical-collection
   rdf:type skos:Concept ;
@@ -12336,7 +12319,7 @@ See also TRADE - Intellectual property management - Plant breeders' rights manag
   skos:related agift:copyright-regulation ;
   skos:related agift:design-rights-management ;
   skos:related agift:patent-rights-management ;
-  skos:related <http://data.gov.au/def/agift/plant-breeders'-rights-management> ;
+  skos:related agift:plant-breeders-rights-management ;
 .
 agift:trainee-programs
   rdf:type skos:Concept ;
@@ -12612,13 +12595,6 @@ See also TRANSPORT - Road transport - Driving licences administration: for certi
   skos:related agift:driving-licences-administration ;
   skos:related agift:vehicle-registration ;
 .
-<http://data.gov.au/def/agift/veterans'-entitlements>
-  skos:related agift:defence-community-programs ;
-  skos:related agift:financial-assistance ;
-.
-<http://data.gov.au/def/agift/veterans'-health-services>
-  skos:related <http://data.gov.au/def/agift/veterans'-entitlements> ;
-.
 agift:veterans-entitlements
   rdf:type skos:Concept ;
   dcterms:description """\"Managing social support services to returned defence service personnel and their families. Providing advice on rights to financial or other assistance, such as residential care or medical services. Includes funding and support for community-based or volunteer programs providing veterans' services.
@@ -12656,6 +12632,7 @@ See also COMMUNITY SERVICES - Financial assistance: for monetary support to indi
   skos:related agift:aged-care-services ;
   skos:related agift:benefits ;
   skos:related agift:defence-community-programs ;
+  skos:related agift:financial-assistance ;
   skos:related agift:veterans-health-services ;
 .
 agift:veterans-health-services
@@ -13202,8 +13179,7 @@ Non-preferred Term  other terms, not to be used to identify and save documents"
 
 This publication should be cited as: National Archives of Australia, Australian Governments Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
   dcterms:title "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
-  vann:preferredNamespacePrefix "agift"^^xsd:string ;
-  rdfs:comment "Ontology document containing a SKOS representation of the Australian Governments' Interactive Functions Thesaurus (AGIFT) - 2014 revision"^^xsd:string ;
+  rdfs:comment "Ontology containing a SKOS representation of the Australian Governments' Interactive Functions Thesaurus (AGIFT) - 2014 revision"^^xsd:string ;
   rdfs:label "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
   rdfs:seeAlso <http://agift.naa.gov.au/index.htm> ;
   owl:imports dc: ;
