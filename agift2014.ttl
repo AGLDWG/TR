@@ -18,9 +18,19 @@
 agift:accommodation-services
   rdf:type skos:Concept ;
   dcterms:created "2003-08-28"^^xsd:date ;
+  dcterms:description """Developing policy to support the provision of housing to those in need. Establishing eligibility criteria for services. Developing strategies to assist specific community groups at risk of homelessness. Includes liaison with areas responsible for public housing construction, to determine short-term and long-term community housing needs.
+
+See also CIVIC INFRASTRUCTURE - Public housing: for the design, construction and maintenance of public housing.
+
+See also IMMIGRATION - Migrant services - Migrant accommodation services: for assisting new immigrants to locate housing."""^^xsd:string ;
   dcterms:modified "2005-03-09"^^xsd:date ;
   rdfs:label "Accommodation Services"@en ;
   skos:broader agift:community-services ;
+  skos:definition """Developing policy to support the provision of housing to those in need. Establishing eligibility criteria for services. Developing strategies to assist specific community groups at risk of homelessness. Includes liaison with areas responsible for public housing construction, to determine short-term and long-term community housing needs.
+
+See also CIVIC INFRASTRUCTURE - Public housing: for the design, construction and maintenance of public housing.
+
+See also IMMIGRATION - Migrant services - Migrant accommodation services: for assisting new immigrants to locate housing."""^^xsd:string ;
   skos:hiddenLabel "Homelessness support" ;
   skos:hiddenLabel "Housing services" ;
   skos:hiddenLabel "Indigenous housing" ;
