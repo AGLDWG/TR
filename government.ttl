@@ -4,6 +4,7 @@
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/dcat
 # imports: http://www.w3.org/ns/prov-o
+# imports: http://xmlns.com/foaf/0.1/
 
 @prefix agls: <http://www.agls.gov.au/agls/terms/> .
 @prefix augov: <http://vocab.data.gov.au/def/government#> .
@@ -67,6 +68,7 @@ dct:title
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports <http://www.w3.org/ns/dcat> ;
   owl:imports <http://www.w3.org/ns/prov-o> ;
+  owl:imports <http://xmlns.com/foaf/0.1/> ;
 .
 augov:AGIFT
   rdf:type augov:Function ;
@@ -114,6 +116,9 @@ augov:Daily
 augov:Dataset
   rdf:type owl:Class ;
   rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en ;
+  rdfs:comment "Maybe replace augov:publishDate with dct:dateAccepted?"^^xsd:string ;
+  rdfs:comment "Maybe replace augov:title with dct:title or rdfs:label?"^^xsd:string ;
+  rdfs:comment "Maybe replace augov:updateDate with dct:modified?"^^xsd:string ;
   rdfs:label "Dataset"@en ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
@@ -328,6 +333,7 @@ augov:format
   rdfs:domain augov:Distribution ;
   rdfs:label "Format"@en ;
   rdfs:range dct:MediaTypeOrExtent ;
+  rdfs:subPropertyOf dct:format ;
 .
 augov:has_contact
   rdf:type owl:ObjectProperty ;
@@ -373,6 +379,7 @@ augov:isDescribedBy
   rdf:type owl:ObjectProperty ;
   rdfs:domain augov:Dataset ;
   rdfs:range owl:Thing ;
+  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> ;
 .
 augov:is_associate_with
   rdf:type owl:ObjectProperty ;
@@ -416,9 +423,11 @@ augov:plays_role
 augov:publishDate
   rdf:type owl:DatatypeProperty ;
   rdfs:label "Publish Date"@en ;
+  rdfs:subPropertyOf dct:dateAccepted ;
 .
 augov:publisher
   rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf dct:publisher ;
 .
 augov:purpose
   rdf:type owl:DatatypeProperty ;
@@ -436,15 +445,18 @@ augov:theme
   rdf:type owl:ObjectProperty ;
   rdfs:domain augov:Dataset ;
   rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> ;
+  rdfs:subPropertyOf dct:subject ;
   rdfs:subPropertyOf owl:topObjectProperty ;
 .
 augov:title
   rdf:type owl:DatatypeProperty ;
   rdfs:label "Title"@en ;
+  rdfs:subPropertyOf dct:title ;
 .
 augov:updateDate
   rdf:type owl:DatatypeProperty ;
   rdfs:label "Update Date"@en ;
+  rdfs:subPropertyOf dct:modified ;
 .
 augov:update_frequency
   rdf:type owl:ObjectProperty ;
