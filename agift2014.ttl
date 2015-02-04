@@ -24,7 +24,7 @@ See also CIVIC INFRASTRUCTURE - Public housing: for the design, construction and
 
 See also IMMIGRATION - Migrant services - Migrant accommodation services: for assisting new immigrants to locate housing."""^^xsd:string ;
   dcterms:modified "2005-03-09"^^xsd:date ;
-  rdfs:label "Accommodation Services"@en ;
+  rdfs:label "Accommodation services"@en ;
   skos:broader agift:community-services ;
   skos:definition """Developing policy to support the provision of housing to those in need. Establishing eligibility criteria for services. Developing strategies to assist specific community groups at risk of homelessness. Includes liaison with areas responsible for public housing construction, to determine short-term and long-term community housing needs.
 
@@ -39,7 +39,7 @@ See also IMMIGRATION - Migrant services - Migrant accommodation services: for as
   skos:narrower agift:emergency-accommodation ;
   skos:narrower agift:public-housing-entitlements ;
   skos:narrower agift:refuge-support ;
-  skos:prefLabel "Accommodation Services"@en ;
+  skos:prefLabel "Accommodation services"@en ;
   skos:related agift:migrant-accommodation-services ;
   skos:related agift:public-housing ;
 .
@@ -120,7 +120,6 @@ See also COMMUNITY SERVICES - Community support - Family reunion programs: for h
   skos:hiddenLabel "Overseas adoption services" ;
   skos:prefLabel "Adoption services"@en ;
   skos:related agift:child-care-services ;
-  skos:related agift:childcare-services ;
   skos:related agift:family-reunion-programs ;
 .
 agift:adult-education-programs
@@ -644,6 +643,7 @@ See also SCIENCE - Spatial information research: for the application of scientif
 .
 agift:appointment-management
   rdf:type skos:Concept ;
+  dcterms:created "2013-05-27"^^xsd:date ;
   dcterms:description "Management of appointments authorised by the Governor-General and Prime-Minister to support portfolio responsibilities." ;
   rdfs:label "Appointment management"@en ;
   skos:broader agift:governance ;
@@ -681,7 +681,7 @@ See also ENVIRONMENT - Oceans governance: for management of ocean-based resource
 
 See also PRIMARY INDUSTRIES - Marine and rural regulation - Fisheries industry: for monitoring and regulating fishing industries.
 
-See also SCIENCE - Animal and veterinary science: for fish and shellfish research.""" ;
+See also SCIENCE - Animal and veterinary sciences: for fish and shellfish research."""^^xsd:string ;
   dcterms:modified "2005-03-14"^^xsd:date ;
   rdfs:label "Aquaculture industry"@en ;
   skos:broader agift:marine-and-rural-support ;
@@ -692,10 +692,10 @@ See also ENVIRONMENT - Oceans governance: for management of ocean-based resource
 
 See also PRIMARY INDUSTRIES - Marine and rural regulation - Fisheries industry: for monitoring and regulating fishing industries.
 
-See also SCIENCE - Animal and veterinary science: for fish and shellfish research.""" ;
+See also SCIENCE - Animal and veterinary sciences: for fish and shellfish research."""^^xsd:string ;
   skos:hiddenLabel "Fish farming industry" ;
   skos:prefLabel "Aquaculture industry"@en ;
-  skos:related agift:animal-and-veterinary-science ;
+  skos:related agift:animal-and-veterinary-sciences ;
   skos:related agift:fisheries-industry ;
   skos:related agift:oceans-governance ;
 .
@@ -927,10 +927,6 @@ See also COMMUNITY SERVICES - Financial assistance: for monetary support to indi
   skos:hiddenLabel "Retirement assets" ;
   skos:prefLabel "Asset assessment"@en ;
   skos:related agift:financial-assistance ;
-.
-agift:association-registration
-  dcterms:created "2003-08-28"^^xsd:date ;
-  dcterms:modified "2005-03-09"^^xsd:date ;
 .
 agift:associations-and-corporate-law
   rdf:type skos:Concept ;
@@ -1191,7 +1187,6 @@ See also GOVERNANCE - Honours and award programs: for civilian tributes and deco
   skos:hiddenLabel "Military insignia" ;
   skos:hiddenLabel "Military medals" ;
   skos:prefLabel "Badges and insignia"@en ;
-  skos:related agift:honours-and-award-programs ;
   skos:related agift:honours-and-awards-programs ;
 .
 agift:bankruptcy-proceedings
@@ -1250,7 +1245,6 @@ See also INDIGENOUS AFFAIRS - Indigenous welfare programs: for social support to
   skos:related agift:income-support-schemes ;
   skos:related agift:indigenous-welfare-programs ;
   skos:related agift:taxation-compliance ;
-  skos:related <http://data.gov.au/def/agift/veteran's-entitlements> ;
   skos:related agift:veterans-entitlements ;
 .
 agift:biochemistry
@@ -1347,6 +1341,7 @@ See also SCIENCE - Biological sciences - Genetic engineering: for artificial mod
 .
 agift:blood-and-organ-donation-management
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description "Developing policies and programs to establish a nationally coordinated approach to blood, organ and tissue donation. Promoting measures to raise community awareness of blood, organ and tissue donation." ;
   rdfs:label "Blood and organ donation management"@en ;
   skos:broader agift:public-health-services ;
@@ -1356,6 +1351,7 @@ agift:blood-and-organ-donation-management
 .
 agift:border-protection
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Coordinating operations to monitor Australian borders for unauthorised sea or air arrivals. Developing and implementing response procedures to prevent illegal entry. Includes liaison with law enforcement, immigration or defence services personnel to apprehend individuals who breach Australia’s borders.
 See also IMMIGRATION - Detention programs: for the custody and treatment of illegal immigrants.
 See also TRADE - Import regulation - Prohibited import control: for customs surveillance.""" ;
@@ -2280,10 +2276,6 @@ See also HEALTH CARE - Special needs services - Mental health services: for prog
   skos:related agift:mental-health-services ;
   skos:related agift:special-needs-services ;
 .
-agift:coastal-surveillance
-  dcterms:created "2003-08-26"^^xsd:date ;
-  dcterms:modified "2005-03-15"^^xsd:date ;
-.
 agift:collection-access
   rdf:type skos:Concept ;
   dcterms:created "2003-08-28"^^xsd:date ;
@@ -2492,6 +2484,7 @@ agift:communications
 .
 agift:communications-infrastructure
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-12"^^xsd:date ;
   dcterms:description "Developing policy and programs to support the provision and  management of physical communication infrastructure. Facilitating  communication industries including access for people with special needs and advising on the availability of new communications technology." ;
   rdfs:label "Communications infrastructure"@en ;
   skos:broader agift:telecommunications ;
@@ -2532,6 +2525,7 @@ agift:community-education
 .
 agift:community-engagement
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Inviting the community to participate in many forms of community consultations. 
 
 See also COMMUNICATIONS - Government media: for managing media releases and dealing with journalists.
@@ -2580,6 +2574,7 @@ See also HEALTH CARE - Special needs services - Mental health services: for prog
 .
 agift:community-housing
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description "Developing community housing programs delivered by community organisations and local governments to eligible individuals and families." ;
   rdfs:label "Community housing"@en ;
   skos:broader agift:public-housing ;
@@ -2882,10 +2877,6 @@ agift:conveyancing
   skos:hiddenLabel "Measurement standards" ;
   skos:prefLabel "Conveyancing"@en ;
 .
-agift:copyright-registration
-  dcterms:created "2003-08-26"^^xsd:date ;
-  dcterms:modified "2005-05-26"^^xsd:date ;
-.
 agift:copyright-regulation
   rdf:type skos:Concept ;
   dcterms:created "2003-08-25"^^xsd:date ;
@@ -2930,6 +2921,7 @@ agift:corrective-services
 .
 agift:corruption-prevention
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Preventing, detecting and investigating serious and systemic corruption issues in government  agencies.
 See also GOVERNANCE - Public administration - Government auditing:  reviewing the financial or performance management of a government organisation or entity and reporting findings to the legislative body.
 See also GOVERNANCE - Public administration - Integrity compliance: encouraging ethical behaviour and compliance with official codes of conduct.
@@ -3050,7 +3042,7 @@ agift:criminal-law
 See also  GOVERNANCE - Public Administration - Corruption prevention: preventing, detecting and investigating serious and systemic corruption issues in Australian government agencies. 
 
 See also GOVERNANCE - Public administration - Integrity compliance: encouraging ethical behaviour and compliance with official codes of conduct.""" ;
-  dcterms:modified "2004-08-08"^^xsd:date ;
+  dcterms:modified "2014-05-08"^^xsd:date ;
   rdfs:label "Criminal law"@en ;
   skos:broader agift:justice-administration ;
   skos:definition """Administering the body of law that governs actions punishable by the state. Establishing rules of statute and common law to define criminal behaviour, specific penalties and the conduct of legal proceedings.
@@ -3305,6 +3297,7 @@ agift:curriculum-development
 .
 agift:cybersafety
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Developing policy and programs designed to protect consumers shopping online, vulnerable people from exposure to inappropriate material and invasion of personal privacy online. 
 See also COMMUNICATIONS - Electronic commerce: for developing policy to support and regulate Australian participation in the global information economy.
 See also COMMUNICATIONS - Information management standards - Information technology standards: for hardware and software regulation.""" ;
@@ -3758,10 +3751,6 @@ See also DEFENCE - Defence strategic development: for planning the growth of def
   skos:prefLabel "Defence strategic support"@en ;
   skos:related agift:defence-strategic-development ;
 .
-agift:demographic-surveys
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-03-14"^^xsd:date ;
-.
 agift:dental-health-services
   rdf:type skos:Concept ;
   dcterms:created "2003-08-25"^^xsd:date ;
@@ -3835,12 +3824,9 @@ See also CULTURAL AFFAIRS - Collection management - Collection accessioning: for
   skos:related agift:collection-accessioning ;
   skos:related agift:finding-aids-development ;
 .
-agift:design-registration
-  dcterms:created "2003-08-26"^^xsd:date ;
-  dcterms:modified "2005-03-15"^^xsd:date ;
-.
 agift:design-rights-management
   rdf:type skos:Concept ;
+  dcterms:created "2003-08-26"^^xsd:date ;
   dcterms:description """Conferring legal ownership over applied intellectual property such as structures, machinery, industrial plans or complex artworks (eg those with intricate configuration or moving parts). Includes processing and approving applications for design registration, liaising with designers and licensing the use of designs.
 
 See also TRADE - Intellectual property management - Patent rights management: for the intellectual property in inventions and industrial or scientific processes.
@@ -3848,6 +3834,7 @@ See also TRADE - Intellectual property management - Patent rights management: fo
 See also TRADE - Intellectual property management - Plant breeders' rights management: for developing policy to protect the rights of plant  breeders developing new plant varieties.
 
 See also TRADE - Intellectual property management - Trademark registration: for the intellectual property in designs or symbols associated with a business entity or product.""" ;
+  dcterms:modified "2005-03-15"^^xsd:date ;
   rdfs:label "Design rights management"@en ;
   skos:broader agift:intellectual-property-management ;
   skos:broaderTransitive agift:trade ;
@@ -4282,6 +4269,7 @@ agift:earth-sciences
 .
 agift:economic-research
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-01"^^xsd:date ;
   dcterms:description """Developing new economic measurements and models, estimating quantitative models of economic behaviour, assessing the effects of public policies on the Australian economy, and projecting the effects of alternative policy proposals.
 See also FINANCE MANAGEMENT- Financial system management: for policy to maintain stability in the financial system.
 See also FINANCE MANAGEMENT- Fiscal policy: for policy for the strategic management and distribution of public money.
@@ -4503,13 +4491,13 @@ See also COMMUNITY SERVICES - Accommodation services - Emergency accommodation: 
 
 See also COMMUNITY SERVICES - Emergency services: for regional programs offering urgent crisis assistance.
 
-See also COMMUNITY SERVICES - Natural disaster: for emergencies caused by the elements such as floods, earthquakes or cyclones.
+See also COMMUNITY SERVICES - Natural disasters: for emergencies caused by the elements such as floods, earthquakes or cyclones.
 
 See also HEALTH CARE - Public health services - Health disaster preparedness: for strategies to handle a large-scale medical emergency.
 
 See also MARITIME SERVICES - Search and rescue: for coordinating maritime emergency services.
 
-See also SECURITY - Law enforcement: for police services.""" ;
+See also SECURITY - Law enforcement: for police services."""^^xsd:string ;
   dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Emergency management"@en ;
   skos:broader agift:defence ;
@@ -4519,13 +4507,13 @@ See also COMMUNITY SERVICES - Accommodation services - Emergency accommodation: 
 
 See also COMMUNITY SERVICES - Emergency services: for regional programs offering urgent crisis assistance.
 
-See also COMMUNITY SERVICES - Natural disaster: for emergencies caused by the elements such as floods, earthquakes or cyclones.
+See also COMMUNITY SERVICES - Natural disasters: for emergencies caused by the elements such as floods, earthquakes or cyclones.
 
 See also HEALTH CARE - Public health services - Health disaster preparedness: for strategies to handle a large-scale medical emergency.
 
 See also MARITIME SERVICES - Search and rescue: for coordinating maritime emergency services.
 
-See also SECURITY - Law enforcement: for police services.""" ;
+See also SECURITY - Law enforcement: for police services."""^^xsd:string ;
   skos:hiddenLabel "Counter-terrorism activities" ;
   skos:hiddenLabel "Emergencies" ;
   skos:hiddenLabel "Martial law" ;
@@ -4541,7 +4529,7 @@ See also SECURITY - Law enforcement: for police services.""" ;
   skos:related agift:health-disaster-preparedness ;
   skos:related agift:law-enforcement ;
   skos:related agift:military-law ;
-  skos:related agift:natural-disaster ;
+  skos:related agift:natural-disasters ;
   skos:related agift:search-and-rescue ;
 .
 agift:emergency-services
@@ -4908,9 +4896,8 @@ agift:equipment-licensing
 .
 agift:ethical-compliance
   rdf:type skos:Concept ;
-  dcterms:created "2003-08-25"^^xsd:date ;
+  dcterms:created "2014-05-20"^^xsd:date ;
   dcterms:description "Administering programs to ensure research is carried out in an acceptable manner. Assessing research methods against accepted moral principles and standards of conduct. Monitoring activities, performing inspections and handling complaints." ;
-  dcterms:modified "2004-08-08"^^xsd:date ;
   rdfs:label "Ethical compliance"@en ;
   skos:broader agift:science ;
   skos:definition "Administering programs to ensure research is carried out in an acceptable manner. Assessing research methods against accepted moral principles and standards of conduct. Monitoring activities, performing inspections and handling complaints." ;
@@ -5298,7 +5285,7 @@ agift:financial-system-management
 
 See also FINANCE MANAGEMENT - Economic research: for developing new economic measurements and models and assessing the effects of public policies on the Australian economy.
 
-See also FINANCE MANAGEMENT - - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.""" ;
+See also FINANCE MANAGEMENT - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income."""^^xsd:string ;
   dcterms:modified "2005-08-31"^^xsd:date ;
   rdfs:label "Financial system management"@en ;
   skos:broader agift:finance-management ;
@@ -5306,12 +5293,12 @@ See also FINANCE MANAGEMENT - - Resource management - Productivity: for developi
 
 See also FINANCE MANAGEMENT - Economic research: for developing new economic measurements and models and assessing the effects of public policies on the Australian economy.
 
-See also FINANCE MANAGEMENT - - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.""" ;
+See also FINANCE MANAGEMENT - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income."""^^xsd:string ;
   skos:narrower agift:financial-system-monitoring ;
   skos:narrower agift:payments-management ;
   skos:prefLabel "Financial system management"@en ;
   skos:related agift:economic-research ;
-  skos:related agift:resource-management---productivity ;
+  skos:related agift:productivity ;
 .
 agift:financial-system-monitoring
   rdf:type skos:Concept ;
@@ -5402,7 +5389,7 @@ See also FINANCE MANAGEMENT - Economic research: for developing new economic mea
 
 See also FINANCE MANAGEMENT - Resource management - Financial budgeting: for documenting public revenues and expenditure.
 
-See also FINANCE MANAGEMENT - - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.""" ;
+See also FINANCE MANAGEMENT - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income."""^^xsd:string ;
   dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Fiscal policy"@en ;
   skos:broader agift:finance-management ;
@@ -5412,14 +5399,14 @@ See also FINANCE MANAGEMENT - Economic research: for developing new economic mea
 
 See also FINANCE MANAGEMENT - Resource management - Financial budgeting: for documenting public revenues and expenditure.
 
-See also FINANCE MANAGEMENT - - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.""" ;
+See also FINANCE MANAGEMENT - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income."""^^xsd:string ;
   skos:narrower agift:public-borrowing ;
   skos:narrower agift:public-debt ;
   skos:narrower agift:public-expenditure ;
   skos:prefLabel "Fiscal policy"@en ;
   skos:related agift:economic-research ;
   skos:related agift:financial-budgeting ;
-  skos:related agift:resource-management---productivity ;
+  skos:related agift:productivity ;
 .
 agift:fisheries-industry
   rdf:type skos:Concept ;
@@ -5428,11 +5415,11 @@ agift:fisheries-industry
 
 See also ENVIRONMENT - Oceans governance: for management of ocean-based resources.
 
-See also PRIMARY INDUSTRIES - Marine and rural support - Aquacultural industry: for programs to support and develop fishing industries.
+See also PRIMARY INDUSTRIES - Marine and rural support - Aquaculture industry: for programs to support and develop fishing industries.
 
 See also PRIMARY INDUSTRIES - Marine and rural support - Pastoral industry: for programs to support and develop livestock industries.
 
-See also SCIENCE - Animal and veterinary science: for fish and shellfish research.""" ;
+See also SCIENCE - Animal and veterinary sciences: for fish and shellfish research."""^^xsd:string ;
   dcterms:modified "2005-03-14"^^xsd:date ;
   rdfs:label "Fisheries industry"@en ;
   skos:broader agift:marine-and-rural-regulation ;
@@ -5441,17 +5428,17 @@ See also SCIENCE - Animal and veterinary science: for fish and shellfish researc
 
 See also ENVIRONMENT - Oceans governance: for management of ocean-based resources.
 
-See also PRIMARY INDUSTRIES - Marine and rural support - Aquacultural industry: for programs to support and develop fishing industries.
+See also PRIMARY INDUSTRIES - Marine and rural support - Aquaculture industry: for programs to support and develop fishing industries.
 
 See also PRIMARY INDUSTRIES - Marine and rural support - Pastoral industry: for programs to support and develop livestock industries.
 
-See also SCIENCE - Animal and veterinary science: for fish and shellfish research.""" ;
+See also SCIENCE - Animal and veterinary sciences: for fish and shellfish research."""^^xsd:string ;
   skos:hiddenLabel "Bycatch regulation" ;
   skos:hiddenLabel "Fishing industry regulation" ;
   skos:hiddenLabel "Seafood industry regulation" ;
   skos:prefLabel "Fisheries industry"@en ;
-  skos:related agift:animal-and-veterinary-science ;
-  skos:related agift:aquacultural-industry ;
+  skos:related agift:animal-and-veterinary-sciences ;
+  skos:related agift:aquaculture-industry ;
   skos:related agift:oceans-governance ;
   skos:related agift:pastoral-industry ;
 .
@@ -5598,6 +5585,7 @@ See also SCIENCE - Earth sciences - Mineral exploration: for conducting research
 .
 agift:freedom-of-information
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Allowing individuals to see what information government holds about them, and to seek correction of that information if they consider it wrong or misleading. Developing  legislation and programs to enhance the transparency of policy making, administrative decision making and government service delivery. Requiring agencies to publish government information and  providing for a right of access by the public to government documents.
 See also GOVERNANCE - Open government:  facilitating citizen collaboration by developing services and programs based on open government principles. 
 See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: regulating the creation, capture, management and disposal of government records.
@@ -5612,7 +5600,7 @@ See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of r
   skos:hiddenLabel "FOI" ;
   skos:prefLabel "Freedom of information"@en ;
   skos:related agift:open-government ;
-  skos:related agift:privacy- ;
+  skos:related agift:privacy ;
 .
 agift:freight-movement-regulation
   rdf:type skos:Concept ;
@@ -5915,11 +5903,11 @@ agift:government-auditing
 
 See also BUSINESS SUPPORT AND REGULATION - Business process auditing: for general auditing.
 
-See also  GOVERNANCE - Public  administation - Corruption  prevention: preventing, detecting and investigating serious and systemic corruption issues in government agencies. 
+See also  GOVERNANCE - Public  administation - Corruption prevention: preventing, detecting and investigating serious and systemic corruption issues in government agencies. 
 
 See also GOVERNANCE - Public administration - Integrity compliance: encouraging ethical behaviour and compliance with official codes of conduct.
 
-See also GOVERNANCE - Public administration - Whistleblowing: disclosing illegal, immoral or illegitimate practices under the control of their employer by government employees.""" ;
+See also GOVERNANCE - Public administration - Whistleblowing: disclosing illegal, immoral or illegitimate practices under the control of their employer by government employees."""^^xsd:string ;
   dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Government auditing"@en ;
   skos:broader agift:public-administration ;
@@ -5928,14 +5916,14 @@ See also GOVERNANCE - Public administration - Whistleblowing: disclosing illegal
 
 See also BUSINESS SUPPORT AND REGULATION - Business process auditing: for general auditing.
 
-See also  GOVERNANCE - Public  administation - Corruption  prevention: preventing, detecting and investigating serious and systemic corruption issues in government agencies. 
+See also  GOVERNANCE - Public  administation - Corruption prevention: preventing, detecting and investigating serious and systemic corruption issues in government agencies. 
 
 See also GOVERNANCE - Public administration - Integrity compliance: encouraging ethical behaviour and compliance with official codes of conduct.
 
-See also GOVERNANCE - Public administration - Whistleblowing: disclosing illegal, immoral or illegitimate practices under the control of their employer by government employees.""" ;
+See also GOVERNANCE - Public administration - Whistleblowing: disclosing illegal, immoral or illegitimate practices under the control of their employer by government employees."""^^xsd:string ;
   skos:prefLabel "Government auditing"@en ;
   skos:related agift:business-process-auditing ;
-  skos:related agift:corruption--prevention ;
+  skos:related agift:corruption-prevention ;
   skos:related agift:integrity-compliance ;
   skos:related agift:whistleblowing ;
 .
@@ -6431,12 +6419,9 @@ agift:hospital-teaching-programs
   skos:hiddenLabel "Teaching hospitals" ;
   skos:prefLabel "Hospital teaching programs"@en ;
 .
-agift:household-census
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-05-26"^^xsd:date ;
-.
 agift:housing-industry-policy
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Developing policy and programs to ensure the adequacy of land supply and construction activity to meet demand and improve housing affordability.
 See also CIVIC INFRASTRUCTURE - Civic management - Town planning: for controlled urban development.
 
@@ -6497,7 +6482,6 @@ See also JUSTICE ADMINISTRATION - Privacy guideline monitoring: for ensuring ind
   skos:hiddenLabel "Civil liberties" ;
   skos:hiddenLabel "Civil rights" ;
   skos:prefLabel "Human rights obligations"@en ;
-  skos:related agift:privacy-guideline-monitoring ;
   skos:related agift:refugee-services ;
 .
 agift:hydrology
@@ -6717,6 +6701,7 @@ See also HEALTH CARE - Special needs services - Residential services: for managi
 .
 agift:indigenous-advocacy
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Providing access to information regarding rights, protections and entitlements for Aboriginal and Torres Strait Islander peoples. Representing and supporting individuals or groups to ensure rights are upheld.
 
 See also COMMUNITY SERVICES - Social justice and equity: for ensuring equal access to community services.
@@ -6730,7 +6715,6 @@ See also COMMUNITY SERVICES - Social justice and equity: for ensuring equal acce
 
 See also INDIGENOUS AFFAIRS - Indigenous reconcilation: for administering programs and services to promote understanding and agreement between Indigenous and non-Indigenous Australians.""" ;
   skos:prefLabel "Indigenous advocacy"@en ;
-  skos:related agift:indigenous-reconcilation ;
   skos:related agift:indigenous-reconciliation ;
   skos:related agift:social-justice-and-equity ;
 .
@@ -6817,7 +6801,7 @@ See also HEALTH CARE - Community health services - Primary health care: for the 
 .
 agift:indigenous-heritage-conservation
   rdf:type skos:Concept ;
-  dcterms:created "2003-08-28"^^xsd:date ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Developing policy and programs to protect areas directly associated with Aboriginal and Torres Strait Islander culture. Establishing standards for maintaining and preserving Indigenous heritage areas, such as control of public access. Providing funding for joint projects with business or the community. Developing land use agreements and site management plans.
 
 See also ENVIRONMENT - Built environment: for programs to protect the built environment.
@@ -6827,7 +6811,6 @@ See also ENVIRONMENT - Historic relic protection: for programs to conserve signi
 See also ENVIRONMENT - Natural heritage protection: for programs to conserve the biological environment.
 
 See also INDIGENOUS AFFAIRS - Indigenous cultural heritage: for protecting the material, intellectual and spiritual traditions of Indigenous Australians.""" ;
-  dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Indigenous heritage conservation"@en ;
   skos:broader agift:indigenous-land-management ;
   skos:broaderTransitive agift:indigenous-affairs ;
@@ -6849,6 +6832,7 @@ See also INDIGENOUS AFFAIRS - Indigenous cultural heritage: for protecting the m
 .
 agift:indigenous-land-management
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Developing policies and programs to manage traditional lands and seas owned by Aboriginal and Torres Strait Islander peoples. Assisting in the acquisition and management of lands and seas to achieve economic, environmental, social and cultural benefits.
 
 See also JUSTICE ADMINISTRATION - Native title claims: administering procedures to assess Indigenous interest in or rights to the use of specified areas of land or water. Identifying traditional customs and connections with a particular region. Includes processing applications, providing advice and support for litigation.""" ;
@@ -6870,7 +6854,7 @@ agift:indigenous-reconciliation
 
 See also INDIGENOUS AFFAIRS - Indigenous advocacy: for providing access to information regarding rights, protections and entitlements for Aboriginal and Torres Strait Islander peoples.
 
-See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous cultural heritage: for programs to protect and promote Aboriginal and Torres Strait Islander traditions.""" ;
+See also INDIGENOUS AFFAIRS - Indigenous land management - Indigenous cultural heritage: for programs to protect and promote Aboriginal and Torres Strait Islander traditions."""^^xsd:string ;
   dcterms:modified "2005-03-14"^^xsd:date ;
   rdfs:label "Indigenous reconciliation"@en ;
   skos:broader agift:indigenous-affairs ;
@@ -6878,13 +6862,13 @@ See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous cultural 
 
 See also INDIGENOUS AFFAIRS - Indigenous advocacy: for providing access to information regarding rights, protections and entitlements for Aboriginal and Torres Strait Islander peoples.
 
-See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous cultural heritage: for programs to protect and promote Aboriginal and Torres Strait Islander traditions.""" ;
+See also INDIGENOUS AFFAIRS - Indigenous land management - Indigenous cultural heritage: for programs to protect and promote Aboriginal and Torres Strait Islander traditions."""^^xsd:string ;
   skos:hiddenLabel "Aboriginal reconciliation" ;
   skos:hiddenLabel "Reconciliation programs" ;
   skos:hiddenLabel "Torres Strait Islander reconciliation" ;
   skos:prefLabel "Indigenous reconciliation"@en ;
-  skos:related <http://data.gov.au/def/agift/-indigenous-cultural-heritage> ;
   skos:related agift:indigenous-advocacy ;
+  skos:related agift:indigenous-cultural-heritage ;
 .
 agift:indigenous-welfare-programs
   rdf:type skos:Concept ;
@@ -6977,6 +6961,7 @@ See also PRIMARY INDUSTRIES - Marine and rural support: for assistance to primar
 .
 agift:industry-collaboration
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Connecting partnerships between industry and tertiary and vocational education to train a responsive workforce based on the skillsets needed by Australian enterprises and industry sectors.
 See also BUSINESS SUPPORT AND REGULATION - Industry assistance schemes: developing policy to support the growth and management of secondary and tertiary industries.
 See also EMPLOYMENT - Labour market programs - Employment services marketing: for administering programs that encourage and assist businesses to employ more staff. Liaising with employers to evaluate their needs for support. Providing information and resources to help locate suitable staff. Managing wage assistance and subsidy schemes. Includes promotional strategies and advertising campaigns to advocate employment in particular industries.""" ;
@@ -7088,7 +7073,6 @@ See also SECURITY - Information security: for data security standards.""" ;
   skos:prefLabel "Information management standards"@en ;
   skos:related agift:information-security ;
   skos:related agift:online-transaction-standards ;
-  skos:related agift:privacy-guideline-monitoring ;
   skos:related agift:recordkeeping-standards ;
 .
 agift:information-security
@@ -7151,6 +7135,7 @@ See also SECURITY - Information security: for data security standards.""" ;
 .
 agift:infrastructure-planning
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Identifying strategic investment priorities, policy, and regulatory reforms in the transport, water, energy and communications sectors, and providing advice on nationally-significant economic infrastructure to governments, investors and owners.
 See also CIVIC INFRASTRUCTURE - Civic management - Town planning: for controlled urban development.
 See also CIVIC INFRASTRUCTURE - Integrated services planning:  for providing coordinated services across districts.
@@ -7241,6 +7226,7 @@ See also NATURAL RESOURCES - Land use planning - Land use zoning: for allocating
 .
 agift:integrity-compliance
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Encouraging ethical behaviour and compliance with official codes of conduct.
 See also GOVERNANCE - Public administration - Corruption prevention:  preventing, detecting and investigating serious and systemic corruption issues in Australian government agencies.
 See also GOVERNANCE - Public administration - Government auditing: reviewing the financial or performance management of a government organisation or entity and reporting findings to the legislative body.
@@ -7528,6 +7514,7 @@ See also TRADE - International trade agreements: for treaties covering the excha
 .
 agift:internet
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Developing policy and programs to regulate and promote Australia’s role in the internet.
 See also COMMUNICATIONS - Electronic commerce: for developing policy to support and regulate Australian participation in the global information economy.""" ;
   rdfs:label "Internet"@en ;
@@ -7673,7 +7660,7 @@ See also SECURITY: for law enforcement.""" ;
   skos:narrower agift:legal-aid-services ;
   skos:narrower agift:local-laws-and-ordinances ;
   skos:narrower agift:native-title-claims ;
-  skos:narrower agift:privacy- ;
+  skos:narrower agift:privacy ;
   skos:narrower agift:prosecution-services ;
   skos:narrowerTransitive agift:administrative-decision-appeal ;
   skos:narrowerTransitive agift:administrative-decision-review ;
@@ -7736,6 +7723,7 @@ See also EDUCATION AND TRAINING - Vocational education - Industry collaboration:
 .
 agift:land-councils
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Consulting with stakeholders and providing assistance for the development of land rights for Aboriginal and Torres Strait Islander peoples. Supports land and sea acquisition, establishment of commercial enterprises and community benefit schemes.
 
 See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous heritage conservation: for programs to protect significant cultural sites.
@@ -7748,7 +7736,6 @@ See also JUSTICE ADMINISTRATION - Native title claims: administering procedures 
 See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous heritage conservation: for programs to protect significant cultural sites.
 See also JUSTICE ADMINISTRATION - Native title claims: administering procedures to assess Indigenous interest in or rights to the use of specified areas of land or water. Identifying traditional customs and connections with a particular region. Includes processing applications, providing advice and support for litigation.""" ;
   skos:prefLabel "Land councils"@en ;
-  skos:related <http://data.gov.au/def/agift/-indigenous-heritage-conservation> ;
   skos:related agift:indigenous-heritage-conservation ;
   skos:related agift:indigenous-land-management ;
   skos:related agift:native-title-claims ;
@@ -8327,6 +8314,7 @@ See also PRIMARY INDUSTRIES - Quarantine: for protecting plants and animals from
 .
 agift:medical-radiation-services
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Developing programs and policies to support the effective use of ionising radiation in medicine. Delivering auditing and quality assurance services, measured against national standards, aimed at providing an integrated national approach to promoting safety and quality in radiotherapy.
 See also HEALTH CARE - Public health services - Radiation protection: regulating the safe use of radioactive substances.""" ;
   rdfs:label "Medical radiation services"@en ;
@@ -8723,9 +8711,9 @@ See also NATURAL RESOURCES - Energy resources - Fossil fuel management: for mapp
 
 See also NATURAL RESOURCES - Mineral resources: for management and economic development of ore deposits.
 
-See also NATURAL RESOURCES - Mineral resources - Mining regulation: for mapping ore and other mineral deposits.
+See also NATURAL RESOURCES - Mineral resources - Mining regulations: for mapping ore and other mineral deposits.
 
-See also SCIENCE - Earth Sciences - Seismology: for monitoring of quarry blasts and related mining activities.""" ;
+See also SCIENCE - Earth Sciences - Seismology: for monitoring of quarry blasts and related mining activities."""^^xsd:string ;
   dcterms:modified "2005-03-15"^^xsd:date ;
   rdfs:label "Mineral exploration"@en ;
   skos:broader agift:earth-sciences ;
@@ -8736,9 +8724,9 @@ See also NATURAL RESOURCES - Energy resources - Fossil fuel management: for mapp
 
 See also NATURAL RESOURCES - Mineral resources: for management and economic development of ore deposits.
 
-See also NATURAL RESOURCES - Mineral resources - Mining regulation: for mapping ore and other mineral deposits.
+See also NATURAL RESOURCES - Mineral resources - Mining regulations: for mapping ore and other mineral deposits.
 
-See also SCIENCE - Earth Sciences - Seismology: for monitoring of quarry blasts and related mining activities.""" ;
+See also SCIENCE - Earth Sciences - Seismology: for monitoring of quarry blasts and related mining activities."""^^xsd:string ;
   skos:hiddenLabel "Mine exploration" ;
   skos:hiddenLabel "Mining activities" ;
   skos:hiddenLabel "Mining exploration" ;
@@ -8746,7 +8734,7 @@ See also SCIENCE - Earth Sciences - Seismology: for monitoring of quarry blasts 
   skos:prefLabel "Mineral exploration"@en ;
   skos:related agift:fossil-fuel-management ;
   skos:related agift:mineral-resources ;
-  skos:related agift:mining-regulation ;
+  skos:related agift:mining-regulations ;
   skos:related agift:seismology ;
 .
 agift:mineral-resources
@@ -8828,7 +8816,7 @@ agift:monetary-policy
 
 See also FINANCE MANAGEMENT - Economic research: for developing new economic measurements and models and assessing the effects of public policies on the Australian economy.
 
-See also FINANCE MANAGEMENT - - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.""" ;
+See also FINANCE MANAGEMENT - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income."""^^xsd:string ;
   dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Monetary policy"@en ;
   skos:broader agift:finance-management ;
@@ -8836,7 +8824,7 @@ See also FINANCE MANAGEMENT - - Resource management - Productivity: for developi
 
 See also FINANCE MANAGEMENT - Economic research: for developing new economic measurements and models and assessing the effects of public policies on the Australian economy.
 
-See also FINANCE MANAGEMENT - - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.""" ;
+See also FINANCE MANAGEMENT - Resource management - Productivity: for developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income."""^^xsd:string ;
   skos:hiddenLabel "Economic policy" ;
   skos:hiddenLabel "Interest rate policy" ;
   skos:hiddenLabel "Macroeconomic policy" ;
@@ -8845,7 +8833,7 @@ See also FINANCE MANAGEMENT - - Resource management - Productivity: for developi
   skos:narrower agift:interest-rates ;
   skos:prefLabel "Monetary policy"@en ;
   skos:related agift:economic-research ;
-  skos:related agift:resource-management---productivity ;
+  skos:related agift:productivity ;
 .
 agift:multicultural-festivals
   rdf:type skos:Concept ;
@@ -9010,21 +8998,21 @@ agift:native-title-claims
   dcterms:created "2003-08-25"^^xsd:date ;
   dcterms:description """Administering procedures to assess Indigenous interest in or rights to the use of specified areas of land or water. Identifying traditional customs and connections with a particular region. Includes processing applications, providing advice and support for litigation.
 
-See also INDIGENOUS AFFAIRS- Indigneous land management: developing policies and programs to manage traditional lands and seas owned by Aboriginal and Torres Strait Islander peoples.
+See also INDIGENOUS AFFAIRS- Indigenous land management: developing policies and programs to manage traditional lands and seas owned by Aboriginal and Torres Strait Islander peoples.
 
 See also INDIGENOUS AFFAIRS - Indigenous land management - Land councils: consulting with stakeholders and providing assistance for the development of land rights for Aboriginal and Torres Strait Islander peoples.
 
-See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous heritage conservation: for programs to protect significant cultural sites.""" ;
+See also INDIGENOUS AFFAIRS - Indigenous land management - Indigenous heritage conservation: for programs to protect significant cultural sites."""^^xsd:string ;
   dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Native title claims"@en ;
   skos:broader agift:justice-administration ;
   skos:definition """Administering procedures to assess Indigenous interest in or rights to the use of specified areas of land or water. Identifying traditional customs and connections with a particular region. Includes processing applications, providing advice and support for litigation.
 
-See also INDIGENOUS AFFAIRS- Indigneous land management: developing policies and programs to manage traditional lands and seas owned by Aboriginal and Torres Strait Islander peoples.
+See also INDIGENOUS AFFAIRS- Indigenous land management: developing policies and programs to manage traditional lands and seas owned by Aboriginal and Torres Strait Islander peoples.
 
 See also INDIGENOUS AFFAIRS - Indigenous land management - Land councils: consulting with stakeholders and providing assistance for the development of land rights for Aboriginal and Torres Strait Islander peoples.
 
-See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous heritage conservation: for programs to protect significant cultural sites.""" ;
+See also INDIGENOUS AFFAIRS - Indigenous land management - Indigenous heritage conservation: for programs to protect significant cultural sites."""^^xsd:string ;
   skos:hiddenLabel "Aboriginal land rights" ;
   skos:hiddenLabel "Application for Native Title" ;
   skos:hiddenLabel "Indigenous land rights" ;
@@ -9034,9 +9022,8 @@ See also INDIGENOUS AFFAIRS - Indigenous land management -  Indigenous heritage 
   skos:narrower agift:native-title-mediation-programs ;
   skos:narrower agift:native-title-settlement-negotiations ;
   skos:prefLabel "Native title claims"@en ;
-  skos:related <http://data.gov.au/def/agift/-indigenous-heritage-conservation> ;
+  skos:related agift:indigenous-heritage-conservation ;
   skos:related agift:indigenous-land-management ;
-  skos:related agift:indigneous-land-management ;
   skos:related agift:land-councils ;
 .
 agift:native-title-mediation-programs
@@ -9290,11 +9277,11 @@ agift:navigation-systems-development
 
 See also COMMUNICATIONS: for industry regulations and standards.
 
-See also MARITIME SERVICES - Navigation - Lightstation maintenance: for managing navigational aids and markers.
+See also MARITIME SERVICES - Navigation - Light station maintenance: for managing navigational aids and markers.
 
 See also MARITIME SERVICES - Search and rescue - Search technology development: for investigating the use of systems to assist marine rescue operations.
 
-See also SCIENCE - Spatial information research: for investigating practical applications for geographical data.""" ;
+See also SCIENCE - Spatial information research: for investigating practical applications for geographical data."""^^xsd:string ;
   dcterms:modified "2005-03-14"^^xsd:date ;
   rdfs:label "Navigation systems development"@en ;
   skos:broader agift:navigation ;
@@ -9303,14 +9290,14 @@ See also SCIENCE - Spatial information research: for investigating practical app
 
 See also COMMUNICATIONS: for industry regulations and standards.
 
-See also MARITIME SERVICES - Navigation - Lightstation maintenance: for managing navigational aids and markers.
+See also MARITIME SERVICES - Navigation - Light station maintenance: for managing navigational aids and markers.
 
 See also MARITIME SERVICES - Search and rescue - Search technology development: for investigating the use of systems to assist marine rescue operations.
 
-See also SCIENCE - Spatial information research: for investigating practical applications for geographical data.""" ;
+See also SCIENCE - Spatial information research: for investigating practical applications for geographical data."""^^xsd:string ;
   skos:prefLabel "Navigation systems development"@en ;
   skos:related agift:communications ;
-  skos:related agift:lightstation-maintenance ;
+  skos:related agift:light-station-maintenance ;
   skos:related agift:satellite-communication ;
   skos:related agift:search-technology-development ;
   skos:related agift:spatial-information-research ;
@@ -9656,6 +9643,7 @@ See also SECURITY - Information security: for data security standards.""" ;
 .
 agift:open-government
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Facilitating citizen collaboration by developing services and programs based on open government principles. Encouraging public engagement in policy and service design and delivery. 
 
 See also JUSTICE ADMINISTRATION - Administrative law - Freedom of information: providing a right of access to  government  documents.
@@ -9955,12 +9943,9 @@ See also SCIENCE - Animal and veterinary sciences: for research into livestock h
   skos:related agift:animal-and-veterinary-sciences ;
   skos:related agift:horticultural-industry ;
 .
-agift:patent-registration
-  dcterms:created "2003-08-26"^^xsd:date ;
-  dcterms:modified "2005-04-12"^^xsd:date ;
-.
 agift:patent-rights-management
   rdf:type skos:Concept ;
+  dcterms:created "2003-08-26"^^xsd:date ;
   dcterms:description """Conferring exclusive legal rights to the production or sale of an invention or an industrial or scientific process. Registering and granting patent rigths and making patent specifications  available to the public.
 
 
@@ -9969,6 +9954,7 @@ See also TRADE - Intellectual property management - Design rights management: fo
 See also TRADE - Intellectual property management - Plant breeders' rights management: for developing policy to protect the rights of plant  breeders developing new plant varieties.
 
 See also TRADE - Intellectual property management - Trademark registration: for the intellectual property in designs or symbols associated with a business entity or product.""" ;
+  dcterms:modified "2005-04-12"^^xsd:date ;
   rdfs:label "Patent rights management"@en ;
   skos:broader agift:intellectual-property-management ;
   skos:broaderTransitive agift:trade ;
@@ -10168,10 +10154,6 @@ See also SCIENCE - Medical and health sciences: for research into human health a
   skos:prefLabel "Physiology"@en ;
   skos:related agift:medical-and-health-sciences ;
 .
-agift:pilot-licensing
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-03-14"^^xsd:date ;
-.
 agift:pilotage-management
   rdf:type skos:Concept ;
   dcterms:created "2003-08-25"^^xsd:date ;
@@ -10187,6 +10169,7 @@ agift:pilotage-management
 .
 agift:place-names
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description "Approving and registering the formal names of rivers, mountains, plains, towns, suburbs, reefs, shoals and undersea features." ;
   rdfs:label "Place names"@en ;
   skos:broader agift:civic-infrastructure ;
@@ -10196,6 +10179,7 @@ agift:place-names
 .
 agift:planning-approvals
   rdf:type skos:Concept ;
+  dcterms:created "2013-06-17"^^xsd:date ;
   rdfs:label "Planning approvals"@en ;
   skos:broader agift:civic-management ;
   skos:broaderTransitive agift:civic-infrastructure ;
@@ -10203,6 +10187,7 @@ agift:planning-approvals
 .
 agift:plant-breeders-rights-management
   rdf:type skos:Concept ;
+  dcterms:created "2013-05-27"^^xsd:date ;
   dcterms:description """Developing policy to protect the rights of plant  breeders developing new plant varieties.
 
 See also TRADE - Intellectual property management - Design rights management: for the intellectual property in structures, machinery, industrial plans or complex artworks.
@@ -10317,14 +10302,6 @@ See also SCIENCE - Medical and health sciences: for experimental research into h
   skos:related agift:epidemiology ;
   skos:related agift:medical-and-health-sciences ;
   skos:related agift:statistical-collection ;
-.
-agift:population-census
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-05-26"^^xsd:date ;
-.
-agift:population-distribution-analysis
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-05-26"^^xsd:date ;
 .
 agift:port-regulation
   rdf:type skos:Concept ;
@@ -10596,8 +10573,9 @@ See also SCIENCE: for research to assist primary industries.""" ;
   skos:related agift:natural-resources ;
   skos:related agift:science ;
 .
-agift:privacy-
+agift:privacy
   rdf:type skos:Concept ;
+  dcterms:created "2003-08-25"^^xsd:date ;
   dcterms:description """Establishing privacy principles to ensure an individual's rights to the confidentiality of their personal information. Monitoring compliance with legislation and guidelines. Includes investigating breaches of privacy and evaluating new technology for potential risks to individual privacy.
 
 See also JUSTICE ADMINISTRATION - Administrative law - Freedom of information: providing a right of access to  government  documents.
@@ -10605,6 +10583,7 @@ See also JUSTICE ADMINISTRATION - Administrative law - Freedom of information: p
 See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: for regulating the management of government information in accordance with legislative requirements.
 
 See also SECURITY - Information security: for policy and technology to control data access.""" ;
+  dcterms:modified "2005-03-14"^^xsd:date ;
   rdfs:label "Privacy "@en ;
   skos:broader agift:justice-administration ;
   skos:definition """Establishing privacy principles to ensure an individual's rights to the confidentiality of their personal information. Monitoring compliance with legislation and guidelines. Includes investigating breaches of privacy and evaluating new technology for potential risks to individual privacy.
@@ -10621,10 +10600,6 @@ See also SECURITY - Information security: for policy and technology to control d
   skos:related agift:freedom-of-information ;
   skos:related agift:information-security ;
   skos:related agift:recordkeeping-standards ;
-.
-agift:privacy-guideline-monitoring
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-03-14"^^xsd:date ;
 .
 agift:probate-applications
   rdf:type skos:Concept ;
@@ -10652,6 +10627,7 @@ agift:product-safety
 .
 agift:productivity
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Developing measures and programs to capture the ability of an economy to harness its physical and human resources to generate output and income.
 See also FINANCE MANAGEMENT- Financial system management: for policy to maintain stability in the financial system.
 See also FINANCE MANAGEMENT- Fiscal policy: for policy for the strategic management and distribution of public money.
@@ -11033,11 +11009,10 @@ See also NATURAL RESOURCES - Land use planning: for research into future needs f
 .
 agift:public-service
   rdf:type skos:Concept ;
-  dcterms:created "2004-10-28"^^xsd:date ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Implementing the policies of the executive and elected representatives. Providing services to the community in accordance with agreed performance standards.
 
 See also EMPLOYMENT: for conditions of employment.""" ;
-  dcterms:modified "2005-09-08"^^xsd:date ;
   rdfs:label "Public service"@en ;
   skos:broader agift:public-administration ;
   skos:broaderTransitive agift:governance ;
@@ -11049,6 +11024,7 @@ See also EMPLOYMENT: for conditions of employment.""" ;
 .
 agift:public-transport
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-09"^^xsd:date ;
   dcterms:description """Developing and maintaining a system of vehicles such as buses and trains that operates at regular times on fixed routes and are used by the public.
 
 See also CIVIC INFRASTRUCTURE - Transport network maintenance: for managing public transport at local level.
@@ -11178,6 +11154,7 @@ See also TRADE - Import regulation - Prohibited import control: for regulating t
 .
 agift:radiation-protection
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-16"^^xsd:date ;
   dcterms:description """Regulating the safe use of radioactive substances. Developing legislation and standards for keeping and using radioactive substances. Includes the sale, transfer, storage, possession, transport, installation, maintenance and remediation of regulated material.
 
 See also INTERNATIONAL RELATIONS - International affairs - Nuclear safeguards: ensuring that nuclear material and associated equipment is fully accounted for and controlled.""" ;
@@ -11789,7 +11766,6 @@ See also TRANSPORT - Road transport - Vehicle registration: for identification o
 See also TRANSPORT - Road transport - Vehicle standards: for certificates of roadworthiness.""" ;
   skos:prefLabel "Road traffic regulation"@en ;
   skos:related agift:driving-licences-administration ;
-  skos:related agift:driving-licenses-administration ;
   skos:related agift:road-surface-maintenance ;
   skos:related agift:road-transport-safety ;
   skos:related agift:vehicle-registration ;
@@ -11824,9 +11800,9 @@ See also TRANSPORT - Freight movement regulation: for managing the safe transpor
 
 See also TRANSPORT - Passenger services: for managing the safe transportation of people by road.
 
-See also TRANSPORT - Road transport - Driving licenses administration: for certifying driver ability and issuing penalties for road safety infringements.
+See also TRANSPORT - Road transport - Driving licences administration: for certifying driver ability and issuing penalties for road safety infringements.
 
-See also TRANSPORT - Road transport - Vehicle standards: for maintaining the safety of motor vehicles.""" ;
+See also TRANSPORT - Road transport - Vehicle standards: for maintaining the safety of motor vehicles."""^^xsd:string ;
   dcterms:modified "2005-03-15"^^xsd:date ;
   rdfs:label "Road transport safety"@en ;
   skos:broader agift:road-transport ;
@@ -11841,14 +11817,14 @@ See also TRANSPORT - Freight movement regulation: for managing the safe transpor
 
 See also TRANSPORT - Passenger services: for managing the safe transportation of people by road.
 
-See also TRANSPORT - Road transport - Driving licenses administration: for certifying driver ability and issuing penalties for road safety infringements.
+See also TRANSPORT - Road transport - Driving licences administration: for certifying driver ability and issuing penalties for road safety infringements.
 
-See also TRANSPORT - Road transport - Vehicle standards: for maintaining the safety of motor vehicles.""" ;
+See also TRANSPORT - Road transport - Vehicle standards: for maintaining the safety of motor vehicles."""^^xsd:string ;
   skos:hiddenLabel "Accident investigation" ;
   skos:hiddenLabel "Road safety" ;
   skos:hiddenLabel "Safety investigation" ;
   skos:prefLabel "Road transport safety"@en ;
-  skos:related agift:driving-licenses-administration ;
+  skos:related agift:driving-licences-administration ;
   skos:related agift:freight-movement-regulation ;
   skos:related agift:law-enforcement ;
   skos:related agift:passenger-services ;
@@ -11872,10 +11848,6 @@ agift:rolling-stock-regulation
   skos:hiddenLabel "Trains" ;
   skos:hiddenLabel "Trams" ;
   skos:prefLabel "Rolling stock regulation"@en ;
-.
-agift:roulettes
-  dcterms:created "2003-08-28"^^xsd:date ;
-  dcterms:modified "2005-03-09"^^xsd:date ;
 .
 agift:rural-community-development
   rdf:type skos:Concept ;
@@ -12305,7 +12277,7 @@ agift:silvicultural-industry
 
 See also PRIMARY INDUSTRIES - Marine and rural regulation - Forestry industry: for monitoring and regulating timber industries.
 
-See also SCIENCE - Agricultural science: for conducting research into timber growing and forestry products.""" ;
+See also SCIENCE - Agricultural sciences: for conducting research into timber growing and forestry products."""^^xsd:string ;
   dcterms:modified "2005-05-26"^^xsd:date ;
   rdfs:label "Silvicultural industry"@en ;
   skos:broader agift:marine-and-rural-support ;
@@ -12314,12 +12286,12 @@ See also SCIENCE - Agricultural science: for conducting research into timber gro
 
 See also PRIMARY INDUSTRIES - Marine and rural regulation - Forestry industry: for monitoring and regulating timber industries.
 
-See also SCIENCE - Agricultural science: for conducting research into timber growing and forestry products.""" ;
+See also SCIENCE - Agricultural sciences: for conducting research into timber growing and forestry products."""^^xsd:string ;
   skos:hiddenLabel "Forest support" ;
   skos:hiddenLabel "National Forestry Inventory" ;
   skos:hiddenLabel "Plantation management support" ;
   skos:prefLabel "Silvicultural industry"@en ;
-  skos:related agift:agricultural-science ;
+  skos:related agift:agricultural-sciences ;
   skos:related agift:botany ;
   skos:related agift:forestry-industry ;
 .
@@ -12407,6 +12379,7 @@ See also EMPLOYMENT - Human resources development - Workplace equity and justice
 .
 agift:social-media
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description """Developing policy and programs to enable governments to  consult widely with citizens via social media platforms. 
 See also COMMUNICATIONS - Government media: for managing media releases and dealing with journalists.
 See also COMMUNITY SERVICES - Community engagement: Governments inviting the commmunity to participate in community consultations.""" ;
@@ -12420,6 +12393,7 @@ See also COMMUNITY SERVICES - Community engagement: Governments inviting the com
 .
 agift:social-research
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-08"^^xsd:date ;
   dcterms:description "Developing research programs to examine Australians'  attitudes, beliefs, trends, stratifications and rules." ;
   rdfs:label "Social research"@en ;
   skos:broader agift:community-services ;
@@ -12721,12 +12695,9 @@ agift:sports-drugs-monitoring
   skos:narrower agift:doping-detection-research ;
   skos:prefLabel "Sports drugs monitoring"@en ;
 .
-agift:statistical-analysis
-  dcterms:created "2003-08-25"^^xsd:date ;
-  dcterms:modified "2005-03-14"^^xsd:date ;
-.
 agift:statistical-collection
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-26"^^xsd:date ;
   dcterms:description """Collecting statistics from official providers in Australia and as well as using administrative data to generate statistics. Analysing this collected data to identify trends and other significant information about social or economic activities.
 
 See also STATISTICAL SERVICES - Statistical design:  designing statistical outputs, concepts, methodologies, metadata, and collection instruments.
@@ -12755,6 +12726,7 @@ See also STATISTICAL SERVICES - Statistics dissemination: disseminating statisti
 .
 agift:statistical-design
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-26"^^xsd:date ;
   dcterms:description """Designing statistical outputs, concepts, methodologies, metadata, and collection instruments .
 
 See also STATISTICAL SERVICES - Statistical collection:  for collecting statistics and analysing this collected data to identify trends.
@@ -12778,6 +12750,7 @@ See also STATISTICAL SERVICES - Statistics dissemination: disseminating statisti
 .
 agift:statistical-services
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-26"^^xsd:date ;
   dcterms:description "Providing a high quality, objective and responsive statistical service to assist and encourage informed decision making, research and discussion within governments and the community." ;
   rdfs:label "STATISTICAL SERVICES"@en ;
   skos:definition "Providing a high quality, objective and responsive statistical service to assist and encourage informed decision making, research and discussion within governments and the community." ;
@@ -12789,6 +12762,7 @@ agift:statistical-services
 .
 agift:statistical-standards
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-26"^^xsd:date ;
   dcterms:description """Supporting and providing standards for numerical facts issued to the Australian community to ensure the information is coherent, comprehensible and consistent. Representing Australia on international standards bodies (such as the System of National Accounts and the International Monetary Fund's Balance of Payments Manual), advising official bodies within Australia about existing statistical standards and consulting on the development of new standards.
 
 See also STATISTICAL SERVICES - Statistical collection:  for collecting statistics and analysing this collected data to identify trends.
@@ -12810,12 +12784,9 @@ See also STATISTICAL SERVICES - Statistics dissemination: disseminating statisti
   skos:related agift:statistical-design ;
   skos:related agift:statistics-dissemination ;
 .
-agift:statistics
-  dcterms:created "2004-10-28"^^xsd:date ;
-  dcterms:modified "2005-08-31"^^xsd:date ;
-.
 agift:statistics-dissemination
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-26"^^xsd:date ;
   dcterms:description """Disseminating statistical information for use by a broad cross-section of the community, businesses, the research sector, the media, government departments and agencies, other governments and international agencies. Statistical categories may focus on environmental matters,  government activities,  population, economic or social matters.
 
 See also STATISTICAL SERVICES - Statistical collection:  for collecting statistics and analysing this collected data to identify trends.
@@ -13233,7 +13204,6 @@ See also TRADE - Trade expositions: for organising and participating in exhibiti
 .
 agift:town-planning
   rdf:type skos:Concept ;
-  dcterms:created "2003-08-28"^^xsd:date ;
   dcterms:description """Establishing a framework of objectives and strategies for controlled urban development. Initiating projects to meet current and future needs for infrastructure and facilities. Providing guidelines to assist applicants for building approval.
 
 See also CIVIC INFRASTRUCTURE - Civic management - Building approval services: for assessing applications to build or alter structures.
@@ -13246,7 +13216,6 @@ See also CIVIC INFRASTRUCTURE - Integrated services planning: for coordinated pr
 See also NATURAL RESOURCES - Land use planning: for research into future needs for infrastructure and facilities.
 
 See also NATURAL RESOURCES - Land use planning - Land use zoning: for allocating areas of land with regard to their use.""" ;
-  dcterms:modified "2005-03-09"^^xsd:date ;
   rdfs:label "Town planning"@en ;
   skos:broader agift:civic-management ;
   skos:broaderTransitive agift:civic-infrastructure ;
@@ -13314,7 +13283,6 @@ See also INTERNATIONAL RELATIONS - Overseas aid programs - Development assistanc
 
 See also INTERNATIONAL RELATIONS - Overseas aid programs - Development assistance program: for schemes to foster economic growth in other countries.""" ;
   skos:prefLabel "Trade development programs"@en ;
-  skos:related agift:development-assistance-program ;
   skos:related agift:development-assistance-programs ;
 .
 agift:trade-expositions
@@ -13342,6 +13310,7 @@ See also TOURISM - Tourist event promotion: for managing the publicity of trade 
 .
 agift:trade-measurement-compliance
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Administering national trade measurement compliance and enforcement with trade measurement legislation.
 See also SCIENCE - Applied sciences  - Weights and measures standards: conducting research into methods of ascertaining dimensions, extent, size or amounts. Setting and maintaining standards consistent with international conventions for units, values and industrial measurements.""" ;
   rdfs:label "Trade measurement compliance"@en ;
@@ -13493,6 +13462,7 @@ See also TRANSPORT - Public transport - Transport accessibility: developing stan
 .
 agift:transport-accessibility
   rdf:type skos:Concept ;
+  dcterms:created "2014-05-22"^^xsd:date ;
   dcterms:description """Developing standards and policies to make public transport accessible to people with disabilities.
 See also COMMUNITY SERVICES - Transport access schemes: for programs such as taxi subsidies to make services available to targeted community groups.""" ;
   rdfs:label "Transport accessibility"@en ;
@@ -14043,6 +14013,7 @@ See also TRADE - Trade measurement compliance: administering national trade meas
 .
 agift:whistleblowing
   rdf:type skos:Concept ;
+  dcterms:created "2014-10-08"^^xsd:date ;
   dcterms:description """Disclosure  of illegal, immoral or illegitimate practices under the control of their employer by government employees (former or current ) to persons or organisations that may be able to effect action such as  watchdog  bodies,  the media or the public.
 See also GOVERNANCE - Public administration - Corruption prevention:  preventing, detecting and investigating serious and systemic corruption issues in Australian government agencies.
 See also GOVERNANCE - Public administration - Integrity compliance: encouraging ethical behaviour and compliance with official codes of conduct.
@@ -14297,7 +14268,7 @@ agift:world-heritage-listings
   dcterms:contributor "Simon Cox, CSIRO"^^xsd:string ;
   dcterms:created "2014-11-27"^^xsd:date ;
   dcterms:creator <http://www.synercon.com.au/> ;
-  dcterms:description """The Australian Governments Interactive Functions Thesaurus (AGIFT) is a three-level hierarchical thesaurus that describes the business functions carried out across Commonwealth, state and local governments in Australia. 
+  dcterms:description """The Australian Governments' Interactive Functions Thesaurus (AGIFT) is a three-level hierarchical thesaurus that describes the business functions carried out across Commonwealth, state and local governments in Australia. 
 
 It contains 25 high-level functions, each with second and third level terms, as well as non-preferred terms and related terms. Its main purpose is to describe web-based resources to aid online discovery of government information and services.
 
@@ -14305,21 +14276,21 @@ Terms can be searched by function, alphabetically and via full-text searching.
 
 In the thesaurus you will find:
 
-Function  the broadest unit of business performed by Australian Governments' Interactive Functions Thesaurus
-Level 2  major tasks or areas of service undertaken within each function
-Level 3  topics being addressed within function/activities
+Function - the broadest unit of business performed by Australian Governments' Interactive Functions Thesaurus
+Level 2 - major tasks or areas of service undertaken within each function
+Level 3 - topics being addressed within function/activities
 For each term, the thesaurus shows:
-Scope Notes  notes that provide guidance on the use of a term
-Broader Terms  terms at a higher level
-Narrower Terms  terms at a lower level
-Related Terms  terms at the same level
-Use  approved terms used to identify and save documents
-Non-preferred Term  other terms, not to be used to identify and save documents"""^^xsd:string ;
+Scope Notes - notes that provide guidance on the use of a term
+Broader Terms - terms at a higher level
+Narrower Terms - terms at a lower level
+Related Terms - terms at the same level
+Use - approved terms used to identify and save documents
+Non-preferred Term - other terms, not to be used to identify and save documents"""^^xsd:string ;
   dcterms:license <http://creativecommons.org/licenses/by/3.0/au> ;
   dcterms:publisher <http://naa.gov.au/> ;
-  dcterms:rights """This work is copyright. It may be adapted or reproduced for personal, in-house or non-commercial use without formal permission subject to appropriate citation. The work may not be used for other purposes  apart from any use as permitted under the Copyright Act 1968  without prior written permission from the National Archives of Australia. Requests and inquiries concerning reproduction and rights should be sent to the Agency Service Centre.
+  dcterms:rights """This work is copyright. It may be adapted or reproduced for personal, in-house or non-commercial use without formal permission subject to appropriate citation. The work may not be used for other purposes - apart from any use as permitted under the Copyright Act 1968 - without prior written permission from the National Archives of Australia. Requests and inquiries concerning reproduction and rights should be sent to the Agency Service Centre.
 
-This publication should be cited as: National Archives of Australia, Australian Governments Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
+This publication should be cited as: National Archives of Australia, Australian Governments' Interactive Functions Thesaurus, 3rd Edition, November 2014."""^^xsd:string ;
   dcterms:title "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
   rdfs:comment "Ontology containing a SKOS representation of the Australian Governments' Interactive Functions Thesaurus (AGIFT) - 2014 revision"^^xsd:string ;
   rdfs:label "Australian Governments' Interactive Functions Thesaurus (AGIFT)"^^xsd:string ;
