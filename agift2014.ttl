@@ -5587,16 +5587,22 @@ agift:freedom-of-information
   rdf:type skos:Concept ;
   dcterms:created "2014-05-15"^^xsd:date ;
   dcterms:description """Allowing individuals to see what information government holds about them, and to seek correction of that information if they consider it wrong or misleading. Developing  legislation and programs to enhance the transparency of policy making, administrative decision making and government service delivery. Requiring agencies to publish government information and  providing for a right of access by the public to government documents.
+
 See also GOVERNANCE - Open government:  facilitating citizen collaboration by developing services and programs based on open government principles. 
+
 See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: regulating the creation, capture, management and disposal of government records.
-See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information.""" ;
+
+See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information."""^^xsd:string ;
   rdfs:label "Freedom of information"@en ;
   skos:broader agift:administrative-law ;
   skos:broaderTransitive agift:justice-administration ;
   skos:definition """Allowing individuals to see what information government holds about them, and to seek correction of that information if they consider it wrong or misleading. Developing  legislation and programs to enhance the transparency of policy making, administrative decision making and government service delivery. Requiring agencies to publish government information and  providing for a right of access by the public to government documents.
+
 See also GOVERNANCE - Open government:  facilitating citizen collaboration by developing services and programs based on open government principles. 
+
 See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: regulating the creation, capture, management and disposal of government records.
-See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information.""" ;
+
+See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information."""^^xsd:string ;
   skos:hiddenLabel "FOI" ;
   skos:prefLabel "Freedom of information"@en ;
   skos:related agift:open-government ;
@@ -6470,7 +6476,7 @@ agift:human-rights-obligations
 
 See also IMMIGRATION - Refugee services: for assistance to asylum seekers and victims of human rights violations.
 
-See also JUSTICE ADMINISTRATION - Privacy guideline monitoring: for ensuring individual rights to confidentiality of personal information.""" ;
+See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information."""^^xsd:string ;
   dcterms:modified "2005-03-14"^^xsd:date ;
   rdfs:label "Human rights obligations"@en ;
   skos:broader agift:justice-administration ;
@@ -6478,10 +6484,11 @@ See also JUSTICE ADMINISTRATION - Privacy guideline monitoring: for ensuring ind
 
 See also IMMIGRATION - Refugee services: for assistance to asylum seekers and victims of human rights violations.
 
-See also JUSTICE ADMINISTRATION - Privacy guideline monitoring: for ensuring individual rights to confidentiality of personal information.""" ;
+See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information."""^^xsd:string ;
   skos:hiddenLabel "Civil liberties" ;
   skos:hiddenLabel "Civil rights" ;
   skos:prefLabel "Human rights obligations"@en ;
+  skos:related agift:privacy ;
   skos:related agift:refugee-services ;
 .
 agift:hydrology
@@ -7051,9 +7058,9 @@ See also COMMUNICATIONS - Electronic commerce - Online transaction standards: fo
 
 See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: for regulating the creation, capture, management and disposal of government records.
 
-See also JUSTICE ADMINISTRATION - Privacy guideline monitoring: for ensuring the confidentiality of personal information.
+See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information.
 
-See also SECURITY - Information security: for data security standards.""" ;
+See also SECURITY - Information security: for data security standards."""^^xsd:string ;
   dcterms:modified "2005-03-09"^^xsd:date ;
   rdfs:label "Information management standards"@en ;
   skos:broader agift:communications ;
@@ -7063,9 +7070,9 @@ See also COMMUNICATIONS - Electronic commerce - Online transaction standards: fo
 
 See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: for regulating the creation, capture, management and disposal of government records.
 
-See also JUSTICE ADMINISTRATION - Privacy guideline monitoring: for ensuring the confidentiality of personal information.
+See also JUSTICE ADMINISTRATION - Privacy: for ensuring the confidentiality of records containing personal information.
 
-See also SECURITY - Information security: for data security standards.""" ;
+See also SECURITY - Information security: for data security standards."""^^xsd:string ;
   skos:hiddenLabel "Accessibility standards" ;
   skos:narrower agift:data-management ;
   skos:narrower agift:information-dissemination ;
@@ -7073,6 +7080,7 @@ See also SECURITY - Information security: for data security standards.""" ;
   skos:prefLabel "Information management standards"@en ;
   skos:related agift:information-security ;
   skos:related agift:online-transaction-standards ;
+  skos:related agift:privacy ;
   skos:related agift:recordkeeping-standards ;
 .
 agift:information-security
@@ -10584,7 +10592,7 @@ See also JUSTICE ADMINISTRATION - Administrative law - Recordkeeping standards: 
 
 See also SECURITY - Information security: for policy and technology to control data access.""" ;
   dcterms:modified "2005-03-14"^^xsd:date ;
-  rdfs:label "Privacy "@en ;
+  rdfs:label "Privacy"@en ;
   skos:broader agift:justice-administration ;
   skos:definition """Establishing privacy principles to ensure an individual's rights to the confidentiality of their personal information. Monitoring compliance with legislation and guidelines. Includes investigating breaches of privacy and evaluating new technology for potential risks to individual privacy.
 
