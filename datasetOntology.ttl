@@ -1,11 +1,11 @@
-# baseURI: http://data.gov.au/def/datasetOntology
+# baseURI: http://communications.data.gov.au/def/datasetOntology
 # imports: http://www.w3.org/2006/time
 # imports: http://www.w3.org/ns/dcat
 # imports: http://www.w3.org/ns/prov-o
 # imports: http://xmlns.com/foaf/0.1/
 
 @prefix agls: <http://www.agls.gov.au/agls/terms/> .
-@prefix audata: <http://data.gov.au/def/datasetOntology#> .
+@prefix audata: <http://communications.data.gov.au/def/datasetOntology#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -18,8 +18,10 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://data.gov.au/def/datasetOntology>
+<http://communications.data.gov.au/def/datasetOntology>
   rdf:type owl:Ontology ;
+  dct:created "2015-06-19"^^xsd:date ;
+  dct:replaces <http://data.gov.au/def/government> ;
   rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
 
 The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.

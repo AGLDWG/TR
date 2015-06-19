@@ -1,12 +1,12 @@
 # baseURI: http://governance.data.gov.au/dataset/
-# imports: http://data.gov.au/def/datasetOntology
+# imports: http://communications.data.gov.au/def/datasetOntology
 # imports: http://purl.org/dc/elements/1.1/
 # imports: http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf
 # imports: http://www.opengis.net/ont/geosparql
 
 @prefix : <http://governance.data.gov.au/dataset/> .
 @prefix agls: <http://www.agls.gov.au/agls/terms/> .
-@prefix audata: <http://data.gov.au/def/datasetOntology#> .
+@prefix audata: <http://communications.data.gov.au/def/datasetOntology#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
@@ -19,6 +19,18 @@
 
 <http://agift.naa.gov.au/000055.htm>
   rdf:type owl:NamedIndividual ;
+.
+audata:ACT
+  rdf:type audata:Locality ;
+.
+audata:Australia
+  rdf:type audata:Locality ;
+.
+audata:GovernmentAgency
+  rdfs:label "Government Agency"@en ;
+.
+audata:datasetStatus
+  rdfs:comment "Is this maintained vs not-maintained?"^^xsd:string ;
 .
 <http://creativecommons.org/licenses/by/3.0/>
   rdf:type owl:NamedIndividual ;
@@ -34,18 +46,6 @@
   audata:updateDate "2013-12-10"^^xsd:date ;
   dcat:mediaType <http://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
 .
-audata:ACT
-  rdf:type audata:Locality ;
-.
-audata:Australia
-  rdf:type audata:Locality ;
-.
-audata:GovernmentAgency
-  rdfs:label "Government Agency"@en ;
-.
-audata:datasetStatus
-  rdfs:comment "Is this maintained vs not-maintained?"^^xsd:string ;
-.
 <http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls>
   rdf:type owl:NamedIndividual ;
 .
@@ -54,7 +54,7 @@ audata:datasetStatus
 .
 :
   rdf:type owl:Ontology ;
-  owl:imports <http://data.gov.au/def/datasetOntology> ;
+  owl:imports <http://communications.data.gov.au/def/datasetOntology> ;
   owl:imports <http://purl.org/dc/elements/1.1/> ;
   owl:imports <http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf> ;
   owl:imports <http://www.opengis.net/ont/geosparql> ;
