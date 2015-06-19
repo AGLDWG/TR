@@ -1,3185 +1,1704 @@
-@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
-@prefix v: <http://www.w3.org/2006/vcard/ns#> .
+# baseURI: http://data.gov.au/def/datasetOntology
+# imports: http://www.w3.org/2006/time
+# imports: http://www.w3.org/ns/dcat
+# imports: http://www.w3.org/ns/prov-o
+# imports: http://xmlns.com/foaf/0.1/
+
+@prefix agls: <http://www.agls.gov.au/agls/terms/> .
+@prefix augov: <http://data.gov.au/def/datasetOntology#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix agls: <http://www.agls.gov.au/agls/terms/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix augov: <http://vocab.data.gov.au/def/government#> .
-@base <http://data.gov.au/def/datasetOntology> .
 
-<http://data.gov.au/def/datasetOntology> rdf:type owl:Ontology ;
-                                         
-                                         rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
+<http://data.gov.au/def/datasetOntology>
+  rdf:type owl:Ontology ;
+  rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
 
 The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
  
 By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
  
 Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
-                                         
-                                         owl:imports <http://www.w3.org/2006/time> ,
-                                                     <http://www.w3.org/ns/dcat> ,
-                                                     <http://www.w3.org/ns/prov-o> ,
-                                                     <http://xmlns.com/foaf/0.1/> .
-
-
-#################################################################
-#
-#    Annotation properties
-#
-#################################################################
-
-
-###  http://purl.org/dc/elements/1.1/contributor
-
-dc:contributor rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/coverage
-
-dc:coverage rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/creator
-
-dc:creator rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/format
-
-dc:format rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/identifier
-
-dc:identifier rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/language
-
-dc:language rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/mandate
-
-dc:mandate rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/publisher
-
-dc:publisher rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/relation
-
-dc:relation rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/rights
-
-dc:rights rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/source
-
-dc:source rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/subject
-
-dc:subject rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/elements/1.1/type
-
-dc:type rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/abstract
-
-dct:abstract rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:description ,
-                                dct:description .
-
-
-
-###  http://purl.org/dc/terms/accessRights
-
-dct:accessRights rdf:type owl:AnnotationProperty ;
-                 
-                 rdfs:subPropertyOf dc:rights .
-
-
-
-###  http://purl.org/dc/terms/alternative
-
-dct:alternative rdf:type owl:AnnotationProperty ;
-                
-                rdfs:subPropertyOf dc:title .
-
-
-
-###  http://purl.org/dc/terms/available
-
-dct:available rdf:type owl:AnnotationProperty ;
-              
-              rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/bibliographicCitation
-
-dct:bibliographicCitation rdf:type owl:AnnotationProperty ;
-                          
-                          rdfs:subPropertyOf dc:identifier .
-
-
-
-###  http://purl.org/dc/terms/conformsTo
-
-dct:conformsTo rdf:type owl:AnnotationProperty ;
-               
-               rdfs:subPropertyOf dc:relation ,
-                                  dct:relation .
-
-
-
-###  http://purl.org/dc/terms/contributor
-
-dct:contributor rdf:type owl:AnnotationProperty ;
-                
-                rdfs:subPropertyOf dc:contributor .
-
-
-
-###  http://purl.org/dc/terms/coverage
-
-dct:coverage rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:coverage .
-
-
-
-###  http://purl.org/dc/terms/created
-
-dct:created rdf:type owl:AnnotationProperty ;
-            
-            rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/creator
-
-dct:creator rdf:type owl:AnnotationProperty ;
-            
-            rdfs:subPropertyOf dc:creator .
-
-
-
-###  http://purl.org/dc/terms/date
-
-dct:date rdf:type owl:AnnotationProperty ;
-         
-         rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/dateAccepted
-
-dct:dateAccepted rdf:type owl:AnnotationProperty ;
-                 
-                 rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/dateCopyrighted
-
-dct:dateCopyrighted rdf:type owl:AnnotationProperty ;
-                    
-                    rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/dateSubmitted
-
-dct:dateSubmitted rdf:type owl:AnnotationProperty ;
-                  
-                  rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/description
-
-dct:description rdf:type owl:AnnotationProperty ;
-                
-                rdfs:subPropertyOf dc:description .
-
-
-
-###  http://purl.org/dc/terms/extent
-
-dct:extent rdfs:subPropertyOf dc:format .
-
-
-
-###  http://purl.org/dc/terms/format
-
-dct:format rdf:type owl:AnnotationProperty ;
-           
-           rdfs:subPropertyOf dc:format .
-
-
-
-###  http://purl.org/dc/terms/hasFormat
-
-dct:hasFormat rdf:type owl:AnnotationProperty ;
-              
-              rdfs:subPropertyOf dc:relation ,
-                                 dct:relation .
-
-
-
-###  http://purl.org/dc/terms/hasPart
-
-dct:hasPart rdf:type owl:AnnotationProperty ;
-            
-            rdfs:subPropertyOf dc:relation ,
-                               dct:relation .
-
-
-
-###  http://purl.org/dc/terms/hasVersion
-
-dct:hasVersion rdf:type owl:AnnotationProperty ;
-               
-               rdfs:subPropertyOf dc:relation ,
-                                  dct:relation .
-
-
-
-###  http://purl.org/dc/terms/identifier
-
-dct:identifier rdf:type owl:AnnotationProperty ;
-               
-               rdfs:subPropertyOf dc:identifier .
-
-
-
-###  http://purl.org/dc/terms/isBasedOn
-
-dct:isBasedOn rdf:type owl:AnnotationProperty ;
-              
-              rdfs:subPropertyOf dc:relation ,
-                                 dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isBasisFor
-
-dct:isBasisFor rdf:type owl:AnnotationProperty ;
-               
-               rdfs:subPropertyOf dc:relation ,
-                                  dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isFormatOf
-
-dct:isFormatOf rdf:type owl:AnnotationProperty ;
-               
-               rdfs:subPropertyOf dc:relation ,
-                                  dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isPartOf
-
-dct:isPartOf rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:relation ,
-                                dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isReferencedBy
-
-dct:isReferencedBy rdf:type owl:AnnotationProperty ;
-                   
-                   rdfs:subPropertyOf dc:relation ,
-                                      dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isReplacedBy
-
-dct:isReplacedBy rdf:type owl:AnnotationProperty ;
-                 
-                 rdfs:subPropertyOf dc:relation ,
-                                    dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isRequiredBy
-
-dct:isRequiredBy rdf:type owl:AnnotationProperty ;
-                 
-                 rdfs:subPropertyOf dc:relation ,
-                                    dct:relation .
-
-
-
-###  http://purl.org/dc/terms/isVersionOf
-
-dct:isVersionOf rdf:type owl:AnnotationProperty ;
-                
-                rdfs:subPropertyOf dc:relation ,
-                                   dct:relation .
-
-
-
-###  http://purl.org/dc/terms/issued
-
-dct:issued rdf:type owl:AnnotationProperty ;
-           
-           rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/language
-
-dct:language rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:language .
-
-
-
-###  http://purl.org/dc/terms/license
-
-dct:license rdf:type owl:AnnotationProperty ;
-            
-            rdfs:subPropertyOf dc:rights .
-
-
-
-###  http://purl.org/dc/terms/medium
-
-dct:medium rdf:type owl:AnnotationProperty ;
-           
-           rdfs:subPropertyOf dc:format .
-
-
-
-###  http://purl.org/dc/terms/modified
-
-dct:modified rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:date .
-
-
-
-###  http://purl.org/dc/terms/publisher
-
-dct:publisher rdf:type owl:AnnotationProperty ;
-              
-              rdfs:subPropertyOf dc:publisher .
-
-
-
-###  http://purl.org/dc/terms/references
-
-dct:references rdf:type owl:AnnotationProperty ;
-               
-               rdfs:subPropertyOf dc:relation ,
-                                  dct:relation .
-
-
-
-###  http://purl.org/dc/terms/relation
-
-dct:relation rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:relation .
-
-
-
-###  http://purl.org/dc/terms/replaces
-
-dct:replaces rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:relation ,
-                                dct:relation .
-
-
-
-###  http://purl.org/dc/terms/requires
-
-dct:requires rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:relation ,
-                                dct:relation .
-
-
-
-###  http://purl.org/dc/terms/rights
-
-dct:rights rdf:type owl:AnnotationProperty ;
-           
-           rdfs:subPropertyOf dc:rights .
-
-
-
-###  http://purl.org/dc/terms/source
-
-dct:source rdf:type owl:AnnotationProperty ;
-           
-           rdfs:subPropertyOf dc:source ,
-                              dct:relation .
-
-
-
-###  http://purl.org/dc/terms/spatial
-
-dct:spatial rdf:type owl:AnnotationProperty ;
-            
-            rdfs:subPropertyOf dc:coverage .
-
-
-
-###  http://purl.org/dc/terms/subject
-
-dct:subject rdf:type owl:AnnotationProperty ;
-            
-            rdfs:subPropertyOf dc:subject .
-
-
-
-###  http://purl.org/dc/terms/tableOfContents
-
-dct:tableOfContents rdf:type owl:AnnotationProperty ;
-                    
-                    rdfs:subPropertyOf dc:description ,
-                                       dct:description .
-
-
-
-###  http://purl.org/dc/terms/temporal
-
-dct:temporal rdf:type owl:AnnotationProperty ;
-             
-             rdfs:subPropertyOf dc:coverage .
-
-
-
-###  http://purl.org/dc/terms/title
-
-dct:title rdf:type owl:AnnotationProperty ;
-          
-          rdfs:subPropertyOf dc:title .
-
-
-
-###  http://purl.org/dc/terms/type
-
-dct:type rdf:type owl:AnnotationProperty ;
-         
-         rdfs:subPropertyOf dc:type .
-
-
-
-###  http://purl.org/dc/terms/valid
-
-dct:valid rdf:type owl:AnnotationProperty ;
-          
-          rdfs:subPropertyOf dc:date .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#alt> rdf:type owl:AnnotationProperty ;
-                                              
-                                              rdfs:label "altitude" ;
-                                              
-                                              rdfs:comment """The WGS84 altitude of a SpatialThing (decimal meters 
-above the local reference ellipsoid).""" ;
-                                              
-                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type owl:AnnotationProperty ;
-                                              
-                                              rdfs:label "latitude" ;
-                                              
-                                              rdfs:comment "The WGS84 latitude of a SpatialThing (decimal degrees)." ;
-                                              
-                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#location
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:AnnotationProperty ;
-                                                   
-                                                   rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/based_near> .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#long
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type owl:AnnotationProperty ;
-                                               
-                                               rdfs:label "longitude" ;
-                                               
-                                               rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)." ;
-                                               
-                                               rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#note
-
-<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://xmlns.com/foaf/0.1/based_near
-
-<http://xmlns.com/foaf/0.1/based_near> rdf:type owl:AnnotationProperty .
-
-
-
-
-
-#################################################################
-#
-#    Datatypes
-#
-#################################################################
-
-
-###  http://purl.org/dc/terms/Box
-
-dct:Box rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/ISO3166
-
-dct:ISO3166 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/ISO639-2
-
-dct:ISO639-2 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/ISO639-3
-
-dct:ISO639-3 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/Period
-
-dct:Period rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/Point
-
-dct:Point rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/RFC1766
-
-dct:RFC1766 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/RFC3066
-
-dct:RFC3066 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/RFC4646
-
-dct:RFC4646 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/RFC5646
-
-dct:RFC5646 rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/URI
-
-dct:URI rdf:type rdfs:Datatype .
-
-
-
-###  http://purl.org/dc/terms/W3CDTF
-
-dct:W3CDTF rdf:type rdfs:Datatype .
-
-
-
-###  http://www.w3.org/2001/XMLSchema#date
-
-xsd:date rdf:type rdfs:Datatype .
-
-
-
-
-
-#################################################################
-#
-#    Object Properties
-#
-#################################################################
-
-
-###  http://data.gov.au/def/datasetOntology#accessURL
-
-:accessURL rdf:type owl:ObjectProperty ;
-           
-           rdfs:label "Access URL"@en ;
-           
-           rdfs:range rdfs:Resource ;
-           
-           rdfs:domain <http://www.w3.org/ns/dcat#Distribution> ;
-           
-           owl:equivalentProperty <http://www.w3.org/ns/dcat#accessURL> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#dataset
-
-:dataset rdf:type owl:ObjectProperty ;
-         
-         owl:equivalentProperty <http://www.w3.org/ns/dcat#dataset> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#distribution
-
-:distribution rdf:type owl:ObjectProperty ;
-              
-              rdfs:domain :Dataset ;
-              
-              rdfs:range :Distribution ;
-              
-              owl:equivalentProperty <http://www.w3.org/ns/dcat#distribution> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#download_URL
-
-:download_URL rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "Download URL"@en ;
-              
-              owl:equivalentProperty <http://www.w3.org/ns/dcat#downloadURL> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#format
-
-:format rdf:type owl:ObjectProperty ;
-        
-        rdfs:label "Format"@en ;
-        
-        rdfs:domain :Distribution ;
-        
-        rdfs:range dct:MediaTypeOrExtent ;
-        
-        rdfs:subPropertyOf dct:format ;
-        
-        owl:equivalentProperty dct:format .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_contact
-
-:has_contact rdf:type owl:ObjectProperty ;
-             
-             rdfs:range v:Kind .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_extent
-
-:has_extent rdf:type owl:ObjectProperty ;
-            
-            rdfs:domain :Dataset .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_function
-
-:has_function rdf:type owl:ObjectProperty ;
-              
-              rdfs:domain :Dataset ;
-              
-              rdfs:range :Function .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_geometry
-
-:has_geometry rdf:type owl:ObjectProperty ;
-              
-              rdfs:range :Geometry ;
-              
-              rdfs:domain :Locality .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_jurisdiction
-
-:has_jurisdiction rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:range :Jurisdiction ;
-                  
-                  rdfs:domain :Organisation .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_member
-
-:has_member rdf:type owl:ObjectProperty ;
-            
-            rdfs:domain :Organisation ;
-            
-            owl:inverseOf :is_member_of ;
-            
-            rdfs:range dct:Agent .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_spatial_extent
-
-:has_spatial_extent rdf:type owl:ObjectProperty ;
-                    
-                    rdfs:domain :Dataset ;
-                    
-                    rdfs:range :SpatialThing ;
-                    
-                    rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://data.gov.au/def/datasetOntology#has_temporal_extent
-
-:has_temporal_extent rdf:type owl:ObjectProperty ;
-                     
-                     rdfs:domain :Dataset ;
-                     
-                     rdfs:range :Timelnterval .
-
-
-
-###  http://data.gov.au/def/datasetOntology#isDescribedBy
-
-:isDescribedBy rdf:type owl:ObjectProperty ;
-               
-               rdfs:domain :Dataset ;
-               
-               rdfs:range owl:Thing ;
-               
-               rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#is_associate_with
-
-:is_associate_with rdf:type owl:ObjectProperty ;
-                   
-                   rdfs:domain :DatasetChangeEvent ;
-                   
-                   rdfs:range :Role ;
-                   
-                   owl:inverseOf :participates_in .
-
-
-
-###  http://data.gov.au/def/datasetOntology#is_changed_by
-
-:is_changed_by rdf:type owl:ObjectProperty ;
-               
-               rdfs:domain :Dataset ;
-               
-               rdfs:range :DatasetChangeEvent ;
-               
-               owl:inverseOf :resulted_in .
-
-
-
-###  http://data.gov.au/def/datasetOntology#is_member_of
-
-:is_member_of rdf:type owl:ObjectProperty .
-
-
-
-###  http://data.gov.au/def/datasetOntology#landingPage
-
-:landingPage rdf:type owl:ObjectProperty ;
-             
-             rdfs:label "Landing Page"@en ;
-             
-             rdfs:domain :Dataset ;
-             
-             owl:equivalentProperty <http://www.w3.org/ns/dcat#landingPage> ;
-             
-             rdfs:range <http://xmlns.com/foaf/0.1/Document> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#license
-
-:license rdf:type owl:ObjectProperty ;
-         
-         rdfs:label "License"@en ;
-         
-         owl:equivalentProperty dct:license .
-
-
-
-###  http://data.gov.au/def/datasetOntology#participates_in
-
-:participates_in rdf:type owl:ObjectProperty ;
-                 
-                 rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://data.gov.au/def/datasetOntology#plays_role
-
-:plays_role rdf:type owl:ObjectProperty ;
-            
-            rdfs:range :Role .
-
-
-
-###  http://data.gov.au/def/datasetOntology#publisher
-
-:publisher rdf:type owl:ObjectProperty ;
-           
-           rdfs:subPropertyOf dct:publisher .
-
-
-
-###  http://data.gov.au/def/datasetOntology#resulted_in
-
-:resulted_in rdf:type owl:ObjectProperty .
-
-
-
-###  http://data.gov.au/def/datasetOntology#role_of
-
-:role_of rdf:type owl:ObjectProperty ;
-         
-         owl:inverseOf :plays_role .
-
-
-
-###  http://data.gov.au/def/datasetOntology#theme
-
-:theme rdf:type owl:ObjectProperty ;
-       
-       rdfs:domain :Dataset ;
-       
-       rdfs:subPropertyOf dct:subject ,
-                          owl:topObjectProperty ;
-       
-       rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#update_frequency
-
-:update_frequency rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "Update Frequency"@en ;
-                  
-                  owl:equivalentProperty dct:accrualPeriodicity .
-
-
-
-###  http://purl.org/dc/terms/accessRights
-
-dct:accessRights rdf:type owl:ObjectProperty ;
-                 
-                 rdfs:range dct:RightsStatement ;
-                 
-                 rdfs:subPropertyOf dct:rights .
-
-
-
-###  http://purl.org/dc/terms/accrualMethod
-
-dct:accrualMethod rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
-                  
-                  rdfs:range dct:MethodOfAccrual .
-
-
-
-###  http://purl.org/dc/terms/accrualPeriodicity
-
-dct:accrualPeriodicity rdf:type owl:ObjectProperty ;
-                       
-                       rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
-                       
-                       rdfs:range dct:Frequency .
-
-
-
-###  http://purl.org/dc/terms/accrualPolicy
-
-dct:accrualPolicy rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
-                  
-                  rdfs:range dct:Policy .
-
-
-
-###  http://purl.org/dc/terms/audience
-
-dct:audience rdf:type owl:ObjectProperty ;
-             
-             rdfs:range dct:AgentClass .
-
-
-
-###  http://purl.org/dc/terms/conformsTo
-
-dct:conformsTo rdf:type owl:ObjectProperty ;
-               
-               rdfs:range dct:Standard .
-
-
-
-###  http://purl.org/dc/terms/contributor
-
-dct:contributor rdf:type owl:ObjectProperty ;
-                
-                rdfs:range dct:Agent .
-
-
-
-###  http://purl.org/dc/terms/coverage
-
-dct:coverage rdf:type owl:ObjectProperty ;
-             
-             rdfs:range dct:LocationPeriodOrJurisdiction .
-
-
-
-###  http://purl.org/dc/terms/creator
-
-dct:creator rdf:type owl:ObjectProperty ;
-            
-            rdfs:range dct:Agent ;
-            
-            rdfs:subPropertyOf dct:contributor .
-
-
-
-###  http://purl.org/dc/terms/educationLevel
-
-dct:educationLevel rdf:type owl:ObjectProperty ;
-                   
-                   rdfs:range dct:AgentClass ;
-                   
-                   rdfs:subPropertyOf dct:audience .
-
-
-
-###  http://purl.org/dc/terms/extent
-
-dct:extent rdf:type owl:ObjectProperty ;
-           
-           rdfs:range dct:SizeOrDuration ;
-           
-           rdfs:subPropertyOf dct:format .
-
-
-
-###  http://purl.org/dc/terms/format
-
-dct:format rdfs:range dct:MediaTypeOrExtent .
-
-
-
-###  http://purl.org/dc/terms/instructionalMethod
-
-dct:instructionalMethod rdf:type owl:ObjectProperty ;
-                        
-                        rdfs:range dct:MethodOfInstruction .
-
-
-
-###  http://purl.org/dc/terms/language
-
-dct:language rdf:type owl:ObjectProperty ;
-             
-             rdfs:range dct:LinguisticSystem .
-
-
-
-###  http://purl.org/dc/terms/license
-
-dct:license rdf:type owl:ObjectProperty ;
-            
-            rdfs:range dct:LicenseDocument ;
-            
-            rdfs:subPropertyOf dct:rights .
-
-
-
-###  http://purl.org/dc/terms/mediator
-
-dct:mediator rdf:type owl:ObjectProperty ;
-             
-             rdfs:range dct:AgentClass ;
-             
-             rdfs:subPropertyOf dct:audience .
-
-
-
-###  http://purl.org/dc/terms/medium
-
-dct:medium rdf:type owl:ObjectProperty ;
-           
-           rdfs:range dct:PhysicalMedium ;
-           
-           rdfs:domain dct:PhysicalResource ;
-           
-           rdfs:subPropertyOf dct:format .
-
-
-
-###  http://purl.org/dc/terms/provenance
-
-dct:provenance rdf:type owl:ObjectProperty ;
-               
-               rdfs:range dct:ProvenanceStatement .
-
-
-
-###  http://purl.org/dc/terms/publisher
-
-dct:publisher rdf:type owl:ObjectProperty ;
-              
-              rdfs:range dct:Agent .
-
-
-
-###  http://purl.org/dc/terms/rights
-
-dct:rights rdf:type owl:ObjectProperty ;
-           
-           rdfs:range dct:RightsStatement .
-
-
-
-###  http://purl.org/dc/terms/rightsHolder
-
-dct:rightsHolder rdf:type owl:ObjectProperty ;
-                 
-                 rdfs:range dct:Agent .
-
-
-
-###  http://purl.org/dc/terms/spatial
-
-dct:spatial rdf:type owl:ObjectProperty ;
-            
-            rdfs:range dct:Location ;
-            
-            rdfs:subPropertyOf dct:coverage .
-
-
-
-###  http://purl.org/dc/terms/temporal
-
-dct:temporal rdf:type owl:ObjectProperty ;
-             
-             rdfs:range dct:PeriodOfTime ;
-             
-             rdfs:subPropertyOf dct:coverage .
-
-
-
-###  http://purl.org/dc/terms/type
-
-dct:type rdf:type owl:ObjectProperty ;
-         
-         rdfs:range rdfs:Class .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#location
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:ObjectProperty ;
-                                                   
-                                                   rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-
-
-
-###  http://www.w3.org/ns/dcat#accessURL
-
-
-
-
-###  http://www.w3.org/ns/dcat#dataset
-
-
-
-
-###  http://www.w3.org/ns/dcat#distribution
-
-
-
-
-###  http://www.w3.org/ns/dcat#downloadURL
-
-
-
-
-###  http://www.w3.org/ns/dcat#landingPage
-
-
-
-
-
-
-#################################################################
-#
-#    Data properties
-#
-#################################################################
-
-
-###  http://data.gov.au/def/datasetOntology#datasetStatus
-
-:datasetStatus rdf:type owl:DatatypeProperty ;
-               
-               rdfs:label "Dataset Status"@en ;
-               
-               rdfs:domain :Dataset ;
-               
-               rdfs:range xsd:boolean .
-
-
-
-###  http://data.gov.au/def/datasetOntology#fileSize
-
-:fileSize rdf:type owl:DatatypeProperty ;
-          
-          rdfs:label "File Size"@en ;
-          
-          owl:equivalentProperty <http://www.w3.org/ns/dcat#byteSize> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#keyword
-
-:keyword rdf:type owl:DatatypeProperty ;
-         
-         rdfs:label "Keyword"@en ;
-         
-         owl:equivalentProperty <http://www.w3.org/ns/dcat#keyword> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#publishDate
-
-:publishDate rdf:type owl:DatatypeProperty ;
-             
-             rdfs:label "Publish Date"@en ;
-             
-             rdfs:subPropertyOf dct:dateAccepted ;
-             
-             owl:equivalentProperty dct:issued .
-
-
-
-###  http://data.gov.au/def/datasetOntology#purpose
-
-:purpose rdf:type owl:DatatypeProperty ;
-         
-         rdfs:domain :Dataset ;
-         
-         rdfs:range rdfs:Literal .
-
-
-
-###  http://data.gov.au/def/datasetOntology#title
-
-:title rdf:type owl:DatatypeProperty ;
-       
-       rdfs:label "Title"@en ;
-       
-       owl:equivalentProperty dct:title ;
-       
-       rdfs:subPropertyOf dct:title .
-
-
-
-###  http://data.gov.au/def/datasetOntology#updateDate
-
-:updateDate rdf:type owl:DatatypeProperty ;
-            
-            rdfs:label "Update Date"@en ;
-            
-            rdfs:subPropertyOf dct:modified ;
-            
-            owl:equivalentProperty dct:modified .
-
-
-
-###  http://purl.org/dc/terms/alternative
-
-dct:alternative rdf:type owl:DatatypeProperty ;
-                
-                rdfs:subPropertyOf dct:title ;
-                
-                rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/available
-
-dct:available rdf:type owl:DatatypeProperty ;
-              
-              rdfs:subPropertyOf dct:date ;
-              
-              rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/bibliographicCitation
-
-dct:bibliographicCitation rdf:type owl:DatatypeProperty ;
-                          
-                          rdfs:domain dct:BibliographicResource ;
-                          
-                          rdfs:subPropertyOf dct:identifier ;
-                          
-                          rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/created
-
-dct:created rdf:type owl:DatatypeProperty ;
-            
-            rdfs:subPropertyOf dct:date ;
-            
-            rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/date
-
-dct:date rdf:type owl:DatatypeProperty ;
-         
-         rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/dateAccepted
-
-dct:dateAccepted rdf:type owl:DatatypeProperty ;
-                 
-                 rdfs:subPropertyOf dct:date ;
-                 
-                 rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/dateCopyrighted
-
-dct:dateCopyrighted rdf:type owl:DatatypeProperty ;
-                    
-                    rdfs:subPropertyOf dct:date ;
-                    
-                    rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/dateSubmitted
-
-dct:dateSubmitted rdf:type owl:DatatypeProperty ;
-                  
-                  rdfs:subPropertyOf dct:date ;
-                  
-                  rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/identifier
-
-dct:identifier rdf:type owl:DatatypeProperty ;
-               
-               rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/issued
-
-dct:issued rdf:type owl:DatatypeProperty ;
-           
-           rdfs:subPropertyOf dct:date ;
-           
-           rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/modified
-
-dct:modified rdf:type owl:DatatypeProperty ;
-             
-             rdfs:subPropertyOf dct:date ;
-             
-             rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/title
-
-dct:title rdf:type owl:DatatypeProperty ;
-          
-          rdfs:range rdfs:Literal .
-
-
-
-###  http://purl.org/dc/terms/valid
-
-dct:valid rdf:type owl:DatatypeProperty ;
-          
-          rdfs:subPropertyOf dct:date ;
-          
-          rdfs:range rdfs:Literal .
-
-
-
-###  http://www.w3.org/ns/dcat#byteSize
-
-
-
-
-###  http://www.w3.org/ns/dcat#keyword
-
-
-
-
-
-
-#################################################################
-#
-#    Classes
-#
-#################################################################
-
-
-###  http://data.gov.au/def/datasetOntology#Catalog
-
-:Catalog rdf:type owl:Class ;
-         
-         rdfs:label "Catalog"@en ;
-         
-         owl:equivalentClass <http://www.w3.org/ns/dcat#Catalog> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Commonwealth
-
-:Commonwealth rdf:type owl:Class ;
-              
-              rdfs:label "Commonwealth of Australia"@en ;
-              
-              owl:equivalentClass :Federal ;
-              
-              rdfs:subClassOf :LevelOfGovernment ;
-              
-              rdfs:comment "The Commonwealth of Australia is a country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Concept
-
-:Concept rdf:type owl:Class ;
-         
-         owl:equivalentClass <http://www.w3.org/2004/02/skos/core#Concept> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Contributor
-
-:Contributor rdf:type owl:Class ;
-             
-             rdfs:subClassOf :Role ;
-             
-             rdfs:comment "A Contributor is the Role of contributing in one form or another as an Agent to a Dataset."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Custodian
-
-:Custodian rdf:type owl:Class ;
-           
-           rdfs:subClassOf :Role ;
-           
-           rdfs:comment "A Custodian is the Role of being the responsible Agent that looks after a Dataset."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Dataset
-
-:Dataset rdf:type owl:Class ;
-         
-         rdfs:label "Dataset"@en ;
-         
-         owl:equivalentClass <http://www.w3.org/ns/dcat#Dataset> ;
-         
-         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                           owl:onProperty :title ;
-                           owl:someValuesFrom rdfs:Literal
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :publishDate ;
-                           owl:someValuesFrom rdfs:Literal
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty dct:license ;
-                           owl:someValuesFrom dct:LicenseDocument
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :updateDate ;
-                           owl:someValuesFrom rdfs:Literal
-                         ] ;
-         
-         rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#DatasetChangeEvent
-
-:DatasetChangeEvent rdf:type owl:Class ;
-                    
-                    rdfs:label "Dataset Change Event"@en ;
-                    
-                    rdfs:subClassOf prov:InstantaneousEvent ;
-                    
-                    rdfs:comment "A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#DatasetPublishingEvent
-
-:DatasetPublishingEvent rdf:type owl:Class ;
-                        
-                        rdfs:label "Dataset Publishing Event"@en ;
-                        
-                        rdfs:subClassOf :DatasetChangeEvent ;
-                        
-                        rdfs:comment "A Dataset Publishing Event is a description of an event that happens at a given point in time and that results in the publishing of a Dataset on data.gov.au."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Distribution
-
-:Distribution rdf:type owl:Class ;
-              
-              rdfs:label "Distribution"@en ;
-              
-              owl:equivalentClass <http://www.w3.org/ns/dcat#Distribution> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Document
-
-:Document rdf:type owl:Class ;
-          
-          rdfs:label "Document"@en ;
-          
-          owl:equivalentClass <http://xmlns.com/foaf/0.1/Document> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Federal
-
-:Federal rdf:type owl:Class ;
-         
-         rdfs:subClassOf :LevelOfGovernment .
-
-
-
-###  http://data.gov.au/def/datasetOntology#FieldOfResearch
-
-:FieldOfResearch rdf:type owl:Class ;
-                 
-                 rdfs:label "Field of Research"@en ;
-                 
-                 rdfs:subClassOf :Concept ;
-                 
-                 rdfs:comment "The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Function
-
-:Function rdf:type owl:Class ;
-          
-          rdfs:label "Function"@en ;
-          
-          rdfs:comment "The Government Function defined by the Australian Governments' Interactive Functions Thesaurus that best describes the data contained within a Dataset."@en ;
-          
-          rdfs:seeAlso <http://agift.naa.gov.au/> ;
-          
-          dc:source agls:FunctionClass .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Geometry
-
-:Geometry rdf:type owl:Class ;
-          
-          rdfs:subClassOf :SpatialThing .
-
-
-
-###  http://data.gov.au/def/datasetOntology#GovernmentAgency
-
-:GovernmentAgency rdf:type owl:Class ;
-                  
-                  rdfs:label "Government Agency"@en ;
-                  
-                  rdfs:subClassOf :Organisation ;
-                  
-                  rdfs:comment "A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions."@en ;
-                  
-                  rdfs:seeAlso "http://recordsearch.naa.gov.au/manual/Provenance/AgencyDefinition.htm#DEFINITION"@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Jurisdiction
-
-:Jurisdiction rdf:type owl:Class ;
-              
-              rdfs:label "Jurisdiction"@en ;
-              
-              rdfs:comment "A Jurisdiction is a legally defined conceptual or geographical boundary into which an Agent falls."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#LevelOfGovernment
-
-:LevelOfGovernment rdf:type owl:Class ;
-                   
-                   rdfs:label "Level of Government"@en ;
-                   
-                   rdfs:comment "Level of Government is a description that is used to describe the Jurisidiction of an Organisation."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Local
-
-:Local rdf:type owl:Class ;
-       
-       rdfs:subClassOf :LevelOfGovernment .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Locality
-
-:Locality rdf:type owl:Class ;
-          
-          rdfs:subClassOf :SpatialThing .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Organisation
-
-:Organisation rdf:type owl:Class ;
-              
-              rdfs:label "Organisation"@en ;
-              
-              rdfs:subClassOf dct:Agent ;
-              
-              rdfs:comment "An Organisation is a kind of Agent representing, for example, a business or government, or organisational subunits thereof."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Point
-
-:Point rdf:type owl:Class ;
-       
-       rdfs:label "Point"@en ;
-       
-       owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
-       
-       rdfs:subClassOf :Geometry ;
-       
-       rdfs:comment "A Point is a point in space using its geographic coordinates."@en ,
-                    "WGS84_pos ontology provides a method for encoding position"@en ;
-       
-       rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Polygon
-
-:Polygon rdf:type owl:Class ;
-         
-         rdfs:label "Polygon"@en ;
-         
-         rdfs:subClassOf :Geometry .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Publisher
-
-:Publisher rdf:type owl:Class ;
-           
-           rdfs:label "Publisher"@en ;
-           
-           rdfs:subClassOf :Role ;
-           
-           rdfs:comment "A Publisher is the Role of an Agent that makes the Dataset available."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Role
-
-:Role rdf:type owl:Class ;
-      
-      rdfs:label "Role"@en ;
-      
-      rdfs:subClassOf prov:Role ;
-      
-      rdfs:comment "A Role corresponds to the involvement of an agent in an Event, e.g. fulfilling a Publisher, Contributor or Custodian Role."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#SpatialGazetteer
-
-:SpatialGazetteer rdf:type owl:Class ;
-                  
-                  rdfs:label "Spatial Gazetteer"@en ;
-                  
-                  rdfs:subClassOf :Locality .
-
-
-
-###  http://data.gov.au/def/datasetOntology#SpatialThing
-
-:SpatialThing rdf:type owl:Class ;
-              
-              rdfs:label "Spatial Thing"@en ;
-              
-              owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
-              
-              rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#StateAndTerritories
-
-:StateAndTerritories rdf:type owl:Class ;
-                     
-                     rdfs:label "State and Territories Government"@en ;
-                     
-                     rdfs:subClassOf :LevelOfGovernment ;
-                     
-                     rdfs:comment "States and Territories Government are the second tier of Government in the Commonwealth of Australia. The Commonwealth of Australia comprises of six states and various territories some of which enjoy a large degree of self-governance."@en .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Timelnterval
-
-:Timelnterval rdf:type owl:Class ;
-              
-              rdfs:label "Time Interval"@en ;
-              
-              rdfs:subClassOf <http://www.w3.org/2006/time#Interval> ;
-              
-              rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en .
-
-
-
-###  http://purl.org/dc/dcam/VocabularyEncodingScheme
-
-<http://purl.org/dc/dcam/VocabularyEncodingScheme> rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/dcmitype/Collection
-
-<http://purl.org/dc/dcmitype/Collection> rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/Agent
-
-dct:Agent rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/AgentClass
-
-dct:AgentClass rdf:type owl:Class ;
-               
-               rdfs:subClassOf rdfs:Class .
-
-
-
-###  http://purl.org/dc/terms/BibliographicResource
-
-dct:BibliographicResource rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/FileFormat
-
-dct:FileFormat rdf:type owl:Class ;
-               
-               rdfs:subClassOf dct:MediaType .
-
-
-
-###  http://purl.org/dc/terms/Frequency
-
-dct:Frequency rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/Jurisdiction
-
-dct:Jurisdiction rdf:type owl:Class ;
-                 
-                 rdfs:subClassOf dct:LocationPeriodOrJurisdiction .
-
-
-
-###  http://purl.org/dc/terms/LicenseDocument
-
-dct:LicenseDocument rdf:type owl:Class ;
-                    
-                    rdfs:subClassOf dct:RightsStatement .
-
-
-
-###  http://purl.org/dc/terms/LinguisticSystem
-
-dct:LinguisticSystem rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/Location
-
-dct:Location rdf:type owl:Class ;
-             
-             rdfs:subClassOf dct:LocationPeriodOrJurisdiction .
-
-
-
-###  http://purl.org/dc/terms/LocationPeriodOrJurisdiction
-
-dct:LocationPeriodOrJurisdiction rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/MediaType
-
-dct:MediaType rdf:type owl:Class ;
-              
-              rdfs:subClassOf dct:MediaTypeOrExtent .
-
-
-
-###  http://purl.org/dc/terms/MediaTypeOrExtent
-
-dct:MediaTypeOrExtent rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/MethodOfAccrual
-
-dct:MethodOfAccrual rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/MethodOfInstruction
-
-dct:MethodOfInstruction rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/PeriodOfTime
-
-dct:PeriodOfTime rdf:type owl:Class ;
-                 
-                 rdfs:subClassOf dct:LocationPeriodOrJurisdiction .
-
-
-
-###  http://purl.org/dc/terms/PhysicalMedium
-
-dct:PhysicalMedium rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf dct:MediaType .
-
-
-
-###  http://purl.org/dc/terms/PhysicalResource
-
-dct:PhysicalResource rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/Policy
-
-dct:Policy rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/ProvenanceStatement
-
-dct:ProvenanceStatement rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/RightsStatement
-
-dct:RightsStatement rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/SizeOrDuration
-
-dct:SizeOrDuration rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf dct:MediaTypeOrExtent .
-
-
-
-###  http://purl.org/dc/terms/Standard
-
-dct:Standard rdf:type owl:Class .
-
-
-
-###  http://purl.org/dc/terms/SubjectScheme
-
-dct:SubjectScheme rdf:type owl:Class .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#Point
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#Point> rdf:type owl:Class ;
-                                                
-                                                rdfs:label "point" ;
-                                                
-                                                rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
-                                                
-                                                rdfs:comment """ 
-Uniquely identified by lat/long/alt. i.e.
-
-spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
-  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
-
-sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
-  """ ,
-                                                             """A point, typically described using a coordinate system relative to Earth, such as WGS84.
-  """ .
-
-
-
-###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdf:type owl:Class ;
-                                                       
-                                                       rdfs:label "SpatialThing" ;
-                                                       
-                                                       rdfs:comment """Anything with spatial extent, i.e. size, shape, or position.
- e.g. people, places, bowling balls, as well as abstract areas like cubes.
-""" .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#Concept
-
-
-
-
-###  http://www.w3.org/ns/dcat#Catalog
-
-
-
-
-###  http://www.w3.org/ns/dcat#Dataset
-
-
-
-
-###  http://www.w3.org/ns/dcat#Distribution
-
-
-
-
-###  http://xmlns.com/foaf/0.1/Document
-
-
-
-
-
-
-#################################################################
-#
-#    Individuals
-#
-#################################################################
-
-
-###  http://data.gov.au/def/datasetOntology#AGIFT
-
-:AGIFT rdf:type :Function ,
-                owl:NamedIndividual ;
-       
-       rdfs:comment "A set of Government function types specified by the National Archives of Australia."@en ;
-       
-       rdfs:seeAlso <http://www.naa.gov.au/agift/> .
-
-
-
-###  http://data.gov.au/def/datasetOntology#As_required
-
-:As_required rdf:type dct:Frequency ,
-                      owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#CommonwealthOfAustralia
-
-:CommonwealthOfAustralia rdf:type owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Daily
-
-:Daily rdf:type dct:Frequency ,
-                owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Federal
-
-:Federal rdf:type owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Local
-
-:Local rdf:type owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Monthly
-
-:Monthly rdf:type dct:Frequency ,
-                  owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#None
-
-:None rdf:type owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Quarterly
-
-:Quarterly rdf:type dct:Frequency ,
-                    owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#State
-
-:State rdf:type owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Weekly
-
-:Weekly rdf:type dct:Frequency ,
-                 owl:NamedIndividual .
-
-
-
-###  http://data.gov.au/def/datasetOntology#Yearly
-
-:Yearly rdf:type dct:Frequency ,
-                 owl:NamedIndividual .
-
-
-
-###  http://purl.org/dc/aboutdcmi#DCMI
-
-<http://purl.org/dc/aboutdcmi#DCMI> rdf:type owl:NamedIndividual .
-
-
-
-###  http://purl.org/dc/terms/
-
-dct: rdf:type owl:NamedIndividual ;
-     
-     dct:modified "2012-06-14"^^xsd:date ;
-     
-     dct:title "DCMI Metadata Terms - other"@en ;
-     
-     dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> .
-
-
-
-###  http://purl.org/dc/terms/Agent
-
-dct:Agent rdf:type dct:AgentClass ,
-                   owl:NamedIndividual ;
-          
-          dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/AgentClass
-
-dct:AgentClass rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2008-01-14"^^xsd:date ;
-               
-               dct:modified "2012-06-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/BibliographicResource
-
-dct:BibliographicResource rdf:type owl:NamedIndividual ;
-                          
-                          dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Box
-
-dct:Box rdf:type owl:NamedIndividual ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/DCMIType
-
-dct:DCMIType rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                      owl:NamedIndividual ;
-             
-             rdfs:label "DCMI Type Vocabulary"@en ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2012-06-14"^^xsd:date ;
-             
-             rdfs:comment "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#DCMIType-005> ;
-             
-             rdfs:seeAlso <http://purl.org/dc/dcmitype/> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/DDC
-
-dct:DDC rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                 owl:NamedIndividual ;
-        
-        rdfs:label "DDC"@en ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date ;
-        
-        rdfs:comment "The set of conceptual resources specified by the Dewey Decimal Classification."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#DDC-003> ;
-        
-        rdfs:isDefinedBy dct: ;
-        
-        rdfs:seeAlso <http://www.oclc.org/dewey/> .
-
-
-
-###  http://purl.org/dc/terms/FileFormat
-
-dct:FileFormat rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Frequency
-
-dct:Frequency rdf:type owl:NamedIndividual ;
-              
-              dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/IMT
-
-dct:IMT rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                 owl:NamedIndividual ;
-        
-        rdfs:label "IMT"@en ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date ;
-        
-        rdfs:comment "The set of media types specified by the Internet Assigned Numbers Authority."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#IMT-004> ;
-        
-        rdfs:isDefinedBy dct: ;
-        
-        rdfs:seeAlso <http://www.iana.org/assignments/media-types/> .
-
-
-
-###  http://purl.org/dc/terms/ISO3166
-
-dct:ISO3166 rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/ISO639-2
-
-dct:ISO639-2 rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/ISO639-3
-
-dct:ISO639-3 rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Jurisdiction
-
-dct:Jurisdiction rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/LCC
-
-dct:LCC rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                 owl:NamedIndividual ;
-        
-        rdfs:label "LCC"@en ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date ;
-        
-        rdfs:comment "The set of conceptual resources specified by the Library of Congress Classification."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#LCC-003> ;
-        
-        rdfs:seeAlso <http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html> ;
-        
-        rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/LCSH
-
-dct:LCSH rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                  owl:NamedIndividual ;
-         
-         rdfs:label "LCSH"@en ;
-         
-         dct:issued "2000-07-11"^^xsd:date ;
-         
-         dct:modified "2008-01-14"^^xsd:date ;
-         
-         rdfs:comment "The set of labeled concepts specified by the Library of Congress Subject Headings."@en ;
-         
-         dct:hasVersion <http://dublincore.org/usage/terms/history/#LCSH-003> ;
-         
-         rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/LicenseDocument
-
-dct:LicenseDocument rdf:type owl:NamedIndividual ;
-                    
-                    dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/LinguisticSystem
-
-dct:LinguisticSystem rdf:type owl:NamedIndividual ;
-                     
-                     dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Location
-
-dct:Location rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/LocationPeriodOrJurisdiction
-
-dct:LocationPeriodOrJurisdiction rdf:type owl:NamedIndividual ;
-                                 
-                                 dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/MESH
-
-dct:MESH rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                  owl:NamedIndividual ;
-         
-         rdfs:label "MeSH"@en ;
-         
-         dct:issued "2000-07-11"^^xsd:date ;
-         
-         dct:modified "2008-01-14"^^xsd:date ;
-         
-         rdfs:comment "The set of labeled concepts specified by the Medical Subject Headings."@en ;
-         
-         dct:hasVersion <http://dublincore.org/usage/terms/history/#MESH-003> ;
-         
-         rdfs:isDefinedBy dct: ;
-         
-         rdfs:seeAlso <http://www.nlm.nih.gov/mesh/meshhome.html> .
-
-
-
-###  http://purl.org/dc/terms/MediaType
-
-dct:MediaType rdf:type owl:NamedIndividual ;
-              
-              dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/MediaTypeOrExtent
-
-dct:MediaTypeOrExtent rdf:type owl:NamedIndividual ;
-                      
-                      dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/MethodOfAccrual
-
-dct:MethodOfAccrual rdf:type owl:NamedIndividual ;
-                    
-                    dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/MethodOfInstruction
-
-dct:MethodOfInstruction rdf:type owl:NamedIndividual ;
-                        
-                        dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/NLM
-
-dct:NLM rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                 owl:NamedIndividual ;
-        
-        rdfs:label "NLM"@en ;
-        
-        dct:issued "2005-06-13"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date ;
-        
-        rdfs:comment "The set of conceptual resources specified by the National Library of Medicine Classification."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#NLM-002> ;
-        
-        rdfs:isDefinedBy dct: ;
-        
-        rdfs:seeAlso <http://wwwcf.nlm.nih.gov/class/> .
-
-
-
-###  http://purl.org/dc/terms/Period
-
-dct:Period rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/PeriodOfTime
-
-dct:PeriodOfTime rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/PhysicalMedium
-
-dct:PhysicalMedium rdf:type owl:NamedIndividual ;
-                   
-                   dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/PhysicalResource
-
-dct:PhysicalResource rdf:type owl:NamedIndividual ;
-                     
-                     dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Point
-
-dct:Point rdf:type owl:NamedIndividual ;
-          
-          dct:issued "2000-07-11"^^xsd:date ;
-          
-          dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Policy
-
-dct:Policy rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/ProvenanceStatement
-
-dct:ProvenanceStatement rdf:type owl:NamedIndividual ;
-                        
-                        dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/RFC1766
-
-dct:RFC1766 rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/RFC3066
-
-dct:RFC3066 rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2002-07-13"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/RFC4646
-
-dct:RFC4646 rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/RFC5646
-
-dct:RFC5646 rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/RightsStatement
-
-dct:RightsStatement rdf:type owl:NamedIndividual ;
-                    
-                    dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/SizeOrDuration
-
-dct:SizeOrDuration rdf:type owl:NamedIndividual ;
-                   
-                   dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/Standard
-
-dct:Standard rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/TGN
-
-dct:TGN rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                 owl:NamedIndividual ;
-        
-        rdfs:label "TGN"@en ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date ;
-        
-        rdfs:comment "The set of places specified by the Getty Thesaurus of Geographic Names."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#TGN-003> ;
-        
-        rdfs:isDefinedBy dct: ;
-        
-        rdfs:seeAlso <http://www.getty.edu/research/tools/vocabulary/tgn/index.html> .
-
-
-
-###  http://purl.org/dc/terms/UDC
-
-dct:UDC rdf:type <http://purl.org/dc/dcam/VocabularyEncodingScheme> ,
-                 owl:NamedIndividual ;
-        
-        rdfs:label "UDC"@en ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date ;
-        
-        rdfs:comment "The set of conceptual resources specified by the Universal Decimal Classification."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#UDC-003> ;
-        
-        rdfs:isDefinedBy dct: ;
-        
-        rdfs:seeAlso <http://www.udcc.org/> .
-
-
-
-###  http://purl.org/dc/terms/URI
-
-dct:URI rdf:type owl:NamedIndividual ;
-        
-        dct:issued "2000-07-11"^^xsd:date ;
-        
-        dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/W3CDTF
-
-dct:W3CDTF rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/abstract
-
-dct:abstract rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/accessRights
-
-dct:accessRights rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2003-02-15"^^xsd:date ;
-                 
-                 dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/accrualMethod
-
-dct:accrualMethod rdf:type owl:NamedIndividual ;
-                  
-                  dct:issued "2005-06-13"^^xsd:date ;
-                  
-                  dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/accrualPeriodicity
-
-dct:accrualPeriodicity rdf:type owl:NamedIndividual ;
-                       
-                       dct:issued "2005-06-13"^^xsd:date ;
-                       
-                       dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/accrualPolicy
-
-dct:accrualPolicy rdf:type owl:NamedIndividual ;
-                  
-                  dct:issued "2005-06-13"^^xsd:date ;
-                  
-                  dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/alternative
-
-dct:alternative rdf:type owl:NamedIndividual ;
-                
-                dct:issued "2000-07-11"^^xsd:date ;
-                
-                dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/audience
-
-dct:audience rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2001-05-21"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/available
-
-dct:available rdf:type owl:NamedIndividual ;
-              
-              dct:issued "2000-07-11"^^xsd:date ;
-              
-              dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/bibliographicCitation
-
-dct:bibliographicCitation rdf:type owl:NamedIndividual ;
-                          
-                          dct:issued "2003-02-15"^^xsd:date ;
-                          
-                          dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/conformsTo
-
-dct:conformsTo rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2001-05-21"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/contributor
-
-dct:contributor rdf:type owl:NamedIndividual ;
-                
-                dct:issued "2008-01-14"^^xsd:date ;
-                
-                dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/coverage
-
-dct:coverage rdf:type owl:NamedIndividual ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/created
-
-dct:created rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/creator
-
-dct:creator rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2008-01-14"^^xsd:date ;
-            
-            dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/date
-
-dct:date rdf:type owl:NamedIndividual ;
-         
-         dct:issued "2008-01-14"^^xsd:date ;
-         
-         dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/dateAccepted
-
-dct:dateAccepted rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2002-07-13"^^xsd:date ;
-                 
-                 dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/dateCopyrighted
-
-dct:dateCopyrighted rdf:type owl:NamedIndividual ;
-                    
-                    dct:issued "2002-07-13"^^xsd:date ;
-                    
-                    dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/dateSubmitted
-
-dct:dateSubmitted rdf:type owl:NamedIndividual ;
-                  
-                  dct:issued "2002-07-13"^^xsd:date ;
-                  
-                  dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/description
-
-dct:description rdf:type owl:NamedIndividual ;
-                
-                dct:issued "2008-01-14"^^xsd:date ;
-                
-                dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/educationLevel
-
-dct:educationLevel rdf:type owl:NamedIndividual ;
-                   
-                   dct:issued "2002-07-13"^^xsd:date ;
-                   
-                   dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/extent
-
-dct:extent rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/format
-
-dct:format rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2008-01-14"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/hasFormat
-
-dct:hasFormat rdf:type owl:NamedIndividual ;
-              
-              dct:issued "2000-07-11"^^xsd:date ;
-              
-              dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/hasPart
-
-dct:hasPart rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/hasVersion
-
-dct:hasVersion rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2000-07-11"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/identifier
-
-dct:identifier rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2008-01-14"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/instructionalMethod
-
-dct:instructionalMethod rdf:type owl:NamedIndividual ;
-                        
-                        dct:issued "2005-06-13"^^xsd:date ;
-                        
-                        dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/isBasedOn
-
-dct:isBasedOn rdf:type owl:NamedIndividual ;
-              
-              dct:issued "2002-04-18" ;
-              
-              dct:type rdf:Property .
-
-
-
-###  http://purl.org/dc/terms/isBasisFor
-
-dct:isBasisFor rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2002-04-18" ;
-               
-               dct:type rdf:Property .
-
-
-
-###  http://purl.org/dc/terms/isFormatOf
-
-dct:isFormatOf rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2000-07-11"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/isPartOf
-
-dct:isPartOf rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/isReferencedBy
-
-dct:isReferencedBy rdf:type owl:NamedIndividual ;
-                   
-                   dct:issued "2000-07-11"^^xsd:date ;
-                   
-                   dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/isReplacedBy
-
-dct:isReplacedBy rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2000-07-11"^^xsd:date ;
-                 
-                 dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/isRequiredBy
-
-dct:isRequiredBy rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2000-07-11"^^xsd:date ;
-                 
-                 dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/isVersionOf
-
-dct:isVersionOf rdf:type owl:NamedIndividual ;
-                
-                dct:issued "2000-07-11"^^xsd:date ;
-                
-                dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/issued
-
-dct:issued rdf:type owl:DatatypeProperty ,
-                    owl:NamedIndividual ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/language
-
-dct:language rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2008-01-14"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/license
-
-dct:license rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2004-06-14"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/mediator
-
-dct:mediator rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2001-05-21"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/medium
-
-dct:medium rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/modified
-
-dct:modified rdf:type owl:DatatypeProperty ,
-                      owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/provenance
-
-dct:provenance rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2004-09-20"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/publisher
-
-dct:publisher rdf:type owl:NamedIndividual ;
-              
-              dct:issued "2008-01-14"^^xsd:date ;
-              
-              dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/references
-
-dct:references rdf:type owl:NamedIndividual ;
-               
-               dct:issued "2000-07-11"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/relation
-
-dct:relation rdf:type owl:NamedIndividual ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/replaces
-
-dct:replaces rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/requires
-
-dct:requires rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/rights
-
-dct:rights rdf:type owl:NamedIndividual ;
-           
-           dct:issued "2008-01-14"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/rightsHolder
-
-dct:rightsHolder rdf:type owl:NamedIndividual ;
-                 
-                 dct:issued "2004-06-14"^^xsd:date ;
-                 
-                 dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/source
-
-dct:source rdf:type owl:NamedIndividual ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/spatial
-
-dct:spatial rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/subject
-
-dct:subject rdf:type owl:NamedIndividual ;
-            
-            dct:issued "2008-01-14"^^xsd:date ;
-            
-            dct:modified "2012-06-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/tableOfContents
-
-dct:tableOfContents rdf:type owl:NamedIndividual ;
-                    
-                    dct:issued "2000-07-11"^^xsd:date ;
-                    
-                    dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/temporal
-
-dct:temporal rdf:type owl:NamedIndividual ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/title
-
-dct:title rdf:type owl:NamedIndividual ;
-          
-          dct:issued "2008-01-14"^^xsd:date ;
-          
-          dct:modified "2010-10-11"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/type
-
-dct:type rdf:type owl:NamedIndividual ;
-         
-         dct:modified "2008-01-14"^^xsd:date ;
-         
-         dct:issued "2008-01-14"^^xsd:date .
-
-
-
-###  http://purl.org/dc/terms/valid
-
-dct:valid rdf:type owl:NamedIndividual ;
-          
-          dct:issued "2000-07-11"^^xsd:date ;
-          
-          dct:modified "2008-01-14"^^xsd:date .
-
-
-
-###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
-
-rdf:Property rdf:type owl:NamedIndividual .
-
-
-
-
-
-#################################################################
-#
-#    Annotations
-#
-#################################################################
-
-
-dct:BibliographicResource rdfs:label "Bibliographic Resource"@en ;
-                          
-                          rdfs:comment "A book, article, or other documentary resource."@en ;
-                          
-                          dct:hasVersion <http://dublincore.org/usage/terms/history/#BibliographicResource-001> ;
-                          
-                          rdfs:isDefinedBy dct: .
-
-
-
-dct:issued rdfs:label "Date Issued"@en ;
-           
-           rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:FileFormat rdfs:label "File Format"@en ;
-               
-               rdfs:comment "A digital resource format."@en ;
-               
-               dct:description "Examples include the formats defined by the list of Internet Media Types."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#FileFormat-001> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#> rdfs:label "geo" ;
-                                           
-                                           dc:date "$Date: 2009/04/20 15:00:30 $" ;
-                                           
-                                           rdfs:comment """
+  owl:imports <http://www.w3.org/2006/time> ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:imports <http://www.w3.org/ns/prov-o> ;
+  owl:imports <http://xmlns.com/foaf/0.1/> ;
+.
+augov:Catalog
+  rdf:type owl:Class ;
+  rdfs:label "Catalog"@en ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Catalog> ;
+.
+augov:Commonwealth
+  rdf:type owl:Class ;
+  rdfs:comment "The Commonwealth of Australia is a country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands."@en ;
+  rdfs:label "Commonwealth of Australia"@en ;
+  rdfs:subClassOf augov:LevelOfGovernment ;
+  owl:equivalentClass augov:Federal ;
+.
+augov:Concept
+  rdf:type owl:Class ;
+  owl:equivalentClass skos:Concept ;
+.
+augov:Contributor
+  rdf:type owl:Class ;
+  rdfs:comment "A Contributor is the Role of contributing in one form or another as an Agent to a Dataset."@en ;
+  rdfs:subClassOf augov:Role ;
+.
+augov:Custodian
+  rdf:type owl:Class ;
+  rdfs:comment "A Custodian is the Role of being the responsible Agent that looks after a Dataset."@en ;
+  rdfs:subClassOf augov:Role ;
+.
+augov:Dataset
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en ;
+  rdfs:label "Dataset"@en ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty augov:publishDate ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty augov:title ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty augov:updateDate ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty dct:license ;
+      owl:someValuesFrom dct:LicenseDocument ;
+    ] ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Dataset> ;
+.
+augov:DatasetChangeEvent
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset."@en ;
+  rdfs:label "Dataset Change Event"@en ;
+  rdfs:subClassOf prov:InstantaneousEvent ;
+.
+augov:DatasetPublishingEvent
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset Publishing Event is a description of an event that happens at a given point in time and that results in the publishing of a Dataset on data.gov.au."@en ;
+  rdfs:label "Dataset Publishing Event"@en ;
+  rdfs:subClassOf augov:DatasetChangeEvent ;
+.
+augov:Distribution
+  rdf:type owl:Class ;
+  rdfs:label "Distribution"@en ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Distribution> ;
+.
+augov:Document
+  rdf:type owl:Class ;
+  rdfs:label "Document"@en ;
+  owl:equivalentClass <http://xmlns.com/foaf/0.1/Document> ;
+.
+augov:Federal
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Federal Government denotes the federal democratic administrative authority of the Commonwealth of Australia."@en ;
+  rdfs:label "Federal Government"@en ;
+  rdfs:subClassOf augov:LevelOfGovernment ;
+.
+augov:FieldOfResearch
+  rdf:type owl:Class ;
+  rdfs:comment "The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset."@en ;
+  rdfs:label "Field of Research"@en ;
+  rdfs:subClassOf augov:Concept ;
+.
+augov:Function
+  rdf:type owl:Class ;
+  dc:source agls:FunctionClass ;
+  rdfs:comment "The Government Function defined by the Australian Governments' Interactive Functions Thesaurus that best describes the data contained within a Dataset."@en ;
+  rdfs:label "Function"@en ;
+  rdfs:seeAlso <http://agift.naa.gov.au/> ;
+.
+augov:Geometry
+  rdf:type owl:Class ;
+  rdfs:subClassOf augov:SpatialThing ;
+.
+augov:GovernmentAgency
+  rdf:type owl:Class ;
+  rdfs:comment "A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions."@en ;
+  rdfs:label "Government Agency"@en ;
+  rdfs:seeAlso "http://recordsearch.naa.gov.au/manual/Provenance/AgencyDefinition.htm#DEFINITION"@en ;
+  rdfs:subClassOf augov:Organisation ;
+.
+augov:Jurisdiction
+  rdf:type owl:Class ;
+  rdfs:comment "A Jurisdiction is a legally defined conceptual or geographical boundary into which an Agent falls."@en ;
+  rdfs:label "Jurisdiction"@en ;
+.
+augov:LevelOfGovernment
+  rdf:type owl:Class ;
+  rdfs:comment "Level of Government is a description that is used to describe the Jurisidiction of an Organisation."@en ;
+  rdfs:label "Level of Government"@en ;
+.
+augov:Local
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Local Government is the lowest tier of government in the Commonwealth of Australia administered under the states and territories."@en ;
+  rdfs:label "Local Government"@en ;
+  rdfs:subClassOf augov:LevelOfGovernment ;
+.
+augov:Locality
+  rdf:type owl:Class ;
+  rdfs:subClassOf augov:SpatialThing ;
+.
+augov:Organisation
+  rdf:type owl:Class ;
+  rdfs:comment "An Organisation is a kind of Agent representing, for example, a business or government, or organisational subunits thereof."@en ;
+  rdfs:label "Organisation"@en ;
+  rdfs:subClassOf dct:Agent ;
+.
+augov:Point
+  rdf:type owl:Class ;
+  rdfs:comment "A Point is a point in space using its geographic coordinates."@en ;
+  rdfs:comment "WGS84_pos ontology provides a method for encoding position"@en ;
+  rdfs:label "Point"@en ;
+  rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> ;
+  rdfs:subClassOf augov:Geometry ;
+  owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+.
+augov:Polygon
+  rdf:type owl:Class ;
+  rdfs:label "Polygon"@en ;
+  rdfs:subClassOf augov:Geometry ;
+.
+augov:Publisher
+  rdf:type owl:Class ;
+  rdfs:comment "A Publisher is the Role of an Agent that makes the Dataset available."@en ;
+  rdfs:label "Publisher"@en ;
+  rdfs:subClassOf augov:Role ;
+.
+augov:Role
+  rdf:type owl:Class ;
+  rdfs:comment "A Role corresponds to the involvement of an agent in an Event, e.g. fulfilling a Publisher, Contributor or Custodian Role."@en ;
+  rdfs:label "Role"@en ;
+  rdfs:subClassOf prov:Role ;
+.
+augov:SpatialGazetteer
+  rdf:type owl:Class ;
+  rdfs:label "Spatial Gazetteer"@en ;
+  rdfs:subClassOf augov:Locality ;
+.
+augov:SpatialThing
+  rdf:type owl:Class ;
+  rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ;
+  rdfs:label "Spatial Thing"@en ;
+  owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+.
+augov:StateAndTerritories
+  rdf:type owl:Class ;
+  rdfs:comment "States and Territories Government are the second tier of Government in the Commonwealth of Australia. The Commonwealth of Australia comprises of six states and various territories some of which enjoy a large degree of self-governance."@en ;
+  rdfs:label "State and Territories Government"@en ;
+  rdfs:subClassOf augov:LevelOfGovernment ;
+.
+augov:Timelnterval
+  rdf:type owl:Class ;
+  rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en ;
+  rdfs:label "Time Interval"@en ;
+  rdfs:subClassOf <http://www.w3.org/2006/time#Interval> ;
+.
+augov:accessURL
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/dcat#Distribution> ;
+  rdfs:label "Access URL"@en ;
+  rdfs:range rdfs:Resource ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#accessURL> ;
+.
+augov:dataset
+  rdf:type owl:ObjectProperty ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#dataset> ;
+.
+augov:datasetStatus
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:label "Dataset Status"@en ;
+  rdfs:range xsd:boolean ;
+.
+augov:distribution
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range augov:Distribution ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#distribution> ;
+.
+augov:download_URL
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Download URL"@en ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#downloadURL> ;
+.
+augov:fileSize
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "File Size"@en ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#byteSize> ;
+.
+augov:format
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Distribution ;
+  rdfs:label "Format"@en ;
+  rdfs:range dct:MediaTypeOrExtent ;
+  rdfs:subPropertyOf dct:format ;
+  owl:equivalentProperty dct:format ;
+.
+augov:has_contact
+  rdf:type owl:ObjectProperty ;
+  rdfs:range v:Kind ;
+.
+augov:has_extent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+.
+augov:has_function
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range augov:Function ;
+.
+augov:has_geometry
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Locality ;
+  rdfs:range augov:Geometry ;
+.
+augov:has_jurisdiction
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Organisation ;
+  rdfs:range augov:Jurisdiction ;
+.
+augov:has_member
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Organisation ;
+  rdfs:range dct:Agent ;
+  owl:inverseOf augov:is_member_of ;
+.
+augov:has_spatial_extent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range augov:SpatialThing ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+augov:has_temporal_extent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range augov:Timelnterval ;
+.
+augov:isDescribedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> ;
+.
+augov:is_associate_with
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:DatasetChangeEvent ;
+  rdfs:range augov:Role ;
+  owl:inverseOf augov:participates_in ;
+.
+augov:is_changed_by
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range augov:DatasetChangeEvent ;
+  owl:inverseOf augov:resulted_in ;
+.
+augov:is_member_of
+  rdf:type owl:ObjectProperty ;
+.
+augov:keyword
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Keyword"@en ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#keyword> ;
+.
+augov:landingPage
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:label "Landing Page"@en ;
+  rdfs:range <http://xmlns.com/foaf/0.1/Document> ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#landingPage> ;
+.
+augov:license
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "License"@en ;
+  owl:equivalentProperty dct:license ;
+.
+augov:participates_in
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+augov:plays_role
+  rdf:type owl:ObjectProperty ;
+  rdfs:range augov:Role ;
+.
+augov:publishDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Publish Date"@en ;
+  rdfs:subPropertyOf dct:dateAccepted ;
+  owl:equivalentProperty dct:issued ;
+.
+augov:publisher
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf dct:publisher ;
+.
+augov:purpose
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range rdfs:Literal ;
+.
+augov:resulted_in
+  rdf:type owl:ObjectProperty ;
+.
+augov:role_of
+  rdf:type owl:ObjectProperty ;
+  owl:inverseOf augov:plays_role ;
+.
+augov:theme
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain augov:Dataset ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf dct:subject ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+augov:title
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Title"@en ;
+  rdfs:subPropertyOf dct:title ;
+  owl:equivalentProperty dct:title ;
+.
+augov:updateDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Update Date"@en ;
+  rdfs:subPropertyOf dct:modified ;
+  owl:equivalentProperty dct:modified ;
+.
+augov:update_frequency
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Update Frequency"@en ;
+  owl:equivalentProperty dct:accrualPeriodicity ;
+.
+<http://purl.org/dc/aboutdcmi#DCMI>
+  rdf:type owl:NamedIndividual ;
+.
+dcam:VocabularyEncodingScheme
+  rdf:type owl:Class ;
+.
+<http://purl.org/dc/dcmitype/Collection>
+  rdf:type owl:Class ;
+.
+dc:contributor
+  rdf:type owl:AnnotationProperty ;
+.
+dc:coverage
+  rdf:type owl:AnnotationProperty ;
+.
+dc:creator
+  rdf:type owl:AnnotationProperty ;
+.
+dc:format
+  rdf:type owl:AnnotationProperty ;
+.
+dc:identifier
+  rdf:type owl:AnnotationProperty ;
+.
+dc:language
+  rdf:type owl:AnnotationProperty ;
+.
+dc:mandate
+  rdf:type owl:AnnotationProperty ;
+.
+dc:publisher
+  rdf:type owl:AnnotationProperty ;
+.
+dc:relation
+  rdf:type owl:AnnotationProperty ;
+.
+dc:rights
+  rdf:type owl:AnnotationProperty ;
+.
+dc:source
+  rdf:type owl:AnnotationProperty ;
+.
+dc:subject
+  rdf:type owl:AnnotationProperty ;
+.
+dc:type
+  rdf:type owl:AnnotationProperty ;
+.
+dct:
+  rdf:type owl:NamedIndividual ;
+  dct:modified "2012-06-14"^^xsd:date ;
+  dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
+  dct:title "DCMI Metadata Terms - other"@en ;
+.
+dct:Agent
+  rdf:type dct:AgentClass ;
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples of Agent include person, organization, and software agent."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Agent-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A resource that acts or has the power to act."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Agent"@en ;
+.
+dct:AgentClass
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples of Agent Class include groups seen as classes, such as students, women, charities, lecturers."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#AgentClass-003> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2012-06-14"^^xsd:date ;
+  rdfs:comment "A group of agents."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Agent Class"@en ;
+  rdfs:subClassOf rdfs:Class ;
+.
+dct:BibliographicResource
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#BibliographicResource-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A book, article, or other documentary resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Bibliographic Resource"@en ;
+.
+dct:Box
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Box-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "DCMI Box"@en ;
+  rdfs:seeAlso <http://dublincore.org/documents/dcmi-box/> ;
+.
+dct:DCMIType
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#DCMIType-005> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2012-06-14"^^xsd:date ;
+  rdfs:comment "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "DCMI Type Vocabulary"@en ;
+  rdfs:seeAlso <http://purl.org/dc/dcmitype/> ;
+.
+dct:DDC
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#DDC-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of conceptual resources specified by the Dewey Decimal Classification."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "DDC"@en ;
+  rdfs:seeAlso <http://www.oclc.org/dewey/> ;
+.
+dct:FileFormat
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples include the formats defined by the list of Internet Media Types."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#FileFormat-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A digital resource format."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "File Format"@en ;
+  rdfs:subClassOf dct:MediaType ;
+.
+dct:Frequency
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Frequency-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A rate at which something recurs."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Frequency"@en ;
+.
+dct:IMT
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#IMT-004> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of media types specified by the Internet Assigned Numbers Authority."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "IMT"@en ;
+  rdfs:seeAlso <http://www.iana.org/assignments/media-types/> ;
+.
+dct:ISO3166
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#ISO3166-004> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of codes listed in ISO 3166-1 for the representation of names of countries."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "ISO 3166"@en ;
+  rdfs:seeAlso <http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html> ;
+.
+dct:ISO639-2
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#ISO639-2-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "ISO 639-2"@en ;
+  rdfs:seeAlso <http://lcweb.loc.gov/standards/iso639-2/langhome.html> ;
+.
+dct:ISO639-3
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#ISO639-3-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "ISO 639-3"@en ;
+  rdfs:seeAlso <http://www.sil.org/iso639-3/> ;
+.
+dct:Jurisdiction
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Jurisdiction-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Jurisdiction"@en ;
+  rdfs:subClassOf dct:LocationPeriodOrJurisdiction ;
+.
+dct:LCC
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#LCC-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of conceptual resources specified by the Library of Congress Classification."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "LCC"@en ;
+  rdfs:seeAlso <http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html> ;
+.
+dct:LCSH
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#LCSH-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of labeled concepts specified by the Library of Congress Subject Headings."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "LCSH"@en ;
+.
+dct:LicenseDocument
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#LicenseDocument-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "License Document"@en ;
+  rdfs:subClassOf dct:RightsStatement ;
+.
+dct:LinguisticSystem
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples include written, spoken, sign, and computer languages."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#LinguisticSystem-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Linguistic System"@en ;
+.
+dct:Location
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Location-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A spatial region or named place."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf dct:LocationPeriodOrJurisdiction ;
+.
+dct:LocationPeriodOrJurisdiction
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#LocationPeriodOrJurisdiction-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A location, period of time, or jurisdiction."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Location, Period, or Jurisdiction"@en ;
+.
+dct:MESH
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#MESH-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of labeled concepts specified by the Medical Subject Headings."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "MeSH"@en ;
+  rdfs:seeAlso <http://www.nlm.nih.gov/mesh/meshhome.html> ;
+.
+dct:MediaType
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#MediaType-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A file format or physical medium."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Media Type"@en ;
+  rdfs:subClassOf dct:MediaTypeOrExtent ;
+.
+dct:MediaTypeOrExtent
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#MediaTypeOrExtent-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A media type or extent."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Media Type or Extent"@en ;
+.
+dct:MethodOfAccrual
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#MethodOfAccrual-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A method by which resources are added to a collection."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Method of Accrual"@en ;
+.
+dct:MethodOfInstruction
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#MethodOfInstruction-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Method of Instruction"@en ;
+.
+dct:NLM
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#NLM-002> ;
+  dct:issued "2005-06-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of conceptual resources specified by the National Library of Medicine Classification."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "NLM"@en ;
+  rdfs:seeAlso <http://wwwcf.nlm.nih.gov/class/> ;
+.
+dct:Period
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Period-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "DCMI Period"@en ;
+  rdfs:seeAlso <http://dublincore.org/documents/dcmi-period/> ;
+.
+dct:PeriodOfTime
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#PeriodOfTime-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "An interval of time that is named or defined by its start and end dates."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Period of Time"@en ;
+  rdfs:subClassOf dct:LocationPeriodOrJurisdiction ;
+.
+dct:PhysicalMedium
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples include paper, canvas, or DVD."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#PhysicalMedium-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A physical material or carrier."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Physical Medium"@en ;
+  rdfs:subClassOf dct:MediaType ;
+.
+dct:PhysicalResource
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#PhysicalResource-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A material thing."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Physical Resource"@en ;
+.
+dct:Point
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Point-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "DCMI Point"@en ;
+  rdfs:seeAlso <http://dublincore.org/documents/dcmi-point/> ;
+.
+dct:Policy
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Policy-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Policy"@en ;
+.
+dct:ProvenanceStatement
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#ProvenanceStatement-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A statement of any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Provenance Statement"@en ;
+.
+dct:RFC1766
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC1766-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of tags, constructed according to RFC 1766, for the identification of languages."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "RFC 1766"@en ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc1766.txt> ;
+.
+dct:RFC3066
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "RFC 3066 has been obsoleted by RFC 4646."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC3066-002> ;
+  dct:issued "2002-07-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of tags constructed according to RFC 3066 for the identification of languages."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "RFC 3066"@en ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc3066.txt> ;
+.
+dct:RFC4646
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "RFC 4646 obsoletes RFC 3066."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC4646-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of tags constructed according to RFC 4646 for the identification of languages."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "RFC 4646"@en ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> ;
+.
+dct:RFC5646
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "RFC 5646 obsoletes RFC 4646."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC5646-001> ;
+  dct:issued "2010-10-11"^^xsd:date ;
+  rdfs:comment "The set of tags constructed according to RFC 5646 for the identification of languages."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "RFC 5646"@en ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc5646.txt> ;
+.
+dct:RightsStatement
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#RightsStatement-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a Resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Rights Statement"@en ;
+.
+dct:SizeOrDuration
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#SizeOrDuration-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A dimension or extent, or a time taken to play or execute."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Size or Duration"@en ;
+  rdfs:subClassOf dct:MediaTypeOrExtent ;
+.
+dct:Standard
+  rdf:type owl:Class ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#Standard-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  rdfs:comment "A basis for comparison; a reference point against which other things can be evaluated."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Standard"@en ;
+.
+dct:SubjectScheme
+  rdf:type owl:Class ;
+.
+dct:TGN
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#TGN-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of places specified by the Getty Thesaurus of Geographic Names."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "TGN"@en ;
+  rdfs:seeAlso <http://www.getty.edu/research/tools/vocabulary/tgn/index.html> ;
+.
+dct:UDC
+  rdf:type dcam:VocabularyEncodingScheme ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#UDC-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of conceptual resources specified by the Universal Decimal Classification."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "UDC"@en ;
+  rdfs:seeAlso <http://www.udcc.org/> ;
+.
+dct:URI
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#URI-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "URI"@en ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc3986.txt> ;
+.
+dct:W3CDTF
+  rdf:type rdfs:Datatype ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#W3CDTF-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The set of dates and times constructed according to the W3C Date and Time Formats Specification."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "W3C-DTF"@en ;
+  rdfs:seeAlso <http://www.w3.org/TR/NOTE-datetime> ;
+.
+dct:abstract
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#abstract-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A summary of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Abstract"@en ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:subPropertyOf dct:description ;
+.
+dct:accessRights
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#accessRights-002> ;
+  dct:issued "2003-02-15"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Information about who can access the resource or an indication of its security status."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Access Rights"@en ;
+  rdfs:range dct:RightsStatement ;
+  rdfs:subPropertyOf dc:rights ;
+  rdfs:subPropertyOf dct:rights ;
+.
+dct:accrualMethod
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualMethod-003> ;
+  dct:issued "2005-06-13"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "The method by which items are added to a collection."@en ;
+  rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Accrual Method"@en ;
+  rdfs:range dct:MethodOfAccrual ;
+.
+dct:accrualPeriodicity
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPeriodicity-003> ;
+  dct:issued "2005-06-13"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "The frequency with which items are added to a collection."@en ;
+  rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Accrual Periodicity"@en ;
+  rdfs:range dct:Frequency ;
+.
+dct:accrualPolicy
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPolicy-003> ;
+  dct:issued "2005-06-13"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "The policy governing the addition of items to a collection."@en ;
+  rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Accrual Policy"@en ;
+  rdfs:range dct:Policy ;
+.
+dct:alternative
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "The distinction between titles and alternative titles is application-specific."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#alternative-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "An alternative name for the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Alternative Title"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:title ;
+  rdfs:subPropertyOf dct:title ;
+.
+dct:audience
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#audience-003> ;
+  dct:issued "2001-05-21"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A class of entity for whom the resource is intended or useful."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Audience"@en ;
+  rdfs:range dct:AgentClass ;
+.
+dct:available
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#available-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date (often a range) that the resource became or will become available."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Available"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:bibliographicCitation
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#bibliographicCitation-002> ;
+  dct:issued "2003-02-15"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A bibliographic reference for the resource."@en ;
+  rdfs:domain dct:BibliographicResource ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Bibliographic Citation"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:identifier ;
+  rdfs:subPropertyOf dct:identifier ;
+.
+dct:conformsTo
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#conformsTo-003> ;
+  dct:issued "2001-05-21"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "An established standard to which the described resource conforms."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Conforms To"@en ;
+  rdfs:range dct:Standard ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+.
+dct:contributor
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Examples of a Contributor include a person, an organization, or a service."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#contributorT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "An entity responsible for making contributions to the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Contributor"@en ;
+  rdfs:range dct:Agent ;
+  rdfs:subPropertyOf dc:contributor ;
+.
+dct:coverage
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#coverageT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Coverage"@en ;
+  rdfs:range dct:LocationPeriodOrJurisdiction ;
+  rdfs:subPropertyOf dc:coverage ;
+.
+dct:created
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#created-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date of creation of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Created"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:creator
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Examples of a Creator include a person, an organization, or a service."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "An entity primarily responsible for making the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Creator"@en ;
+  rdfs:range dct:Agent ;
+  rdfs:subPropertyOf dc:creator ;
+  rdfs:subPropertyOf dct:contributor ;
+.
+dct:date
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF]."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#dateT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+.
+dct:dateAccepted
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples of resources to which a Date Accepted may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#dateAccepted-002> ;
+  dct:issued "2002-07-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date of acceptance of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Accepted"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:dateCopyrighted
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#dateCopyrighted-002> ;
+  dct:issued "2002-07-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date of copyright."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Copyrighted"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:dateSubmitted
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples of resources to which a Date Submitted may be relevant are a thesis (submitted to a university department) or an article (submitted to a journal)."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#dateSubmitted-002> ;
+  dct:issued "2002-07-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date of submission of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Submitted"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:description
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "An account of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Description"@en ;
+  rdfs:subPropertyOf dc:description ;
+.
+dct:educationLevel
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#educationLevel-002> ;
+  dct:issued "2002-07-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Audience Education Level"@en ;
+  rdfs:range dct:AgentClass ;
+  rdfs:subPropertyOf dct:audience ;
+.
+dct:extent
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#extent-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The size or duration of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Extent"@en ;
+  rdfs:range dct:SizeOrDuration ;
+  rdfs:subPropertyOf dc:format ;
+  rdfs:subPropertyOf dct:format ;
+.
+dct:format
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#formatT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Format"@en ;
+  rdfs:range dct:MediaTypeOrExtent ;
+  rdfs:subPropertyOf dc:format ;
+.
+dct:hasFormat
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#hasFormat-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is substantially the same as the pre-existing described resource, but in another format."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Has Format"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:hasPart
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#hasPart-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Has Part"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:hasVersion
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Has Version"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:identifier
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#identifierT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Identifier"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:identifier ;
+.
+dct:instructionalMethod
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Instructional Method will typically include ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#instructionalMethod-002> ;
+  dct:issued "2005-06-13"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Instructional Method"@en ;
+  rdfs:range dct:MethodOfInstruction ;
+.
+dct:isBasedOn
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:issued "2002-04-18" ;
+  dct:modified "2009-02-02" ;
+  dct:type rdf:Property ;
+  rdfs:comment "A related resource of which the described resource is a performance, production, derivation, translation or interpretation."@en-au ;
+  rdfs:label "Has Version"@en-au ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+.
+dct:isBasisFor
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:issued "2002-04-18" ;
+  dct:modified "2009-02-02" ;
+  dct:type rdf:Property ;
+  rdfs:comment "A related resource that is a performance, production, derivation, translation or interpretation of the described resource."@en-au ;
+  rdfs:label "Is Version Of"@en-au ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+.
+dct:isFormatOf
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#isFormatOf-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is substantially the same as the described resource, but in another format."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Is Format Of"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:isPartOf
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#isPartOf-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource in which the described resource is physically or logically included."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Is Part Of"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:isReferencedBy
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#isReferencedBy-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Is Referenced By"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:isReplacedBy
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#isReplacedBy-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that supplants, displaces, or supersedes the described resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Is Replaced By"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:isRequiredBy
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#isRequiredBy-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that requires the described resource to support its function, delivery, or coherence."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Is Required By"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:isVersionOf
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Changes in version imply substantive changes in content rather than differences in format."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#isVersionOf-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource of which the described resource is a version, edition, or adaptation."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Is Version Of"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:issued
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Issued"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:language
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#languageT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A language of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Language"@en ;
+  rdfs:range dct:LinguisticSystem ;
+  rdfs:subPropertyOf dc:language ;
+.
+dct:license
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+  dct:issued "2004-06-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "License"@en ;
+  rdfs:range dct:LicenseDocument ;
+  rdfs:subPropertyOf dc:rights ;
+  rdfs:subPropertyOf dct:rights ;
+.
+dct:mediator
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#mediator-003> ;
+  dct:issued "2001-05-21"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "An entity that mediates access to the resource and for whom the resource is intended or useful."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Mediator"@en ;
+  rdfs:range dct:AgentClass ;
+  rdfs:subPropertyOf dct:audience ;
+.
+dct:medium
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#medium-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The material or physical carrier of the resource."@en ;
+  rdfs:domain dct:PhysicalResource ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Medium"@en ;
+  rdfs:range dct:PhysicalMedium ;
+  rdfs:subPropertyOf dc:format ;
+  rdfs:subPropertyOf dct:format ;
+.
+dct:modified
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date on which the resource was changed."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Modified"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+dct:provenance
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "The statement may include a description of any changes successive custodians made to the resource."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#provenance-002> ;
+  dct:issued "2004-09-20"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Provenance"@en ;
+  rdfs:range dct:ProvenanceStatement ;
+.
+dct:publisher
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Examples of a Publisher include a person, an organization, or a service."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#publisherT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "An entity responsible for making the resource available."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Publisher"@en ;
+  rdfs:range dct:Agent ;
+  rdfs:subPropertyOf dc:publisher ;
+.
+dct:references
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#references-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "References"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:relation
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. "@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#relationT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Relation"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:replaces
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#replaces-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is supplanted, displaced, or superseded by the described resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Replaces"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:requires
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#requires-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource that is required by the described resource to support its function, delivery, or coherence."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Requires"@en ;
+  rdfs:subPropertyOf dc:relation ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:rights
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#rightsT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Information about rights held in and over the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Rights"@en ;
+  rdfs:range dct:RightsStatement ;
+  rdfs:subPropertyOf dc:rights ;
+.
+dct:rightsHolder
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#rightsHolder-002> ;
+  dct:issued "2004-06-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Rights Holder"@en ;
+  rdfs:range dct:Agent ;
+.
+dct:source
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#sourceT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A related resource from which the described resource is derived."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Source"@en ;
+  rdfs:subPropertyOf dc:source ;
+  rdfs:subPropertyOf dct:relation ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:spatial
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#spatial-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Spatial characteristics of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Spatial Coverage"@en ;
+  rdfs:range dct:Location ;
+  rdfs:subPropertyOf dc:coverage ;
+  rdfs:subPropertyOf dct:coverage ;
+.
+dct:subject
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:description "Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#subjectT-002> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2012-06-14"^^xsd:date ;
+  rdfs:comment "The topic of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Subject"@en ;
+  rdfs:subPropertyOf dc:subject ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+.
+dct:tableOfContents
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#tableOfContents-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "A list of subunits of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Table Of Contents"@en ;
+  rdfs:subPropertyOf dc:description ;
+  rdfs:subPropertyOf dct:description ;
+.
+dct:temporal
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#temporal-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Temporal characteristics of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Temporal Coverage"@en ;
+  rdfs:range dct:PeriodOfTime ;
+  rdfs:subPropertyOf dc:coverage ;
+  rdfs:subPropertyOf dct:coverage ;
+.
+dct:title
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2010-10-11"^^xsd:date ;
+  rdfs:comment "A name given to the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Title"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:title ;
+.
+dct:type
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:NamedIndividual ;
+  rdf:type owl:ObjectProperty ;
+  dct:description "Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#typeT-001> ;
+  dct:issued "2008-01-14"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "The nature or genre of the resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Type"@en ;
+  rdfs:range rdfs:Class ;
+  rdfs:subPropertyOf dc:type ;
+.
+dct:valid
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:NamedIndividual ;
+  dct:hasVersion <http://dublincore.org/usage/terms/history/#valid-003> ;
+  dct:issued "2000-07-11"^^xsd:date ;
+  dct:modified "2008-01-14"^^xsd:date ;
+  rdfs:comment "Date (often a range) of validity of a resource."@en ;
+  rdfs:isDefinedBy dct: ;
+  rdfs:label "Date Valid"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#AGIFT>
+  rdf:type augov:Function ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "A set of Government function types specified by the National Archives of Australia."@en ;
+  rdfs:seeAlso <http://www.naa.gov.au/agift/> ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#As_required>
+  rdf:type dct:Frequency ;
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#CommonwealthOfAustralia>
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#Daily>
+  rdf:type dct:Frequency ;
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#Monthly>
+  rdf:type dct:Frequency ;
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#None>
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#Quarterly>
+  rdf:type dct:Frequency ;
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#State>
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#Weekly>
+  rdf:type dct:Frequency ;
+  rdf:type owl:NamedIndividual ;
+.
+<http://www.semanticweb.org/owl/owlapi/turtle#Yearly>
+  rdf:type dct:Frequency ;
+  rdf:type owl:NamedIndividual ;
+.
+rdf:Property
+  rdf:type owl:NamedIndividual ;
+.
+xsd:date
+  rdf:type rdfs:Datatype ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#>
+  dc:date "$Date: 2009/04/20 15:00:30 $" ;
+  dc:description """A vocabulary for representing latitude, longitude and 
+ altitude information in the WGS84 geodetic reference datum. 
+ Version $Id: wgs84_pos.rdf,v 1.22 2009/04/20 15:00:30 timbl Exp $. See http://www.w3.org/2003/01/geo/ for more details.""" ;
+  dc:title "WGS84 Geo Positioning: an RDF vocabulary" ;
+  rdfs:comment """
 Recent changes to this namespace:
 $Log: wgs84_pos.rdf,v $
 Revision 1.22  2009/04/20 15:00:30  timbl
@@ -3263,1042 +1782,71 @@ date: 2003/01/10 10:53:23;  author: danbri;  state: Exp;
 basic geo vocab
 
 """ ;
-                                           
-                                           dc:title "WGS84 Geo Positioning: an RDF vocabulary" ;
-                                           
-                                           dc:description """A vocabulary for representing latitude, longitude and 
- altitude information in the WGS84 geodetic reference datum. 
- Version $Id: wgs84_pos.rdf,v 1.22 2009/04/20 15:00:30 timbl Exp $. See http://www.w3.org/2003/01/geo/ for more details.""" .
-
-
-
-dct:RFC3066 rdfs:label "RFC 3066"@en ;
-            
-            dct:description "RFC 3066 has been obsoleted by RFC 4646."@en ;
-            
-            rdfs:comment "The set of tags constructed according to RFC 3066 for the identification of languages."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC3066-002> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:seeAlso <http://www.ietf.org/rfc/rfc3066.txt> .
-
-
-
-dct:modified rdfs:label "Date Modified"@en ;
-             
-             rdfs:comment "Date on which the resource was changed."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:Frequency rdfs:label "Frequency"@en ;
-              
-              rdfs:comment "A rate at which something recurs."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#Frequency-001> ;
-              
-              rdfs:isDefinedBy dct: .
-
-
-
-dct:isVersionOf rdfs:label "Is Version Of"@en ;
-                
-                rdfs:comment "A related resource of which the described resource is a version, edition, or adaptation."@en ;
-                
-                dct:description "Changes in version imply substantive changes in content rather than differences in format."@en ;
-                
-                <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#isVersionOf-003> ;
-                
-                rdfs:isDefinedBy dct: .
-
-
-
-dct:bibliographicCitation rdfs:label "Bibliographic Citation"@en ;
-                          
-                          rdfs:comment "A bibliographic reference for the resource."@en ;
-                          
-                          dct:description "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."@en ;
-                          
-                          dct:hasVersion <http://dublincore.org/usage/terms/history/#bibliographicCitation-002> ;
-                          
-                          rdfs:isDefinedBy dct: .
-
-
-
-dct:spatial rdfs:label "Spatial Coverage"@en ;
-            
-            rdfs:comment "Spatial characteristics of the resource."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#spatial-003> ;
-            
-            rdfs:isDefinedBy dct: .
-
-
-
-dct:temporal rdfs:label "Temporal Coverage"@en ;
-             
-             rdfs:comment "Temporal characteristics of the resource."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#temporal-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:hasFormat rdfs:label "Has Format"@en ;
-              
-              rdfs:comment "A related resource that is substantially the same as the pre-existing described resource, but in another format."@en ;
-              
-              <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#hasFormat-003> ;
-              
-              rdfs:isDefinedBy dct: .
-
-
-
-dct:extent rdfs:label "Extent"@en ;
-           
-           rdfs:comment "The size or duration of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#extent-003> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:date rdfs:label "Date"@en ;
-         
-         rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
-         
-         dct:description "Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF]."@en ;
-         
-         dct:hasVersion <http://dublincore.org/usage/terms/history/#dateT-001> ;
-         
-         rdfs:isDefinedBy dct: .
-
-
-
-dct:replaces rdfs:label "Replaces"@en ;
-             
-             rdfs:comment "A related resource that is supplanted, displaced, or superseded by the described resource."@en ;
-             
-             <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#replaces-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:references rdfs:label "References"@en ;
-               
-               rdfs:comment "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en ;
-               
-               <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#references-003> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-:Local rdfs:label "Local Government"@en ;
-       
-       rdfs:comment "Local Government is the lowest tier of government in the Commonwealth of Australia administered under the states and territories."@en .
-
-
-
-dct:subject rdfs:label "Subject"@en ;
-            
-            rdfs:comment "The topic of the resource."@en ;
-            
-            <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-            
-            dct:description "Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#subjectT-002> ;
-            
-            rdfs:isDefinedBy dct: .
-
-
-
-dct:rightsHolder rdfs:label "Rights Holder"@en ;
-                 
-                 rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#rightsHolder-002> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:available rdfs:label "Date Available"@en ;
-              
-              rdfs:comment "Date (often a range) that the resource became or will become available."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#available-003> ;
-              
-              rdfs:isDefinedBy dct: .
-
-
-
-dct:Point rdfs:label "DCMI Point"@en ;
-          
-          rdfs:comment "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."@en ;
-          
-          rdfs:seeAlso <http://dublincore.org/documents/dcmi-point/> ;
-          
-          dct:hasVersion <http://dublincore.org/usage/terms/history/#Point-003> ;
-          
-          rdfs:isDefinedBy dct: .
-
-
-
-dct:license rdfs:label "License"@en ;
-            
-            rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-            
-            rdfs:isDefinedBy dct: .
-
-
-
-dct:MethodOfAccrual rdfs:label "Method of Accrual"@en ;
-                    
-                    rdfs:comment "A method by which resources are added to a collection."@en ;
-                    
-                    dct:hasVersion <http://dublincore.org/usage/terms/history/#MethodOfAccrual-001> ;
-                    
-                    rdfs:isDefinedBy dct: .
-
-
-
-dct:isReferencedBy rdfs:label "Is Referenced By"@en ;
-                   
-                   rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en ;
-                   
-                   <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-                   
-                   dct:hasVersion <http://dublincore.org/usage/terms/history/#isReferencedBy-003> ;
-                   
-                   rdfs:isDefinedBy dct: .
-
-
-
-dct:valid rdfs:label "Date Valid"@en ;
-          
-          rdfs:comment "Date (often a range) of validity of a resource."@en ;
-          
-          dct:hasVersion <http://dublincore.org/usage/terms/history/#valid-003> ;
-          
-          rdfs:isDefinedBy dct: .
-
-
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdfs:label "location" ;
-                                                   
-                                                   rdfs:comment """The relation between something and the point, 
+  rdfs:label "geo" ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point>
+  rdf:type owl:Class ;
+  rdfs:comment """ 
+Uniquely identified by lat/long/alt. i.e.
+
+spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
+  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
+
+sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+  """ ;
+  rdfs:comment """A point, typically described using a coordinate system relative to Earth, such as WGS84.
+  """ ;
+  rdfs:label "point" ;
+  rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>
+  rdf:type owl:Class ;
+  rdfs:comment """Anything with spatial extent, i.e. size, shape, or position.
+ e.g. people, places, bowling balls, as well as abstract areas like cubes.
+""" ;
+  rdfs:label "SpatialThing" ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#alt>
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment """The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).""" ;
+  rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  rdfs:label "altitude" ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "The WGS84 latitude of a SpatialThing (decimal degrees)." ;
+  rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  rdfs:label "latitude" ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat_long>
+  rdfs:comment "A comma-separated representation of a latitude, longitude coordinate." ;
+  rdfs:label "lat/long" ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#location>
+  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment """The relation between something and the point, 
  or other geometrical thing in space, where it is.  For example, the realtionship between
  a radio tower and a Point with a given lat and long.
  Or a relationship between a park and its outline as a closed arc of points, or a road and
  its location as a arc (a sequence of points).
  Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
  an accuracy appropriate for the size of the object and uses such as mapping .
- """ .
-
-
-
-dct:RightsStatement rdfs:label "Rights Statement"@en ;
-                    
-                    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a Resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
-                    
-                    dct:hasVersion <http://dublincore.org/usage/terms/history/#RightsStatement-001> ;
-                    
-                    rdfs:isDefinedBy dct: .
-
-
-
-dct:Jurisdiction rdfs:label "Jurisdiction"@en ;
-                 
-                 rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#Jurisdiction-001> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:LocationPeriodOrJurisdiction rdfs:label "Location, Period, or Jurisdiction"@en ;
-                                 
-                                 rdfs:comment "A location, period of time, or jurisdiction."@en ;
-                                 
-                                 dct:hasVersion <http://dublincore.org/usage/terms/history/#LocationPeriodOrJurisdiction-001> ;
-                                 
-                                 rdfs:isDefinedBy dct: .
-
-
-
-dct:educationLevel rdfs:label "Audience Education Level"@en ;
-                   
-                   rdfs:comment "A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
-                   
-                   dct:hasVersion <http://dublincore.org/usage/terms/history/#educationLevel-002> ;
-                   
-                   rdfs:isDefinedBy dct: .
-
-
-
-dct:ISO3166 rdfs:label "ISO 3166"@en ;
-            
-            rdfs:comment "The set of codes listed in ISO 3166-1 for the representation of names of countries."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#ISO3166-004> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:seeAlso <http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html> .
-
-
-
-dct:MediaType rdfs:label "Media Type"@en ;
-              
-              rdfs:comment "A file format or physical medium."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#MediaType-001> ;
-              
-              rdfs:isDefinedBy dct: .
-
-
-
-dct:dateSubmitted rdfs:label "Date Submitted"@en ;
-                  
-                  rdfs:comment "Date of submission of the resource."@en ;
-                  
-                  dct:description "Examples of resources to which a Date Submitted may be relevant are a thesis (submitted to a university department) or an article (submitted to a journal)."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#dateSubmitted-002> ;
-                  
-                  rdfs:isDefinedBy dct: .
-
-
-
-dct:accrualPeriodicity rdfs:label "Accrual Periodicity"@en ;
-                       
-                       rdfs:comment "The frequency with which items are added to a collection."@en ;
-                       
-                       dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPeriodicity-003> ;
-                       
-                       rdfs:isDefinedBy dct: .
-
-
-
-dct:conformsTo rdfs:label "Conforms To"@en ;
-               
-               rdfs:comment "An established standard to which the described resource conforms."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#conformsTo-003> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-dct:requires rdfs:label "Requires"@en ;
-             
-             rdfs:comment "A related resource that is required by the described resource to support its function, delivery, or coherence."@en ;
-             
-             <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#requires-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:MethodOfInstruction rdfs:label "Method of Instruction"@en ;
-                        
-                        rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en ;
-                        
-                        dct:hasVersion <http://dublincore.org/usage/terms/history/#MethodOfInstruction-001> ;
-                        
-                        rdfs:isDefinedBy dct: .
-
-
-
-dct:Agent rdfs:label "Agent"@en ;
-          
-          rdfs:comment "A resource that acts or has the power to act."@en ;
-          
-          dct:description "Examples of Agent include person, organization, and software agent."@en ;
-          
-          dct:hasVersion <http://dublincore.org/usage/terms/history/#Agent-001> ;
-          
-          rdfs:isDefinedBy dct: .
-
-
-
-dct:identifier rdfs:label "Identifier"@en ;
-               
-               rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
-               
-               dct:description "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#identifierT-001> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-dct:Policy rdfs:label "Policy"@en ;
-           
-           rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#Policy-001> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:LinguisticSystem rdfs:label "Linguistic System"@en ;
-                     
-                     rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en ;
-                     
-                     dct:description "Examples include written, spoken, sign, and computer languages."@en ;
-                     
-                     dct:hasVersion <http://dublincore.org/usage/terms/history/#LinguisticSystem-001> ;
-                     
-                     rdfs:isDefinedBy dct: .
-
-
-
-dct:audience rdfs:label "Audience"@en ;
-             
-             rdfs:comment "A class of entity for whom the resource is intended or useful."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#audience-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:hasPart rdfs:label "Has Part"@en ;
-            
-            rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
-            
-            <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#hasPart-003> ;
-            
-            rdfs:isDefinedBy dct: .
-
-
-
-dct:MediaTypeOrExtent rdfs:label "Media Type or Extent"@en ;
-                      
-                      rdfs:comment "A media type or extent."@en ;
-                      
-                      dct:hasVersion <http://dublincore.org/usage/terms/history/#MediaTypeOrExtent-001> ;
-                      
-                      rdfs:isDefinedBy dct: .
-
-
-
-dct:PhysicalMedium rdfs:label "Physical Medium"@en ;
-                   
-                   rdfs:comment "A physical material or carrier."@en ;
-                   
-                   dct:description "Examples include paper, canvas, or DVD."@en ;
-                   
-                   dct:hasVersion <http://dublincore.org/usage/terms/history/#PhysicalMedium-001> ;
-                   
-                   rdfs:isDefinedBy dct: .
-
-
-
-dct:ISO639-3 rdfs:label "ISO 639-3"@en ;
-             
-             rdfs:comment "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#ISO639-3-001> ;
-             
-             rdfs:isDefinedBy dct: ;
-             
-             rdfs:seeAlso <http://www.sil.org/iso639-3/> .
-
-
-
-dct:ISO639-2 rdfs:label "ISO 639-2"@en ;
-             
-             rdfs:comment "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#ISO639-2-003> ;
-             
-             rdfs:seeAlso <http://lcweb.loc.gov/standards/iso639-2/langhome.html> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:created rdfs:label "Date Created"@en ;
-            
-            rdfs:comment "Date of creation of the resource."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#created-003> ;
-            
-            rdfs:isDefinedBy dct: .
-
-
-
-dct:Period rdfs:label "DCMI Period"@en ;
-           
-           rdfs:comment "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."@en ;
-           
-           rdfs:seeAlso <http://dublincore.org/documents/dcmi-period/> ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#Period-003> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:dateAccepted rdfs:label "Date Accepted"@en ;
-                 
-                 rdfs:comment "Date of acceptance of the resource."@en ;
-                 
-                 dct:description "Examples of resources to which a Date Accepted may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#dateAccepted-002> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:source rdfs:label "Source"@en ;
-           
-           rdfs:comment "A related resource from which the described resource is derived."@en ;
-           
-           dct:description "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
-           
-           <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#sourceT-001> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:medium rdfs:label "Medium"@en ;
-           
-           rdfs:comment "The material or physical carrier of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#medium-003> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:description rdf:type owl:AnnotationProperty ;
-                
-                rdfs:label "Description"@en ;
-                
-                rdfs:comment "An account of the resource."@en ;
-                
-                dct:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
-                
-                rdfs:isDefinedBy dct: .
-
-
-
-dct:Box rdfs:label "DCMI Box"@en ;
-        
-        rdfs:comment "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."@en ;
-        
-        rdfs:seeAlso <http://dublincore.org/documents/dcmi-box/> ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#Box-003> ;
-        
-        rdfs:isDefinedBy dct: .
-
-
-
-dct:language rdfs:label "Language"@en ;
-             
-             rdfs:comment "A language of the resource."@en ;
-             
-             dct:description "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#languageT-001> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:ProvenanceStatement rdfs:label "Provenance Statement"@en ;
-                        
-                        rdfs:comment "A statement of any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
-                        
-                        dct:hasVersion <http://dublincore.org/usage/terms/history/#ProvenanceStatement-001> ;
-                        
-                        rdfs:isDefinedBy dct: .
-
-
-
-dct:W3CDTF rdfs:label "W3C-DTF"@en ;
-           
-           rdfs:comment "The set of dates and times constructed according to the W3C Date and Time Formats Specification."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#W3CDTF-003> ;
-           
-           rdfs:isDefinedBy dct: ;
-           
-           rdfs:seeAlso <http://www.w3.org/TR/NOTE-datetime> .
-
-
-
-dct:LicenseDocument rdfs:label "License Document"@en ;
-                    
-                    rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
-                    
-                    dct:hasVersion <http://dublincore.org/usage/terms/history/#LicenseDocument-001> ;
-                    
-                    rdfs:isDefinedBy dct: .
-
-
-
-dct:PeriodOfTime rdfs:label "Period of Time"@en ;
-                 
-                 rdfs:comment "An interval of time that is named or defined by its start and end dates."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#PeriodOfTime-001> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:provenance rdfs:label "Provenance"@en ;
-               
-               rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
-               
-               dct:description "The statement may include a description of any changes successive custodians made to the resource."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#provenance-002> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-dct:PhysicalResource rdfs:label "Physical Resource"@en ;
-                     
-                     rdfs:comment "A material thing."@en ;
-                     
-                     dct:hasVersion <http://dublincore.org/usage/terms/history/#PhysicalResource-001> ;
-                     
-                     rdfs:isDefinedBy dct: .
-
-
-
-dct:publisher rdfs:label "Publisher"@en ;
-              
-              rdfs:comment "An entity responsible for making the resource available."@en ;
-              
-              dct:description "Examples of a Publisher include a person, an organization, or a service."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#publisherT-001> ;
-              
-              rdfs:isDefinedBy dct: .
-
-
-
-dct:accessRights rdfs:label "Access Rights"@en ;
-                 
-                 dct:description "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en ;
-                 
-                 rdfs:comment "Information about who can access the resource or an indication of its security status."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#accessRights-002> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:tableOfContents rdfs:label "Table Of Contents"@en ;
-                    
-                    rdfs:comment "A list of subunits of the resource."@en ;
-                    
-                    dct:hasVersion <http://dublincore.org/usage/terms/history/#tableOfContents-003> ;
-                    
-                    rdfs:isDefinedBy dct: .
-
-
-
-dct:Location rdfs:label "Location"@en ;
-             
-             rdfs:comment "A spatial region or named place."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#Location-001> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:isRequiredBy rdfs:label "Is Required By"@en ;
-                 
-                 rdfs:comment "A related resource that requires the described resource to support its function, delivery, or coherence."@en ;
-                 
-                 <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#isRequiredBy-003> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:mediator rdfs:label "Mediator"@en ;
-             
-             rdfs:comment "An entity that mediates access to the resource and for whom the resource is intended or useful."@en ;
-             
-             dct:description "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#mediator-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:RFC4646 rdfs:label "RFC 4646"@en ;
-            
-            dct:description "RFC 4646 obsoletes RFC 3066."@en ;
-            
-            rdfs:comment "The set of tags constructed according to RFC 4646 for the identification of languages."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC4646-001> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> .
-
-
-
-dct:accrualPolicy rdfs:label "Accrual Policy"@en ;
-                  
-                  rdfs:comment "The policy governing the addition of items to a collection."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPolicy-003> ;
-                  
-                  rdfs:isDefinedBy dct: .
-
-
-
-dct:isPartOf rdfs:label "Is Part Of"@en ;
-             
-             rdfs:comment "A related resource in which the described resource is physically or logically included."@en ;
-             
-             <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#isPartOf-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:URI rdfs:label "URI"@en ;
-        
-        rdfs:comment "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."@en ;
-        
-        dct:hasVersion <http://dublincore.org/usage/terms/history/#URI-003> ;
-        
-        rdfs:isDefinedBy dct: ;
-        
-        rdfs:seeAlso <http://www.ietf.org/rfc/rfc3986.txt> .
-
-
-
-dct:contributor rdfs:label "Contributor"@en ;
-                
-                rdfs:comment "An entity responsible for making contributions to the resource."@en ;
-                
-                dct:description "Examples of a Contributor include a person, an organization, or a service."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#contributorT-001> ;
-                
-                rdfs:isDefinedBy dct: .
-
-
-
-dct:accrualMethod rdfs:label "Accrual Method"@en ;
-                  
-                  rdfs:comment "The method by which items are added to a collection."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualMethod-003> ;
-                  
-                  rdfs:isDefinedBy dct: .
-
-
-
-dct:SizeOrDuration rdfs:label "Size or Duration"@en ;
-                   
-                   rdfs:comment "A dimension or extent, or a time taken to play or execute."@en ;
-                   
-                   dct:description "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."@en ;
-                   
-                   dct:hasVersion <http://dublincore.org/usage/terms/history/#SizeOrDuration-001> ;
-                   
-                   rdfs:isDefinedBy dct: .
-
-
-
-:Federal rdfs:label "Federal Government"@en ;
-         
-         rdfs:comment "Federal Government denotes the federal democratic administrative authority of the Commonwealth of Australia."@en .
-
-
-
-dct:rights rdfs:label "Rights"@en ;
-           
-           rdfs:comment "Information about rights held in and over the resource."@en ;
-           
-           dct:description "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#rightsT-001> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:isBasedOn rdfs:label "Has Version"@en-au ;
-              
-              dct:modified "2009-02-02" ;
-              
-              rdfs:comment "A related resource of which the described resource is a performance, production, derivation, translation or interpretation."@en-au .
-
-
-
-dct:format rdfs:label "Format"@en ;
-           
-           dct:description "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
-           
-           rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#formatT-001> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-dct:isBasisFor rdfs:label "Is Version Of"@en-au ;
-               
-               dct:modified "2009-02-02" ;
-               
-               rdfs:comment "A related resource that is a performance, production, derivation, translation or interpretation of the described resource."@en-au .
-
-
-
-dct:AgentClass rdfs:label "Agent Class"@en ;
-               
-               rdfs:comment "A group of agents."@en ;
-               
-               dct:description "Examples of Agent Class include groups seen as classes, such as students, women, charities, lecturers."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#AgentClass-003> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-dct:instructionalMethod rdfs:label "Instructional Method"@en ;
-                        
-                        rdfs:comment "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en ;
-                        
-                        dct:description "Instructional Method will typically include ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."@en ;
-                        
-                        dct:hasVersion <http://dublincore.org/usage/terms/history/#instructionalMethod-002> ;
-                        
-                        rdfs:isDefinedBy dct: .
-
-
-
-dct:isReplacedBy rdfs:label "Is Replaced By"@en ;
-                 
-                 rdfs:comment "A related resource that supplants, displaces, or supersedes the described resource."@en ;
-                 
-                 <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-                 
-                 dct:hasVersion <http://dublincore.org/usage/terms/history/#isReplacedBy-003> ;
-                 
-                 rdfs:isDefinedBy dct: .
-
-
-
-dct:coverage rdfs:label "Coverage"@en ;
-             
-             dct:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
-             
-             rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#coverageT-001> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:isFormatOf rdfs:label "Is Format Of"@en ;
-               
-               rdfs:comment "A related resource that is substantially the same as the described resource, but in another format."@en ;
-               
-               <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#isFormatOf-003> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-dct:creator rdfs:label "Creator"@en ;
-            
-            rdfs:comment "An entity primarily responsible for making the resource."@en ;
-            
-            dct:description "Examples of a Creator include a person, an organization, or a service."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-            
-            rdfs:isDefinedBy dct: .
-
-
-
-dct:Standard rdfs:label "Standard"@en ;
-             
-             rdfs:comment "A basis for comparison; a reference point against which other things can be evaluated."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#Standard-001> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:hasVersion rdf:type owl:AnnotationProperty ;
-               
-               rdfs:label "Has Version"@en ;
-               
-               rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
-               
-               <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-dct:abstract rdfs:label "Abstract"@en ;
-             
-             rdfs:comment "A summary of the resource."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#abstract-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:relation rdfs:label "Relation"@en ;
-             
-             rdfs:comment "A related resource."@en ;
-             
-             dct:description "Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. "@en ;
-             
-             <http://www.w3.org/2004/02/skos/core#note> "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#relationT-001> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-dct:alternative rdfs:label "Alternative Title"@en ;
-                
-                rdfs:comment "An alternative name for the resource."@en ;
-                
-                dct:description "The distinction between titles and alternative titles is application-specific."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#alternative-003> ;
-                
-                rdfs:isDefinedBy dct: .
-
-
-
-dct:title rdfs:label "Title"@en ;
-          
-          rdfs:comment "A name given to the resource."@en ;
-          
-          dct:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
-          
-          rdfs:isDefinedBy dct: .
-
-
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#lat_long> rdfs:label "lat/long" ;
-                                                   
-                                                   rdfs:comment "A comma-separated representation of a latitude, longitude coordinate." .
-
-
-
-dct:type rdfs:label "Type"@en ;
-         
-         dct:description "Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
-         
-         rdfs:comment "The nature or genre of the resource."@en ;
-         
-         dct:hasVersion <http://dublincore.org/usage/terms/history/#typeT-001> ;
-         
-         rdfs:isDefinedBy dct: .
-
-
-
-dct:dateCopyrighted rdfs:label "Date Copyrighted"@en ;
-                    
-                    rdfs:comment "Date of copyright."@en ;
-                    
-                    dct:hasVersion <http://dublincore.org/usage/terms/history/#dateCopyrighted-002> ;
-                    
-                    rdfs:isDefinedBy dct: .
-
-
-
-dct:RFC5646 rdfs:label "RFC 5646"@en ;
-            
-            dct:description "RFC 5646 obsoletes RFC 4646."@en ;
-            
-            rdfs:comment "The set of tags constructed according to RFC 5646 for the identification of languages."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC5646-001> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:seeAlso <http://www.ietf.org/rfc/rfc5646.txt> .
-
-
-
-dct:RFC1766 rdfs:label "RFC 1766"@en ;
-            
-            rdfs:comment "The set of tags, constructed according to RFC 1766, for the identification of languages."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#RFC1766-003> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:seeAlso <http://www.ietf.org/rfc/rfc1766.txt> .
-
-
-
-
-###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
-
+ """ ;
+  rdfs:label "location" ;
+  rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/based_near> ;
+.
+<http://www.w3.org/2003/01/geo/wgs84_pos#long>
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)." ;
+  rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  rdfs:label "longitude" ;
+.
+skos:note
+  rdf:type owl:AnnotationProperty ;
+.
+<http://xmlns.com/foaf/0.1/based_near>
+  rdf:type owl:AnnotationProperty ;
+.
