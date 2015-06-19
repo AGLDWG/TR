@@ -1,0 +1,430 @@
+# baseURI: http://data.gov.au/def/datasetOntology
+# imports: http://www.w3.org/2006/time
+# imports: http://www.w3.org/ns/dcat
+# imports: http://www.w3.org/ns/prov-o
+# imports: http://xmlns.com/foaf/0.1/
+
+@prefix agls: <http://www.agls.gov.au/agls/terms/> .
+@prefix audata: <http://data.gov.au/def/datasetOntology#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix v: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.gov.au/def/datasetOntology>
+  rdf:type owl:Ontology ;
+  rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
+
+The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
+ 
+By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
+ 
+Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
+  owl:imports <http://www.w3.org/2006/time> ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:imports <http://www.w3.org/ns/prov-o> ;
+  owl:imports <http://xmlns.com/foaf/0.1/> ;
+.
+audata:ACT
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Australian Capital Territory"^^xsd:string ;
+.
+audata:Annually
+  rdf:type dct:Frequency ;
+  rdfs:label "Annually" ;
+.
+audata:As_required
+  rdf:type dct:Frequency ;
+  rdfs:label "As required" ;
+.
+audata:Australia
+  rdf:type audata:Federal ;
+  rdfs:label "Commonwealth of Australia"^^xsd:string ;
+.
+audata:Catalog
+  rdf:type owl:Class ;
+  rdfs:label "Catalog"@en ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Catalog> ;
+.
+audata:Concept
+  rdf:type owl:Class ;
+  owl:equivalentClass skos:Concept ;
+.
+audata:ContributorRole
+  rdf:type owl:Class ;
+  rdfs:comment "A Contributor is the Role of contributing in one form or another as an Agent to a Dataset."@en ;
+  rdfs:subClassOf audata:Role ;
+.
+audata:CustodianRole
+  rdf:type owl:Class ;
+  rdfs:comment "A Custodian is the Role of being the responsible Agent that looks after a Dataset."@en ;
+  rdfs:subClassOf audata:Role ;
+.
+audata:Daily
+  rdf:type dct:Frequency ;
+  rdfs:label "Daily" ;
+.
+audata:Dataset
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en ;
+  rdfs:label "Dataset"@en ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:publishDate ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:title ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:updateDate ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty dct:license ;
+      owl:someValuesFrom dct:LicenseDocument ;
+    ] ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Dataset> ;
+.
+audata:DatasetChangeEvent
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset."@en ;
+  rdfs:label "Dataset Change Event"@en ;
+  rdfs:subClassOf prov:InstantaneousEvent ;
+.
+audata:DatasetPublicationEvent
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset Publication Event is a description of an event that happens at a given point in time and that results in the publication of a Dataset on data.gov.au."@en ;
+  rdfs:label "Dataset Publication Event"@en ;
+  rdfs:subClassOf audata:DatasetChangeEvent ;
+.
+audata:Distribution
+  rdf:type owl:Class ;
+  rdfs:label "Distribution"@en ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Distribution> ;
+.
+audata:Document
+  rdf:type owl:Class ;
+  rdfs:label "Document"@en ;
+  owl:equivalentClass <http://xmlns.com/foaf/0.1/Document> ;
+.
+audata:Federal
+  rdf:type owl:Class ;
+  rdfs:comment "Federal Government denotes the federal democratic administrative authority of the Commonwealth of Australia."@en ;
+  rdfs:label "Federal Government"@en ;
+  rdfs:subClassOf audata:LevelOfGovernment ;
+.
+audata:FieldOfResearch
+  rdf:type owl:Class ;
+  rdfs:comment "The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset."@en ;
+  rdfs:label "Field of Research"@en ;
+  rdfs:subClassOf audata:Concept ;
+.
+audata:Function
+  rdf:type owl:Class ;
+  dc:source agls:FunctionClass ;
+  rdfs:comment "The Government Function defined by the Australian Governments' Interactive Functions Thesaurus that best describes the data contained within a Dataset."@en ;
+  rdfs:label "Function"@en ;
+  rdfs:seeAlso <http://agift.naa.gov.au/> ;
+.
+audata:Geometry
+  rdf:type owl:Class ;
+  rdfs:subClassOf audata:SpatialThing ;
+.
+audata:GovernmentAgency
+  rdf:type owl:Class ;
+  rdfs:comment "A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions."@en ;
+  rdfs:label "Government Agency"@en ;
+  rdfs:seeAlso "http://recordsearch.naa.gov.au/manual/Provenance/AgencyDefinition.htm#DEFINITION"@en ;
+  rdfs:subClassOf audata:Organisation ;
+.
+audata:LevelOfGovernment
+  rdf:type owl:Class ;
+  rdfs:comment "Level of Government is a description that is used to describe the Jurisidiction of an Organisation."@en ;
+  rdfs:label "Level of Government"@en ;
+.
+audata:Local
+  rdf:type owl:Class ;
+  rdfs:comment "Local Government is the lowest tier of government in the Commonwealth of Australia administered under the states and territories."@en ;
+  rdfs:label "Local Government"@en ;
+  rdfs:subClassOf audata:LevelOfGovernment ;
+.
+audata:Locality
+  rdf:type owl:Class ;
+  rdfs:subClassOf audata:SpatialThing ;
+.
+audata:Monthly
+  rdf:type dct:Frequency ;
+  rdfs:label "Monthly" ;
+.
+audata:NSW
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "New South Wales"^^xsd:string ;
+.
+audata:NT
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Northern Territory"^^xsd:string ;
+.
+audata:Never
+  rdf:type dct:Frequency ;
+  rdfs:label "Never"^^xsd:string ;
+.
+audata:Organisation
+  rdf:type owl:Class ;
+  rdfs:comment "An Organisation is a kind of Agent representing, for example, a business or government, or organisational subunits thereof."@en ;
+  rdfs:label "Organisation"@en ;
+  rdfs:subClassOf dct:Agent ;
+.
+audata:Point
+  rdf:type owl:Class ;
+  rdfs:comment "A Point is a point in space using its geographic coordinates."@en ;
+  rdfs:comment "WGS84_pos ontology provides a method for encoding position"@en ;
+  rdfs:label "Point"@en ;
+  rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> ;
+  rdfs:subClassOf audata:Geometry ;
+  owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+.
+audata:Polygon
+  rdf:type owl:Class ;
+  rdfs:label "Polygon"@en ;
+  rdfs:subClassOf audata:Geometry ;
+.
+audata:PublisherRole
+  rdf:type owl:Class ;
+  rdfs:comment "A Publisher is the Role of an Agent that makes the Dataset available."@en ;
+  rdfs:label "Publisher"@en ;
+  rdfs:subClassOf audata:Role ;
+.
+audata:QLD
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Queensland"^^xsd:string ;
+.
+audata:Quarterly
+  rdf:type dct:Frequency ;
+  rdfs:label "Quarterly" ;
+.
+audata:Role
+  rdf:type owl:Class ;
+  rdfs:comment "A Role corresponds to the involvement of an agent in an Event, e.g. fulfilling a Publisher, Contributor or Custodian Role."@en ;
+  rdfs:label "Role"@en ;
+  rdfs:subClassOf prov:Role ;
+.
+audata:SA
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "South Australia"^^xsd:string ;
+.
+audata:SpatialGazetteer
+  rdf:type owl:Class ;
+  rdfs:label "Spatial Gazetteer"@en ;
+  rdfs:subClassOf audata:Locality ;
+.
+audata:SpatialThing
+  rdf:type owl:Class ;
+  rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ;
+  rdfs:label "Spatial Thing"@en ;
+  owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+.
+audata:StateOrTerritory
+  rdf:type owl:Class ;
+  rdfs:comment "States and Territories Government are the second tier of Government in the Commonwealth of Australia. The Commonwealth of Australia comprises of six states and various territories some of which enjoy a large degree of self-governance."@en ;
+  rdfs:label "State and Territories Government"@en ;
+  rdfs:subClassOf audata:LevelOfGovernment ;
+.
+audata:Subdaily
+  rdf:type dct:Frequency ;
+  rdfs:label "More frequently than daily"^^xsd:string ;
+.
+audata:TAS
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Tasmania"^^xsd:string ;
+.
+audata:Timelnterval
+  rdf:type owl:Class ;
+  rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en ;
+  rdfs:label "Time Interval"@en ;
+  rdfs:subClassOf <http://www.w3.org/2006/time#Interval> ;
+.
+audata:VIC
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Victoria"^^xsd:string ;
+.
+audata:WA
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Western Australia"^^xsd:string ;
+.
+audata:Weekly
+  rdf:type dct:Frequency ;
+  rdfs:label "Weekly" ;
+.
+audata:accessURL
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/dcat#Distribution> ;
+  rdfs:label "Access URL"@en ;
+  rdfs:range rdfs:Resource ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#accessURL> ;
+.
+audata:dataset
+  rdf:type owl:ObjectProperty ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#dataset> ;
+.
+audata:distribution
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Distribution ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#distribution> ;
+.
+audata:downloadURL
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Download URL"@en ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#downloadURL> ;
+.
+audata:fileSize
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "File Size"@en ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#byteSize> ;
+.
+audata:format
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Distribution ;
+  rdfs:label "Format"@en ;
+  rdfs:range dct:MediaTypeOrExtent ;
+  rdfs:subPropertyOf dct:format ;
+  owl:equivalentProperty dct:format ;
+.
+audata:hasContact
+  rdf:type owl:ObjectProperty ;
+  rdfs:range v:Kind ;
+.
+audata:hasExtent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+.
+audata:hasFunction
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Function ;
+.
+audata:hasLevelOfGovernment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Organisation ;
+  rdfs:range audata:LevelOfGovernment ;
+.
+audata:hasMember
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Organisation ;
+  rdfs:range dct:Agent ;
+  owl:inverseOf audata:isMemberOf ;
+.
+audata:hasSpatialExtent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:SpatialThing ;
+.
+audata:hasTemporalExtent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Timelnterval ;
+.
+audata:isAssociatedWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:DatasetChangeEvent ;
+  rdfs:range audata:Role ;
+  owl:inverseOf audata:participatesIn ;
+.
+audata:isChangedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:DatasetChangeEvent ;
+  owl:inverseOf audata:resultedIn ;
+.
+audata:isDescribedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> ;
+.
+audata:isMemberOf
+  rdf:type owl:ObjectProperty ;
+.
+audata:keyword
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Keyword"@en ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#keyword> ;
+.
+audata:landingPage
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:label "Landing Page"@en ;
+  rdfs:range <http://xmlns.com/foaf/0.1/Document> ;
+  owl:equivalentProperty <http://www.w3.org/ns/dcat#landingPage> ;
+.
+audata:license
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "License"@en ;
+  owl:equivalentProperty dct:license ;
+.
+audata:participatesIn
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+audata:playsRole
+  rdf:type owl:ObjectProperty ;
+  rdfs:range audata:Role ;
+.
+audata:publishDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Publish Date"@en ;
+  rdfs:subPropertyOf dct:dateAccepted ;
+  owl:equivalentProperty dct:issued ;
+.
+audata:publisher
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf dct:publisher ;
+.
+audata:purpose
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range rdfs:Literal ;
+.
+audata:resultedIn
+  rdf:type owl:ObjectProperty ;
+.
+audata:roleOf
+  rdf:type owl:ObjectProperty ;
+  owl:inverseOf audata:playsRole ;
+.
+audata:theme
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf dct:subject ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+audata:title
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Title"@en ;
+  rdfs:subPropertyOf dct:title ;
+  owl:equivalentProperty dct:title ;
+.
+audata:updateDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Update Date"@en ;
+  rdfs:subPropertyOf dct:modified ;
+  owl:equivalentProperty dct:modified ;
+.
+audata:updateFrequency
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Update Frequency"@en ;
+  owl:equivalentProperty dct:accrualPeriodicity ;
+.
