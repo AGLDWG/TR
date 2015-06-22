@@ -11,11 +11,13 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix v: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -198,7 +200,7 @@ audata:Point
   rdfs:label "Point"@en ;
   rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> ;
   rdfs:subClassOf audata:Geometry ;
-  owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+  owl:equivalentClass geo:Point ;
 .
 audata:Polygon
   rdf:type owl:Class ;
@@ -238,7 +240,7 @@ audata:SpatialThing
   rdf:type owl:Class ;
   rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ;
   rdfs:label "Spatial Thing"@en ;
-  owl:equivalentClass <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  owl:equivalentClass geo:SpatialThing ;
 .
 audata:StateOrTerritory
   rdf:type owl:Class ;
@@ -258,7 +260,7 @@ audata:Timelnterval
   rdf:type owl:Class ;
   rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en ;
   rdfs:label "Time Interval"@en ;
-  rdfs:subClassOf <http://www.w3.org/2006/time#Interval> ;
+  rdfs:subClassOf time:Interval ;
 .
 audata:VIC
   rdf:type audata:StateOrTerritory ;
