@@ -21,6 +21,7 @@
 <http://data.gov.au/def/datasetOntology>
   rdf:type owl:Ontology ;
   dct:isReplacedBy <http://communications.data.gov.au/def/datasetOntology> ;
+  dct:isReplacedBy <https://github.com/AGLDWG/TR/blob/master/datasetOntology.ttl> ;
   dct:modified "2015-06-19"^^xsd:date ;
   rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
 

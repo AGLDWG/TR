@@ -8,7 +8,9 @@
 @prefix audata: <http://communications.data.gov.au/def/datasetOntology#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -32,7 +34,8 @@ Other publishers of Linked Data may make assertions about data published using t
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports <http://www.w3.org/ns/dcat> ;
   owl:imports <http://www.w3.org/ns/prov-o> ;
-  owl:imports <http://xmlns.com/foaf/0.1/> ;
+  owl:imports foaf: ;
+  owl:priorVersion <https://github.com/AGLDWG/TR/blob/master/government.ttl> ;
 .
 audata:ACT
   rdf:type audata:StateOrTerritory ;
@@ -53,7 +56,7 @@ audata:Australia
 audata:Catalog
   rdf:type owl:Class ;
   rdfs:label "Catalog"@en ;
-  owl:equivalentClass <http://www.w3.org/ns/dcat#Catalog> ;
+  owl:equivalentClass dcat:Catalog ;
 .
 audata:Concept
   rdf:type owl:Class ;
@@ -97,7 +100,7 @@ audata:Dataset
       owl:onProperty dct:license ;
       owl:someValuesFrom dct:LicenseDocument ;
     ] ;
-  owl:equivalentClass <http://www.w3.org/ns/dcat#Dataset> ;
+  owl:equivalentClass dcat:Dataset ;
 .
 audata:DatasetChangeEvent
   rdf:type owl:Class ;
@@ -114,12 +117,12 @@ audata:DatasetPublicationEvent
 audata:Distribution
   rdf:type owl:Class ;
   rdfs:label "Distribution"@en ;
-  owl:equivalentClass <http://www.w3.org/ns/dcat#Distribution> ;
+  owl:equivalentClass dcat:Distribution ;
 .
 audata:Document
   rdf:type owl:Class ;
   rdfs:label "Document"@en ;
-  owl:equivalentClass <http://xmlns.com/foaf/0.1/Document> ;
+  owl:equivalentClass foaf:Document ;
 .
 audata:Federal
   rdf:type owl:Class ;
@@ -271,30 +274,30 @@ audata:Weekly
 .
 audata:accessURL
   rdf:type owl:ObjectProperty ;
-  rdfs:domain <http://www.w3.org/ns/dcat#Distribution> ;
+  rdfs:domain dcat:Distribution ;
   rdfs:label "Access URL"@en ;
   rdfs:range rdfs:Resource ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#accessURL> ;
+  owl:equivalentProperty dcat:accessURL ;
 .
 audata:dataset
   rdf:type owl:ObjectProperty ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#dataset> ;
+  owl:equivalentProperty dcat:dataset ;
 .
 audata:distribution
   rdf:type owl:ObjectProperty ;
   rdfs:domain audata:Dataset ;
   rdfs:range audata:Distribution ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#distribution> ;
+  owl:equivalentProperty dcat:distribution ;
 .
 audata:downloadURL
   rdf:type owl:ObjectProperty ;
   rdfs:label "Download URL"@en ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#downloadURL> ;
+  owl:equivalentProperty dcat:downloadURL ;
 .
 audata:fileSize
   rdf:type owl:DatatypeProperty ;
   rdfs:label "File Size"@en ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#byteSize> ;
+  owl:equivalentProperty dcat:byteSize ;
 .
 audata:format
   rdf:type owl:ObjectProperty ;
@@ -354,7 +357,7 @@ audata:isDescribedBy
   rdf:type owl:ObjectProperty ;
   rdfs:domain audata:Dataset ;
   rdfs:range owl:Thing ;
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> ;
+  rdfs:subPropertyOf foaf:isPrimaryTopicOf ;
 .
 audata:isMemberOf
   rdf:type owl:ObjectProperty ;
@@ -362,14 +365,14 @@ audata:isMemberOf
 audata:keyword
   rdf:type owl:DatatypeProperty ;
   rdfs:label "Keyword"@en ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#keyword> ;
+  owl:equivalentProperty dcat:keyword ;
 .
 audata:landingPage
   rdf:type owl:ObjectProperty ;
   rdfs:domain audata:Dataset ;
   rdfs:label "Landing Page"@en ;
-  rdfs:range <http://xmlns.com/foaf/0.1/Document> ;
-  owl:equivalentProperty <http://www.w3.org/ns/dcat#landingPage> ;
+  rdfs:range foaf:Document ;
+  owl:equivalentProperty dcat:landingPage ;
 .
 audata:license
   rdf:type owl:ObjectProperty ;
