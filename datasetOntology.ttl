@@ -145,6 +145,12 @@ audata:Function
   rdfs:label "Function"@en ;
   rdfs:seeAlso <http://agift.naa.gov.au/> ;
 .
+audata:GazettedLocality
+  rdf:type owl:Class ;
+  rdfs:comment "Locality with a name authorised by a government agency"^^xsd:string ;
+  rdfs:label "Spatial Gazetteer"@en ;
+  rdfs:subClassOf audata:Locality ;
+.
 audata:Geometry
   rdf:type owl:Class ;
   rdfs:subClassOf audata:SpatialThing ;
@@ -169,6 +175,7 @@ audata:Local
 .
 audata:Locality
   rdf:type owl:Class ;
+  rdfs:comment "Locality is a spatial thing corresponding to a place or area, which is denoted by a commonly recognised, or formally designated, name or description. "^^xsd:string ;
   rdfs:subClassOf audata:SpatialThing ;
 .
 audata:Monthly
@@ -196,14 +203,14 @@ audata:Organisation
 audata:Point
   rdf:type owl:Class ;
   rdfs:comment "A Point is a point in space using its geographic coordinates."@en ;
-  rdfs:comment "WGS84_pos ontology provides a method for encoding position"@en ;
+  rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  from WGS84_pos or OGC GeoSPARQL or both, or something else as proposed by SDWWG."^^xsd:string ;
   rdfs:label "Point"@en ;
   rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> ;
   rdfs:subClassOf audata:Geometry ;
-  owl:equivalentClass geo:Point ;
 .
 audata:Polygon
   rdf:type owl:Class ;
+  rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  from OGC GeoSPARQL, or something else as proposed by SDWWG."^^xsd:string ;
   rdfs:label "Polygon"@en ;
   rdfs:subClassOf audata:Geometry ;
 .
@@ -231,16 +238,11 @@ audata:SA
   rdf:type audata:StateOrTerritory ;
   rdfs:label "South Australia"^^xsd:string ;
 .
-audata:SpatialGazetteer
-  rdf:type owl:Class ;
-  rdfs:label "Spatial Gazetteer"@en ;
-  rdfs:subClassOf audata:Locality ;
-.
 audata:SpatialThing
   rdf:type owl:Class ;
   rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ;
+  rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  w3 geo or OGC GeoSPARQL or both, or something else as proposed by SDWWG."^^xsd:string ;
   rdfs:label "Spatial Thing"@en ;
-  owl:equivalentClass geo:SpatialThing ;
 .
 audata:StateOrTerritory
   rdf:type owl:Class ;
@@ -259,6 +261,7 @@ audata:TAS
 audata:Timelnterval
   rdf:type owl:Class ;
   rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en ;
+  rdfs:comment "Note that this is a subclass of the Interval class from OWL-Time."^^xsd:string ;
   rdfs:label "Time Interval"@en ;
   rdfs:subClassOf time:Interval ;
 .
@@ -273,13 +276,6 @@ audata:WA
 audata:Weekly
   rdf:type dct:Frequency ;
   rdfs:label "Weekly" ;
-.
-audata:accessURL
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain dcat:Distribution ;
-  rdfs:label "Access URL"@en ;
-  rdfs:range rdfs:Resource ;
-  owl:equivalentProperty dcat:accessURL ;
 .
 audata:dataset
   rdf:type owl:ObjectProperty ;
@@ -300,14 +296,6 @@ audata:fileSize
   rdf:type owl:DatatypeProperty ;
   rdfs:label "File Size"@en ;
   owl:equivalentProperty dcat:byteSize ;
-.
-audata:format
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain audata:Distribution ;
-  rdfs:label "Format"@en ;
-  rdfs:range dct:MediaTypeOrExtent ;
-  rdfs:subPropertyOf dct:format ;
-  owl:equivalentProperty dct:format ;
 .
 audata:hasContact
   rdf:type owl:ObjectProperty ;
@@ -335,11 +323,19 @@ audata:hasMember
 .
 audata:hasSpatialExtent
   rdf:type owl:ObjectProperty ;
-  rdfs:domain audata:Dataset ;
+  rdfs:comment "Spatial extent corresponds to the geographic area within which all items in the dataset fall."^^xsd:string ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          audata:Dataset
+          audata:Locality
+        ) ;
+    ] ;
   rdfs:range audata:SpatialThing ;
 .
 audata:hasTemporalExtent
   rdf:type owl:ObjectProperty ;
+  rdfs:comment "Temporal extent corresponds to the time interval within which all items in the dataset occur."^^xsd:string ;
   rdfs:domain audata:Dataset ;
   rdfs:range audata:Timelnterval ;
 .
@@ -410,13 +406,6 @@ audata:resultedIn
 audata:roleOf
   rdf:type owl:ObjectProperty ;
   owl:inverseOf audata:playsRole ;
-.
-audata:theme
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain audata:Dataset ;
-  rdfs:range skos:Concept ;
-  rdfs:subPropertyOf dct:subject ;
-  rdfs:subPropertyOf owl:topObjectProperty ;
 .
 audata:title
   rdf:type owl:DatatypeProperty ;
