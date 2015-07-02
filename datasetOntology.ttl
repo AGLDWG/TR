@@ -55,6 +55,11 @@ audata:Australia
   rdf:type audata:Federal ;
   rdfs:label "Commonwealth of Australia"^^xsd:string ;
 .
+audata:Brisbane
+  rdf:type audata:Local ;
+  audata:state audata:QLD ;
+  rdfs:label "City of Brisbane"^^xsd:string ;
+.
 audata:Catalog
   rdf:type owl:Class ;
   rdfs:label "Catalog"@en ;
@@ -155,6 +160,11 @@ audata:Geometry
   rdf:type owl:Class ;
   rdfs:subClassOf audata:SpatialThing ;
 .
+audata:GlenEira
+  rdf:type audata:Local ;
+  audata:state audata:VIC ;
+  rdfs:label "City of Glen Eira"^^xsd:string ;
+.
 audata:GovernmentAgency
   rdf:type owl:Class ;
   rdfs:comment "A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions."@en ;
@@ -172,6 +182,11 @@ audata:Local
   rdfs:comment "Local Government is the lowest tier of government in the Commonwealth of Australia administered under the states and territories."@en ;
   rdfs:label "Local Government"@en ;
   rdfs:subClassOf audata:LevelOfGovernment ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty audata:state ;
+    ] ;
 .
 audata:Locality
   rdf:type owl:Class ;
@@ -406,6 +421,11 @@ audata:resultedIn
 audata:roleOf
   rdf:type owl:ObjectProperty ;
   owl:inverseOf audata:playsRole ;
+.
+audata:state
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "State or territory"^^xsd:string ;
+  rdfs:range audata:StateOrTerritory ;
 .
 audata:title
   rdf:type owl:DatatypeProperty ;
