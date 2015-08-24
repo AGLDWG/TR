@@ -43,6 +43,14 @@ audata:ACT
   rdf:type audata:StateOrTerritory ;
   rdfs:label "Australian Capital Territory"^^xsd:string ;
 .
+audata:AGIFTFunction
+  rdf:type owl:Class ;
+  dc:source agls:FunctionClass ;
+  rdfs:comment "The Government Function defined by the Australian Governments' Interactive Functions Thesaurus that best describes the data contained within a Dataset."@en ;
+  rdfs:label "Function"@en ;
+  rdfs:seeAlso <http://agift.naa.gov.au/> ;
+  rdfs:subClassOf audata:Classifier ;
+.
 audata:Annually
   rdf:type dct:Frequency ;
   rdfs:label "Annually" ;
@@ -63,11 +71,12 @@ audata:Brisbane
 audata:Catalog
   rdf:type owl:Class ;
   rdfs:label "Catalog"@en ;
-  owl:equivalentClass dcat:Catalog ;
+  rdfs:subClassOf dcat:Catalog ;
 .
-audata:Concept
+audata:Classifier
   rdf:type owl:Class ;
-  owl:equivalentClass skos:Concept ;
+  rdfs:comment "A classifier used for Australian Government Data"@en ;
+  rdfs:subClassOf skos:Concept ;
 .
 audata:ContributorRole
   rdf:type owl:Class ;
@@ -87,6 +96,17 @@ audata:Dataset
   rdf:type owl:Class ;
   rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en ;
   rdfs:label "Dataset"@en ;
+  rdfs:subClassOf dcat:Dataset ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom audata:PublisherRole ;
+      owl:onProperty audata:isPublishedBy ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty audata:agiftFunction ;
+    ] ;
   rdfs:subClassOf [
       rdf:type owl:Restriction ;
       owl:onProperty audata:publishDate ;
@@ -107,7 +127,6 @@ audata:Dataset
       owl:onProperty dct:license ;
       owl:someValuesFrom dct:LicenseDocument ;
     ] ;
-  owl:equivalentClass dcat:Dataset ;
 .
 audata:DatasetChangeEvent
   rdf:type owl:Class ;
@@ -124,7 +143,7 @@ audata:DatasetPublicationEvent
 audata:Distribution
   rdf:type owl:Class ;
   rdfs:label "Distribution"@en ;
-  owl:equivalentClass dcat:Distribution ;
+  rdfs:subClassOf dcat:Distribution ;
 .
 audata:Document
   rdf:type owl:Class ;
@@ -141,14 +160,7 @@ audata:FieldOfResearch
   rdf:type owl:Class ;
   rdfs:comment "The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset."@en ;
   rdfs:label "Field of Research"@en ;
-  rdfs:subClassOf audata:Concept ;
-.
-audata:Function
-  rdf:type owl:Class ;
-  dc:source agls:FunctionClass ;
-  rdfs:comment "The Government Function defined by the Australian Governments' Interactive Functions Thesaurus that best describes the data contained within a Dataset."@en ;
-  rdfs:label "Function"@en ;
-  rdfs:seeAlso <http://agift.naa.gov.au/> ;
+  rdfs:subClassOf audata:Classifier ;
 .
 audata:GazettedLocality
   rdf:type owl:Class ;
@@ -292,6 +304,20 @@ audata:Weekly
   rdf:type dct:Frequency ;
   rdfs:label "Weekly" ;
 .
+audata:agiftFunction
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The AGIFT classification for this dataset"^^xsd:string ;
+  rdfs:label "AGIFT Theme"^^xsd:string ;
+  rdfs:range audata:AGIFTFunction ;
+  rdfs:subPropertyOf audata:classifiedAs ;
+.
+audata:classifiedAs
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The main category of the dataset. A dataset can have multiple themes."@en ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Classifier ;
+  rdfs:subPropertyOf dcat:theme ;
+.
 audata:dataset
   rdf:type owl:ObjectProperty ;
   owl:equivalentProperty dcat:dataset ;
@@ -300,7 +326,7 @@ audata:distribution
   rdf:type owl:ObjectProperty ;
   rdfs:domain audata:Dataset ;
   rdfs:range audata:Distribution ;
-  owl:equivalentProperty dcat:distribution ;
+  rdfs:subPropertyOf dcat:distribution ;
 .
 audata:downloadURL
   rdf:type owl:ObjectProperty ;
@@ -319,11 +345,6 @@ audata:hasContact
 audata:hasExtent
   rdf:type owl:ObjectProperty ;
   rdfs:domain audata:Dataset ;
-.
-audata:hasFunction
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain audata:Dataset ;
-  rdfs:range audata:Function ;
 .
 audata:hasLevelOfGovernment
   rdf:type owl:ObjectProperty ;
@@ -374,6 +395,16 @@ audata:isDescribedBy
 .
 audata:isMemberOf
   rdf:type owl:ObjectProperty ;
+.
+audata:isPublishedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "**Need to constrain this property to find publisher**"^^xsd:string ;
+  rdfs:label "link to specialized change event"^^xsd:string ;
+  rdfs:subPropertyOf audata:isChangedBy ;
+  owl:propertyChainAxiom (
+      audata:isChangedBy
+      audata:publisher
+    ) ;
 .
 audata:keyword
   rdf:type owl:DatatypeProperty ;
