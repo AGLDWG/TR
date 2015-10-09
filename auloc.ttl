@@ -92,12 +92,3 @@ auloc:WA
   rdf:type audata:StateOrTerritory ;
   rdfs:label "Western Australia"^^xsd:string ;
 .
-<http://communications.data.gov.au/def/org/OSP>
-  audata:isMemberOf auloc:Australia ;
-.
-<http://communications.data.gov.au/def/org/PMC>
-  audata:hasLevelOfGovernment auloc:Australia ;
-.
-<http://governance.data.gov.au/dataset/AGIL>
-  audata:hasSpatialExtent auloc:Australia ;
-.

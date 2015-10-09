@@ -16,13 +16,13 @@
 .
 aurole:Custodian
   rdf:type audata:Role ;
-  rdfs:comment "Custodian"^^xsd:string ;
+  rdfs:label "Custodian"^^xsd:string ;
 .
 aurole:PointOfContact
   rdf:type audata:Role ;
-  rdfs:comment "Point of contact"^^xsd:string ;
+  rdfs:label "Point of contact"^^xsd:string ;
 .
 aurole:Publisher
   rdf:type audata:Role ;
-  rdfs:comment "Publisher"^^xsd:string ;
+  rdfs:label "Publisher"^^xsd:string ;
 .

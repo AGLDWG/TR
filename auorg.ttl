@@ -10,6 +10,12 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+auorg:OSP
+  audata:isMemberOf <http://communications.data.gov.au/def/locality/Australia> ;
+.
+auorg:PMC
+  audata:hasLevelOfGovernment <http://communications.data.gov.au/def/locality/Australia> ;
+.
 <http://communications.data.gov.au/def/organization>
   rdf:type owl:Ontology ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
@@ -25,7 +31,4 @@ auorg:PMC
   rdf:type audata:Organisation ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "The Department of the Prime Minister and Cabinet"@en ;
-.
-<http://communications.data.gov.au/def/per/MargieSmith>
-  prov:actedOnBehalfOf auorg:OSP ;
 .
