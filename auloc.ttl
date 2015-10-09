@@ -10,8 +10,8 @@
 
 <http://communications.data.gov.au/def/locality>
   rdf:type owl:Ontology ;
+  rdfs:comment "List of Australian localities"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
-  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
 auloc:ACT
   rdf:type audata:Locality ;

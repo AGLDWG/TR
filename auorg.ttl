@@ -10,25 +10,21 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-auorg:OSP
-  audata:isMemberOf <http://communications.data.gov.au/def/locality/Australia> ;
-.
-auorg:PMC
-  audata:hasLevelOfGovernment <http://communications.data.gov.au/def/locality/Australia> ;
-.
 <http://communications.data.gov.au/def/organization>
   rdf:type owl:Ontology ;
+  rdfs:comment "List of Australian Government organizations"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
-  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
 auorg:OSP
   rdf:type audata:Organisation ;
   audata:hasContact <http://governance.data.gov.au/dataset/OSPVCard> ;
+  audata:isMemberOf <http://communications.data.gov.au/def/locality/Australia> ;
   rdfs:label "Office of Spatial Policy"@en ;
   vcard:hasEmail <mailto:spatial@communications.gov.au> ;
 .
 auorg:PMC
   rdf:type audata:Organisation ;
   rdf:type owl:NamedIndividual ;
+  audata:hasLevelOfGovernment <http://communications.data.gov.au/def/locality/Australia> ;
   rdfs:label "The Department of the Prime Minister and Cabinet"@en ;
 .

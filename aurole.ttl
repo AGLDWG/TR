@@ -11,8 +11,8 @@
 
 <http://communications.data.gov.au/def/role>
   rdf:type owl:Ontology ;
+  rdfs:comment "List of roles that agents play in relation to datasets and their change events"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
-  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
 aurole:Custodian
   rdf:type audata:Role ;

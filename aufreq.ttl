@@ -10,8 +10,8 @@
 
 <http://communications.data.gov.au/def/frequency>
   rdf:type owl:Ontology ;
+  rdfs:comment "List of dataset update frequencies"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
-  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
 .
 aufreq:Annually
   rdf:type dct:Frequency ;
