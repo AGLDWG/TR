@@ -1,16 +1,19 @@
-# baseURI: http://governance.data.gov.au/dataset/
+# baseURI: http://governance.data.gov.au/dataset/agil/
 # imports: http://communications.data.gov.au/def/dataset
 
-@prefix : <http://governance.data.gov.au/dataset/> .
+@prefix : <http://governance.data.gov.au/dataset/agil/> .
 @prefix agls: <http://www.agls.gov.au/agls/terms/> .
 @prefix audata: <http://communications.data.gov.au/def/dataset#> .
+@prefix aufreq: <http://communications.data.gov.au/def/frequency/> .
 @prefix auloc: <http://communications.data.gov.au/def/locality/> .
 @prefix auorg: <http://communications.data.gov.au/def/organization/> .
 @prefix auper: <http://communications.data.gov.au/def/person/> .
+@prefix aurole: <http://communications.data.gov.au/def/role/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -55,7 +58,6 @@ auper:MargieSmith
   audata:datasetStatus "true"^^xsd:boolean ;
   audata:distribution <http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde> ;
   audata:hasExtent <http://dbpedia.org/resource/Australia> ;
-  audata:hasSpatialExtent auloc:Australia ;
   audata:hasSpatialExtent :Australia_geometry ;
   audata:hasTemporalExtent :AGIL-Timelnterval ;
   audata:isChangedBy :CreationEventAGIL ;
@@ -70,17 +72,17 @@ auper:MargieSmith
   prov:qualifiedAttribution [
       rdf:type prov:Attribution ;
       prov:agent auorg:OSP ;
-      prov:hadRole <http://communications.data.gov.au/def/role/PointOfContact> ;
+      prov:hadRole aurole:PointOfContact ;
     ] ;
   prov:qualifiedAttribution [
       rdf:type prov:Attribution ;
       prov:agent auorg:OSP ;
-      prov:hadRole <http://communications.data.gov.au/def/role/Publisher> ;
+      prov:hadRole aurole:Publisher ;
     ] ;
   prov:qualifiedAttribution [
       rdf:type prov:Attribution ;
       prov:agent auorg:PMC ;
-      prov:hadRole <http://communications.data.gov.au/def/role/Custodian> ;
+      prov:hadRole aurole:Custodian ;
     ] ;
 .
 :AGIL-Timelnterval
@@ -100,10 +102,10 @@ auper:MargieSmith
 .
 :Australia_geometry
   rdf:type audata:Polygon ;
+  geo:hasGeometry "<![CDATA[<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((96.82696 -40.5134, 153.456 -40.5134, 153.456 -9.232, 96.82696 -9.232, 96.82696 -40.5134))]]>"^^<http://www.opengis.net/def/dataType/OGC-SF/1.0/WKTLiteral> ;
   rdfs:comment "?GA to host standard regions & bounding boxes for australia"^^xsd:string ;
   rdfs:comment "Should really be a link to a representation hosted by ?GA"^^xsd:string ;
   rdfs:label "Australia"^^xsd:string ;
-  <http://www.w3.org/2003/01/geo/wgs84_pos#hasGeometry> "<![CDATA[<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((96.82696 -40.5134, 153.456 -40.5134, 153.456 -9.232, 96.82696 -9.232, 96.82696 -40.5134))]]>"^^<http://www.opengis.net/def/dataType/OGC-SF/1.0/WKTLiteral> ;
 .
 :CreationEventAGIL
   rdf:type audata:DatasetChangeEvent ;
@@ -111,7 +113,7 @@ auper:MargieSmith
   prov:qualifiedAssociation [
       rdf:type prov:Association ;
       prov:agent auorg:PMC ;
-      prov:hadRole <http://communications.data.gov.au/def/role/Custodian> ;
+      prov:hadRole aurole:Custodian ;
     ] ;
 .
 :PublishedEventAGIL
@@ -119,7 +121,7 @@ auper:MargieSmith
   prov:qualifiedAssociation [
       rdf:type prov:Association ;
       prov:agent auper:MargieSmith ;
-      prov:hadRole <http://communications.data.gov.au/def/role/Publisher> ;
+      prov:hadRole aurole:Publisher ;
     ] ;
 .
 <http://www.iana.org/assignments/media-types/application/vnd.ms-excel>
