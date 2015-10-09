@@ -1,8 +1,8 @@
-# baseURI: http://communications.data.gov.au/def/organization
+# baseURI: http://communications.data.gov.au/def/organisation
 # imports: http://communications.data.gov.au/def/dataset
 
 @prefix audata: <http://communications.data.gov.au/def/dataset#> .
-@prefix auorg: <http://communications.data.gov.au/def/organization/> .
+@prefix auorg: <http://communications.data.gov.au/def/organisation/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,19 +10,21 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://communications.data.gov.au/def/organization>
+<http://communications.data.gov.au/def/organisation>
   rdf:type owl:Ontology ;
   rdfs:comment "List of Australian Government organizations"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
 .
-auorg:OSP
+<http://communications.data.gov.au/def/organization/OSP>
   rdf:type audata:Organisation ;
-  audata:hasContact <http://governance.data.gov.au/dataset/OSPVCard> ;
+  audata:hasContact [
+      rdf:type vcard:Organization ;
+      vcard:hasEmail <mailto:spatial@communications.gov.au> ;
+    ] ;
   audata:isMemberOf <http://communications.data.gov.au/def/locality/Australia> ;
   rdfs:label "Office of Spatial Policy"@en ;
-  vcard:hasEmail <mailto:spatial@communications.gov.au> ;
 .
-auorg:PMC
+<http://communications.data.gov.au/def/organization/PMC>
   rdf:type audata:Organisation ;
   rdf:type owl:NamedIndividual ;
   audata:hasLevelOfGovernment <http://communications.data.gov.au/def/locality/Australia> ;
