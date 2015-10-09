@@ -1,0 +1,28 @@
+# baseURI: http://communications.data.gov.au/def/role
+# imports: http://communications.data.gov.au/def/dataset
+
+@prefix audata: <http://communications.data.gov.au/def/dataset#> .
+@prefix aurole: <http://communications.data.gov.au/def/role/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://communications.data.gov.au/def/role>
+  rdf:type owl:Ontology ;
+  owl:imports <http://communications.data.gov.au/def/dataset> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+aurole:Custodian
+  rdf:type audata:Role ;
+  rdfs:comment "Custodian"^^xsd:string ;
+.
+aurole:PointOfContact
+  rdf:type audata:Role ;
+  rdfs:comment "Point of contact"^^xsd:string ;
+.
+aurole:Publisher
+  rdf:type audata:Role ;
+  rdfs:comment "Publisher"^^xsd:string ;
+.

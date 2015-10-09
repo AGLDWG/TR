@@ -1,0 +1,47 @@
+# baseURI: http://communications.data.gov.au/def/frequency
+# imports: http://communications.data.gov.au/def/dataset
+
+@prefix aufreq: <http://communications.data.gov.au/def/frequency/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://communications.data.gov.au/def/frequency>
+  rdf:type owl:Ontology ;
+  owl:imports <http://communications.data.gov.au/def/dataset> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+aufreq:Annually
+  rdf:type dct:Frequency ;
+  rdfs:label "Annually" ;
+.
+aufreq:As_required
+  rdf:type dct:Frequency ;
+  rdfs:label "As required" ;
+.
+aufreq:Daily
+  rdf:type dct:Frequency ;
+  rdfs:label "Daily" ;
+.
+aufreq:Monthly
+  rdf:type dct:Frequency ;
+  rdfs:label "Monthly" ;
+.
+aufreq:Never
+  rdf:type dct:Frequency ;
+  rdfs:label "Never"^^xsd:string ;
+.
+aufreq:Quarterly
+  rdf:type dct:Frequency ;
+  rdfs:label "Quarterly" ;
+.
+aufreq:Subdaily
+  rdf:type dct:Frequency ;
+  rdfs:label "More frequently than daily"^^xsd:string ;
+.
+aufreq:Weekly
+  rdf:type dct:Frequency ;
+  rdfs:label "Weekly" ;
+.

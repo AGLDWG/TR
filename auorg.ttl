@@ -1,0 +1,31 @@
+# baseURI: http://communications.data.gov.au/def/organization
+# imports: http://communications.data.gov.au/def/dataset
+
+@prefix audata: <http://communications.data.gov.au/def/dataset#> .
+@prefix auorg: <http://communications.data.gov.au/def/organization/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://communications.data.gov.au/def/organization>
+  rdf:type owl:Ontology ;
+  owl:imports <http://communications.data.gov.au/def/dataset> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+auorg:OSP
+  rdf:type audata:Organisation ;
+  audata:hasContact <http://governance.data.gov.au/dataset/OSPVCard> ;
+  rdfs:label "Office of Spatial Policy"@en ;
+  vcard:hasEmail <mailto:spatial@communications.gov.au> ;
+.
+auorg:PMC
+  rdf:type audata:Organisation ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "The Department of the Prime Minister and Cabinet"@en ;
+.
+<http://communications.data.gov.au/def/per/MargieSmith>
+  prov:actedOnBehalfOf auorg:OSP ;
+.

@@ -1,0 +1,103 @@
+# baseURI: http://communications.data.gov.au/def/locality
+# imports: http://communications.data.gov.au/def/dataset
+
+@prefix audata: <http://communications.data.gov.au/def/dataset#> .
+@prefix auloc: <http://communications.data.gov.au/def/locality/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://communications.data.gov.au/def/locality>
+  rdf:type owl:Ontology ;
+  owl:imports <http://communications.data.gov.au/def/dataset> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+auloc:ACT
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Australian Capital Territory"^^xsd:string ;
+.
+auloc:Australia
+  rdf:type audata:Federal ;
+  rdf:type audata:GovernmentAgency ;
+  rdf:type audata:Locality ;
+  rdfs:comment "Note that this resource is member of both Level of Government and Locality and is also a Commonwealth Government Agency"^^xsd:string ;
+  rdfs:label "Commonwealth of Australia"^^xsd:string ;
+  rdfs:seeAlso <http://dbpedia.org/resource/Australia> ;
+.
+auloc:Bayside
+  rdf:type audata:LocalGovernmentArea ;
+  rdf:type audata:Locality ;
+  audata:state auloc:VIC ;
+  rdfs:label "City of Bayside"^^xsd:string ;
+.
+auloc:BrightonEast
+  rdf:type audata:Locality ;
+  audata:lga auloc:Bayside ;
+  audata:lga auloc:GlenEira ;
+  audata:state auloc:VIC ;
+  rdfs:label "McKinnon"^^xsd:string ;
+.
+auloc:Brisbane
+  rdf:type audata:LocalGovernmentArea ;
+  rdf:type audata:Locality ;
+  audata:state auloc:QLD ;
+  rdfs:label "City of Brisbane"^^xsd:string ;
+.
+auloc:GlenEira
+  rdf:type audata:LocalGovernmentArea ;
+  rdf:type audata:Locality ;
+  audata:state auloc:VIC ;
+  rdfs:label "City of Glen Eira"^^xsd:string ;
+.
+auloc:McKinnon
+  rdf:type audata:Locality ;
+  audata:lga auloc:GlenEira ;
+  audata:state auloc:VIC ;
+  rdfs:label "McKinnon"^^xsd:string ;
+.
+auloc:NSW
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "New South Wales"^^xsd:string ;
+.
+auloc:NT
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Northern Territory"^^xsd:string ;
+.
+auloc:QLD
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Queensland"^^xsd:string ;
+.
+auloc:SA
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "South Australia"^^xsd:string ;
+.
+auloc:TAS
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Tasmania"^^xsd:string ;
+.
+auloc:VIC
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Victoria"^^xsd:string ;
+.
+auloc:WA
+  rdf:type audata:Locality ;
+  rdf:type audata:StateOrTerritory ;
+  rdfs:label "Western Australia"^^xsd:string ;
+.
+<http://communications.data.gov.au/def/org/OSP>
+  audata:isMemberOf auloc:Australia ;
+.
+<http://communications.data.gov.au/def/org/PMC>
+  audata:hasLevelOfGovernment auloc:Australia ;
+.
+<http://governance.data.gov.au/dataset/AGIL>
+  audata:hasSpatialExtent auloc:Australia ;
+.

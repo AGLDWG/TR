@@ -1,0 +1,437 @@
+# baseURI: http://communications.data.gov.au/def/dataset
+# imports: http://communications.data.gov.au/def/frequency
+# imports: http://communications.data.gov.au/def/locality
+# imports: http://communications.data.gov.au/def/organization
+# imports: http://communications.data.gov.au/def/person
+# imports: http://communications.data.gov.au/def/role
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf
+# imports: http://www.opengis.net/ont/geosparql
+# imports: http://www.w3.org/2006/time
+# imports: http://www.w3.org/2006/vcard/ns#
+# imports: http://www.w3.org/ns/dcat
+# imports: http://www.w3.org/ns/prov-o
+
+@prefix agls: <http://www.agls.gov.au/agls/terms/> .
+@prefix audata: <http://communications.data.gov.au/def/dataset#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://communications.data.gov.au/def/dataset>
+  rdf:type owl:Ontology ;
+  dct:created "2015-06-19"^^xsd:date ;
+  dct:replaces <http://data.gov.au/def/government> ;
+  rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
+
+The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
+ 
+By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
+ 
+Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
+  owl:imports <http://communications.data.gov.au/def/frequency> ;
+  owl:imports <http://communications.data.gov.au/def/locality> ;
+  owl:imports <http://communications.data.gov.au/def/organization> ;
+  owl:imports <http://communications.data.gov.au/def/person> ;
+  owl:imports <http://communications.data.gov.au/def/role> ;
+  owl:imports dc: ;
+  owl:imports <http://www.agls.gov.au/schemas/rdfs/2010/06/30/aglsterms.rdf> ;
+  owl:imports <http://www.opengis.net/ont/geosparql> ;
+  owl:imports <http://www.w3.org/2006/time> ;
+  owl:imports vcard: ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:imports <http://www.w3.org/ns/prov-o> ;
+  owl:priorVersion <https://github.com/AGLDWG/TR/blob/master/government.ttl> ;
+.
+audata:AGIFTFunction
+  rdf:type owl:Class ;
+  dc:source agls:FunctionClass ;
+  rdfs:comment "The Government Function defined by the Australian Governments' Interactive Functions Thesaurus that best describes the data contained within a Dataset."@en ;
+  rdfs:label "Function"@en ;
+  rdfs:seeAlso <http://agift.naa.gov.au/> ;
+  rdfs:subClassOf audata:Classifier ;
+.
+audata:Catalog
+  rdf:type owl:Class ;
+  rdfs:label "Catalog"@en ;
+  rdfs:subClassOf dcat:Catalog ;
+.
+audata:Classifier
+  rdf:type owl:Class ;
+  rdfs:comment "A classifier used for Australian Government Data"@en ;
+  rdfs:subClassOf skos:Concept ;
+.
+audata:ContributorRole
+  rdf:type owl:Class ;
+  rdfs:comment "A Contributor is the Role of contributing in one form or another as an Agent to a Dataset."@en ;
+  rdfs:subClassOf audata:Role ;
+.
+audata:CustodianRole
+  rdf:type owl:Class ;
+  rdfs:comment "A Custodian is the Role of being the responsible Agent that looks after a Dataset."@en ;
+  rdfs:subClassOf audata:Role ;
+.
+audata:Dataset
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en ;
+  rdfs:label "Dataset"@en ;
+  rdfs:subClassOf dcat:Dataset ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom audata:PublisherRole ;
+      owl:onProperty audata:isPublishedBy ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty audata:agiftFunction ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:publishDate ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:title ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:updateDate ;
+      owl:someValuesFrom rdfs:Literal ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty dct:license ;
+      owl:someValuesFrom dct:LicenseDocument ;
+    ] ;
+.
+audata:DatasetChangeEvent
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset."@en ;
+  rdfs:comment "Question: best modelled as subclass of prov:InstantaneousEvent (which is a secondary class in PROV model) or as a kind of prov:Activity (which is the primary 'event-like' class for attaching trasnformation metadata)."^^xsd:string ;
+  rdfs:label "Dataset Change Event"@en ;
+  rdfs:subClassOf prov:Activity ;
+.
+audata:DatasetPublicationEvent
+  rdf:type owl:Class ;
+  rdfs:comment "A Dataset Publication Event is a description of an event that happens at a given point in time and that results in the publication of a Dataset on data.gov.au."@en ;
+  rdfs:label "Dataset Publication Event"@en ;
+  rdfs:subClassOf audata:DatasetChangeEvent ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty audata:isAssociatedWith ;
+      owl:someValuesFrom audata:PublisherRole ;
+    ] ;
+.
+audata:Distribution
+  rdf:type owl:Class ;
+  rdfs:label "Distribution"@en ;
+  rdfs:subClassOf dcat:Distribution ;
+.
+audata:Document
+  rdf:type owl:Class ;
+  rdfs:label "Document"@en ;
+  rdfs:subClassOf prov:Entity ;
+  owl:equivalentClass foaf:Document ;
+.
+audata:Federal
+  rdf:type owl:Class ;
+  rdfs:comment "Federal Government denotes the federal democratic administrative authority of the Commonwealth of Australia."@en ;
+  rdfs:label "Federal Government"@en ;
+  rdfs:subClassOf audata:LevelOfGovernment ;
+.
+audata:FieldOfResearch
+  rdf:type owl:Class ;
+  rdfs:comment "The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset."@en ;
+  rdfs:label "Field of Research"@en ;
+  rdfs:subClassOf audata:Classifier ;
+.
+audata:GazettedLocality
+  rdf:type owl:Class ;
+  rdfs:comment "Locality with a name authorised by a government agency"^^xsd:string ;
+  rdfs:label "Spatial Gazetteer"@en ;
+  rdfs:subClassOf audata:Locality ;
+.
+audata:Geometry
+  rdf:type owl:Class ;
+  rdfs:subClassOf audata:SpatialThing ;
+.
+audata:GovernmentAgency
+  rdf:type owl:Class ;
+  rdfs:comment "A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions."@en ;
+  rdfs:label "Government Agency"@en ;
+  rdfs:seeAlso <http://recordsearch.naa.gov.au/manual/Provenance/AgencyDefinition.htm#DEFINITION> ;
+  rdfs:subClassOf audata:Organisation ;
+.
+audata:LevelOfGovernment
+  rdf:type owl:Class ;
+  rdfs:comment "Level of Government is a description that is used to describe the Jurisidiction of an Organisation."@en ;
+  rdfs:label "Level of Government"@en ;
+.
+audata:LocalGovernmentArea
+  rdf:type owl:Class ;
+  rdfs:comment "Local Government is the lowest tier of government in the Commonwealth of Australia administered under the states and territories."@en ;
+  rdfs:label "Local Government"@en ;
+  rdfs:subClassOf audata:LevelOfGovernment ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty audata:state ;
+    ] ;
+.
+audata:Locality
+  rdf:type owl:Class ;
+  rdfs:comment "Locality is a spatial thing corresponding to a place or area, which is denoted by a commonly recognised, or formally designated, name or description. "^^xsd:string ;
+  rdfs:subClassOf audata:SpatialThing ;
+.
+audata:Organisation
+  rdf:type owl:Class ;
+  rdfs:comment "An Organisation is a kind of Agent representing, for example, a business or government, or organisational subunits thereof."@en ;
+  rdfs:label "Organisation"@en ;
+  rdfs:subClassOf dct:Agent ;
+  rdfs:subClassOf prov:Organization ;
+.
+audata:Point
+  rdf:type owl:Class ;
+  rdfs:comment "A Point is a point in space using its geographic coordinates."@en ;
+  rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  from WGS84_pos or OGC GeoSPARQL or both, or something else as proposed by SDWWG."^^xsd:string ;
+  rdfs:label "Point"@en ;
+  rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> ;
+  rdfs:subClassOf audata:Geometry ;
+.
+audata:Polygon
+  rdf:type owl:Class ;
+  rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  from OGC GeoSPARQL, or something else as proposed by SDWWG."^^xsd:string ;
+  rdfs:label "Polygon"@en ;
+  rdfs:subClassOf audata:Geometry ;
+.
+audata:PublisherRole
+  rdf:type owl:Class ;
+  rdfs:comment "A Publisher is the Role of an Agent that makes the Dataset available."@en ;
+  rdfs:label "Publisher"@en ;
+  rdfs:subClassOf audata:Role ;
+.
+audata:Role
+  rdf:type owl:Class ;
+  rdfs:comment "A Role corresponds to the involvement of an agent in an Event, e.g. fulfilling a Publisher, Contributor or Custodian Role."@en ;
+  rdfs:label "Role"@en ;
+  rdfs:subClassOf prov:Role ;
+.
+audata:SpatialThing
+  rdf:type owl:Class ;
+  rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ;
+  rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  w3 geo or OGC GeoSPARQL or both, or something else as proposed by SDWWG."^^xsd:string ;
+  rdfs:label "Spatial Thing"@en ;
+.
+audata:StateOrTerritory
+  rdf:type owl:Class ;
+  rdfs:comment "States and Territories Government are the second tier of Government in the Commonwealth of Australia. The Commonwealth of Australia comprises of six states and various territories some of which enjoy a large degree of self-governance."@en ;
+  rdfs:label "State and Territories Government"@en ;
+  rdfs:subClassOf audata:LevelOfGovernment ;
+.
+audata:Timelnterval
+  rdf:type owl:Class ;
+  rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en ;
+  rdfs:comment "Note that this is a subclass of the Interval class from OWL-Time."^^xsd:string ;
+  rdfs:label "Time Interval"@en ;
+  rdfs:subClassOf time:Interval ;
+.
+audata:agiftFunction
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The AGIFT classification for this dataset"^^xsd:string ;
+  rdfs:label "AGIFT Theme"^^xsd:string ;
+  rdfs:range audata:AGIFTFunction ;
+  rdfs:subPropertyOf audata:classifiedAs ;
+.
+audata:classifiedAs
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The main category of the dataset. A dataset can have multiple themes."@en ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Classifier ;
+  rdfs:subPropertyOf dcat:theme ;
+.
+audata:dataset
+  rdf:type owl:ObjectProperty ;
+  owl:equivalentProperty dcat:dataset ;
+.
+audata:datasetStatus
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Is this maintained vs not-maintained?"^^xsd:string ;
+  rdfs:label "Dataset status"^^xsd:string ;
+.
+audata:distribution
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Distribution ;
+  rdfs:subPropertyOf dcat:distribution ;
+.
+audata:downloadURL
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Download URL"@en ;
+  owl:equivalentProperty dcat:downloadURL ;
+.
+audata:fileSize
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "File Size"@en ;
+  owl:equivalentProperty dcat:byteSize ;
+.
+audata:hasContact
+  rdf:type owl:ObjectProperty ;
+  rdfs:range vcard:Kind ;
+.
+audata:hasExtent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+.
+audata:hasLevelOfGovernment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Organisation ;
+  rdfs:range audata:LevelOfGovernment ;
+.
+audata:hasMember
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Organisation ;
+  rdfs:range dct:Agent ;
+  owl:inverseOf audata:isMemberOf ;
+.
+audata:hasSpatialExtent
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Spatial extent corresponds to the geographic area within which all items in the dataset fall."^^xsd:string ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          audata:Dataset
+          audata:Locality
+        ) ;
+    ] ;
+  rdfs:range audata:SpatialThing ;
+.
+audata:hasTemporalExtent
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Temporal extent corresponds to the time interval within which all items in the dataset occur."^^xsd:string ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:Timelnterval ;
+.
+audata:isAssociatedWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:DatasetChangeEvent ;
+  rdfs:range audata:Role ;
+  owl:inverseOf audata:participatesIn ;
+.
+audata:isChangedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range audata:DatasetChangeEvent ;
+  owl:inverseOf audata:resultedIn ;
+.
+audata:isDescribedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf foaf:isPrimaryTopicOf ;
+.
+audata:isMemberOf
+  rdf:type owl:ObjectProperty ;
+.
+audata:isPublishedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Property to link directly to Publisher"^^xsd:string ;
+  owl:propertyChainAxiom (
+      audata:isChangedBy
+      [
+        rdfs:range audata:PublisherRole ;
+        rdfs:subPropertyOf audata:isAssociatedWith ;
+      ]
+    ) ;
+.
+audata:keyword
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Keyword"@en ;
+  owl:equivalentProperty dcat:keyword ;
+.
+audata:landingPage
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:label "Landing Page"@en ;
+  rdfs:range foaf:Document ;
+  owl:equivalentProperty dcat:landingPage ;
+.
+audata:lga
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Locality ;
+  rdfs:label "Local government area"^^xsd:string ;
+  rdfs:range audata:LocalGovernmentArea ;
+.
+audata:license
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "License"@en ;
+  owl:equivalentProperty dct:license ;
+.
+audata:participatesIn
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+audata:playsRole
+  rdf:type owl:ObjectProperty ;
+  rdfs:range audata:Role ;
+.
+audata:publishDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Publish Date"@en ;
+  rdfs:subPropertyOf dct:dateAccepted ;
+  owl:equivalentProperty dct:issued ;
+.
+audata:publisher
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf dct:publisher ;
+.
+audata:purpose
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain audata:Dataset ;
+  rdfs:range rdfs:Literal ;
+.
+audata:resultedIn
+  rdf:type owl:ObjectProperty ;
+.
+audata:roleOf
+  rdf:type owl:ObjectProperty ;
+  owl:inverseOf audata:playsRole ;
+.
+audata:state
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain audata:Locality ;
+  rdfs:label "State or territory"^^xsd:string ;
+  rdfs:range audata:StateOrTerritory ;
+.
+audata:title
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Title"@en ;
+  rdfs:subPropertyOf dct:title ;
+  owl:equivalentProperty dct:title ;
+.
+audata:updateDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Update Date"@en ;
+  rdfs:subPropertyOf dct:modified ;
+  owl:equivalentProperty dct:modified ;
+.
+audata:updateFrequency
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Update Frequency"@en ;
+  owl:equivalentProperty dct:accrualPeriodicity ;
+.
