@@ -1,0 +1,130 @@
+# baseURI: http://governance.data.gov.au/dataset/
+# imports: http://communications.data.gov.au/def/dataset
+
+@prefix : <http://governance.data.gov.au/dataset/> .
+@prefix agls: <http://www.agls.gov.au/agls/terms/> .
+@prefix audata: <http://communications.data.gov.au/def/dataset#> .
+@prefix auloc: <http://communications.data.gov.au/def/locality/> .
+@prefix auorg: <http://communications.data.gov.au/def/organization/> .
+@prefix auper: <http://communications.data.gov.au/def/person/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://agift.naa.gov.au/000055.htm>
+  rdf:type owl:NamedIndividual ;
+.
+auper:MargieSmith
+  prov:actedOnBehalfOf auorg:OSP ;
+.
+<http://creativecommons.org/licenses/by/3.0/>
+  rdf:type owl:NamedIndividual ;
+.
+<http://data.gov.au/dataset/agil-dataset>
+  rdf:type owl:NamedIndividual ;
+.
+<http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde>
+  rdf:type audata:Distribution ;
+  rdf:type owl:NamedIndividual ;
+  audata:accessURL <http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls> ;
+  audata:publishDate "2013-12-02"^^xsd:date ;
+  audata:updateDate "2013-12-10"^^xsd:date ;
+  dcat:mediaType <http://www.iana.org/assignments/media-types/application/vnd.ms-excel> ;
+.
+<http://data.gov.au/storage/f/2013-12-05T06%3A05%3A03.229Z/agil20131205.xls>
+  rdf:type owl:NamedIndividual ;
+.
+<http://dbpedia.org/resource/Australia>
+  rdf:type owl:NamedIndividual ;
+.
+:
+  rdf:type owl:Ontology ;
+  owl:imports <http://communications.data.gov.au/def/dataset> ;
+.
+:AGIL
+  rdf:type audata:Dataset ;
+  audata:classifiedAs <http://agift.naa.gov.au/000055.htm> ;
+  audata:datasetStatus "true"^^xsd:boolean ;
+  audata:distribution <http://data.gov.au/dataset/agil-dataset/resource/6d9fbfe6-38d2-4a84-a3d9-3362aa313fde> ;
+  audata:hasExtent <http://dbpedia.org/resource/Australia> ;
+  audata:hasSpatialExtent auloc:Australia ;
+  audata:hasSpatialExtent :Australia_geometry ;
+  audata:hasTemporalExtent :AGIL-Timelnterval ;
+  audata:isChangedBy :CreationEventAGIL ;
+  audata:isChangedBy :PublishedEventAGIL ;
+  audata:landingPage <http://data.gov.au/dataset/agil-dataset> ;
+  audata:publishDate "2013-12-02"^^xsd:date ;
+  audata:purpose "For use of the Commonwealth Government of Australia for the purpose of identifying the correct name of indigenous programs and policy locations."@en ;
+  audata:title "Australian Government Indigenous Programs and Policy Locations Dataset"@en ;
+  audata:updateFrequency audata:Quarterly ;
+  dct:license <http://creativecommons.org/licenses/by/3.0/> ;
+  rdfs:label "Australian Government Indigenous Location (AGIL) dataset"@en ;
+  prov:qualifiedAttribution [
+      rdf:type prov:Attribution ;
+      prov:agent auorg:OSP ;
+      prov:hadRole <http://communications.data.gov.au/def/role/PointOfContact> ;
+    ] ;
+  prov:qualifiedAttribution [
+      rdf:type prov:Attribution ;
+      prov:agent auorg:OSP ;
+      prov:hadRole <http://communications.data.gov.au/def/role/Publisher> ;
+    ] ;
+  prov:qualifiedAttribution [
+      rdf:type prov:Attribution ;
+      prov:agent auorg:PMC ;
+      prov:hadRole <http://communications.data.gov.au/def/role/Custodian> ;
+    ] ;
+.
+:AGIL-Timelnterval
+  rdf:type audata:Timelnterval ;
+  rdfs:label "Time duration of AGIL"^^xsd:string ;
+  time:hasBeginning :AGIL_begin ;
+  time:hasEnd :AGIL_End ;
+.
+:AGIL_End
+  rdf:type time:Instant ;
+  rdfs:label "End of AGIL"^^xsd:string ;
+.
+:AGIL_begin
+  rdf:type time:Instant ;
+  rdfs:label "Begin of AGIL"^^xsd:string ;
+  time:inXSDDateTime "2008-10-29T00:00:00.00Z"^^xsd:dateTime ;
+.
+:Australia_geometry
+  rdf:type audata:Polygon ;
+  rdfs:comment "?GA to host standard regions & bounding boxes for australia"^^xsd:string ;
+  rdfs:comment "Should really be a link to a representation hosted by ?GA"^^xsd:string ;
+  rdfs:label "Australia"^^xsd:string ;
+  <http://www.w3.org/2003/01/geo/wgs84_pos#hasGeometry> "<![CDATA[<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((96.82696 -40.5134, 153.456 -40.5134, 153.456 -9.232, 96.82696 -9.232, 96.82696 -40.5134))]]>"^^<http://www.opengis.net/def/dataType/OGC-SF/1.0/WKTLiteral> ;
+.
+:CreationEventAGIL
+  rdf:type audata:DatasetChangeEvent ;
+  dct:created "2012-02-13"^^xsd:date ;
+  prov:qualifiedAssociation [
+      rdf:type prov:Association ;
+      prov:agent auorg:PMC ;
+      prov:hadRole <http://communications.data.gov.au/def/role/Custodian> ;
+    ] ;
+.
+:PublishedEventAGIL
+  rdf:type audata:DatasetPublicationEvent ;
+  prov:qualifiedAssociation [
+      rdf:type prov:Association ;
+      prov:agent auper:MargieSmith ;
+      prov:hadRole <http://communications.data.gov.au/def/role/Publisher> ;
+    ] ;
+.
+<http://www.iana.org/assignments/media-types/application/vnd.ms-excel>
+  rdf:type dct:MediaTypeOrExtent ;
+.
+<mailto:spatial@communications.gov.au>
+  rdf:type owl:NamedIndividual ;
+.
