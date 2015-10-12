@@ -50,6 +50,8 @@ auper:MargieSmith
 .
 :
   rdf:type owl:Ontology ;
+  rdfs:comment "Example dataset entry using the augov Dataset ontology."^^xsd:string ;
+  rdfs:comment "This version uses PROV structures in preference to the bespoke elements defined in the original dataset ontology."^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
 .
 :AGIL

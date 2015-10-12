@@ -33,8 +33,17 @@
 
 <http://communications.data.gov.au/def/dataset>
   rdf:type owl:Ontology ;
+  dc:contributor <http://people.csiro.au/Simon-Cox> ;
+  dc:contributor <mailto:armin.haller@anu.edu.au> ;
+  dc:contributor <mailto:d.lowe@bom.gov.au> ;
   dct:created "2015-06-19"^^xsd:date ;
+  dct:creator <http://linked.data.gov.au/> ;
+  dct:publisher <http://linked.data.gov.au/> ;
   dct:replaces <http://data.gov.au/def/government> ;
+  dct:rights <http://creativecommons.org/licenses/by/4.0/> ;
+  dct:subject <http://registry.it.csiro.au/def/agldwg/agift/information-management-standards> ;
+  dct:subject <http://registry.it.csiro.au/def/agldwg/cofog/01-6> ;
+  dct:subject <http://registry.it.csiro.au/def/agldwg/cofog/04-6> ;
   rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
 
 The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
@@ -42,6 +51,7 @@ The ontology contains elements which describe the publication, update, origin, g
 By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
  
 Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
+  rdfs:comment "This new version of the ontology leverages PROV for dataset changes."^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/frequency> ;
   owl:imports <http://communications.data.gov.au/def/locality> ;
   owl:imports <http://communications.data.gov.au/def/organisation> ;
