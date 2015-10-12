@@ -68,6 +68,7 @@ audata:Catalog
   rdf:type owl:Class ;
   rdfs:label "Catalog"@en ;
   rdfs:subClassOf dcat:Catalog ;
+  rdfs:subClassOf prov:Entity ;
 .
 audata:Classifier
   rdf:type owl:Class ;
@@ -77,11 +78,13 @@ audata:Classifier
 audata:ContributorRole
   rdf:type owl:Class ;
   rdfs:comment "A Contributor is the Role of contributing in one form or another as an Agent to a Dataset."@en ;
+  rdfs:comment "WARNING - at risk if PROV patterns adopted - individual of type audata:Role instead?"^^xsd:string ;
   rdfs:subClassOf audata:Role ;
 .
 audata:CustodianRole
   rdf:type owl:Class ;
   rdfs:comment "A Custodian is the Role of being the responsible Agent that looks after a Dataset."@en ;
+  rdfs:comment "WARNING - at risk if PROV patterns adopted - individual of type audata:Role instead?"^^xsd:string ;
   rdfs:subClassOf audata:Role ;
 .
 audata:Dataset
@@ -143,6 +146,7 @@ audata:Distribution
   rdf:type owl:Class ;
   rdfs:label "Distribution"@en ;
   rdfs:subClassOf dcat:Distribution ;
+  rdfs:subClassOf prov:Entity ;
 .
 audata:Document
   rdf:type owl:Class ;
@@ -171,6 +175,7 @@ audata:GazettedLocality
 audata:Geometry
   rdf:type owl:Class ;
   rdfs:subClassOf audata:SpatialThing ;
+  rdfs:subClassOf geo:Geometry ;
 .
 audata:GovernmentAgency
   rdf:type owl:Class ;
@@ -224,6 +229,7 @@ audata:Polygon
 audata:PublisherRole
   rdf:type owl:Class ;
   rdfs:comment "A Publisher is the Role of an Agent that makes the Dataset available."@en ;
+  rdfs:comment "WARNING - at risk if PROV patterns adopted - individual of type audata:Role instead?"^^xsd:string ;
   rdfs:label "Publisher"@en ;
   rdfs:subClassOf audata:Role ;
 .
@@ -238,6 +244,7 @@ audata:SpatialThing
   rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ;
   rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be  w3 geo or OGC GeoSPARQL or both, or something else as proposed by SDWWG."^^xsd:string ;
   rdfs:label "Spatial Thing"@en ;
+  rdfs:subClassOf geo:SpatialObject ;
 .
 audata:StateOrTerritory
   rdf:type owl:Class ;
@@ -330,6 +337,7 @@ audata:hasTemporalExtent
 .
 audata:isAssociatedWith
   rdf:type owl:ObjectProperty ;
+  rdfs:comment "WARNING - at risk if PROV patterns adopted"^^xsd:string ;
   rdfs:domain audata:DatasetChangeEvent ;
   rdfs:range audata:Role ;
   owl:inverseOf audata:participatesIn ;
@@ -338,6 +346,7 @@ audata:isChangedBy
   rdf:type owl:ObjectProperty ;
   rdfs:domain audata:Dataset ;
   rdfs:range audata:DatasetChangeEvent ;
+  rdfs:subPropertyOf prov:wasInfluencedBy ;
   owl:inverseOf audata:resultedIn ;
 .
 audata:isDescribedBy
@@ -390,6 +399,7 @@ audata:participatesIn
 audata:playsRole
   rdf:type owl:ObjectProperty ;
   rdfs:range audata:Role ;
+  rdfs:subPropertyOf prov:hadRole ;
 .
 audata:publishDate
   rdf:type owl:DatatypeProperty ;
