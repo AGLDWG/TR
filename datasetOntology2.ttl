@@ -51,7 +51,7 @@ The ontology contains elements which describe the publication, update, origin, g
 By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
  
 Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
-  rdfs:comment "This new version of the ontology leverages PROV for dataset changes."^^xsd:string ;
+  rdfs:comment "This new version of the ontology leverages PROV for dataset changes. The key change is that audata:DatasetChangeEvent is a subclass of prov:Activity, rather than of prov:InstantaneousEvent which was the previous pattern. This enables use of various prov:qualifiedInfluence properties to record metadata associated with publication and revision of datasets. "^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/frequency> ;
   owl:imports <http://communications.data.gov.au/def/locality> ;
   owl:imports <http://communications.data.gov.au/def/organisation> ;
@@ -137,7 +137,7 @@ audata:Dataset
 audata:DatasetChangeEvent
   rdf:type owl:Class ;
   rdfs:comment "A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset."@en ;
-  rdfs:comment "Question: best modelled as subclass of prov:InstantaneousEvent (which is a secondary class in PROV model) or as a kind of prov:Activity (which is the primary 'event-like' class for attaching trasnformation metadata)."^^xsd:string ;
+  rdfs:comment "Here modelled as a subclass of prov:Activity (which is the primary 'event-like' class for attaching transformation metadata), rather than as subclass of prov:InstantaneousEvent (which is a secondary class in PROV model, and is not usually utilized for extended metadata). "^^xsd:string ;
   rdfs:label "Dataset Change Event"@en ;
   rdfs:subClassOf prov:Activity ;
 .
