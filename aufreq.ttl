@@ -6,28 +6,34 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://communications.data.gov.au/def/frequency>
   rdf:type owl:Ontology ;
+  rdfs:comment "However, we might consider using the Dublin Core Collection Description Frequency Vocabulary http://purl.org/cld/terms/Frequency which is documented here http://dublincore.org/groups/collections/frequency/ . It is derived from MARC update frequencies. "^^xsd:string ;
   rdfs:comment "List of dataset update frequencies"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
 .
 aufreq:Annually
   rdf:type dct:Frequency ;
   rdfs:label "Annually" ;
+  skos:exactMatch <http://purl.org/cld/freq/annual> ;
 .
 aufreq:As_required
   rdf:type dct:Frequency ;
   rdfs:label "As required" ;
+  skos:closeMatch <http://purl.org/cld/freq/completelyIrregular> ;
 .
 aufreq:Daily
   rdf:type dct:Frequency ;
   rdfs:label "Daily" ;
+  skos:exactMatch <http://purl.org/cld/freq/daily> ;
 .
 aufreq:Monthly
   rdf:type dct:Frequency ;
   rdfs:label "Monthly" ;
+  skos:exactMatch <http://purl.org/cld/freq/monthly> ;
 .
 aufreq:Never
   rdf:type dct:Frequency ;
@@ -36,12 +42,15 @@ aufreq:Never
 aufreq:Quarterly
   rdf:type dct:Frequency ;
   rdfs:label "Quarterly" ;
+  skos:exactMatch <http://purl.org/cld/freq/quarterly> ;
 .
 aufreq:Subdaily
   rdf:type dct:Frequency ;
   rdfs:label "More frequently than daily"^^xsd:string ;
+  skos:closeMatch <http://purl.org/cld/freq/continuous> ;
 .
 aufreq:Weekly
   rdf:type dct:Frequency ;
   rdfs:label "Weekly" ;
+  skos:exactMatch <http://purl.org/cld/freq/weekly> ;
 .
