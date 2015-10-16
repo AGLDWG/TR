@@ -7,22 +7,134 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://communications.data.gov.au/def/role>
   rdf:type owl:Ontology ;
+  rdfs:comment "Initial set of roles and definitions from ISO 19115-1:2014 CI_RoleCode, which is also used in GeoDCAT-AP"^^xsd:string ;
   rdfs:comment "List of roles that agents play in relation to datasets and their change events"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
 .
+aurole:Author
+  rdf:type audata:Role ;
+  rdfs:comment "party who authored the resource"^^xsd:string ;
+  rdfs:label "author"^^xsd:string ;
+  skos:definition "party who authored the resource"^^xsd:string ;
+.
+aurole:Coauthor
+  rdf:type audata:Role ;
+  rdfs:comment "party who jointly authors the resource"^^xsd:string ;
+  rdfs:label "co-author"^^xsd:string ;
+  skos:definition "party who jointly authors the resource"^^xsd:string ;
+.
+aurole:Collaborator
+  rdf:type audata:Role ;
+  rdfs:comment "party who assists with the generation of the resource other than the principal investigator"^^xsd:string ;
+  rdfs:label "collaborator"^^xsd:string ;
+  skos:definition "party who assists with the generation of the resource other than the principal investigator"^^xsd:string ;
+.
+aurole:Contributor
+  rdf:type audata:Role ;
+  rdfs:comment "party contributing to the resource"^^xsd:string ;
+  rdfs:label "contributor"^^xsd:string ;
+  skos:definition "party contributing to the resource"^^xsd:string ;
+.
 aurole:Custodian
   rdf:type audata:Role ;
-  rdfs:label "Custodian"^^xsd:string ;
+  rdfs:comment "party that accepts accountability and responsibility for the resource and ensures appropriate care and maintenance of the resource"^^xsd:string ;
+  rdfs:label "custodian"^^xsd:string ;
+  skos:definition "party that accepts accountability and responsibility for the resource and ensures appropriate care and maintenance of the resource"^^xsd:string ;
+.
+aurole:Distributor
+  rdf:type audata:Role ;
+  rdfs:comment "party who distributes the resource"^^xsd:string ;
+  rdfs:label "distributor"^^xsd:string ;
+  skos:definition "party who distributes the resource"^^xsd:string ;
+.
+aurole:Editor
+  rdf:type audata:Role ;
+  rdfs:comment "party who reviewed or modified the resource to improve the content"^^xsd:string ;
+  rdfs:label "editor"^^xsd:string ;
+  skos:definition "party who reviewed or modified the resource to improve the content"^^xsd:string ;
+.
+aurole:Funder
+  rdf:type audata:Role ;
+  rdfs:comment "party providing monetary support for the resource"^^xsd:string ;
+  rdfs:label "funder"^^xsd:string ;
+  skos:definition "party providing monetary support for the resource"^^xsd:string ;
+.
+aurole:Mediator
+  rdf:type audata:Role ;
+  rdfs:comment "a class of entity that mediates access to the resource and for whom the resource is intended or useful"^^xsd:string ;
+  rdfs:label "mediator"^^xsd:string ;
+  skos:definition "a class of entity that mediates access to the resource and for whom the resource is intended or useful"^^xsd:string ;
+.
+aurole:Originator
+  rdf:type audata:Role ;
+  rdfs:comment "party who created the resource"^^xsd:string ;
+  rdfs:label "originator"^^xsd:string ;
+  skos:definition "party who created the resourceuseful"^^xsd:string ;
+.
+aurole:Owner
+  rdf:type audata:Role ;
+  rdfs:comment "party that owns the resource"^^xsd:string ;
+  rdfs:label "owner"^^xsd:string ;
+  skos:definition "party that owns the resource"^^xsd:string ;
 .
 aurole:PointOfContact
   rdf:type audata:Role ;
-  rdfs:label "Point of contact"^^xsd:string ;
+  rdfs:comment "party who can be contacted for acquiring knowledge about or acquisition of the resource"^^xsd:string ;
+  rdfs:label "point of contact"^^xsd:string ;
+  skos:definition "party who can be contacted for acquiring knowledge about or acquisition of the resource"^^xsd:string ;
+  skos:exactMatch <http://www.w3.org/ns/dcat#contactPoint> ;
+.
+aurole:PrincipalInvestigator
+  rdf:type audata:Role ;
+  rdfs:comment "key party responsible for gathering information and conducting research"^^xsd:string ;
+  rdfs:label "principal investigator"^^xsd:string ;
+  skos:definition "key party responsible for gathering information and conducting research"^^xsd:string ;
+.
+aurole:Processor
+  rdf:type audata:Role ;
+  rdfs:comment "party who has processed the data in a manner such that the resource has been modified"^^xsd:string ;
+  rdfs:label "processor"^^xsd:string ;
+  skos:definition "party who has processed the data in a manner such that the resource has been modified"^^xsd:string ;
 .
 aurole:Publisher
   rdf:type audata:Role ;
-  rdfs:label "Publisher"^^xsd:string ;
+  rdfs:comment "party who published the resource"^^xsd:string ;
+  rdfs:label "publisher"^^xsd:string ;
+  skos:definition "party who published the resource"^^xsd:string ;
+  skos:exactMatch <http://purl.org/dc/terms/publisher> ;
+.
+aurole:ResourceProvider
+  rdf:type audata:Role ;
+  rdfs:comment "party that supplies the resource"^^xsd:string ;
+  rdfs:label "resource provider"^^xsd:string ;
+  skos:definition "party that supplies the resource"^^xsd:string ;
+.
+aurole:RightsHolder
+  rdf:type audata:Role ;
+  rdfs:comment "party owning or managing rights over the resource"^^xsd:string ;
+  rdfs:label "rights holder"^^xsd:string ;
+  skos:definition "party owning or managing rights over the resource"^^xsd:string ;
+.
+aurole:Sponsor
+  rdf:type audata:Role ;
+  rdfs:comment "party who speaks for the resource"^^xsd:string ;
+  rdfs:label "sponsor"^^xsd:string ;
+  skos:definition "party who speaks for the resource"^^xsd:string ;
+.
+aurole:Stakeholder
+  rdf:type audata:Role ;
+  rdfs:comment "party who has an interest in the resource or the use of the resource"^^xsd:string ;
+  rdfs:label "stakeholder"^^xsd:string ;
+  skos:definition "party who has an interest in the resource or the use of the resource"^^xsd:string ;
+.
+aurole:User
+  rdf:type audata:Role ;
+  rdfs:comment "party who uses the resource"^^xsd:string ;
+  rdfs:label "user"^^xsd:string ;
+  skos:definition "party who uses the resource"^^xsd:string ;
 .
