@@ -3,6 +3,8 @@
 
 @prefix audata: <http://communications.data.gov.au/def/dataset#> .
 @prefix aurole: <http://communications.data.gov.au/def/role/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -12,9 +14,20 @@
 
 <http://communications.data.gov.au/def/role>
   rdf:type owl:Ontology ;
+  dc:source "ISO 19115-1:2014"^^xsd:string ;
+  dct:contributor <http://people.csiro.au/Simon-Cox> ;
+  dct:created "2015-10-16"^^xsd:date ;
+  dct:license <http://registry.it.csiro.au/licence/cc-by-4.0> ;
+  dct:source <http://standards.iso.org/iso/19115/resources/Codelist/gml/CI_RoleCode.xml> ;
   rdfs:comment "Initial set of roles and definitions from ISO 19115-1:2014 CI_RoleCode, which is also used in GeoDCAT-AP"^^xsd:string ;
   rdfs:comment "List of roles that agents play in relation to datasets and their change events"^^xsd:string ;
   owl:imports <http://communications.data.gov.au/def/dataset> ;
+  prov:qualifiedAttribution [
+      rdf:type prov:Attribution ;
+      prov:agent <http://people.csiro.au/Simon-Cox> ;
+      prov:hadRole aurole:Processor ;
+    ] ;
+  prov:wasDerivedFrom <http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.html> ;
 .
 aurole:Author
   rdf:type audata:Role ;
@@ -106,7 +119,7 @@ aurole:Publisher
   rdfs:comment "party who published the resource"^^xsd:string ;
   rdfs:label "publisher"^^xsd:string ;
   skos:definition "party who published the resource"^^xsd:string ;
-  skos:exactMatch <http://purl.org/dc/terms/publisher> ;
+  skos:exactMatch dct:publisher ;
 .
 aurole:ResourceProvider
   rdf:type audata:Role ;
