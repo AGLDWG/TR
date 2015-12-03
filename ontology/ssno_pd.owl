@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY ns "http://creativecommons.org/ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY sso "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
+    <!ENTITY ssno "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ssno_ds "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#"
+     xml:base="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:sso="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
+     xmlns:ssno_ds="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ssno="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd">
+        <rdfs:comment>ssno ontology with skeleton for platforms and deployments.</rdfs:comment>
+        <owl:imports rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    <owl:AnnotationProperty rdf:about="&ns;license"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&dc;identifier"/>
+    <owl:AnnotationProperty rdf:about="&terms;created"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#attachedSystem -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#attachedSystem">
+        <rdfs:label>attached system</rdfs:label>
+        <rdfs:comment>Relation between a Platform and any Systems (e.g., Sensors) that are attached to the Platform.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedOnPlatform -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedOnPlatform">
+        <rdfs:label>deployed on platform</rdfs:label>
+        <rdfs:comment>Relation between a deployment and the platform on which the system was deployed.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#inDeployment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedSystem -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedSystem">
+        <rdfs:label>deployed system</rdfs:label>
+        <rdfs:comment>Relation between a deployment and the deployed system.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deploymentProcessPart -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deploymentProcessPart">
+        <rdfs:label>deployment process part</rdfs:label>
+        <rdfs:comment>Has part relation between a deployment process and its constituent processes.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#hasDeployment -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#hasDeployment">
+        <rdfs:label>has deployment</rdfs:label>
+        <rdfs:comment>Relation between a System and a Deployment, recording that the System/Sensor was deployed in that Deployment.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#inDeployment -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#inDeployment">
+        <rdfs:label>in deployment</rdfs:label>
+        <rdfs:comment>Relation between a Platform and a Deployment, recording that the object was used as a platform for a system/sensor for a particular deployment: as in this PhysicalObject is acting as a Platform inDeployment Deployment.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#onPlatform -->
+
+    <owl:ObjectProperty rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#onPlatform">
+        <rdfs:label>on platform</rdfs:label>
+        <rdfs:comment>Relation between a System (e.g., a Sensor) and a Platform.  The relation locates the sensor relative to other described entities entities: i.e., the Sensor s1&#39;s location is Platform p1.  More precise locations for sensors in space (relative to other entities, where attached to another entity, or in 3D space) are made using DOLCE&#39;s Regions (SpaceRegion).</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#attachedSystem"/>
+    </owl:ObjectProperty>
+    
+
+       
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#System -->
+
+    <owl:Class rdf:about="&ssno_ds;System"/>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Deployment -->
+
+    <owl:Class rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Deployment">
+        <rdfs:label>Deployment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#DeploymentRelatedProcess"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedOnPlatform"/>
+                <owl:allValuesFrom rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Platform"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedSystem"/>
+                <owl:allValuesFrom rdf:resource="&ssno_ds;System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source>skos:closeMatch &#39;Deployment&#39; [MMI Dev]
+                                 http://marinemetadata.org/community/teams/ontdevices</dc:source>
+        <rdfs:comment>The ongoing Process of Entities (for the purposes of this ontology, mainly sensors) deployed for a particular purpose.  For example, a particular Sensor deployed on a Platform, or a whole network of Sensors deployed for an observation campaign.  The deployment may have sub processes, such as installation, maintenance, addition, and decomissioning and removal.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#DeploymentRelatedProcess -->
+
+    <owl:Class rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#DeploymentRelatedProcess">
+        <rdfs:label>Deployment-related Process</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deploymentProcessPart"/>
+                <owl:allValuesFrom rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#DeploymentRelatedProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Place to group all the various Processes related to Deployment.  For example, as well as Deplyment, installation, maintenance, deployment of further sensors and the like would all be classified under DeploymentRelatedProcess.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Platform -->
+
+    <owl:Class rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Platform">
+        <rdfs:label>Platform</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#inDeployment"/>
+                <owl:allValuesFrom rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Deployment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#attachedSystem"/>
+                <owl:allValuesFrom rdf:resource="&ssno_ds;System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An Entity to which other Entities can be attached - particuarly Sensors and other Platforms.  For example, a post might act as the Platform, a bouy might act as a Platform, or a fish might act as a Platform for an attached sensor.</rdfs:comment>
+        <dc:source>skos:exactMatch &#39;platform&#39; [SensorML OGC-0700]
+                                  http://www.opengeospatial.org/standards/sensorml</dc:source>
+    </owl:Class>
+    
+
+
+   <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#System -->
+
+    <owl:Class rdf:about="&ssno_ds;System">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#onPlatform"/>
+                <owl:allValuesFrom rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Platform"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#hasDeployment"/>
+                <owl:allValuesFrom rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Deployment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+   
+
+
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1451) http://owlapi.sourceforge.net -->
+
+
