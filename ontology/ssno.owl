@@ -3,11 +3,11 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
-    <!ENTITY sso "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso" >
+    <!ENTITY sso "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso" >
     <!ENTITY ns "http://creativecommons.org/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY sso2 "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
-    <!ENTITY ssno "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno" >
+    <!ENTITY sso2 "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
+    <!ENTITY ssno "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -16,23 +16,23 @@
 
 
 <rdf:RDF xmlns="&ssno;#"
-     xml:base="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"
+     xml:base="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:ns="http://creativecommons.org/ns#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:sso2="&sso;#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:ssno="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"
+     xmlns:ssno="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:sso="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso"
+     xmlns:sso="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno">
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno">
         <rdfs:comment rdf:datatype="&xsd;string">This ontology describes sensors and observations, and related concepts.  It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports.</rdfs:comment>
         <rdfs:comment rdf:datatype="&xsd;string">This ontology is based on the SSN Ontology by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). The concepts and structure of which were discussed in the group&#39;s meetings and on the mailing list. For more information on the group&#39;s activities see: http://www.w3.org/2005/Incubator/ssn/</rdfs:comment>
         <rdfs:comment>New modular version of the SSN ontology.  Imports the SSO pattern and defines only the sensor specific concepts.</rdfs:comment>
         <dc:title>Semantic Sensor Network Ontology</dc:title>
-        <owl:imports rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso"/>
     </owl:Ontology>
     
 
@@ -72,7 +72,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#forProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#forProperty -->
 
     <owl:ObjectProperty rdf:about="&ssno;#forProperty">
         <rdfs:label>for property</rdfs:label>
@@ -81,7 +81,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#hasMeasurementCapability -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#hasMeasurementCapability -->
 
     <owl:ObjectProperty rdf:about="&ssno;#hasMeasurementCapability">
         <rdfs:label>has measurement capability</rdfs:label>
@@ -91,7 +91,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#hasMeasurementProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#hasMeasurementProperty -->
 
     <owl:ObjectProperty rdf:about="&ssno;#hasMeasurementProperty">
         <rdfs:label>has measurement property</rdfs:label>
@@ -101,7 +101,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#inCondition -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#inCondition -->
 
     <owl:ObjectProperty rdf:about="&ssno;#inCondition">
         <rdfs:label>in condition</rdfs:label>
@@ -110,7 +110,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#observes -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#observes -->
 
     <owl:ObjectProperty rdf:about="&ssno;#observes">
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
@@ -126,7 +126,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#ofFeature -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#ofFeature -->
 
     <owl:ObjectProperty rdf:about="&ssno;#ofFeature">
         <rdfs:label>of feature</rdfs:label>
@@ -135,7 +135,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#qualityOfObservation -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#qualityOfObservation -->
 
     <owl:ObjectProperty rdf:about="&ssno;#qualityOfObservation">
         <rdfs:label>quality of observation</rdfs:label>
@@ -148,19 +148,19 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasProperty -->
 
     <owl:ObjectProperty rdf:about="&sso;#hasProperty"/>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#madeObservation -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#madeObservation -->
 
     <owl:ObjectProperty rdf:about="&sso;#madeObservation"/>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observedProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observedProperty -->
 
     <owl:ObjectProperty rdf:about="&sso;#observedProperty"/>
     
@@ -183,7 +183,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Accuracy -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Accuracy -->
 
     <owl:Class rdf:about="&ssno;#Accuracy">
         <rdfs:label>Accuracy</rdfs:label>
@@ -195,7 +195,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Condition -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Condition -->
 
     <owl:Class rdf:about="&ssno;#Condition">
         <rdfs:label>Condition</rdfs:label>
@@ -205,7 +205,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#DetectionLimit -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#DetectionLimit -->
 
     <owl:Class rdf:about="&ssno;#DetectionLimit">
         <rdfs:label>detection limit</rdfs:label>
@@ -217,7 +217,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Drift -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Drift -->
 
     <owl:Class rdf:about="&ssno;#Drift">
         <rdfs:label>Drift</rdfs:label>
@@ -229,7 +229,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementCapability -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementCapability -->
 
     <owl:Class rdf:about="&ssno;#MeasurementCapability">
         <rdfs:label>Measurement Capability</rdfs:label>
@@ -266,7 +266,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementFrequency -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementFrequency -->
 
     <owl:Class rdf:about="&ssno;#MeasurementFrequency">
         <rdfs:label>MeasurementFrequency</rdfs:label>
@@ -276,7 +276,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementLatency -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementLatency -->
 
     <owl:Class rdf:about="&ssno;#MeasurementLatency">
         <rdfs:label>MeasurementLatency</rdfs:label>
@@ -286,7 +286,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementProperty -->
 
     <owl:Class rdf:about="&ssno;#MeasurementProperty">
         <rdfs:label>Measurement Property</rdfs:label>
@@ -296,7 +296,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementRange -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#MeasurementRange -->
 
     <owl:Class rdf:about="&ssno;#MeasurementRange">
         <rdfs:label>Measurement Range</rdfs:label>
@@ -308,7 +308,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Precision -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Precision -->
 
     <owl:Class rdf:about="&ssno;#Precision">
         <rdfs:label>Precision</rdfs:label>
@@ -320,7 +320,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Resolution -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Resolution -->
 
     <owl:Class rdf:about="&ssno;#Resolution">
         <rdfs:label>Resolution</rdfs:label>
@@ -332,7 +332,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#ResponseTime -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#ResponseTime -->
 
     <owl:Class rdf:about="&ssno;#ResponseTime">
         <rdfs:label>Response time</rdfs:label>
@@ -344,7 +344,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Selectivity -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Selectivity -->
 
     <owl:Class rdf:about="&ssno;#Selectivity">
         <rdfs:label>Selectivity</rdfs:label>
@@ -356,7 +356,7 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Sensitivity -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Sensitivity -->
 
     <owl:Class rdf:about="&ssno;#Sensitivity">
         <rdfs:label>Sensitivity</rdfs:label>
@@ -368,13 +368,13 @@ http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf</dc:source>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Property -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Property -->
 
     <owl:Class rdf:about="&sso;#Property"/>
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensor -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensor -->
 
     <owl:Class rdf:about="&sso;#Sensor">
         <rdfs:subClassOf>
