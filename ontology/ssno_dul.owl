@@ -3,7 +3,7 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY sso "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
+    <!ENTITY sso "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
     <!ENTITY ssno "http://something.something/ssno" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -12,18 +12,18 @@
 ]>
 
 
-<rdf:RDF xmlns="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul#"
-     xml:base="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul"
+<rdf:RDF xmlns="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul#"
+     xml:base="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:DUL="http://www.loa-cnr.it/ontologies/DUL.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:sso="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
-     xmlns:ssno="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#">
-    <owl:Ontology rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul">
+     xmlns:sso="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
+     xmlns:ssno="http://something.something/ssno#">
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul">
         <rdfs:comment>Semantic Sensor Networks Ontology aligned to Dolce-UltraLite.</rdfs:comment>
-        <owl:imports rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"/>
+        <owl:imports rdf:resource="http://something.something/ssno"/>
         <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl"/>
     </owl:Ontology>
     
@@ -52,7 +52,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#featureInObservation -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#featureInObservation -->
 
     <owl:ObjectProperty rdf:about="&sso;featureInObservation">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasSetting"/>
@@ -60,7 +60,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#featureOfInterest -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#featureOfInterest -->
 
     <owl:ObjectProperty rdf:about="&sso;featureOfInterest">
         <rdfs:subPropertyOf rdf:resource="&DUL;isSettingFor"/>
@@ -68,7 +68,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#fromStimulus -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#fromStimulus -->
 
     <owl:ObjectProperty rdf:about="&sso;fromStimulus">
         <rdfs:subPropertyOf rdf:resource="&DUL;includesEvent"/>
@@ -76,7 +76,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasProperty -->
 
     <owl:ObjectProperty rdf:about="&sso;hasProperty">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasQuality"/>
@@ -84,7 +84,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasValue -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasValue -->
 
     <owl:ObjectProperty rdf:about="&sso;hasValue">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasRegion"/>
@@ -92,7 +92,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#implementedBy -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#implementedBy -->
 
     <owl:ObjectProperty rdf:about="&sso;implementedBy">
         <rdfs:subPropertyOf rdf:resource="&DUL;describes"/>
@@ -100,7 +100,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#implements -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#implements -->
 
     <owl:ObjectProperty rdf:about="&sso;implements">
         <rdfs:subPropertyOf rdf:resource="&DUL;isDescribedBy"/>
@@ -108,7 +108,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#isPropertyOf -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#isPropertyOf -->
 
     <owl:ObjectProperty rdf:about="&sso;isPropertyOf">
         <rdfs:subPropertyOf rdf:resource="&DUL;isQualityOf"/>
@@ -116,7 +116,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#isValueOf -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#isValueOf -->
 
     <owl:ObjectProperty rdf:about="&sso;isValueOf">
         <rdfs:subPropertyOf rdf:resource="&DUL;isRegionFor"/>
@@ -124,7 +124,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#madeObservation -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#madeObservation -->
 
     <owl:ObjectProperty rdf:about="&sso;madeObservation">
         <rdfs:subPropertyOf rdf:resource="&DUL;isObjectIncludedIn"/>
@@ -132,7 +132,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observationResult -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observationResult -->
 
     <owl:ObjectProperty rdf:about="&sso;observationResult">
         <rdfs:subPropertyOf rdf:resource="&DUL;isSettingFor"/>
@@ -140,7 +140,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observationResultTime -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observationResultTime -->
 
     <owl:ObjectProperty rdf:about="&sso;observationResultTime">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasRegion"/>
@@ -148,7 +148,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observationSamplingTime -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observationSamplingTime -->
 
     <owl:ObjectProperty rdf:about="&sso;observationSamplingTime">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasRegion"/>
@@ -156,7 +156,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observedBy -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observedBy -->
 
     <owl:ObjectProperty rdf:about="&sso;observedBy">
         <rdfs:subPropertyOf rdf:resource="&DUL;includesObject"/>
@@ -164,7 +164,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observedProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#observedProperty -->
 
     <owl:ObjectProperty rdf:about="&sso;observedProperty">
         <rdfs:subPropertyOf rdf:resource="&DUL;isSettingFor"/>
@@ -172,7 +172,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#sensingMethodUsed -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#sensingMethodUsed -->
 
     <owl:ObjectProperty rdf:about="&sso;sensingMethodUsed">
         <rdfs:subPropertyOf rdf:resource="&DUL;satisfies"/>
@@ -263,7 +263,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#FeatureOfInterest -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#FeatureOfInterest -->
 
     <owl:Class rdf:about="&sso;FeatureOfInterest">
         <rdfs:subClassOf>
@@ -278,7 +278,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Observation -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Observation -->
 
     <owl:Class rdf:about="&sso;Observation">
         <rdfs:subClassOf rdf:resource="&DUL;Situation"/>
@@ -286,7 +286,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#ObservationValue -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#ObservationValue -->
 
     <owl:Class rdf:about="&sso;ObservationValue">
         <rdfs:subClassOf rdf:resource="&DUL;Region"/>
@@ -294,7 +294,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Property -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Property -->
 
     <owl:Class rdf:about="&sso;Property">
         <rdfs:subClassOf rdf:resource="&DUL;Quality"/>
@@ -302,7 +302,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensing -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensing -->
 
     <owl:Class rdf:about="&sso;Sensing">
         <rdfs:subClassOf rdf:resource="&DUL;Method"/>
@@ -310,7 +310,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensor -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensor -->
 
     <owl:Class rdf:about="&sso;Sensor">
         <rdfs:subClassOf rdf:resource="&DUL;PhysicalObject"/>
@@ -318,7 +318,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#SensorOutput -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#SensorOutput -->
 
     <owl:Class rdf:about="&sso;SensorOutput">
         <rdfs:subClassOf rdf:resource="&DUL;InformationObject"/>
@@ -326,7 +326,7 @@
     
 
 
-    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Stimulus -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Stimulus -->
 
     <owl:Class rdf:about="&sso;Stimulus">
         <rdfs:subClassOf rdf:resource="&DUL;Event"/>
