@@ -1,0 +1,561 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY ns "http://creativecommons.org/ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://something.something/sso#"
+     xml:base="http://something.something/sso"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://something.something/sso">
+        <rdfs:comment rdf:datatype="&xsd;string">Based on SSO ontology of the SSN-XG (see: http://www.w3.org/2005/Incubator/ssn/).  New version intended to modularise and clean up.</rdfs:comment>
+        <dc:creator rdf:datatype="&xsd;string">Michael Compton</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">SSO ontology</rdfs:comment>
+        <dc:identifier>http://something.something/sso</dc:identifier>
+        <rdfs:comment>Should the observation model be at least as expressive as O&amp;M.  i.e.: should I add sampling and result time at this point???</rdfs:comment>
+        <terms:modified>2012-05-02</terms:modified>
+        <terms:created>2012-05-02</terms:created>
+        <dc:title>Stimulus Sensor Observation pattern</dc:title>
+        <rdfs:seeAlso>http://www.w3.org/2005/Incubator/ssn/</rdfs:seeAlso>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    <owl:AnnotationProperty rdf:about="&ns;license"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&dc;identifier"/>
+    <owl:AnnotationProperty rdf:about="&terms;created"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://something.something/sso#detects -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#detects">
+        <rdfs:label>detects</rdfs:label>
+        <rdfs:comment>A relation from a sensor to the Stimulus that the sensor can detect.   
+The Stimulus itself will be serving as a proxy for (see isProxyOf) some observable property.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#featureInObservation -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#featureInObservation">
+        <owl:inverseOf rdf:resource="http://something.something/sso#featureOfInterest"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#featureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#featureOfInterest">
+        <rdfs:label>feature of interest</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <dc:source>skos:exactMatch &#39;featureOfInterest&#39; [O&amp;M - ISO/DIS 19156] 
+		                    http://portal.opengeospatial.org/files/?artifact_id=41579</dc:source>
+        <rdfs:comment>A relation between an observation and the entity whose quality was observed.   For example, in an observation of the weight of a person, the feature of interest is the person and the quality is weight.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#fromStimulus -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#fromStimulus"/>
+    
+
+
+    <!-- http://something.something/sso#hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#hasProperty">
+        <rdfs:label>has property</rdfs:label>
+        <rdfs:comment>The chain here ensures that the observed property of an observation is a property of the feature of interest.  This restriction is written in O&amp;M; here we can enforce it formally.
+
+The more obvious formulation:
+
+featureOfInterest o hasProperty SubPropertyOf observedProperty
+
+can&#39;t be used, because (by the OWL2 decidability restrictions) that would mean cardinality restrictions couldn&#39;t be applied to observedProperty (see definition of Observation).</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>A relation between a FeatureOfInterest and a Property of that feature.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://something.something/sso#isPropertyOf"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://something.something/sso#featureInObservation"/>
+            <rdf:Description rdf:about="http://something.something/sso#observedProperty"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#hasValue -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#hasValue">
+        <rdfs:label>has value</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#implementedBy -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#implementedBy">
+        <rdfs:label>implemented by</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>A relation between the description of an algorithm, procedure or method and an entity that implements that method in some executable way.  For example, between a scientific measuring method and a sensor the senses via that method.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#implements -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#implements">
+        <rdfs:label>implements</rdfs:label>
+        <rdfs:comment>A relation between an entity that implements a method in some executable way and the description of an algorithm, procedure or method.  For example, between a Sensor and the scientific measuring method that the Sensor uses to observe a Property.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <owl:inverseOf rdf:resource="http://something.something/sso#implementedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#isProducedBy -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#isProducedBy">
+        <rdfs:label>is produced by</rdfs:label>
+        <rdfs:comment>Relation between a producer and a produced entity: for example, between a sensor and the produced output.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#isPropertyOf -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#isPropertyOf">
+        <rdfs:label>is property of</rdfs:label>
+        <rdfs:comment>Relation between a FeatureOfInterest and a Property (a Quality observable by a sensor) of that feature.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#isProxyFor -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#isProxyFor">
+        <rdfs:label>isProxyFor</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>A relation from a Stimulus to the Property that the Stimulus is serving as a proxy for.  For example, the expansion of the quicksilver is a stimulus that serves as a proxy for temperature, or an increase or decrease in the spinning of cups on a wind sensor is serving as a proxy for wind speed.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#isValueOf -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#isValueOf">
+        <owl:inverseOf rdf:resource="http://something.something/sso#hasValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#madeObservation -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#madeObservation">
+        <rdfs:label>made observation</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>Relation between a Sensor and Observations it has made.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://something.something/sso#observedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#observationResult -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#observationResult">
+        <rdfs:label>observation result</rdfs:label>
+        <rdfs:comment>Relation linking an Observation (i.e., a description of the context, the Situation, in which the observatioin was made) and a Result, which contains a value representing the value associated with the observed Property.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <dc:source>skos:closeMatch &#39;result&#39; [O&amp;M - ISO/DIS 19156] 
+		                    http://portal.opengeospatial.org/files/?artifact_id=41579</dc:source>
+    </owl:ObjectProperty>
+    
+
+
+
+    <!-- http://something.something/sso#observationResultTime -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#observationResultTime">
+        <rdfs:label>observation result time</rdfs:label>
+        <rdfs:comment>The result time shall describe the time when the result became available, typically when the procedure associated with the observation was completed For some observations this is identical to the phenomenonTime. However, there are important cases where they differ.[O&amp;M]</rdfs:comment>
+        <dc:source>http://www.opengeospatial.org/standards/om</dc:source>
+        <rdfs:comment>The result time is the time when the procedure associated with the observation act was applied.</rdfs:comment>    
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#observationSamplingTime -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#observationSamplingTime">
+        <rdfs:label>observation sampling time</rdfs:label>
+        <dc:source>http://www.opengeospatial.org/standards/om</dc:source>
+        <rdfs:comment>Rebadged as phenomenon time in [O&amp;M]. The phenomenon time shall describe the time that the result applies to the property of the feature-of-interest. This is often the time of interaction by a sampling procedure or observation procedure with a real-world feature.</rdfs:comment>
+        <rdfs:comment>The sampling time is the time that the result applies to the feature-of-interest. This is the time usually required for geospatial analysis of the result.</rdfs:comment>      
+    </owl:ObjectProperty>
+    
+
+
+
+
+
+
+    <!-- http://something.something/sso#observedBy -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#observedBy">
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#observedProperty -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#observedProperty">
+        <rdfs:label>observed property</rdfs:label>
+        <rdfs:comment>Relation linking an Observation to the Property that was observed.  The observedProperty should be a Property (hasProperty) of the FeatureOfInterest (linked by featureOfInterest) of this observation.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <dc:source>skos:exactMatch &#39;observedProperty&#39; [O&amp;M - ISO/DIS 19156] 
+		                    http://portal.opengeospatial.org/files/?artifact_id=41579</dc:source>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#produces -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#produces">
+        <rdfs:comment>The chain here means that if a sensor made an observation and that observation has a result, then the result is the one produced by the sensor.  Just ensures that the sensor and the resulting observation agree on the result.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://something.something/sso#isProducedBy"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://something.something/sso#madeObservation"/>
+            <rdf:Description rdf:about="http://something.something/sso#observationResult"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/sso#sensingMethodUsed -->
+
+    <owl:ObjectProperty rdf:about="http://something.something/sso#sensingMethodUsed">
+        <rdfs:label>sensing method used</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>A (measurement) procedure is a detailed description of a measurement according to one or more measurement principles and to a given measurement method, based on a measurement model and including any calculation to obtain a measurement result [VIM 2.6]</rdfs:comment>
+        <dc:source>http://www.bipm.org/en/committees/jc/jcgm/wg2.html</dc:source>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://something.something/sso#FeatureOfInterest -->
+
+    <owl:Class rdf:about="http://something.something/sso#FeatureOfInterest">
+        <rdfs:label>Feature of Interest</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#hasProperty"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#hasProperty"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A feature is an abstraction of real world phenomena (thing, person, event, etc).</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <dc:source>skos:exactMatch &#39;feature&#39; [O&amp;M] 
+		                    http://www.opengeospatial.org/standards/om</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#Observation -->
+
+    <owl:Class rdf:about="http://something.something/sso#Observation">
+        <rdfs:label>Observation</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#observedProperty"/>
+                <owl:onClass rdf:resource="http://something.something/sso#Property"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#sensingMethodUsed"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#Sensing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#featureOfInterest"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#FeatureOfInterest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#observationResult"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#SensorOutput"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#observedProperty"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#fromStimulus"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#Stimulus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#observedBy"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#sensingMethodUsed"/>
+                <owl:onClass rdf:resource="http://something.something/sso#Sensing"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#featureOfInterest"/>
+                <owl:onClass rdf:resource="http://something.something/sso#FeatureOfInterest"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#observedBy"/>
+                <owl:onClass rdf:resource="http://something.something/sso#Sensor"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>An Observation is a Situation in which a Sensing method has been used to estimate or calculate a value of a Property of a FeatureOfInterest.  Links to Sensing and Sensor describe what made the Observation and how; links to Property and Feature detail what was sensed; the result is the output of a Sensor; other metadata details times etc.</rdfs:comment>
+        <dc:source>skos:closeMatch &#39;observation&#39; [O&amp;M] 
+		                    http://www.opengeospatial.org/standards/om 
+
+Observation in this ontology and O&amp;M are described differently (O&amp;M records an observation as an act/event), but they record the same thing and are essentially interchangeable.  The difference is in the ontological structure of the two, not the data or use.
+
+Observation here records a Situation (the estimation of the value of a Property) and a description of the method that was used (along with the participants), while O&amp;M interprets an Observation as the event itself; there must, however, have been an event that lead to our situation, so both are records of events.  The distinction is between the event itself and the record of what happened in that event.
+
+
+skos:closeMatch &#39;measurement result&#39; [VIM 2.9] http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf
+
+Measurement result in VIM is the measured value plus any other relevant information, which means that measurement result and observation will often be associated to the same data (a value, a time, a property, etc.).</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#ObservationValue -->
+
+    <owl:Class rdf:about="http://something.something/sso#ObservationValue">
+        <rdfs:label>Observation Value</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#isValueOf"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#SensorOutput"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The value of the result of an Observation.  An Observation has a result which is the output of some sensor, the result is an information object that encodes some value for a Feature.</rdfs:comment>
+        <dc:source>skos:exactMatch &#39;measured quantity value&#39; [VIM 2.10]
+                                  http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf
+
+skos:exactMatch &#39;observed value&#39; [SensorML OGC-0700]
+http://www.opengeospatial.org/standards/sensorml 
+
+skos:closeMatch &#39;observation result&#39; [O&amp;M]
+http://www.opengeospatial.org/standards/om 
+
+O&amp;M conflates what we have as SensorOutput and ObservationValue into observation result, though the OGC standard does say &quot;result contains a value&quot; and &quot;a result which has a value&quot;, which fits naturally with the model here.</dc:source>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#Property -->
+
+    <owl:Class rdf:about="http://something.something/sso#Property">
+        <rdfs:label>Property</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#isPropertyOf"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#FeatureOfInterest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <dc:source>skos:exactMatch &#39;property&#39; [O&amp;M] 
+		                    http://www.opengeospatial.org/standards/om</dc:source>
+        <rdfs:comment>An observable Quality of an Event or Object.  That is, not a quality of an abstract entity as is also allowed by DUL&#39;s Quality, but rather an aspect of an entity that is intrinsic to and cannot exist without the entity and is observable by a sensor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#Sensing -->
+
+    <owl:Class rdf:about="http://something.something/sso#Sensing">
+        <rdfs:label>Sensing</rdfs:label>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <rdfs:comment>The description of a process (i.e. describes the temporal and dataflow dependencies and relationships amongst its parts) that results in the estimation, or calculation, of the value of a phenomenon.</rdfs:comment>
+        <dc:source>http://www.w3.org/2005/Incubator/sso/</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#Sensor -->
+
+    <owl:Class rdf:about="http://something.something/sso#Sensor">
+        <rdfs:label>Sensor</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#implements"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#Sensing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#detects"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#Stimulus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A sensor can do (implements) sensing: that is, a sensor is any entity that can follow a sensing method and thus observe some Property of a FeatureOfInterest.  Sensors may be physical devices, computational methods, a laboratory setup with a person following a method, or any other thing that can follow a Sensing Method to observe a Property.</rdfs:comment>
+        <dc:source>skos:exactMatch &#39;sensor&#39; [SensorML OGC-0700]
+		                    http://www.opengeospatial.org/standards/sensorml 
+
+                                skos:closeMatch &#39;observation procedure&#39; [O&amp;M] 
+                                http://www.opengeospatial.org/standards/om 
+
+O&amp;M allows sensors, methods, instruments, systems, algorithms and process chains as the processUsed of an observation; this ontology allows a similar range of things (any thing that can do sensing), just they are all grouped under the term sensor (which is thus wider than the O&amp;M concept).</dc:source>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#SensorOutput -->
+
+    <owl:Class rdf:about="http://something.something/sso#SensorOutput">
+        <rdfs:label>Sensor Output</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#ObservationValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#isProducedBy"/>
+                <owl:someValuesFrom rdf:resource="http://something.something/sso#Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source>http://www.w3.org/2005/Incubator/ssn/
+
+                                  skos:closeMatch &#39;observation result&#39; [O&amp;M] 
+                                  http://www.opengeospatial.org/standards/om 
+
+See comments at ObservationValue.</dc:source>
+        <rdfs:comment>A sensor outputs a piece of information (an observed value), the value itself being represented by an ObservationValue.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/sso#Stimulus -->
+
+    <owl:Class rdf:about="http://something.something/sso#Stimulus">
+        <rdfs:label>Stimulus</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://something.something/sso#isProxyFor"/>
+                <owl:allValuesFrom rdf:resource="http://something.something/sso#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An Event in the real world that &#39;triggers&#39; the sensor.  The properties associated to the stimulus may be different to eventual observed property.  It is the event, not the object that triggers the sensor.</rdfs:comment>
+        <rdfs:isDefinedBy>http://something.something/sso</rdfs:isDefinedBy>
+        <dc:source>http://www.w3.org/2005/Incubator/sso/</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1451) http://owlapi.sourceforge.net -->
+
+
