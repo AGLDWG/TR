@@ -5,9 +5,9 @@
     <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY ns "http://creativecommons.org/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY sso "http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
-    <!ENTITY ssno "http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#" >
-    <!ENTITY ssno_ds "http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#" >
+    <!ENTITY sso "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
+    <!ENTITY ssno "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#" >
+    <!ENTITY ssno_ds "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >   
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -16,20 +16,20 @@
 
 
 <rdf:RDF xmlns="&ssno_ds;"
-     xml:base="http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds"
+     xml:base="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ns="http://creativecommons.org/ns#"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:sso="http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
-     xmlns:ssno="http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#"
-     xmlns:ssno_ds="http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#"
+     xmlns:sso="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
+     xmlns:ssno="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#"
+     xmlns:ssno_ds="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds">
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds">
         <rdfs:comment>Semantic Sensor Networks ontology, plus systems and devices</rdfs:comment>
-        <owl:imports rdf:resource="http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"/>
     </owl:Ontology>
     
 
@@ -68,7 +68,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasOperatingProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasOperatingProperty -->
 
     <owl:ObjectProperty rdf:about="&ssno_ds;hasOperatingProperty">
         <rdfs:label>has operating property</rdfs:label>
@@ -78,7 +78,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasOperatingRange -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasOperatingRange -->
 
     <owl:ObjectProperty rdf:about="&ssno_ds;hasOperatingRange">
         <rdfs:label>has operating range</rdfs:label>
@@ -88,7 +88,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSurvivalProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSurvivalProperty -->
 
     <owl:ObjectProperty rdf:about="&ssno_ds;hasSurvivalProperty">
         <rdfs:label>has survival property</rdfs:label>
@@ -98,7 +98,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSurvivalRange -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSurvivalRange -->
 
     <owl:ObjectProperty rdf:about="&ssno_ds;hasSurvivalRange">
         <rdfs:label>has survival range</rdfs:label>
@@ -109,7 +109,7 @@
 
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSubSystem -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSubSystem -->
 
     <owl:ObjectProperty rdf:about="&ssno_ds;hasSubSystem">
         <rdfs:label>has subsystem</rdfs:label>
@@ -118,13 +118,13 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#hasProperty -->
 
     <owl:ObjectProperty rdf:about="&sso;hasProperty"/>
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#inCondition -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#inCondition -->
 
     <owl:ObjectProperty rdf:about="&ssno;inCondition"/>
     
@@ -143,13 +143,13 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Condition -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#Condition -->
 
     <owl:Class rdf:about="&ssno;Condition"/>
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#BatteryLifetime -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#BatteryLifetime -->
 
     <owl:Class rdf:about="&ssno_ds;BatteryLifetime">
         <rdfs:label>Battery Lifetime</rdfs:label>
@@ -159,7 +159,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#Device -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#Device -->
 
     <owl:Class rdf:about="&ssno_ds;Device">
         <rdfs:label>Device</rdfs:label>
@@ -169,7 +169,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#MaintenanceSchedule -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#MaintenanceSchedule -->
 
     <owl:Class rdf:about="&ssno_ds;MaintenanceSchedule">
         <rdfs:label>Maintenance Schedule</rdfs:label>
@@ -179,7 +179,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#OperatingPowerRange -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#OperatingPowerRange -->
 
     <owl:Class rdf:about="&ssno_ds;OperatingPowerRange">
         <rdfs:label>Operating Power Range</rdfs:label>
@@ -189,7 +189,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#OperatingProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#OperatingProperty -->
 
     <owl:Class rdf:about="&ssno_ds;OperatingProperty">
         <rdfs:label>Operating Property</rdfs:label>
@@ -199,7 +199,7 @@
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#OperatingRange -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#OperatingRange -->
 
     <owl:Class rdf:about="&ssno_ds;OperatingRange">
         <rdfs:label>Operating Range</rdfs:label>
@@ -225,7 +225,7 @@ The difference is that here we also allow for qualities that aren&#39;t VIM infl
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SensingDevice -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SensingDevice -->
 
     <owl:Class rdf:about="&ssno_ds;SensingDevice">
         <rdfs:label>Sensing Device</rdfs:label>
@@ -236,7 +236,7 @@ The difference is that here we also allow for qualities that aren&#39;t VIM infl
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SensorDataSheet -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SensorDataSheet -->
 
     <owl:Class rdf:about="&ssno_ds;SensorDataSheet">
         <rdfs:label>Sensor Data Sheet</rdfs:label>
@@ -247,7 +247,7 @@ Generally a sensor&#39;s properties are recorded directly (with hasMeasurementCa
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SurvivalProperty -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SurvivalProperty -->
 
     <owl:Class rdf:about="&ssno_ds;SurvivalProperty">
         <rdfs:label>Survival Property</rdfs:label>
@@ -257,7 +257,7 @@ Generally a sensor&#39;s properties are recorded directly (with hasMeasurementCa
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SurvivalRange -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SurvivalRange -->
 
     <owl:Class rdf:about="&ssno_ds;SurvivalRange">
         <rdfs:label>Survival Range</rdfs:label>
@@ -281,7 +281,7 @@ Generally a sensor&#39;s properties are recorded directly (with hasMeasurementCa
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#System -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#System -->
 
     <owl:Class rdf:about="&ssno_ds;System">
         <rdfs:label>System</rdfs:label>
@@ -314,7 +314,7 @@ Generally a sensor&#39;s properties are recorded directly (with hasMeasurementCa
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SystemLifetime -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SystemLifetime -->
 
     <owl:Class rdf:about="&ssno_ds;SystemLifetime">
         <rdfs:label>System Lifetime</rdfs:label>
@@ -324,13 +324,13 @@ Generally a sensor&#39;s properties are recorded directly (with hasMeasurementCa
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Property -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Property -->
 
     <owl:Class rdf:about="&sso;Property"/>
     
 
 
-    <!-- http://http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensor -->
+    <!-- https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#Sensor -->
 
     <owl:Class rdf:about="&sso;Sensor"/>
     
