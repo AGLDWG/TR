@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY ns "http://creativecommons.org/ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY sso "http://something.something/sso#" >
+    <!ENTITY ssno "http://something.something/ssno#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY ssno_pd "http://something.something/ssno_pd#" >
+    <!ENTITY ssno_ds "http://something.something/ssno_ds#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY DUL "http://www.loa-cnr.it/ontologies/DUL.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://something.something/ssno_pd_dul#"
+     xml:base="http://something.something/ssno_pd_dul"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:DUL="http://www.loa-cnr.it/ontologies/DUL.owl#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:ssno_pd="http://something.something/ssno_pd#"
+     xmlns:sso="http://something.something/sso#"
+     xmlns:ssno_ds="http://something.something/ssno_ds#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ssno="http://something.something/ssno#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://something.something/ssno_pd_dul">
+        <rdfs:comment>Semantic Sensor Networks Ontology with Systems and Platforms and Deployments aligned to Dolce-UltraLite.</rdfs:comment>
+        <owl:imports rdf:resource="http://something.something/ssno_dul"/>
+        <owl:imports rdf:resource="http://something.something/ssno_pd"/>
+        <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;seeAlso"/>
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    <owl:AnnotationProperty rdf:about="&ns;license"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&dc;identifier"/>
+    <owl:AnnotationProperty rdf:about="&terms;created"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://something.something/ssno_ds#hasSubSystem -->
+
+    <owl:ObjectProperty rdf:about="&ssno_ds;hasSubSystem">
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#attachedSystem -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;attachedSystem">
+        <rdfs:subPropertyOf rdf:resource="&DUL;isLocationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#deployedOnPlatform -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;deployedOnPlatform">
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasParticipant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#deployedSystem -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;deployedSystem">
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasParticipant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#deploymentProcessPart -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;deploymentProcessPart">
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#hasDeployment -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;hasDeployment">
+        <rdfs:subPropertyOf rdf:resource="&DUL;isParticipantIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#inDeployment -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;inDeployment">
+        <rdfs:subPropertyOf rdf:resource="&DUL;isParticipantIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://something.something/ssno_pd#onPlatform -->
+
+    <owl:ObjectProperty rdf:about="&ssno_pd;onPlatform">
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="&DUL;hasLocation"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasPart -->
+
+    <owl:ObjectProperty rdf:about="&DUL;hasPart"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="&DUL;hasParticipant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isLocationOf -->
+
+    <owl:ObjectProperty rdf:about="&DUL;isLocationOf"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#isParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="&DUL;isParticipantIn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://something.something/ssno_ds#Device -->
+
+    <owl:Class rdf:about="&ssno_ds;Device">
+        <rdfs:subClassOf rdf:resource="&DUL;DesignedArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/ssno_ds#SensorDataSheet -->
+
+    <owl:Class rdf:about="&ssno_ds;SensorDataSheet">
+        <rdfs:subClassOf rdf:resource="&DUL;InformationObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/ssno_ds#System -->
+
+    <owl:Class rdf:about="&ssno_ds;System">
+        <rdfs:subClassOf rdf:resource="&DUL;PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/ssno_pd#DeploymentRelatedProcess -->
+
+    <owl:Class rdf:about="&ssno_pd;DeploymentRelatedProcess">
+        <rdfs:subClassOf rdf:resource="&DUL;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://something.something/ssno_pd#Platform -->
+
+    <owl:Class rdf:about="&ssno_pd;Platform">
+        <rdfs:subClassOf rdf:resource="&DUL;PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#DesignedArtifact -->
+
+    <owl:Class rdf:about="&DUL;DesignedArtifact"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject -->
+
+    <owl:Class rdf:about="&DUL;InformationObject"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#PhysicalObject -->
+
+    <owl:Class rdf:about="&DUL;PhysicalObject"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DUL.owl#Process -->
+
+    <owl:Class rdf:about="&DUL;Process"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1451) http://owlapi.sourceforge.net -->
+
+
