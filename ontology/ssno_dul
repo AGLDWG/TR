@@ -4,7 +4,7 @@
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY sso "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
-    <!ENTITY ssno "http://something.something/ssno" >
+    <!ENTITY ssno "https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY DUL "http://www.loa-cnr.it/ontologies/DUL.owl#" >
@@ -20,10 +20,10 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:sso="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
-     xmlns:ssno="http://something.something/ssno#">
+     xmlns:ssno="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#">
     <owl:Ontology rdf:about="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul">
         <rdfs:comment>Semantic Sensor Networks Ontology aligned to Dolce-UltraLite.</rdfs:comment>
-        <owl:imports rdf:resource="http://something.something/ssno"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno"/>
         <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl"/>
     </owl:Ontology>
     
