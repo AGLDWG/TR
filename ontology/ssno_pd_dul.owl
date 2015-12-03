@@ -5,36 +5,36 @@
     <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY ns "http://creativecommons.org/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY sso "http://something.something/sso#" >
-    <!ENTITY ssno "http://something.something/ssno#" >
+    <!ENTITY sso "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#" >
+    <!ENTITY ssno "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY ssno_pd "http://something.something/ssno_pd#" >
-    <!ENTITY ssno_ds "http://something.something/ssno_ds#" >
+    <!ENTITY ssno_pd "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#" >
+    <!ENTITY ssno_ds "http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY DUL "http://www.loa-cnr.it/ontologies/DUL.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<rdf:RDF xmlns="http://something.something/ssno_pd_dul#"
-     xml:base="http://something.something/ssno_pd_dul"
+<rdf:RDF xmlns="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd_dul#"
+     xml:base="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd_dul"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ns="http://creativecommons.org/ns#"
      xmlns:DUL="http://www.loa-cnr.it/ontologies/DUL.owl#"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:ssno_pd="http://something.something/ssno_pd#"
-     xmlns:sso="http://something.something/sso#"
-     xmlns:ssno_ds="http://something.something/ssno_ds#"
+     xmlns:ssno_pd="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#"
+     xmlns:sso="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/sso#"
+     xmlns:ssno_ds="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:ssno="http://something.something/ssno#"
+     xmlns:ssno="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://something.something/ssno_pd_dul">
+    <owl:Ontology rdf:about="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd_dul">
         <rdfs:comment>Semantic Sensor Networks Ontology with Systems and Platforms and Deployments aligned to Dolce-UltraLite.</rdfs:comment>
-        <owl:imports rdf:resource="http://something.something/ssno_dul"/>
-        <owl:imports rdf:resource="http://something.something/ssno_pd"/>
+        <owl:imports rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_dul"/>
+        <owl:imports rdf:resource="http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd"/>
         <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl"/>
     </owl:Ontology>
     
@@ -74,7 +74,7 @@
     
 
 
-    <!-- http://something.something/ssno_ds#hasSubSystem -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#hasSubSystem -->
 
     <owl:ObjectProperty rdf:about="&ssno_ds;hasSubSystem">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasPart"/>
@@ -82,7 +82,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#attachedSystem -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#attachedSystem -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;attachedSystem">
         <rdfs:subPropertyOf rdf:resource="&DUL;isLocationOf"/>
@@ -90,7 +90,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#deployedOnPlatform -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedOnPlatform -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;deployedOnPlatform">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasParticipant"/>
@@ -98,7 +98,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#deployedSystem -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deployedSystem -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;deployedSystem">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasParticipant"/>
@@ -106,7 +106,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#deploymentProcessPart -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#deploymentProcessPart -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;deploymentProcessPart">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasPart"/>
@@ -114,7 +114,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#hasDeployment -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#hasDeployment -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;hasDeployment">
         <rdfs:subPropertyOf rdf:resource="&DUL;isParticipantIn"/>
@@ -122,7 +122,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#inDeployment -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#inDeployment -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;inDeployment">
         <rdfs:subPropertyOf rdf:resource="&DUL;isParticipantIn"/>
@@ -130,7 +130,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#onPlatform -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#onPlatform -->
 
     <owl:ObjectProperty rdf:about="&ssno_pd;onPlatform">
         <rdfs:subPropertyOf rdf:resource="&DUL;hasLocation"/>
@@ -179,7 +179,7 @@
     
 
 
-    <!-- http://something.something/ssno_ds#Device -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#Device -->
 
     <owl:Class rdf:about="&ssno_ds;Device">
         <rdfs:subClassOf rdf:resource="&DUL;DesignedArtifact"/>
@@ -187,7 +187,7 @@
     
 
 
-    <!-- http://something.something/ssno_ds#SensorDataSheet -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#SensorDataSheet -->
 
     <owl:Class rdf:about="&ssno_ds;SensorDataSheet">
         <rdfs:subClassOf rdf:resource="&DUL;InformationObject"/>
@@ -195,7 +195,7 @@
     
 
 
-    <!-- http://something.something/ssno_ds#System -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_ds#System -->
 
     <owl:Class rdf:about="&ssno_ds;System">
         <rdfs:subClassOf rdf:resource="&DUL;PhysicalObject"/>
@@ -203,7 +203,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#DeploymentRelatedProcess -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#DeploymentRelatedProcess -->
 
     <owl:Class rdf:about="&ssno_pd;DeploymentRelatedProcess">
         <rdfs:subClassOf rdf:resource="&DUL;Process"/>
@@ -211,7 +211,7 @@
     
 
 
-    <!-- http://something.something/ssno_pd#Platform -->
+    <!-- http://raw.githubusercontent.com/AGLDWG/TR/master/ontology/ssno_pd#Platform -->
 
     <owl:Class rdf:about="&ssno_pd;Platform">
         <rdfs:subClassOf rdf:resource="&DUL;PhysicalObject"/>
