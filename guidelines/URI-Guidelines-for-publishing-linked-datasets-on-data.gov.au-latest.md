@@ -172,7 +172,7 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
 <tr><td>transport.data.gov.au</td><td>(TRANSPORT)</td></tr>
 </table>
 
-<p>The publisher of a Linked Dataset can chose the sub-domain they feel is appropriate for the entities contained within the dataset. If it is unclear  which sub-domain is appropriate for a particular Linked dataset the <a href="http://agift.naa.gov.au/search.htm">National Archives search tool</a> can be used to help identify the government function matching most closely with the domain of the entities  contained in the Linked Dataset.</p>
+<p>The publisher of a Linked Dataset can chose the sub-domain they feel is appropriate for the entities contained within the dataset. If it is unclear  which sub-domain is appropriate for a particular Linked dataset the <a href="http://naa.gov.au/agift/search.htm">National Archives search tool</a> can be used to help identify the government function matching most closely with the domain of the entities  contained in the Linked Dataset.</p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
