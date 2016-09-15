@@ -693,6 +693,8 @@ audata:classifiedAs rdf:type owl:ObjectProperty ;
 
 audata:hasAgent rdf:type owl:ObjectProperty ;
                 
+                rdfs:comment "The Agent responsible for a DatasetChangeEvent through an Association that defines the Organisation that the Agent is associated with for that Event."@en ;
+                
                 rdfs:range dct:Agent ;
                 
                 rdfs:subPropertyOf prov:agent .
@@ -703,6 +705,8 @@ audata:hasAgent rdf:type owl:ObjectProperty ;
 
 audata:hasContact rdf:type owl:ObjectProperty ;
                   
+                  rdfs:comment "Defines an agent who is the contact for inquiries on a Dataset."@en ;
+                  
                   rdfs:range vcard:Kind .
 
 
@@ -711,6 +715,8 @@ audata:hasContact rdf:type owl:ObjectProperty ;
 
 audata:hasDataset rdf:type owl:ObjectProperty ;
                   
+                  rdfs:comment "Defines a Dataset to be part of a Catalog."@en ;
+                  
                   owl:equivalentProperty dcat:dataset .
 
 
@@ -718,6 +724,8 @@ audata:hasDataset rdf:type owl:ObjectProperty ;
 ###  http://communications.data.gov.au/def/datasetOntology#hasDistribution
 
 audata:hasDistribution rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:comment "Defines the available distribution(s) for a Dataset"@en ;
                        
                        rdfs:domain audata:Dataset ;
                        
@@ -731,15 +739,9 @@ audata:hasDistribution rdf:type owl:ObjectProperty ;
 
 audata:hasDownloadURL rdf:type owl:ObjectProperty ;
                       
+                      rdfs:comment "Defines the URLs that contains the Distribution of the Dataset in a given format."@en ;
+                      
                       owl:equivalentProperty dcat:downloadURL .
-
-
-
-###  http://communications.data.gov.au/def/datasetOntology#hasExtent
-
-audata:hasExtent rdf:type owl:ObjectProperty ;
-                 
-                 rdfs:domain audata:Dataset .
 
 
 
@@ -821,13 +823,17 @@ audata:hasTemporalExtent rdf:type owl:ObjectProperty ;
 
 ###  http://communications.data.gov.au/def/datasetOntology#hasUpdateFrequency
 
-audata:hasUpdateFrequency rdf:type owl:ObjectProperty .
+audata:hasUpdateFrequency rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:comment "Describes the anticipated frequency of updates of a Dataset."@en .
 
 
 
 ###  http://communications.data.gov.au/def/datasetOntology#inState
 
 audata:inState rdf:type owl:ObjectProperty ;
+               
+               rdfs:comment "Defines the State or Territory a Locality is located in."@en ;
                
                rdfs:domain audata:Locality ;
                
@@ -839,8 +845,6 @@ audata:inState rdf:type owl:ObjectProperty ;
 
 audata:isAssociatedWith rdf:type owl:InverseFunctionalProperty ,
                                  owl:ObjectProperty ;
-                        
-                        rdfs:comment "WARNING - at risk if PROV patterns adopted"^^xsd:string ;
                         
                         rdfs:domain audata:DatasetChangeEvent ;
                         
@@ -854,13 +858,14 @@ audata:isAssociatedWith rdf:type owl:InverseFunctionalProperty ,
 
 ###  http://communications.data.gov.au/def/datasetOntology#isAssociatedWithPublisher
 
-audata:isAssociatedWithPublisher rdf:type owl:ObjectProperty ;
+audata:isAssociatedWithPublisher rdf:type owl:InverseFunctionalProperty ,
+                                          owl:ObjectProperty ;
                                  
                                  rdfs:subPropertyOf audata:isAssociatedWith ;
                                  
                                  rdfs:range [ rdf:type owl:Restriction ;
                                               owl:onProperty audata:playsRole ;
-                                              owl:hasValue audata:Publisher
+                                              owl:hasValue audata:publisher
                                             ] .
 
 
@@ -975,6 +980,7 @@ dct:license rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/ns/dcat#downloadURL
 
+dcat:downloadURL rdfs:comment "Defines a relation between a Dataset and the URL that contains the distribution of the dataset in a given format."@en .
 
 
 
@@ -1097,7 +1103,9 @@ audata:AGIFTFunction rdf:type owl:Class ;
 
 audata:AssociatedOrganisation rdf:type owl:Class ;
                               
-                              rdfs:subClassOf prov:Association .
+                              rdfs:subClassOf prov:Association ;
+                              
+                              rdfs:comment "An AssociatedOrganisation is an Organisation that is responsible for an Event that changed a Dataset the Organisation is associated with."@en .
 
 
 
@@ -1110,7 +1118,7 @@ audata:Catalog rdf:type owl:Class ;
                rdfs:subClassOf dcat:Catalog ,
                                prov:Entity ;
                
-               rdfs:comment "A data catalog is a curated collection of metadata about datasets."@en ;
+               rdfs:comment "A Catalog is a curated collection of metadata about datasets."@en ;
                
                rdfs:isDefinedBy "https://www.w3.org/ns/dcat#Catalog"@en .
 
@@ -1122,7 +1130,7 @@ audata:Classifier rdf:type owl:Class ;
                   
                   rdfs:subClassOf skos:Concept ;
                   
-                  rdfs:comment "A classifier used for Australian Government Data"@en .
+                  rdfs:comment "A classifier used for Australian Government Data."@en .
 
 
 
@@ -1139,16 +1147,16 @@ audata:Dataset rdf:type owl:Class ;
                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
                                ] ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty dct:license ;
+                                 owl:someValuesFrom dct:LicenseDocument
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty audata:updateDate ;
                                  owl:someValuesFrom rdfs:Literal
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty audata:publishDate ;
                                  owl:someValuesFrom rdfs:Literal
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty dct:license ;
-                                 owl:someValuesFrom dct:LicenseDocument
                                ] ;
                
                rdfs:comment "A Dataset is a collection of resources, published or curated by an agent, and openly available for download in one or more formats."@en .
@@ -1186,7 +1194,9 @@ audata:Distribution rdf:type owl:Class ;
                     rdfs:label "Distribution"@en ;
                     
                     rdfs:subClassOf dcat:Distribution ,
-                                    prov:Entity .
+                                    prov:Entity ;
+                    
+                    rdfs:comment "A Distribution defines the available form of a Dataset, i.e. different formats of the Dataset or different type of endpoints the Dataset can be retrieved from."@en .
 
 
 
@@ -1293,7 +1303,7 @@ audata:Locality rdf:type owl:Class ;
                 
                 rdfs:subClassOf audata:SpatialThing ;
                 
-                rdfs:comment "Locality is a spatial thing corresponding to a place or area, which is denoted by a commonly recognised, or formally designated, name or description. "^^xsd:string .
+                rdfs:comment "Locality is a Spatial Thing corresponding to a place or area, which is denoted by a commonly recognised, or formally designated, name or description."^^xsd:string .
 
 
 
@@ -1361,14 +1371,6 @@ audata:Polygon rdf:type owl:Class ;
 
 
 
-###  http://communications.data.gov.au/def/datasetOntology#Publisher
-
-audata:Publisher rdf:type owl:Class ;
-                 
-                 rdfs:subClassOf dct:Agent .
-
-
-
 ###  http://communications.data.gov.au/def/datasetOntology#Role
 
 audata:Role rdf:type owl:Class ;
@@ -1377,7 +1379,7 @@ audata:Role rdf:type owl:Class ;
             
             rdfs:subClassOf prov:Role ;
             
-            rdfs:comment "A Role corresponds to the involvement of an agent in an Event, e.g. fulfilling a Publisher, Contributor or Custodian Role."@en .
+            rdfs:comment "A Role corresponds to the involvement of an Agent in an Event, e.g. fulfilling a publisher, contributor or custodian Role."@en .
 
 
 
@@ -1581,28 +1583,64 @@ agls:agls-audience rdf:type owl:Class .
 
 
 
-###  http://communications.data.gov.au/def/datasetOntology#Contributor
+###  http://communications.data.gov.au/def/datasetOntology#abs
 
-audata:Contributor rdf:type audata:Role ,
+audata:abs rdf:type audata:GovernmentAgency ,
+                    owl:NamedIndividual .
+
+
+
+###  http://communications.data.gov.au/def/datasetOntology#abs1
+
+audata:abs1 rdf:type dct:Agent ,
+                     owl:NamedIndividual .
+
+
+
+###  http://communications.data.gov.au/def/datasetOntology#associatedwithKerryandABS
+
+audata:associatedwithKerryandABS rdf:type owl:NamedIndividual ,
+                                          prov:Association ;
+                                 
+                                 audata:hasAgent audata:abs1 ;
+                                 
+                                 audata:playsRole audata:publisher .
+
+
+
+###  http://communications.data.gov.au/def/datasetOntology#contributor
+
+audata:contributor rdf:type audata:Role ,
                             owl:NamedIndividual ;
                    
                    rdfs:comment "A Contributor plays the Role of contributing in one form or another as an Agent to a Dataset."@en .
 
 
 
-###  http://communications.data.gov.au/def/datasetOntology#Custodian
+###  http://communications.data.gov.au/def/datasetOntology#custodian
 
-audata:Custodian rdf:type audata:Role ,
+audata:custodian rdf:type audata:Role ,
                           owl:NamedIndividual ;
                  
                  rdfs:comment "A Custodian plays the Role of being the responsible Agent that looks after a Dataset."@en .
 
 
 
-###  http://communications.data.gov.au/def/datasetOntology#Publisher
+###  http://communications.data.gov.au/def/datasetOntology#datasetChangeEvent1
 
-audata:Publisher rdf:type audata:Role ,
-                          owl:NamedIndividual .
+audata:datasetChangeEvent1 rdf:type audata:DatasetChangeEvent ,
+                                    owl:NamedIndividual ;
+                           
+                           audata:isAssociatedWith audata:associatedwithKerryandABS .
+
+
+
+###  http://communications.data.gov.au/def/datasetOntology#exampleDataset1
+
+audata:exampleDataset1 rdf:type audata:Dataset ,
+                                owl:NamedIndividual ;
+                       
+                       audata:isChangedBy audata:datasetChangeEvent1 .
 
 
 
@@ -1617,6 +1655,13 @@ audata:maintained rdf:type audata:MaintenanceResponsibility ,
 
 audata:notMaintained rdf:type audata:MaintenanceResponsibility ,
                               owl:NamedIndividual .
+
+
+
+###  http://communications.data.gov.au/def/datasetOntology#publisher
+
+audata:publisher rdf:type audata:Role ,
+                          owl:NamedIndividual .
 
 
 
@@ -1940,6 +1985,10 @@ agls:dateLicensed rdfs:label "Date Licensed"@en-au ;
 
 
 
+audata:publisher rdfs:comment "A Publisher plays the Role of uploading the Dataset to data.gov.au."@en .
+
+
+
 agls:AglsAvail rdfs:label "AGLS Availability Scheme"@en-au ;
                
                dct:issued "2002-04-18" ;
@@ -2078,7 +2127,21 @@ dc:subject rdfs:label "Subject"@en ;
 
 
 
-audata:Publisher rdfs:comment "A Publisher plays the Role of uploading the Dataset to data.gov.au."@en .
+dc:description rdfs:label "Description"@en ;
+               
+               dct:issued "1999-07-02"^^xsd:date ;
+               
+               dct:modified "2008-01-14"^^xsd:date ;
+               
+               skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+               
+               rdfs:comment "An account of the resource."@en ;
+               
+               dct:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+               
+               dct:hasVersion <http://dublincore.org/usage/terms/history/#description-006> ;
+               
+               rdfs:isDefinedBy dc: .
 
 
 
@@ -2097,24 +2160,6 @@ dc:identifier rdfs:label "Identifier"@en ;
               dct:hasVersion <http://dublincore.org/usage/terms/history/#identifier-006> ;
               
               rdfs:isDefinedBy dc: .
-
-
-
-dc:description rdfs:label "Description"@en ;
-               
-               dct:issued "1999-07-02"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date ;
-               
-               skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-               
-               rdfs:comment "An account of the resource."@en ;
-               
-               dct:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#description-006> ;
-               
-               rdfs:isDefinedBy dc: .
 
 
 
