@@ -1,8 +1,8 @@
 <body>
 
 <p>Australian Government Linked Data Working Group</p>
-<h1><a name="h.mzkw4ei1q3v2" id="h.mzkw4ei1q3v2"></a><strong>URI Guidelines for publishing Linked Datasets on data.gov.au v0.1</strong></h1>
-<p><strong>(July 3 2014)</strong></p>
+<h1><a name="h.mzkw4ei1q3v2" id="h.mzkw4ei1q3v2"></a><strong>URI Guidelines for publishing Linked Datasets on data.gov.au v0.2</strong></h1>
+<p><strong>(September 15 2016)</strong></p>
 
 <h2>Table of Contents</h2>
 <a href="#h.hg1sj27y6ufa">Conformance</a><br />
