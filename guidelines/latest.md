@@ -1,18 +1,18 @@
 <body>
 
 <p>Australian Government Linked Data Working Group</p>
-<h1><a name="h.mzkw4ei1q3v2" id="h.mzkw4ei1q3v2"></a><strong>URI Guidelines for publishing Linked Datasets on data.gov.au v0.2</strong></h1>
-<p><strong>(September 15 2016)</strong></p>
+<h1><a name="h.mzkw4ei1q3v2" id="h.mzkw4ei1q3v2"></a><strong>URI Guidelines for publishing Linked Data datasets on data.gov.au v0.3</strong></h1>
+<p><strong>(March 12 2018)</strong></p>
 
 <h2>Table of Contents</h2>
 <a href="#h.hg1sj27y6ufa">Conformance</a><br />
 <a href="#h.8x82ev9hlve4">1. Introduction</a><br />
-<a href="#h.evgc2ceabc0u">2. Linked Dataset URIs</a><br />
+<a href="#h.evgc2ceabc0u">2. Linked Data dataset URIs</a><br />
 <a href="#h.yhbu9svf0ixu">3. Domain structure</a><br />
 <a href="#h.blxw9q9b2rlf">4. URI patterns</a><br />
 <a href="#h.wfjxm50byvq">5. Publishing URIs</a><br />
 <a href="#h.h7mypgxdds0">6. URI naming conventions</a><br />
-<a href="#h.depmzbrccojw">7. HOW-TO publish a Linked Dataset on data.gov.au</a><br />
+<a href="#h.depmzbrccojw">7. HOW-TO publish a Linked Data dataset on data.gov.au</a><br />
 <a href="#h.1vlcemw9iv0h">References</a>
 
 <h2><a name="h.hg1sj27y6ufa" id="h.hg1sj27y6ufa"></a>Conformance </h2>
@@ -21,41 +21,41 @@
 
 <h2><a name="h.8x82ev9hlve4" id="h.8x82ev9hlve4"></a>1.   Introduction </h2>
 
-<p>Uniform Resource Identifiers (URI) are a single global identification  system used on the World Wide Web, similar to telephone numbers in a public  switched telephone network. URIs are a key technology to support Linked Data by  offering a generic mechanism to identify entities (&lsquo;Things&rsquo;) or concepts in the  world. Government departments and agencies assign identifiers to all entities  ('Things') they are responsible for - e.g., hospitals, schools, roads,  equipment, etc. These identifiers are then used when referring to or making  statements about particular entities. For example, when referring to a road  closure, the identifier (e.g. M5) will be used to inform the public. In order  to publish data in a Linked Data fashion, government and governmental agencies  need to define these resource identifiers using URIs. Since public sector  information (PSI) is intended to be re-used by diverse applications, it is  important that these resource identifier URIs remain stable.<br /><br />This document provides a set of general guidelines aimed at helping  government stakeholders to define and manage URIs for &lsquo;Linked Datasets&rsquo; and the resources described within. The URI guidelines in this document are building upon the four Linked Data principles postulated by Sir Tim Berners-Lee [1]. These principles are:<br /><br /><strong>Use HTTP URIs</strong> <br />Addressing two of the four principles, <em>&lsquo;use URIs&rsquo;</em> and <em>&lsquo;use HTTP URIs&rsquo;, </em>governments and their agencies publishing Linked Data <strong><em>MUST </em></strong>provide  HTTP URIs as identifiers for resources, in order to support reuse and data  integration/linking on the Web in a Linked Data fashion. HTTP URIs enable URIs  to be &quot;looked-up&quot; or &quot;dereferenced&quot;, which in turn provides  access, via a Web browser, to a representation of the resource identified by these URIs.</p>
+<p>Uniform Resource Identifiers (URI) are a single global identification  system used on the World Wide Web, similar to telephone numbers in a public  switched telephone network. URIs are a key technology to support Linked Data by  offering a generic mechanism to identify entities (&lsquo;Things&rsquo;) or concepts in the  world. Government departments and agencies assign identifiers to all entities  ('Things') they are responsible for - e.g., hospitals, schools, roads,  equipment, etc. These identifiers are then used when referring to or making  statements about particular entities. For example, when referring to a road  closure, the identifier (e.g. M5) will be used to inform the public. In order  to publish data in a Linked Data fashion, government and governmental agencies  need to define these resource identifiers using URIs. Since public sector  information (PSI) is intended to be re-used by diverse applications, it is  important that these resource identifier URIs remain stable.<br /><br />This document provides a set of general guidelines aimed at helping  government stakeholders to define and manage URIs for &lsquo;Linked Data datasets&rsquo; and the resources described within. The URI guidelines in this document are building upon the four Linked Data principles postulated by Sir Tim Berners-Lee [1]. These principles are:<br /><br /><strong>Use HTTP URIs</strong> <br />Addressing two of the four principles, <em>&lsquo;use URIs&rsquo;</em> and <em>&lsquo;use HTTP URIs&rsquo;, </em>governments and their agencies publishing Linked Data <strong><em>MUST </em></strong>provide  HTTP URIs as identifiers for resources, in order to support reuse and data  integration/linking on the Web in a Linked Data fashion. HTTP URIs enable URIs  to be &quot;looked-up&quot; or &quot;dereferenced&quot;, which in turn provides  access, via a Web browser, to a representation of the resource identified by these URIs.</p>
 <p><br /><strong>Provide a  machine-readable representation of the resource identified by the URI</strong><br />In order to enable HTTP URIs to be &quot;dereferenceable&quot;, data publishers have to set up the necessary  infrastructure (e.g. HTTP servers) to serve representations or descriptions of  the resources (e.g. a human-readable HTML representation or a machine-readable  RDF/XML representation). For it to be considered Linked data, a publisher <strong><em>MUST </em></strong>publish  the data using RDF (i.e., to define explicitly the meaning of this data) and <strong><em>MUST </em></strong>publish  at least one machine-readable representation (e.g. RDF/XML, JSON-LD, Turtle)  via the HTTP URI identifying the resource.<br /></p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
 <td valign="top" width="80"><b>[no 1]</b></td>
-    <td width="573" valign="top">Use HTTP URIs so that the Linked Dataset URI can be resolved.</td>
+    <td width="573" valign="top">Use HTTP URIs so that the Linked Data dataset URI can be resolved.</td>
     <td width="100" valign="top"><strong><em>MUST</em></strong></td>
   </tr>
   <tr>
 <td valign="top" width="80"><b>[no 2]</b></td>
-    <td width="573" valign="top">Provide at least one machine-readable representation in RDF at the Linked Dataset URI.</td>
+    <td width="573" valign="top">Provide at least one machine-readable representation in RDF at the Linked Data dataset URI.</td>
     <td width="100" valign="top"><strong><em>MUST</em></strong></td>
   </tr>
 </table>
 
 <p>Beyond these principles the document defines guidance on:</p>
 <ol>
-  <li>Linked Dataset URIs,</li>
+  <li>Linked Data dataset URIs,</li>
   <li>Domain structures,</li>
   <li>URI patterns,</li>
   <li>Publishing URIs, and on</li>
   <li>URI naming conventions.</li>
 </ol>
-<h2><a name="h.evgc2ceabc0u" id="h.evgc2ceabc0u"></a>2. Linked Dataset URIs </h2>
-<p>For the purpose of this document a <em>Linked  Dataset</em> published within the data.gov.au domain is defined as a collection  of data, each with supporting metadata, published and maintained under the  data.gov.au domain, available as RDF, and accessible through dereferenceable  HTTP Universal Resource Identifiers (URIs).<br />HTTP URIs, a component of the World Wide Web, provides a means of uniquely identifying a &lsquo;Thing&rsquo; (or &lsquo;Resource&rsquo;) in this case a <em>Linked Dataset</em>. <em>Linked Datasets</em> provide the opportunity to share common meaning and  common identifiers across the public sector, and to provide comprehensive and  reliable identifiers for a collection of &lsquo;Things&rsquo; such as the hospitals,  schools or roads in a region, climate data for a specific year etc.<br /><br />A Linked Dataset consists of:</p>
+<h2><a name="h.evgc2ceabc0u" id="h.evgc2ceabc0u"></a>2. Linked Data dataset URIs </h2>
+<p>For the purpose of this document a <em>Linked  Dataset</em> published within the data.gov.au domain is defined as a collection  of data, each with supporting metadata, published and maintained under the  data.gov.au domain, available as RDF, and accessible through dereferenceable  HTTP Universal Resource Identifiers (URIs).<br />HTTP URIs, a component of the World Wide Web, provides a means of uniquely identifying a &lsquo;Thing&rsquo; (or &lsquo;Resource&rsquo;) in this case a <em>Linked Data dataset</em>. <em>Linked Data datasets</em> provide the opportunity to share common meaning and  common identifiers across the public sector, and to provide comprehensive and  reliable identifiers for a collection of &lsquo;Things&rsquo; such as the hospitals,  schools or roads in a region, climate data for a specific year etc.<br /><br />A Linked Data dataset consists of:</p>
 
 <ol>
   <li>the  URI to identify the set</li>
   <li>metadata  to describe its quality characteristics</li>
-  <li>a  URI that references a list of resources (<em>Identifier  URIs</em> and <em>Document URIs</em>) defined  in the Linked Dataset</li>
-  <li>references  to <em>Ontology URIs</em> which define the  concept and relationships used within the Linked Dataset</li>
+  <li>a  URI that references a list of resources (<em>Identifier  URIs</em> and <em>Document URIs</em>) defined  in the Linked Data dataset</li>
+  <li>references  to <em>Ontology URIs</em> which define the  concept and relationships used within the Linked Data dataset</li>
 </ol>
 
-<p><br />For the <em>Linked Dataset URI</em> the  following pattern is proposed. The pattern notation used in this document is based on the  &ldquo;URI Template&rdquo; specification defined in RFC6570 [7]. In addition square brackets &lsquo;[&lsquo; and &lsquo;]&rsquo; are used to introduce optional components and a star, i.e. &lsquo;*&rsquo; following such a bracket component allows arbitrary repetition of the group  (zero or more times).<br /></p>
+<p><br />For the <em>Linked Data dataset URI</em> the  following pattern is proposed. The pattern notation used in this document is based on the  &ldquo;URI Template&rdquo; specification defined in RFC6570 [7]. In addition square brackets &lsquo;[&lsquo; and &lsquo;]&rsquo; are used to introduce optional components and a star, i.e. &lsquo;*&rsquo; following such a bracket component allows arbitrary repetition of the group  (zero or more times).<br /></p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
@@ -76,15 +76,15 @@
 </tr>
 </table>
 
-<p><strong>Metadata requirements for Linked Datasets</strong><br />For expressing the <em>metadata to  describe the quality characteristics</em> of a dataset the use of DCAT (Data Catalog Vocabulary) [5] is <strong><em>RECOMMENDED</em></strong>, a vocabulary that provides terms and patterns for describing RDF datasets. Consequently, a <em>Linked Dataset URI</em> <strong><em>SHOULD </em></strong>be a member of the class dcat:Dataset.</p>
+<p><strong>Metadata requirements for Linked Data datasets</strong><br />For expressing the <em>metadata to  describe the quality characteristics</em> of a dataset the use of DCAT (Data Catalog Vocabulary) [5] is <strong><em>RECOMMENDED</em></strong>, a vocabulary that provides terms and patterns for describing RDF datasets. Consequently, a <em>Linked Data dataset URI</em> <strong><em>SHOULD </em></strong>be a member of the class dcat:Dataset.</p>
 
-<p>For modularised datasets, each module <strong><em>SHOULD </em></strong>be a member of the dcat:Catalog class. All datasets within a module <strong><em>SHOULD</em></strong> be referenced with a dcat:dataset property from the <em>URI</em> that describes the module (i.e. a member of the dcat:Catalog class). This <em>Catalogue URI</em> <strong><em>SHOULD</em></strong> be dereferenceable at the top-level path segment of the module. For example, for the modularised<b> /dataset/act/schools </b>dataset, the dcat:Catalog <em>URI</em> is<b> /dataset/act </b>that references the schools dataset and all other datasets within this module with the dcat:dataset property.<br /> Summarising, the specific guidelines for adding metadata to Linked Datasets are:</p>
+<p>For modularised datasets, each module <strong><em>SHOULD </em></strong>be a member of the dcat:Catalog class. All datasets within a module <strong><em>SHOULD</em></strong> be referenced with a dcat:dataset property from the <em>URI</em> that describes the module (i.e. a member of the dcat:Catalog class). This <em>Catalogue URI</em> <strong><em>SHOULD</em></strong> be dereferenceable at the top-level path segment of the module. For example, for the modularised<b> /dataset/act/schools </b>dataset, the dcat:Catalog <em>URI</em> is<b> /dataset/act </b>that references the schools dataset and all other datasets within this module with the dcat:dataset property.<br /> Summarising, the specific guidelines for adding metadata to Linked Data datasets are:</p>
 
 <table border="1" cellspacing="0" cellpadding="0">
 <tr>
     <td width="80" valign="top"><b>[no 5]</b></td>
 <td width="478" valign="top">
-A Linked Dataset URI is defined as a member of the class dcat:Dataset of the Data Catalog Vocabulary (DCAT).</td>
+A Linked Data dataset URI is defined as a member of the class dcat:Dataset of the Data Catalog Vocabulary (DCAT).</td>
 <td width="100" valign="top"><b><i>SHOULD</i></b></td></tr>
 <tr>
     <td width="80" valign="top"><b>[no 6]</b></td>
@@ -94,16 +94,16 @@ For modularised datasets, the top-level module is declared as a member of the dc
 <tr>
     <td width="80" valign="top"><b>[no 7]</b></td>
 <td width="478" valign="top">
-A Linked Dataset has one or many publishers defined through the Dublin Core [6] dct:publisher property.</td>
+A Linked Data dataset has one or many publishers defined through the Dublin Core [6] dct:publisher property.</td>
 <td width="100" valign="top"><b><i>SHOULD</i></b></td></tr>
 <tr>
     <td width="80" valign="top"><b>[no 8]</b></td>
 <td width="478" valign="top">
-A Linked Dataset defines its license with the Dublin Core dct:license property.</td>
+A Linked Data dataset defines its license with the Dublin Core dct:license property.</td>
 <td width="100" valign="top"><b><i>SHOULD</i></b></td></tr>
 </table>
 
-<p><br/><strong>Dataset ROOT</strong><br />The &ldquo;dataset root&rdquo; URI containing the string &lsquo;dataset&rsquo; <strong><em>SHOULD</strong></em> reference a list of all Linked Datasets in the domain.</p>
+<p><br/><strong>Dataset ROOT</strong><br />The &ldquo;dataset root&rdquo; URI containing the string &lsquo;dataset&rsquo; <strong><em>SHOULD</strong></em> reference a list of all Linked Data datasets in the domain.</p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
@@ -112,7 +112,7 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
 <td width="100" valign="top"><b><i>SHOULD</i></b></td></tr>
 </table>
 
-<p><br /><strong>General design principles</strong> <br />The following table summarises the guidelines proposed in the previous paragraphs and introduces further general design principles for publishing Linked Datasets that are derived from existing good practices [1,2,3,4] and revised to meet some specific requirements for the Australian public sector:</p>
+<p><br /><strong>General design principles</strong> <br />The following table summarises the guidelines proposed in the previous paragraphs and introduces further general design principles for publishing Linked Data datasets that are derived from existing good practices [1,2,3,4] and revised to meet some specific requirements for the Australian public sector:</p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
@@ -127,24 +127,24 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
   </tr>
   <tr>
     <td width="100" valign="top"><b>[no 12]</b></td>
-    <td width="467" valign="top">The license for inspection or use of the Linked Dataset shall be provided using a common vocabulary.</td>
+    <td width="467" valign="top">The license for inspection or use of the Linked Data dataset shall be provided using a common vocabulary.</td>
     <td width="100" valign="top"><strong><em>SHOULD</em></strong></td>
   </tr>
   <tr>
     <td width="100" valign="top"><b>[no 13]</b></td>
-    <td width="467" valign="top">The metadata for a Linked Dataset should be provided using a common vocabulary and contain the expected longevity and maintenance plans for the <em>Dataset URI</em>.</td>
+    <td width="467" valign="top">The metadata for a Linked Data dataset should be provided using a common vocabulary and contain the expected longevity and maintenance plans for the <em>Dataset URI</em>.</td>
     <td width="100" valign="top"><strong><em>SHOULD</em></strong></td>
   </tr>
   <tr>
     <td width="100" valign="top"><b>[no 14]</b></td>
-    <td width="467" valign="top">The current technical implementation of a data publication system should not be visible in or otherwise affect the URI for a Linked Dataset.</td>
+    <td width="467" valign="top">The current technical implementation of a data publication system should not be visible in or otherwise affect the URI for a Linked Data dataset.</td>
     <td width="100" valign="top"><strong><em>SHOULD NOT</em></strong></td>
   </tr>
 </table>
 
 <h2><a name="h.yhbu9svf0ixu" id="h.yhbu9svf0ixu"></a>3. Domain structure </h2>
 
-<p>Data.gov.au currently supports 25 sub-domain names to be used for Linked Datasets that are defined according to the top level of the Australian Governments&rsquo; Interactive Functions Thesaurus (AGIFT)<a href="#_ftn1" name="_ftnref1" title="" id="_ftnref1"> </a>. The supported sub-domain names are:</p>
+<p>Data.gov.au currently supports 25 sub-domain names to be used for Linked Data datasets that are defined according to the top level of the Australian Governments&rsquo; Interactive Functions Thesaurus (AGIFT)<a href="#_ftn1" name="_ftnref1" title="" id="_ftnref1"> </a>. The supported sub-domain names are:</p>
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tr><td>business.data.gov.au</td><td>(BUSINESS SUPPORT AND REGULATION)</td></tr><tr><td>communications.data.gov.au</td><td>(COMMUNICATIONS)</td></tr><tr><td>communityservices.data.gov.au</td><td>(COMMUNITY SERVICES)</td></tr>
@@ -172,24 +172,24 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
 <tr><td>transport.data.gov.au</td><td>(TRANSPORT)</td></tr>
 </table>
 
-<p>The publisher of a Linked Dataset can chose the sub-domain they feel is appropriate for the entities contained within the dataset. If it is unclear  which sub-domain is appropriate for a particular Linked dataset the <a href="http://naa.gov.au/agift/search.htm">National Archives search tool</a> can be used to help identify the government function matching most closely with the domain of the entities  contained in the Linked Dataset.</p>
+<p>The publisher of a Linked Data dataset can chose the sub-domain they feel is appropriate for the entities contained within the dataset. If it is unclear  which sub-domain is appropriate for a particular Linked Data dataset the <a href="http://naa.gov.au/agift/search.htm">National Archives search tool</a> can be used to help identify the government function matching most closely with the domain of the entities  contained in the Linked Data dataset.</p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
     <td width="100" valign="top"><b>[no 15]</b></td>
-    <td width="467" valign="top">All Linked Datasets published under data.gov.au use a sub-domain of data.gov.au to identify all entities within the Linked Dataset.</td>
+    <td width="467" valign="top">All Linked Data datasets published under data.gov.au use a sub-domain of data.gov.au to identify all entities within the Linked Data dataset.</td>
     <td width="100" valign="top"><strong><em>MUST</em></strong></td>
   </tr>
 </table>
 
-<p>Agencies can request to be the custodian for one of the 25 sub-domains. It is expected that custodians have a robust, secure and highly available hosting environment in place. This is particularly important when the custodian  of a sub-domain is also administering redirects for modules under this  sub-domain and that are provisioned by other agencies. Where a number of  agencies supply content for a single sub-domain (e.g. environment.data.gov.au is likely to be used by multiple agencies publishing Linked Datasets) it may be worth exploring the use of an independent proxy service, which is highly  available, and with the single purpose of redirecting traffic to the  appropriate infrastructure hosting the dataset.</p>
+<p>Agencies can request to be the custodian for one of the 25 sub-domains. It is expected that custodians have a robust, secure and highly available hosting environment in place. This is particularly important when the custodian  of a sub-domain is also administering redirects for modules under this  sub-domain and that are provisioned by other agencies. Where a number of  agencies supply content for a single sub-domain (e.g. environment.data.gov.au is likely to be used by multiple agencies publishing Linked Data datasets) it may be worth exploring the use of an independent proxy service, which is highly  available, and with the single purpose of redirecting traffic to the  appropriate infrastructure hosting the dataset.</p>
 
-<p>For choosing the sub-domain name for a Linked Dataset the following principles have been defined which are based on existing good practice and  revised to meet the requirements for datasets in the Australian public sector:<br /></p>
+<p>For choosing the sub-domain name for a Linked Data dataset the following principles have been defined which are based on existing good practice and  revised to meet the requirements for datasets in the Australian public sector:<br /></p>
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
     <td width="100" valign="top"><b>[no 16]</b></td>
-    <td width="467" valign="top"><strong>data.gov.au</strong> is the base domain for Linked Datasets that are promoted for re-use.</td>
+    <td width="467" valign="top"><strong>data.gov.au</strong> is the base domain for Linked Data datasets that are promoted for re-use.</td>
     <td width="100" valign="top"><strong><em>MUST</em></strong></td>
   </tr>
   <tr>
@@ -255,9 +255,9 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
 
 <p>Figure 1 provides a decision tree defining tests to best decide between the two publishing methods.</p>
 <ol>
-  <li>The first test is whether the data publisher also has control of the sub-domain in  which the dataset is published. If an agency is publishing a Linked Dataset in a sub-domain for which it is not the custodian, <em>Hash URIs <strong>SHOULD </strong></em>be used. This recommendation is made to simplify the management of redirects.</li>
-  <li>Similarly, if the custodian of a sub-domain is publishing a Linked Dataset, but does not  have full control over its publishing infrastructure (i.e. they cannot set up  redirects on their own web servers), <em>Hash  URIs</em> <strong><em>MAY </em></strong>be used.</li>
-  <li>If either are possible, i.e. if the Linked Dataset is published by the custodian of the sub-domain and the custodian has full control over its publishing  infrastructure, the size of dataset should be taken into consideration for deciding if <em>Slash URIs</em> or <em>Hash URIs</em> are used. Although there is no  definitive threshold, if the dataset only includes up to a couple of hundred entities and is not expected to grow much further in the future, a <em>Hash URI </em>pattern <strong><em>MAY </em></strong>be used for its  simplicity. For anything that is considerably bigger and/or is expected to grow  significantly in the future, the use of <em>Slash URIs</em> is <strong><em>RECOMMENDED</em></strong>.</li>
+  <li>The first test is whether the data publisher also has control of the sub-domain in  which the dataset is published. If an agency is publishing a Linked Data dataset in a sub-domain for which it is not the custodian, <em>Hash URIs <strong>SHOULD </strong></em>be used. This recommendation is made to simplify the management of redirects.</li>
+  <li>Similarly, if the custodian of a sub-domain is publishing a Linked Data dataset, but does not  have full control over its publishing infrastructure (i.e. they cannot set up  redirects on their own web servers), <em>Hash  URIs</em> <strong><em>MAY </em></strong>be used.</li>
+  <li>If either are possible, i.e. if the Linked Data dataset is published by the custodian of the sub-domain and the custodian has full control over its publishing  infrastructure, the size of dataset should be taken into consideration for deciding if <em>Slash URIs</em> or <em>Hash URIs</em> are used. Although there is no  definitive threshold, if the dataset only includes up to a couple of hundred entities and is not expected to grow much further in the future, a <em>Hash URI </em>pattern <strong><em>MAY </em></strong>be used for its  simplicity. For anything that is considerably bigger and/or is expected to grow  significantly in the future, the use of <em>Slash URIs</em> is <strong><em>RECOMMENDED</em></strong>.</li>
 </ol>
 ![Decision tree for choosing publishing method](https://dl.dropboxusercontent.com/u/45222368/decision_tree.png)
 
@@ -381,7 +381,7 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
 <p>The physical  location of the document results from this Dataset URI, i.e.:<br />
   <strong>{domain}</strong>.data.gov.au/<strong>[/{module}]*</strong>/resource/<strong>{datasetid}</strong></p>
 <p><strong>Slash URIs</strong> <br />
-  Since datasets  published in a <em>Slash URI<strong> </strong></em>pattern will typically not physically reside on data.gov.au servers, the physical location of the dataset on an agency server has to be registered with data.gov.au. For <em>Slash URIs</em> two scenarios have to be distinguished, (1) a custodian  of the data.gov.au sub-domain in question is publishing a new Linked Dataset,  or (2) an agency that is NOT the custodian of a data.gov.au sub-domain is  requesting to publish a new Linked Dataset under this sub-domain that is  managed by someone else.</p>
+  Since datasets  published in a <em>Slash URI<strong> </strong></em>pattern will typically not physically reside on data.gov.au servers, the physical location of the dataset on an agency server has to be registered with data.gov.au. For <em>Slash URIs</em> two scenarios have to be distinguished, (1) a custodian  of the data.gov.au sub-domain in question is publishing a new Linked Data dataset,  or (2) an agency that is NOT the custodian of a data.gov.au sub-domain is  requesting to publish a new Linked Data dataset under this sub-domain that is  managed by someone else.</p>
 <p><strong>Custodian of the data.gov.au sub-domain:</strong> <br />
   The custodian  of a data.gov.au sub-domain only has to register new modules, i.e. the  following URIs have to be registered:</p>
 <p><strong>{domain}</strong>.data.gov.au/dataset<strong>[/{module}]*</strong>/<br />
@@ -447,7 +447,7 @@ A Linked Dataset defines its license with the Dublin Core dct:license property.<
 </table>
 
 <p><strong>Resolving <em>Ontology URIs</em></strong> <br />
-  <em>Ontology URIs</em> are a special kind of <em>Document URI</em> where the document type is always RDF or OWL. Thus, for ontologies that only contain schema-level definitions (i.e. classes/properties) there is no need for content negotiation or redirects. For example, for classes and properties in a <em>Hash URI </em>ontology with the pattern <strong>/def/{scheme}#{concept}</strong>, the hash is automatically stripped off resulting in <strong>/def/{scheme}</strong>, the <em>Document URI</em>.<br /><br /> 
+  <em>Ontology URIs</em> are a special kind of <em>Document URI</em> where the document type is always RDF or OWL. Thus, for ontologies that only contain schema-level definitions (i.e. classes/properties) there is no need for content negotiation or redirects. For example, for classes and properties in a <em>Hash URI </em>ontology with the pattern <strong>/def/{scheme}#{concept}</strong>, the hash is automatically stripped off resulting in <strong>/def/{scheme}</strong>, the <em>Document URI</em>.<br /><br />
 
 If instances are included in the same file as the classes and properties, the URI scheme of these instances should follow the <em>Identifier URI</em> pattern as described in Section 4, resulting in the following guideline.</p>
 
@@ -461,13 +461,13 @@ If instances are included in the same file as the classes and properties, the UR
 
 <h2><a name="h.h7mypgxdds0" id="h.h7mypgxdds0"></a>6. URI naming conventions </h2>
 <p> <br />
-  In the recently published RDF1.1 W3C recommendation [12] URIs were  replaced in favour of their internationalized version, the so called  Internationalized Resource identifier (IRI) that allows to contain characters  from the Universal Character Set (Unicode/ISO 10646), including Chinese or  Japanese kanji, Korean, Cyrillic characters, etc. However, considering that  government documents in Australia are mostly published in the English language  the use of URIs for naming resources in Linked Datasets is <strong><em>RECOMMENDED</em></strong> as defined by rule no 1.</p>
+  In the recently published RDF1.1 W3C recommendation [12] URIs were  replaced in favour of their internationalized version, the so called  Internationalized Resource identifier (IRI) that allows to contain characters  from the Universal Character Set (Unicode/ISO 10646), including Chinese or  Japanese kanji, Korean, Cyrillic characters, etc. However, considering that  government documents in Australia are mostly published in the English language  the use of URIs for naming resources in Linked Data datasets is <strong><em>RECOMMENDED</em></strong> as defined by rule no 1.</p>
 <p><strong>Character Sets used in URI</strong> <br />
 
 <table border="1" cellspacing="0" cellpadding="0">
   <tr>
     <td width="100" valign="top"><b>[no 34]</b></td>
-    <td width="467" valign="top">For <em>Linked Dataset URIs</em>, ASCII characters <strong><em>SHOULD </em></strong>be used, i.e. the numbers from 0-9, the uppercase and lowercase English letters from A to Z, and some special characters.</td>
+    <td width="467" valign="top">For <em>Linked Data dataset URIs</em>, ASCII characters <strong><em>SHOULD </em></strong>be used, i.e. the numbers from 0-9, the uppercase and lowercase English letters from A to Z, and some special characters.</td>
     <td width="100" valign="top"><strong><em>SHOULD</em></strong></td>
   </tr>
   <tr>
@@ -544,8 +544,8 @@ If instances are included in the same file as the classes and properties, the UR
     <td width="522" valign="top" colspan="3">For class names and property names in <em>Ontology URIs</em> no formatting guidelines are made. Common practise in ontology engineering is to use either lower or upper camel case, e.g. <strong>/def/phaseOfEducation</strong> or <strong>/def/PhaseOfEducation, </strong>or dashes/underscores as word separators, e.g. <strong>/def/phase_of_education</strong></td>
   </tr>
 </table>
-<h1><a name="h.depmzbrccojw" id="h.depmzbrccojw"></a>7. HOW-TO publish a Linked Dataset on data.gov.au</h1>
-<p>In this section a walk-through example is presented on how to publish a Linked Dataset on data.gov.au. The instructions presented are based on the example school dataset that was used throughout the document. For the example, let us assume a state government agency governing the educational portfolio in the Australian Capital Territory is to publish the &ldquo;Locations of all ACT schools&rdquo; in a Linked Data fashion. Currently, a CSV version of this dataset is available at <a href="http://www.data.gov.au/dataset/location-of-act-schools">http://www.data.gov.au/dataset/location-of-act-schools</a> published by the Department of Education and Training (ACT).</p>
+<h1><a name="h.depmzbrccojw" id="h.depmzbrccojw"></a>7. HOW-TO publish a Linked Data dataset on data.gov.au</h1>
+<p>In this section a walk-through example is presented on how to publish a Linked Data dataset on data.gov.au. The instructions presented are based on the example school dataset that was used throughout the document. For the example, let us assume a state government agency governing the educational portfolio in the Australian Capital Territory is to publish the &ldquo;Locations of all ACT schools&rdquo; in a Linked Data fashion. Currently, a CSV version of this dataset is available at <a href="http://www.data.gov.au/dataset/location-of-act-schools">http://www.data.gov.au/dataset/location-of-act-schools</a> published by the Department of Education and Training (ACT).</p>
 <h2><a name="h.kdopiiao7s23" id="h.kdopiiao7s23"></a>Choose Sub-Domain</h2>
 <p>First, an appropriate sub-domain for the dataset has to be chosen. For the &ldquo;Location of ACT schools&rdquo; the <strong>&ldquo;education&rdquo; </strong>sub-domain or <strong>&ldquo;governance&rdquo; </strong>sub-domain seem appropriate, depending on the level of detail in the dataset and its relation to other datasets. Let us assume, the <strong>&ldquo;education&rdquo; </strong>sub-domain is chosen for the example ACT school dataset.</p>
 <h2><a name="h.de8w7gz2pkor" id="h.de8w7gz2pkor"></a>Choose a path structure (module)</h2>
@@ -557,9 +557,9 @@ If instances are included in the same file as the classes and properties, the UR
 <p><strong>http://education.data.gov.au/dataset/act/schools</strong></p>
 <p>If the URI is already assigned, an alternative URI will be proposed to the requester. Let us assume the URI is successfully registered for the remainder of this example.</p>
 <h2><a name="h.hkdkg9p0mutu" id="h.hkdkg9p0mutu"></a>Develop the dataset</h2>
-<p>Once the URI path is registered, the Linked Dataset can be developed. As a Hash URI pattern was chosen, entities within this dataset will be identified with URIs such as: <strong>http://education.data.gov.au/act/resource/schools#2060</strong>, denoting Canberra Grammar school.</p>
+<p>Once the URI path is registered, the Linked Data dataset can be developed. As a Hash URI pattern was chosen, entities within this dataset will be identified with URIs such as: <strong>http://education.data.gov.au/act/resource/schools#2060</strong>, denoting Canberra Grammar school.</p>
 <h2><a name="h.kwb19j7bistv" id="h.kwb19j7bistv"></a>Publish the dataset on data.gov.au</h2>
-<p>When finished the Linked Dataset is uploaded to the data.gov.au servers through the CKAN system. The system will automatically create the metadata that will be accessible at the Dataset URI, i.e. at <strong>http://education.data.gov.au/dataset/act/schools</strong>. The metadata will also include a reference to the storage location, which will be <strong>http://education.data.gov.au/act/resource/schools.rdf</strong>.</p>
+<p>When finished the Linked Data dataset is uploaded to the data.gov.au servers through the CKAN system. The system will automatically create the metadata that will be accessible at the Dataset URI, i.e. at <strong>http://education.data.gov.au/dataset/act/schools</strong>. The metadata will also include a reference to the storage location, which will be <strong>http://education.data.gov.au/act/resource/schools.rdf</strong>.</p>
 <h2><a name="h.1vlcemw9iv0h" id="h.1vlcemw9iv0h"></a>References </h2>
 <p>[1] Linked Data – Design Issues,<a href="http://www.w3.org/DesignIssues/LinkedData.html">http://www.w3.org/DesignIssues/LinkedData.html</a> <br />
   [2] Designing URI Sets for the UK Public Sector,<a href="http://www.cabinetoffice.gov.uk/resource-library/designing-uri-sets-uk-public-sector">http://www.cabinetoffice.gov.uk/resource-library/designing-uri-sets-uk-public-sector</a> <br />
