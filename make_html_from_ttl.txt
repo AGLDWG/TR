@@ -1,0 +1,18 @@
+Things to do in order to create an HTML version of the ontology
+---------------------------------------------------------------
+
+* generate HTML file using http://essepuntato.it/lode
+    * set "OWLAPI" option
+
+* reformat resulting HTML page using http://www.freeformatter.com/html-formatter.html
+    * use "4 spaces per indent level" setting
+
+* remove "visualise with LODE" link to dependencies as they are not published:
+    (<a href="http://www.essepuntato.it/lode/owlapi/http://promsns.org/def/ro">visualise it with LODE</a>)
+    regex find:  \(<a href="(.*)">visualise it with LODE</a>\)
+
+* change ontology source to use the namespace link:
+    <dd><a href="http://eelst.cs.unibo.it/apps/LODE/source?url=http://www.essepuntato.it/tmp/1487156869-ontology">Ontology source</a></dd> --> <dd><a href="http://promsns.org/def/do.ttl">Ontology source</a></dd>
+
+* change external JS, CSS & favicon links to local:
+    * http://eelst.cs.unibo.it/apps/LODE/ --> http://pid.geoscience.gov.au/def/ont/static/LODE/
