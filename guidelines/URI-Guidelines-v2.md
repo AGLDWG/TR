@@ -70,6 +70,7 @@ Presently the AGLDWG recognises *at least* four types of URI that may be registe
 
 The next four sections of this document deal with these types of URI. Further types may be added in the future.
 
+The URI patterning used in this document is based on the 'URI Template' specification defined in RFC6570 [[7](#ref-7)]. In addition square brackets '[' and ']' are used to introduce optional components and a star, i.e. '*' following such a bracket component allows arbitrary repetition of the group (zero or more times).
 
 ## 5. <a id="DatasetURIs"></a>Dataset URIs
 Dataset URIs are the URIs that indicate an entire Linked Data dataset. These URIs are somewhat analogous to the URIs used to indicate datasets in the [data.gov.au](https://data.gov.au) dataset catalogue (e.g. <https://data.gov.au/dataset/rottnest-ferries-underway-temperature> indicating the "Rottnest Ferries Underway Temperature" dataset) but they have more requirements placed on them than those in `data.gov.au` do. Where `data.gov.au` dataset URIs may be granted when certain metadata standards are met, for dataset URI allocation within `linked.data.gov.au` datasets must ensure that **ALL** the data they contain is Linked Data.
@@ -79,6 +80,27 @@ Requirement | Description | Conformance
 <a id="req-3"></a>[Req 3] | Dataset URIs must only link to Linked Data datasets | ***MUST***
 
 The tests for what constitute Linked Data will be articulated by the AGLDWG elsewhere.
+
+### Dataset URI pattern
+
+The pattern for allocating Dataset URIs is described here in Augmented Backus-Naur Form:
+
+```
+dataset-uri ::=  protocol "://linked.data.gov.au/dataset/" dataset-id
+protocol ::= "http" | "https"
+dataset-id ::= *(ALPHA | DIGIT | "-")
+```
+
+Where `dataset-id` is a shortened form of the dataset title. An example is that the Linked Data version of the "Geocoded National Address File" (G-NAF) could use the `dataset-id` of "gnaf" and thus make the `dataset-uri` of:
+
+`http://linked.data.gov.au/dataset/gnaf`
+
+In the event of more than one request for the same `dataset-id`, application precedent wins, so the first application for a particular `dataset-id`, if successful, will be awarded it. Precedents is determined by application lodgement, not application completion.
+
+Requirement | Description | Conformance
+--|--|--
+<a id="req-4"></a>[Req 4] | For a particular dataset-id, the applicant must be the first applicant for it who is then awarded that dataset-id | ***MUST***
+
 
 ### Registration Process
 These process outline use terminology from ISO/IEC 11179 [[4](#ref-4)] with specific roles in italics. The AGLDWG plays role of *Steward* and may also play the role of *Controlling Committee*.
@@ -97,6 +119,8 @@ These process outline use terminology from ISO/IEC 11179 [[4](#ref-4)] with spec
 ### Required Metadata
 * RDF metadata according to the Australian Government Linked Data Dataset Profile of DCAT 2018
 
+
+[//]: # TODO: dataset-id suitability assessment  
 
 
 [//]: # TODO: Simon to add  
@@ -122,7 +146,7 @@ Definitional URIs are allocated for Linked Data vocabularies, vocabulary terms, 
 
 
 
-
+# OLD GUIDELINES DOC FOLLOWING
 
 ## <a name="DatasetURIs" id="DatasetURIs"></a>2. Linked Data dataset URIs
 
