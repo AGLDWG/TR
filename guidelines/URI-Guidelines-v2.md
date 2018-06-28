@@ -59,11 +59,11 @@ Due to the central management by the AGLDWG of this resource and its requirement
 
 The AGLDWG notes item registration as both commonplace for shared government resources (viz. registration of datasets within [data.gov.au](https:data.gov.au)) and also for URI-based identifiers (viz. [purl.org](http://purl.org) and [w3id.org](https://w3id.org/)).
 
-The AGLDWG requires all allocated URIs to be registered with the group and provides guidance below on what types of URIs may be registration, what the process for registration is and what information is required for registration.
+The AGLDWG requires all allocated URIs to be registered with the group and provides guidance below on what types of URIs may be registered, what the process for registration is and what information is required for registration.
 
 
 ## 4. <a id="URIAllocationTypes"></a>URI Allocation Types
-Presently the AGLDWG recognises *at least* four types of URI that may be registered using `linked.data.gov.au`:
+Presently the AGLDWG recognises *at least* four types of URIs that may be registered using `linked.data.gov.au`:
 
 1. Dataset
 2. Definitional Resource
@@ -100,20 +100,20 @@ An example is that a Linked Data titled "Geocoded National Address File" (G-NAF)
 
 
 ### Registration Process
-These process outline use terminology from ISO/IEC 11179 [[4](#ref-4)] with specific roles in italics. The AGLDWG plays role of *Steward* and may also play the role of *Controlling Committee*.
+This process outline uses terminology from ISO/IEC 11179 [[4](#ref-4)] with specific roles in italics. The AGLDWG plays the role of *Steward* and may also play the role of *Controlling Committee*.
 
 * *Submitting Organization* requests an allocation for a dataset URI by lodging valid dataset metadata
 * *Controlling Committee* inspects request and approves unless there is an obvious issue
 * *Steward* publishes supplied metadata in the public dataset catalogue
 * *Steward* performs a test to verify the dataset consists only of Linked Data
 * *Steward* implements URI redirect to the hosted dataset
-* *Submitting Organization* free to use allocated URIs
+* *Submitting Organization* is free to use allocated URIs
 
 In the event of more than one request for the same `dataset-id`, application precedent wins, so the first application for a particular `dataset-id`, if successful, will be awarded it. Precedents is determined by date of application lodgement, not date of application completion.
 
 Requirement | Description | Conformance
 --|--|--
-<a id="req-4"></a>[Req 4] | For a particular dataset-id to be allocated, the applicant must be the first applicant for it who's application is subsequently found eligible for that dataset-id | ***MUST***
+<a id="req-4"></a>[Req 4] | For a particular dataset-id to be allocated, the applicant must be the first applicant for it whose application is subsequently found eligible for that dataset-id | ***MUST***
 
 
 ### Required Metadata
@@ -153,11 +153,11 @@ The AGLDWG plays role of *Steward* and may also play the role of *Controlling Co
 
 * *Submitting Organization* requests an allocation for a definitional resource URI by lodging a valid definitional resource
 * *Controlling Committee* inspects request and approves unless there is an obvious issue
-* is the resource is a "small" resource, less than 1MB:
+* is the resource a "small" resource, less than 1MB:
   * *Steward* publishes the definitional resource in the public definitional resource catalogue
 * *Steward* performs a test to verify the dataset consists only of Linked Data
 * *Steward* implements URI redirect to the hosted dataset
-* *Submitting Organization* free to use allocated URIs
+* *Submitting Organization* is free to use allocated URIs
 
 *Submitting Organization* requests a URI allocation for a definitional resource
 Controlling Committee inspects request, approves unless an obvious issue
@@ -217,7 +217,7 @@ by Controlling Committee
 
 
 ## 10. <a id="app-a"></a>Appendix A: Dataset Linked Data requirements
-Datasets submitted to the AGLDWG for registration, and thus URI allocation, must be made of valid Linked Data. What this means is that the dataset must:
+Datasets submitted to the AGLDWG for registration, and thus URI allocation, must be valid Linked Data. What this means is that the dataset must:
 
 1. have all elements of the data with the dataset discoverable via Linked Data navigation
   * elements of the data may themselves not be in Linked Data formats, for example results from a Web Feature Service request, but all data elements identified within the dataset must be discoverable via Linked Data methods such as the *follow-your-nose* link-following method to navigate from registers to sub-registers to individual items
