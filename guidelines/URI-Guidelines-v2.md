@@ -31,6 +31,8 @@ URI patterns are expressed using Augmented Backus-Naur Form, as defined in [[13]
 
 Registration process roles are to be interpreted as defined in [[14](#ref-14)].
 
+Resource status codes are taken from [[17](#ref-17)] and are re-presented by the AGLDWG at [[18](#ref-18)].
+
 ## 2. <a id="Introduction"></a>Introduction    
 Government departments and agencies assign identifiers to many things they are responsible for - e.g. datasets, classification concepts, hospitals, equipment, etc. These identifiers are then used when referring to or making statements about particular things. For example, when referring to a road closure, the identifier (e.g. "M5") will be used to inform the public or when referring to a particular census Mesh Block, its identifier, perhaps "80006300000" will be used.
 
@@ -105,11 +107,10 @@ An example is that a Linked Data dataset titled "Geocoded National Address File"
 ### Registration Process
 This process outline uses terminology from ISO/IEC 11179 [[4](#ref-4)] with specific roles in italics. The AGLDWG plays the role of *Steward* and may also play the role of *Controlling Committee*. The status terms used are those of the registry Ontology's status vocabulary (original resource [[17](#ref-17)], republished by the AGLDWG as [[18](#ref-18)])
 
-* *Submitting Organization* requests an allocation for a dataset URI by lodging valid dataset metadata in the AGLDWG LD Resource Catalogue. Status `submitted`
-* *Controlling Committee* inspects request and approves unless there is an obvious issue
-* *Steward* publishes updates metadata in the AGLDWG LD Resource Catalogue, status `approved`
+* *Submitting Organization* requests an allocation for a dataset URI by creating a complete catalogue record for a dataset in the AGLDWG LD Resource Catalogue with status `submitted`.
+* *Controlling Committee* inspects request and approves unless there is an obvious issue. Catalogue record status set to `approved`.
 * *Steward* performs a test to verify the dataset consists only of Linked Data
-* *Steward* implements URI redirect to the hosted dataset
+* *Steward* implements URI redirect to the hosted dataset, catalogue record status set to `stable`.
 * *Submitting Organization* is free to use allocated URIs
 
 In the event of more than one request for the same `dataset-id`, application precedent wins, so the first application for a particular `dataset-id`, if successful, will be awarded it. Precedents is determined by date of application lodgement, not date of application completion.
@@ -120,9 +121,9 @@ Requirement | Description | Conformance
 
 
 ### Required Metadata
-Metadata to be supplied for the registration of a Linked Data dataset, and thus the allocation of a URI for it, must constitute a valid record within the AGLDWG's Dataset Register. Record validity is determined using the process outlined in [Appendix C](#app-c).
+Metadata to be supplied for the registration of a Linked Data dataset, and thus the allocation of a URI for it, must constitute a valid record for a dataset within the AGLDWG LD Resource Catalogue. Record validity is determined using the process outlined in [Appendix C](#app-c).
 
-Valid metadata will be used to create a public catalogue entry for the dataset.
+Entries in the AGLDWG LD Resource Catalogue are public from submission onwards.
 
 
 ## 6. <a id="DefinitionalURIs"></a>Definitional URIs
@@ -130,7 +131,6 @@ Definitional URIs are allocated for Linked Data vocabularies, vocabulary terms, 
 
 
 ### Definitional URI pattern
-
 The pattern for allocating Definitional URIs is:
 
 ```
@@ -153,34 +153,80 @@ Another example is that a vocabulary established listing all the types of citize
 ### Registration Process
 The AGLDWG plays role of *Steward* and may also play the role of *Controlling Committee*.
 
-* *Submitting Organization* requests an allocation for a definitional resource URI by lodging a valid definitional resource
-* *Controlling Committee* inspects request and approves unless there is an obvious issue
-* is the resource a "small" resource, less than 1MB:
-  * *Steward* publishes the definitional resource in the public definitional resource catalogue
+* *Submitting Organization* requests an allocation for a dataset URI by creating a complete catalogue record for a definitional resource in the AGLDWG LD Resource Catalogue with status `submitted`.
+  * if the RDF source of the resource a single file, the *Submitting Organization* should upload the source to the AGLDWG LD Resource Catalogue for hosting
+* *Controlling Committee* inspects request and approves unless there is an obvious issue. Catalogue record status set to `approved`.
 * *Steward* performs a test to verify the dataset consists only of Linked Data
-* *Steward* implements URI redirect to the hosted dataset
+* *Steward* implements URI redirect to the hosted dataset, catalogue record status set to `stable`.
 * *Submitting Organization* is free to use allocated URIs
 
-*Submitting Organization* requests a URI allocation for a definitional resource
-Controlling Committee inspects request, approves unless an obvious issue
-Steward registers supplied metadata in def catalogue
-Steward establishes a master repository for the ont/voc
-If ont: Steward builds HTML version of ontology for display
-If voc: Steward requires display of voc from Submitting Organization (e.g. ANDS RVA)
-If ont, Steward hosts display copy of ontology on AGLDGW server and redirects allocated URI to it
-If voc, Steward redirects URIs to voc host
-Submitting Organization can update the ontology via Pull Requests to the master repository which will be reviewed
-by Controlling Committee
 
 ### Required Metadata
-Metadata to be supplied for the registration of a Linked Data definitional resource, and thus the allocation of a URI for it, must constitute a valid record within the AGLDWG's Definitional Resource Register. Record validity is determined using the process outlined in [Appendix C](#app-c).
+Metadata to be supplied for the registration of a Linked Data defenitional resource, and thus the allocation of a URI for it, must constitute a valid record for such within the AGLDWG LD Resource Catalogue. Record validity is determined using the process outlined in [Appendix C](#app-c).
 
-Valid metadata will be used to create a public catalogue entry for the resource.
+Entries in the AGLDWG LD Resource Catalogue are public from submission onwards.
 
 ## 7. <a id="TopLevelRegisterURIs"></a>Top-Level Register URIs
+Top-level Registers are an index of individual Linked Data objects, promoted to the 'top' of `linked.data.gov.au` for high visibility. Such registers formulated using very basic information - the identity of the register itself (given via its URI), metadata according to the Registry Ontology [[17](#ref-17)] listing the class(es) of items within it and potentially Registry Ontology links to sub pages of the register. lists of particular classes of LD objects that both allow shorter URI allocation than URIs from datasets and also allow items within them to not use URIs deriving from them. As with datasets and definitional resources registered with the AGLDWG for URI allocation, top-level registers require metadata to be lodged so that the content and ownership of the register is known and can be managed.
+
+Since top-level registers are designed to promote and aggregate assessed in order to determine the appropriateness of the requested URI to the class(es) of objects to be listed in the register.
+
+A simple example:
+
+A *Submitting Organization* wishes to have a URI allocated for a top-level register of items of class *widget* and requests `linked.data.gov.au/widget/`. First the *Submitting Organization* will have to have published at least one dataset containing *widgets*, perhaps `linked.data.gov.au/dataset/ds1` containing the (second-level) register `linked.data.gov.au/dataset/ds1/widget/`. The AGLDWG will check that no `widget/` top-level register already exists and, if not, determine if the path segment `widget/` is a fair representation of the items to be listed in that register. Fairness could stem from the name 'widget' approximating the class identity of the items in the register and a minimal chance of the path segment leading users to understand some meaning other than that intended by the *Submitting Organization*, perhaps as a result of commonly used terms in the LD community.
+
+A more complex example about inappropriate naming:
+
+A *Submitting Organization*  wishes to allocate `linked.data.gov.au/service/` for a collection of government services to members of the public. The *Submitting Organization* has published a dataset containing a register of items of class `srv:Service` where 'srv' is a government business ontology. Here the AGLDWG cannot easily approve the request given the generic nature of 'service' which could easily be misconstrued by a user; perhaps they expect a register of Web Service objects.
+
+A federated register example:
+
+A *Submitting Organization*, in this case the Royal Australian Navy (RAN), wishes to allocate `linked.data.gov.au/ship/` for a list of ships that they have published in multiple datasets, `linked.data.gov.au/dataset/ds1/ship/` & `linked.data.gov.au/dataset/ds2/ship/`. The RAN will have to ensure that the allocated register resolves to a collection of ships from both datasets.
+
+Where multiple *Submitting Organization* s wish to combine their data into a single top-level register, they must arrange for federated register presentation, not the AGLDWG.
+
+A multi-class example:
+
+A *Submitting Organization* wishes a top-level register for items of class A and class B. There is some real-world logic making such an allocation sensible so the *Submitting Organization* requests the top-level register `linked.data.gov.au/classAB/` which is approved. A better request though would be for a register of `linked.data.gov.au/classC/` where class C is a superclass of both class A and B.
+
+### Use and non-use of Register URI for contained items
+A *Submitting Organization* may request a top-level register such as `linked.data.gov.au/classA/` and then present items within that class with URIs such as `linked.data.gov.au/classA/1`, `linked.data.gov.au/classA/2` etc. but may also present items with un-related URIs within the register as long as the class of item (discoverable via de-referenceable RDF) accords with the class(es) for which the register was allocated. The AGLDWG may check the classes of items within a top-level register using automated means.
+
+### Subregisters
+If a *Submitting Organization* wishes to use a top-level register already allocated for new items according with the class(es) for with the register was allocated, they have two options:
+
+1. arrange with the original *Submitting Organization* to have their items included in the register
+2. request a module within the top-level register for their items
+
+Modules requested within a top-level register will be presented as sub-registers of the top-level register. Items within
+
+Requirement | Description | Conformance
+--|--|--
+<a id="req-3"></a>[Req 3] | Dataset URIs must link only to Linked Data datasets | ***MUST***
+
+The tests for what constitutes Linked Data and thus a Linked Data dataset are articulated in [Appendix 1](#app-a).
+
+### Dataset URI pattern
+The pattern for allocating Dataset URIs is:
+
+```
+dataset-uri ::=  protocol "://linked.data.gov.au/dataset/" dataset-id
+protocol ::= "http" | "https"
+dataset-id ::= *(ALPHA | DIGIT | "-")
+```
+
+Where `dataset-id` is a shortened form of the dataset title.
+
+An example is that a Linked Data dataset titled "Geocoded National Address File" (G-NAF) could use the `dataset-id` of "gnaf" and thus make the `dataset-uri` of:
+
+`http://linked.data.gov.au/dataset/gnaf`
+
 ### Registration Process
 
 ### Required Metadata
+Metadata to be supplied for the registration of a Linked Data register, and thus the allocation of a URI for it, must constitute a valid record for such within the AGLDWG LD Resource Catalogue. Record validity is determined using the process outlined in [Appendix C](#app-c).
+
+Entries in the AGLDWG LD Resource Catalogue are public from submission onwards.
 
 
 ## 8. <a id="SecondLevelRegisterURIs"></a>Second-Level Register URIs
