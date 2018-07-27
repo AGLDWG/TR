@@ -9,7 +9,7 @@
 1. [Conformance](#Conformance)
 2. [Introduction](#Introduction)
 3. [Persistent domain](#PersistentDomain)
-4. [URI Registration](#URIRegistration)
+4. [URI Registration](#PIDURIRegistration)
 5. [Resource Types](#ResourceTypes)
 6. [Datasets](#Datasets)
 7. [Definitional Resources](#Definitional)
@@ -27,7 +27,7 @@ Roles associated with this catalogue acting as a 'Metadata Registry', *Overall R
 
 URI patterns are expressed using Augmented Backus-Naur Form, as defined in [[IETF-2008](#ref-IETF-2008)].
 
-Resource status codes are taken from the Registry Ontology [[REY-2012](#ref-REY-2012)] and are re-presented by the AGLDWG at [[AGLDWG-2018-2](#ref-AGLDWG-2018-2)].
+Resource status codes of *accepted*, *deprecated*, *retired*, *valid*, *experimental*, *stable*, *not accepted*, *invalid*, *reserved*, *superseded*, *submitted*,  are taken from the Registry Ontology [[REY-2012](#ref-REY-2012)] and are re-presented by the AGLDWG at [[AGLDWG-2018b](#ref-AGLDWG-2018b)].
 
 ## 2. <a id="Introduction"></a>Introduction    
 Government departments and agencies assign identifiers to many things they are responsible for - e.g. datasets, classification concepts, hospitals, equipment, etc. These identifiers are then used when referring to or making statements about particular things. For example, when referring to a road closure, the identifier (e.g. "M5") will be used to inform the public or when referring to a particular census Mesh Block, its identifier, perhaps "80006300000" will be used.
@@ -57,13 +57,41 @@ Beyond confirming adherence to these principles for Australian government Linked
 ## 3. <a id="PersistentDomain"></a>Persistent Domain
 The AGLDWG has dedicated the URI domain `linked.data.gov.au` to persistent identifiers (PIDs) for Linked Data resources. This is to be able to supply infinitely many PID URIs using a domain that is not coupled to a particular agency's name or function as such domains, for example `dfat.gov.au` which is coupled to the Department of Foreign Affairs and Trade (DFAT), change over time and are thus not persistent. The use of `linked.data.gov.au` is protected by a Memorandum of Understanding signed by the managing agency, the Digital Transformation Agency and 5 agencies interested in Linked Data [[AGLDWG-2018](#ref-AGLDWG-2018)] which came into effect in May, 2018. The MoU requires any proposed changes to the management or use of the domain to be mooted amongst the MoUs signatories.
 
+### 3.1 Test domain
+The AGLDWG maintains a dedicated testing domain, `test.linked.data.gov.au`. *Submitting Organizations* (see role definition below) may request use of this domain to test PID URIs before seeing a PID URI allocation for a resource.
 
-## 4. <a id="URIRegistration"></a>URI Registration
-Due to the central management by the AGLDWG of this resource and its requirement to be shared among many agencies, URIs allocated using it need to be registered to avoid collisions (agencies wanting the same URIs for different things) and also orphans (URIs once registered for which ownership information is lost). Additionally, previous approaches to URI allocation by the AGLDWG that did not require registration resulted in ungoverned URIs.
 
-The AGLDWG notes item registration as both commonplace for shared government resources (viz. registration of datasets within [data.gov.au](https:data.gov.au)) and also for URI-based identifiers (viz. [purl.org](http://purl.org) and [w3id.org](https://w3id.org/)).
+## 4. <a id="PIDURIRegistration"></a>PID URI Registration
+Due to the central management by the AGLDWG of the `linked.data.gov.au` resource and its requirement to be shared among many agencies, PID URIs allocated using it need to be registered to avoid collisions (agencies wanting the same URIs for different things) and also anonymous orphans (PID URIs once registered which become non-functional and for which ownership information is lost). Previous approaches to PID URI allocation by the AGLDWG that did not require registration resulted in ungoverned URIs.
 
-The AGLDWG requires all allocated URIs to be registered with the group and provides guidance below on what types of URIs may be registered, what the process for registration is and what information is required for registration.
+The AGLDWG notes item registration is both commonplace for shared government resources (viz. registration of datasets within [data.gov.au](https:data.gov.au)) and also for URI-based identifiers (viz. [purl.org](http://purl.org) and [w3id.org](https://w3id.org/)).
+
+The AGLDWG requires all allocated PID URIs to be registered with the group and provides guidance below on what types of URIs may be registered, and the process for registration including information required from registrants.
+
+Registration processes (Section 6.2, 7.2 & 8.2 below), follow those of ISO/IEC 11179 [[ISO-2015](#ref-ISO-2015)] with successful registration of an *accepted* catalogue item for a resource being the necessary and sufficient criteria for PID URI allocation for that resource.
+
+### 4.1 Registration roles
+The AGLDWG as a whole plays the roles of *Overall Registration Authority* and also *Overall Stewardship Organization*. The Recommendations subgroup of the AGLDWG (see <http://www.linked.data.gov.au/groups> for AGLDWG structure) plays the role of *Registrar* & *Executive Committee*. The Solutions subgroup of the AGLDWG plays the role of *Control Committee* and also *Steward*.
+
+Government entities requesting PID URIs play the role of *Overall Submitting Organization* and individuals or groups within those entities submitting specific resources play the role of *Submitter*. Only AGLDWG members may act as an *Overall Submitting Organization*.
+
+The AGLDWG sees members of any organisation without roles defined above and members of the general public as playing the role of *Read-only user* in that all AGLDWG registers and metadata are freely available and able to be read in a read-only fashion.
+
+AGLDWG groups and related parties and the ISO11179 roles assigned to them described above are summarised in the Table 1.
+
+**Table 1**: AGLDWG groups and related parties and the ISO11179 roles assigned to them  
+
+Group | Role
+--|--
+AGLDWG | *Overall Registration Authority*, *Overall Stewardship Organization*
+Recommendations Subgroup | *Registrar*, *Executive Committee*
+Solutions Subgroup | *Control Committee* and also *Steward*
+Government entities, members of the AGLDWG | *Overall Submitting Organization*
+Members of above requesting PID URIs | *Submitter*
+Everyone not listed above | *Read-only user*
+
+### 4.2 Registry item status
+The processing of items for which PIR URIs are requested follows a workflow, states within which are indicated in an item's metadata by use of the Registry Ontology's status vocabulary. The original publication of this vocabulary is [[REY-2012](#ref-REY-2012)] and the AGLDWG has republished it at [[AGLDWG-2018b](#ref-AGLDWG-2018)]). The workflows are given per resource type below and also summarised on the AGLDWG's *Governance* web page [AGLDWG-2018b](#ref-AGLDWG-2018)].
 
 
 ## 5. <a id="ResourceTypes"></a>Resource Types
@@ -76,7 +104,7 @@ Presently the AGLDWG recognises four types of items for which PID URIs may be re
 
 More types of items may be added in the future. Such an addition will require this document to be updated.
 
-URIs for Datasets are created within the *Dataset Register*, for definitional resources within the *Def Register* and for Top-Level Register items within the *Top-Level Register*. This Top-Level Register contains both the Dataset Register and the Def Register as subregisters. Second-Level Register items are created within individual Datasets, as detailed in [Section 8](#SecondLevelRegisterURIs).
+URIs for Datasets are created within the *Dataset Register*, for definitional resources within the *Def Register* and for Top-Level Register items within the *Top-Level Register*. This Top-Level Register contains both the Dataset Register and the Def Register as subregisters. Second-Level Register items are created within individual Datasets, as detailed in [Section 9](#SecondLevelRegisterURIs).
 
 The next four sections of this document describe how URIs for these four classes of items are formulated and the processes to apply for them.
 
@@ -127,7 +155,6 @@ Where the "gnaf" dataset, using slash URIs for Address subelement "GA1234" could
 `http://linked.data.gov.au/dataset/gnaf/address/GA1234`
 
 ### 6.2 Registration Process
-For this This process outline uses terminology from ISO/IEC 11179 [[ISO-2015](#ref-ISO-2015)] with specific roles in italics. The AGLDWG as a whole plays the roles of *Overall Registration Authority* and *Overall Stewardship Organization*. The Recommendations subgroup of the AGLDWG plays the role of  and may also play the role of *Controlling Committee*. The status terms used are those of the registry Ontology's status vocabulary (original resource [[17](#ref-17)], republished by the AGLDWG as [[18](#ref-18)])
 
 * *Submitting Organization* requests an allocation for a dataset URI by creating a complete catalogue record for a dataset in the AGLDWG LD Resource Catalogue with status `submitted`.
 * *Controlling Committee* inspects request and approves unless there is an obvious issue. Catalogue record status set to `approved`.
@@ -290,7 +317,7 @@ Entries in the AGLDWG LD Resource Catalogue are public from submission onwards.
 
 [REY-2012] <a name="ref-REY-2012"></a>Reynolds, Dave "Registry ontology", Version 0.2. OWL Ontology,  2012-11-11 <http://epimorphics.com/public/vocabulary/Registry.html>, accessed 2018-07-22.
 
-[AGLDWG-2018-2] <a name="ref-AGLDWG-2018-2"></a>Australian Government Linked Data Working Group, "Status Vocabulary". SKOS Vocabulary, 22 July 2018. <http://test.linked.data.gov.au/def/status>, accessed 2018-07-22.
+[AGLDWG-2018b] <a name="ref-AGLDWG-2018b"></a>Australian Government Linked Data Working Group, "Status Vocabulary". SKOS Vocabulary, 22 July 2018. <http://test.linked.data.gov.au/def/status>, accessed 2018-07-22.
 
 [19] <a name="ref-19"></a>World Wide Web Consortium "Data Catalog Vocabulary (DCAT)", W3C Recommendation, 16 January 2014. <https://www.w3.org/TR/vocab-dcat/>, accessed 2018-07-22.
 
