@@ -133,14 +133,8 @@ Entries in the AGLDWG LD Resource Catalogue are public from submission onwards.
 ## 6. <a id="Definitionals"></a>Definitional Resources
 Definitional Resources are Linked Data vocabularies, vocabulary terms, ontologies, ontology terms and potentially other, Linked Data, data model items. Currently, as per Datasets, URI patterning is provided by the AGLDWG at the whole-of-resource level (i.e. whole ontology or whole vocabulary) with URIs for subcomponents such as vocabulary terms or ontology class definitions to be implemented by the definitional resource managers, at their discretion.
 
-<<<<<<< HEAD
-
 ### Definitional resource PID URI pattern
 The pattern for Definitional PID URIs is:
-=======
-### Definitional URI pattern
-The pattern for allocating Definitional URIs is:
->>>>>>> 0a3c393c4aa4f0a1cce0f7f1ab2eaf2889fdbc44
 
 ```
 definitional-uri ::=  protocol "://linked.data.gov.au/def/" definitional-id
